@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11C804F6-9E78-47BA-BDA8-212F1EB02000}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DALarticulo.cs" />
+    <Compile Include="DALbackup.cs" />
+    <Compile Include="DALbitacora.cs" />
+    <Compile Include="DALcliente.cs" />
+    <Compile Include="DALconexion.cs" />
+    <Compile Include="DALdigitoverificador.cs" />
+    <Compile Include="DALidioma.cs" />
+    <Compile Include="DALingreso.cs" />
+    <Compile Include="DALnoctacredito.cs" />
+    <Compile Include="DALnotadebito.cs" />
+    <Compile Include="DALpedido.cs" />
+    <Compile Include="DALpermiso.cs" />
+    <Compile Include="DALreclamo.cs" />
+    <Compile Include="DALusuario.cs" />
+    <Compile Include="Daos\DAOarticulo.cs" />
+    <Compile Include="Daos\DAObackup.cs" />
+    <Compile Include="Daos\Daobitacora.cs" />
+    <Compile Include="Daos\DAOusuario.cs" />
+    <Compile Include="Mappers\MParticulo.cs" />
+    <Compile Include="Mappers\MPbackup.cs" />
+    <Compile Include="Mappers\MPbitacora.cs" />
+    <Compile Include="Mappers\MPidioma.cs" />
+    <Compile Include="Mappers\MPpermiso.cs" />
+    <Compile Include="Mappers\MPtraduccion.cs" />
+    <Compile Include="Mappers\MPusuario.cs" />
+    <Compile Include="Mappers\Tabla.cs" />
+    <Compile Include="PermisoRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="VisionManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{c670b9db-9d4b-44d8-91ac-ff872beae3af}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{fd415e37-c0f4-4c5c-a03c-5381c85dc390}</Project>
+      <Name>Infraestructura</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="VisionManagementDataSet.xsc">
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VisionManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionManagementDataSet.xss">
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
