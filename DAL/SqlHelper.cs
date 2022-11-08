@@ -12,38 +12,35 @@ namespace DAL
     public class SqlHelper
     {
         string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        public SqlHelper()
-        {
-
-        }
-        private SqlConnection connection;
-        private DataSet DataSet;
-        private SqlCommand command;
-        private SqlDataReader reader;
-        private SqlDataAdapter adapter;
-        private DataTable dt;
+     
+        //private SqlConnection connection;
+        //private DataSet DataSet;
+        //private SqlCommand command;
+        //private SqlDataReader reader;
+        //private SqlDataAdapter adapter;
+        //private DataTable dt;
 
 
-       
-        public string connectionString { get; private set; }
 
-        #region Singleton
-        private SqlHelper(string connStr)
-        {
-            this.connectionString = connStr;
-        }
+        //public string connectionString { get; private set; }
 
-        private static SqlHelper instancia;
+        //#region Singleton
+        //private SqlHelper(string connStr)
+        //{
+        //    this.connectionString = connStr;
+        //}
 
-        public static SqlHelper getInstancia(string connStr)
-        {
-            if (instancia == null)
-            {
-                instancia = new SqlHelper(connStr);
-            }
-            return instancia;
-        }
-        #endregion
+        //private static SqlHelper instancia;
+
+        //public static SqlHelper getInstancia(string connStr)
+        //{
+        //    if (instancia == null)
+        //    {
+        //        instancia = new SqlHelper(connStr);
+        //    }
+        //    return instancia;
+        //}
+        //#endregion
 
 
         public bool comprobarConexion()
@@ -61,290 +58,144 @@ namespace DAL
 
         }
 
-        #region Executequery
-        public bool ExecuteQuery(string query)
+      
+        public bool ExecuteQuery(string storedProcedure, SqlParameter[]parameters)//con
         {
-            bool returnValue = false;
-
-            try
+            using( SqlConnection conexion = new SqlConnection(ConnectionString))
             {
-                using (connection = new SqlConnection(this.connectionString))
+                    using( SqlCommand comm= new SqlCommand())
                 {
-                    using (command = new SqlCommand())
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = query;
-                        command.Connection = connection;
-
-                        connection.Open();
-
-                        if (command.ExecuteNonQuery() > 0)
-                        {
-                            returnValue = true;
-                        }
-                        connection.Close();
-                    }
+                    comm.Connection = conexion;
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.CommandText = storedProcedure;
+                    comm.Parameters.AddRange(parameters);
+                    conexion.Open();
+                    return comm.ExecuteNonQuery() > 0;
                 }
             }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-            return returnValue;
-        }
-        #endregion
-
-        public bool ExecuteQuery(string storedProcedure, SqlParameter[] parameters) //CONECTADO
-        {
-
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = storedProcedure;
-                    command.Parameters.AddRange(parameters);
-                    connection.Open();
-                    return command.ExecuteNonQuery() > 0;
-                }
-            }
-
-
-
         }
 
 
-        #region ExecuteQuery storeprocedure and list
-        public bool ExecuteQuery(string storeprocedure, List<SqlParameter> parametros)
+        public int ExecuteQueryPRUEBA(string storedProcedure, SqlParameter[]parameters)//con
         {
-            bool returnValue = false;
-
-            try
+            using(SqlConnection conexion= new SqlConnection(ConnectionString))
             {
-                using (connection = new SqlConnection(this.connectionString))
+                using(SqlCommand comm= new SqlCommand())
                 {
-                    using (command = new SqlCommand())
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = storeprocedure;
-                        command.Connection = connection;
+                    comm.Connection = conexion;
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.CommandText = storedProcedure;
+                    comm.Parameters.AddRange(parameters);
+                    conexion.Open();
 
-                        if (parametros != null)
-                        {
-                            foreach (SqlParameter parameter in parametros)
-                            {
-                                command.Parameters.Add(parametros);
-                            }
-                        }
-                        connection.Open();
 
-                        if (command.ExecuteNonQuery() > 0)
-                        {
-                            returnValue = true;
-                        }
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return returnValue;
-        }
-        #endregion
-
-        #region ExecuteQuery storeProcedure, List sqlparameter and params parametros array
-        public bool ExecuteQuery(string storeprocedure, List<SqlParameter> parametros, params SqlParameter[] parametrosArray)
-        {
-            bool returnValue = false;
-
-            try
-            {
-                using (connection = new SqlConnection(this.connectionString))
-                {
-                    using (command = new SqlCommand())
-                    {
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = storeprocedure;
-                        command.Connection = connection;
-
-                        if (parametros != null)
-                        {
-                            foreach (SqlParameter parameter in parametros)
-                            {
-                                command.Parameters.Add(parameter);
-                            }
-                        }
-
-                        if (parametrosArray != null)
-                        {
-                            command.Parameters.Clear();
-                            command.Parameters.AddRange(parametrosArray);
-                        }
-
-                        connection.Open();
-
-                        if (command.ExecuteNonQuery() > 0)
-                        {
-                            returnValue = true;
-                        }
-                        connection.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return returnValue;
-        }
-
-        #endregion
-
-        public int ExecuteQueryPRUEBA(string storedProcedure, SqlParameter[] parameters) //CONECTADO
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = storedProcedure;
-                    command.Parameters.AddRange(parameters);
-                    connection.Open();
-
-                    int a = (Int32)(command.ExecuteScalar());
+                    int a = (Int32)comm.ExecuteScalar();
                     return a;
                 }
             }
         }
 
-        public int ExecuteQueryPRUEBA(string qwery) //CONECTADO
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-                    command.CommandText = qwery;
-                    connection.Open();
 
-                    return (Int32)command.ExecuteScalar();
+
+        public string ExecuteQueryString( string storedPrcedure, SqlParameter[]parameters)//con
+        {
+            using(SqlConnection conexion= new SqlConnection(ConnectionString))
+            {
+                using ( SqlCommand comm= new SqlCommand())
+                {
+                    comm.Connection = conexion;
+                    comm.CommandType= CommandType.StoredProcedure;
+                    comm.CommandText = storedPrcedure;
+                    comm.Parameters.AddRange(parameters);
+                    conexion.Open();
+
+
+                    string a = (string)comm.ExecuteScalar();
+                    return a;
+
                 }
             }
         }
 
-        public DataTable ExecuteReader(string query)
+
+        public int ExecuteQueryPRUEBA(string qwery)// con
         {
-            DataSet = new DataSet();
-
-            using (connection = new SqlConnection(this.connectionString))
+            using( SqlConnection conexion = new SqlConnection(ConnectionString))
             {
-                using (command = new SqlCommand())
+                using ( SqlCommand comm= new SqlCommand())
                 {
-                    adapter = new SqlDataAdapter();
+                    comm.Connection = conexion;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = qwery;
+                    conexion.Open();
 
-                    command.CommandType = CommandType.Text;
-                    command.CommandText = query;
-                    command.Connection = connection;
+                    return (Int32)comm.ExecuteScalar();
 
-                    adapter.SelectCommand = command;
-                    adapter.Fill(DataSet);
                 }
             }
-            return DataSet.Tables[0];
-        }
-
-        public DataTable ExecuteReader(string storePrecedure, List<SqlParameter> parametros)
-        {
-            DataSet = new DataSet();
-
-            using (connection = new SqlConnection(this.connectionString))
-            {
-                using (command = new SqlCommand())
-                {
-                    adapter = new SqlDataAdapter();
-
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = storePrecedure;
-                    command.Connection = connection;
-
-                    if (parametros != null)
-                    {
-                        command.Parameters.AddRange(parametros.ToArray());
-                    }
-                    adapter.SelectCommand = command;
-                    adapter.Fill(DataSet);
-
-                }
-                return DataSet.Tables[0];
-            }
-
-
-
-        }
-
-        public DataTable ExecuteReader(string storePrecedure, List<SqlParameter> parametros, params SqlParameter[] paramSqlparametros)
-        {
-            DataSet = new DataSet();
-
-            using (connection = new SqlConnection(this.connectionString))
-            {
-                using (command = new SqlCommand())
-                {
-                    adapter = new SqlDataAdapter();
-
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = storePrecedure;
-                    command.Connection = connection;
-
-                    if (parametros != null)
-                    {
-                        command.Parameters.AddRange(parametros.ToArray());
-                    }
-
-                    if (paramSqlparametros != null)
-                    {
-                        command.Parameters.Clear();
-                        command.Parameters.AddRange(paramSqlparametros);
-                    }
-                    adapter.SelectCommand = command;
-                    adapter.Fill(DataSet);
-                }
-            }
-            return DataSet.Tables[0];
         }
 
 
 
-        public DataTable ExecuteReader(string storePrecedure, SqlParameter[] parameters=null)
+        public bool ExecuteQuery( string qwery)// con
         {
-            using(SqlConnection connection= new SqlConnection(this.connectionString))
-                using(SqlCommand command= new SqlCommand())
+            using(SqlConnection conexion= new SqlConnection (ConnectionString))
             {
-                command.Connection= connection;
-                command.CommandType=CommandType.StoredProcedure;
-                command.CommandText = storePrecedure;
-
-                if (parameters != null)
+                using( SqlCommand comm= new SqlCommand())
                 {
-                    command.Parameters.AddRange(parameters);
+                    comm.Connection = conexion;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = qwery;
+                    conexion.Open();
+
+                    return comm.ExecuteNonQuery() > 0;
                 }
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-                return dt;
-
             }
         }
+
+
+        public DataTable ExecuteReader(string storedProcedure, SqlParameter[]parameters=null)//desc
+        {
+            using(SqlConnection conexion= new SqlConnection(ConnectionString))
+            
+                using(SqlCommand comm = new SqlCommand())
+                {
+                comm.Connection = conexion;
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = storedProcedure;
+                if(parameters!= null)
+                {
+                    comm.Parameters.AddRange(parameters);
+                }
+                conexion.Open ();
+                SqlDataReader reader = comm.ExecuteReader();
+                DataTable data = new DataTable();
+                data.Load(reader);
+                return data;
+
+                }                
+            
+        }
+
+
+        public DataTable ExecuteReader( string qwery)
+        {
+            using (SqlConnection conexion= new SqlConnection(ConnectionString))
+                using( SqlCommand comm= new SqlCommand())
+            {
+                comm.Connection = conexion;
+                comm.CommandType = CommandType.Text;
+                comm.CommandText = qwery;
+                conexion.Open();
+                SqlDataReader reader = comm.ExecuteReader();
+                DataTable data = new DataTable();
+                data.Load(reader);
+                return data;
+            }
+        }
+
+
+      
 
     }
 }

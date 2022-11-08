@@ -14,7 +14,7 @@ namespace DAL.Mappers
         {
             BE.BEusuario bEusuario = new BE.BEusuario()
             {
-                idUsuario = (int)row["idUsuario"]
+                IdUsuario = (int)row["idUsuario"]
             };
             DAL.DALusuario usuarioDal = new DAL.DALusuario();
             BE.BEbackup backup = new BE.BEbackup()

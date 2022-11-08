@@ -54,7 +54,7 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("idUsuario",usuario.idUsuario),
+                new SqlParameter("idUsuario",usuario.IdUsuario),
                 new SqlParameter("fechaDesde",fechaDesde),
                 new SqlParameter("fechaHasta",fechaHasta),
                 new SqlParameter("nivelCriticidad",criticidad),

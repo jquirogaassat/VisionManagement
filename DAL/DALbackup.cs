@@ -39,7 +39,7 @@ namespace DAL
         public bool Alta(BEbackup itemAlta)
         {
             SqlParameter[] parametros = new SqlParameter[] {
-                new SqlParameter("idUsuario",itemAlta.Usuario.idUsuario),
+                new SqlParameter("idUsuario",itemAlta.Usuario.IdUsuario),
                 new SqlParameter("nombre",itemAlta.Nombre),
                 new SqlParameter("fechaCreacion",itemAlta.FechaAlta),
                 new SqlParameter("particiones",itemAlta.Particiones),

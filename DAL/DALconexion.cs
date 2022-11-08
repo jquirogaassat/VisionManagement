@@ -12,7 +12,7 @@ namespace DAL
     {
         public bool Comprobar()
         {
-            SqlHelper sqlHelper= new SqlHelper();
+            DAL.SqlHelper sqlHelper= new SqlHelper();
             return sqlHelper.comprobarConexion();
         }
 
