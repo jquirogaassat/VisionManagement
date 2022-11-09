@@ -86,10 +86,6 @@
       <Project>{c670b9db-9d4b-44d8-91ac-ff872beae3af}</Project>
       <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
-      <Project>{fd415e37-c0f4-4c5c-a03c-5381c85dc390}</Project>
-      <Name>Infraestructura</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

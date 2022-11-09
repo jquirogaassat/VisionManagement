@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using BE;
-using Infraestructura;
+
 
 namespace DAL.Daos
 {
     internal class DAOusuario : BE.ICRUd<BE.BEusuario>
     {
         SqlHelper sqlHelper= new SqlHelper();
-        Encriptadora encriptadora= new Encriptadora();
+       // Encriptadora encriptadora= new Encriptadora();
 
 
         private string connstring= @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";

@@ -10,6 +10,10 @@ namespace DAL
 {
     public class DALconexion
     {
+        public DALconexion()
+        {
+
+        }
         public bool Comprobar()
         {
             DAL.SqlHelper sqlHelper= new SqlHelper();
