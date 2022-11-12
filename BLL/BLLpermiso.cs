@@ -86,5 +86,122 @@ namespace BLL
         {
              DALpermiso.Asignar(a, b);
         }
+
+        public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso bEpermiso)
+        {
+            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+            permisos = DALpermiso.ObtenerHijos(bEpermiso);
+
+            foreach(BE.BEpermiso p in permisos)
+            {
+                p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
+            }
+            return permisos;
+        }
+
+
+        public List<BE.BEpermiso> PermisosNoAsignados( BE.BEpermiso permiso)
+        {
+            List<BE.BEpermiso> permisoT = Consulta();
+            List<BE.BEpermiso> permisoA = ObtenerHijos(permiso);
+            List<BE.BEpermiso> permisoD = new List<BEpermiso>() { };
+
+
+            foreach(BE.BEpermiso per in permisoT)
+            {
+                if (!(permisoA.Exists(permisos => permisos.idPermiso == per.idPermiso)))
+                {
+                    permisoD.Add(per);
+                }
+            }
+
+            foreach(BE.BEpermiso p in permisoD)
+            {
+                p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
+            }
+
+            return permisoD;
+
+        }
+
+
+        public bool AsignacionDirecta(BE.BEpermiso permisoPadre, BE.BEpermiso permisoHijo)
+        {
+            return DALpermiso.AsignacionDirecta(permisoPadre, permisoHijo);
+        }
+
+        public bool QuitarPermisos(BE.BEpermiso pHijo , BE.BEpermiso pPadre)
+        {
+            return DALpermiso.QuitarPermiso(pHijo, pPadre);
+        }
+
+
+        public bool TienePermiso(BE.BEpermiso pPadre, BE.BEpermiso pHijo)
+        {
+            List<BE.BEpermiso> permisos = ObtenerPermisoRecursivo(pPadre).ToList();
+            return permisos.Exists(p => p.idPermiso == pHijo.idPermiso);
+        }
+
+        public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEpermiso permiso)
+        {
+            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+            permisos = DALpermiso.ObtenerPermisosRecursivos("=" + permiso.idPermiso);
+
+            foreach(BE.BEpermiso per in permisos)
+            {
+                per.nombrePermiso = encriptadora.desencriptarAes(per.nombrePermiso);
+            }
+
+            return permisos;
+
+        }
+
+
+        public void EncriptarPatentes()
+        {
+            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+            permisos = DALpermiso.Consulta();
+
+
+            foreach(BE.BEpermiso permiso in permisos)
+            {
+                permiso.nombrePermiso=encriptadora.encriptarAES(permiso.nombrePermiso);
+                DALpermiso.Modificar(permiso);
+            }
+
+            
+        }
+
+        public void DesencriptarPatentes()
+        {
+            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+            permisos=DALpermiso.Consulta();
+
+            foreach(BE.BEpermiso permiso in permisos)
+            {
+                permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
+                DALpermiso.Modificar(permiso);
+            }    
+        }
+
+
+
+        public List<BE.BEusuario> Usuarios( BE.BEpermiso permiso)
+        {
+            BLL.BLLusuario BLLusuario= new BLLusuario();
+            List<BE.BEusuario> usuarios = BLLusuario.Consulta().Where(u => u.IsBlocked == "NO").ToList();
+
+
+            List<BE.BEusuario> usuarioMiebro = new List<BEusuario>();
+
+            foreach(BE.BEusuario user in usuarios)
+            {
+                if(BLLusuario.AsignacionDirecta(user,permiso))
+                {
+                    usuarioMiebro.Add(user);
+                }
+            }
+            return usuarioMiebro;
+        }
     }
 }

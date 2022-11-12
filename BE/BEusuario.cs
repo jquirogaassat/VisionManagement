@@ -38,7 +38,7 @@ namespace BE
 
         public string usuario { get; set; }
         public string UserPass { get; set; }
-        public bool IsBlocked { get; set; }
+        public string IsBlocked { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }

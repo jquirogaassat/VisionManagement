@@ -1,6 +1,6 @@
 ﻿namespace VisionTFI
 {
-    partial class IniciarSesion
+    partial class AdministrarUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -38,15 +38,14 @@
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.p1_panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl_usuario = new System.Windows.Forms.Label();
-            this.lbl_pass = new System.Windows.Forms.Label();
-            this.txt_usuario = new System.Windows.Forms.TextBox();
-            this.txt_pass = new System.Windows.Forms.TextBox();
-            this.btn_aceptar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
-            this.lnl_olvidoPass = new System.Windows.Forms.LinkLabel();
+            this.dgv_user = new System.Windows.Forms.DataGridView();
+            this.btn_nuevoUser = new System.Windows.Forms.Button();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_eliminarUser = new System.Windows.Forms.Button();
+            this.checkActivos = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.p1_panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_user)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -60,7 +59,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // inicioToolStripMenuItem
@@ -110,112 +109,90 @@
             // 
             // p1_panel1
             // 
+            this.p1_panel1.AutoSize = true;
             this.p1_panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.p1_panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.p1_panel1.Controls.Add(this.label2);
-            this.p1_panel1.Location = new System.Drawing.Point(0, 27);
+            this.p1_panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.p1_panel1.Location = new System.Drawing.Point(0, 24);
             this.p1_panel1.Name = "p1_panel1";
-            this.p1_panel1.Size = new System.Drawing.Size(800, 71);
-            this.p1_panel1.TabIndex = 5;
+            this.p1_panel1.Size = new System.Drawing.Size(800, 65);
+            this.p1_panel1.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AllowDrop = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(442, 61);
+            this.label2.Size = new System.Drawing.Size(536, 61);
             this.label2.TabIndex = 2;
             this.label2.Text = "VISION MANAGEMENT";
             // 
-            // lbl_usuario
+            // dgv_user
             // 
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario.Location = new System.Drawing.Point(217, 169);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(64, 21);
-            this.lbl_usuario.TabIndex = 6;
-            this.lbl_usuario.Text = "Usuario";
+            this.dgv_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_user.Location = new System.Drawing.Point(0, 115);
+            this.dgv_user.Name = "dgv_user";
+            this.dgv_user.Size = new System.Drawing.Size(525, 310);
+            this.dgv_user.TabIndex = 25;
             // 
-            // lbl_pass
+            // btn_nuevoUser
             // 
-            this.lbl_pass.AutoSize = true;
-            this.lbl_pass.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pass.Location = new System.Drawing.Point(192, 215);
-            this.lbl_pass.Name = "lbl_pass";
-            this.lbl_pass.Size = new System.Drawing.Size(89, 21);
-            this.lbl_pass.TabIndex = 7;
-            this.lbl_pass.Text = "Contraseña";
+            this.btn_nuevoUser.Location = new System.Drawing.Point(583, 115);
+            this.btn_nuevoUser.Name = "btn_nuevoUser";
+            this.btn_nuevoUser.Size = new System.Drawing.Size(136, 28);
+            this.btn_nuevoUser.TabIndex = 26;
+            this.btn_nuevoUser.Text = "Nuevo usuario";
+            this.btn_nuevoUser.UseVisualStyleBackColor = true;
             // 
-            // txt_usuario
+            // btn_modificar
             // 
-            this.txt_usuario.Location = new System.Drawing.Point(304, 172);
-            this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(129, 20);
-            this.txt_usuario.TabIndex = 8;
+            this.btn_modificar.Location = new System.Drawing.Point(583, 168);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(136, 28);
+            this.btn_modificar.TabIndex = 27;
+            this.btn_modificar.Text = "Modificar usuario";
+            this.btn_modificar.UseVisualStyleBackColor = true;
             // 
-            // txt_pass
+            // btn_eliminarUser
             // 
-            this.txt_pass.Location = new System.Drawing.Point(304, 215);
-            this.txt_pass.Name = "txt_pass";
-            this.txt_pass.PasswordChar = '*';
-            this.txt_pass.Size = new System.Drawing.Size(129, 20);
-            this.txt_pass.TabIndex = 9;
+            this.btn_eliminarUser.Location = new System.Drawing.Point(583, 225);
+            this.btn_eliminarUser.Name = "btn_eliminarUser";
+            this.btn_eliminarUser.Size = new System.Drawing.Size(136, 28);
+            this.btn_eliminarUser.TabIndex = 28;
+            this.btn_eliminarUser.Text = "Eliminar usuario";
+            this.btn_eliminarUser.UseVisualStyleBackColor = true;
             // 
-            // btn_aceptar
+            // checkActivos
             // 
-            this.btn_aceptar.Location = new System.Drawing.Point(458, 275);
-            this.btn_aceptar.Name = "btn_aceptar";
-            this.btn_aceptar.Size = new System.Drawing.Size(75, 23);
-            this.btn_aceptar.TabIndex = 10;
-            this.btn_aceptar.Text = "Ingresar";
-            this.btn_aceptar.UseVisualStyleBackColor = true;
-            this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
+            this.checkActivos.AutoSize = true;
+            this.checkActivos.Location = new System.Drawing.Point(552, 418);
+            this.checkActivos.Name = "checkActivos";
+            this.checkActivos.Size = new System.Drawing.Size(104, 17);
+            this.checkActivos.TabIndex = 29;
+            this.checkActivos.Text = "Usuarios activos";
+            this.checkActivos.UseVisualStyleBackColor = true;
             // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(358, 275);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 11;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            // 
-            // lnl_olvidoPass
-            // 
-            this.lnl_olvidoPass.AutoSize = true;
-            this.lnl_olvidoPass.LinkColor = System.Drawing.Color.Black;
-            this.lnl_olvidoPass.Location = new System.Drawing.Point(301, 238);
-            this.lnl_olvidoPass.Name = "lnl_olvidoPass";
-            this.lnl_olvidoPass.Size = new System.Drawing.Size(133, 13);
-            this.lnl_olvidoPass.TabIndex = 12;
-            this.lnl_olvidoPass.TabStop = true;
-            this.lnl_olvidoPass.Text = "¿Se olvido su contraseña?";
-            this.lnl_olvidoPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnl_olvidoPass_LinkClicked);
-            // 
-            // IniciarSesion
+            // AdministrarUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lnl_olvidoPass);
-            this.Controls.Add(this.btn_cancelar);
-            this.Controls.Add(this.btn_aceptar);
-            this.Controls.Add(this.txt_pass);
-            this.Controls.Add(this.txt_usuario);
-            this.Controls.Add(this.lbl_pass);
-            this.Controls.Add(this.lbl_usuario);
+            this.Controls.Add(this.checkActivos);
+            this.Controls.Add(this.btn_eliminarUser);
+            this.Controls.Add(this.btn_modificar);
+            this.Controls.Add(this.btn_nuevoUser);
+            this.Controls.Add(this.dgv_user);
             this.Controls.Add(this.p1_panel1);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "IniciarSesion";
-            this.Text = "Vision Management-IniciarSesion";
-            this.Load += new System.EventHandler(this.IniciarSesion_Load);
+            this.Name = "AdministrarUsers";
+            this.Text = "Vision Management/Administrar usuarios";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.p1_panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_user)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,12 +210,10 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.Panel p1_panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_usuario;
-        private System.Windows.Forms.Label lbl_pass;
-        private System.Windows.Forms.TextBox txt_usuario;
-        private System.Windows.Forms.TextBox txt_pass;
-        private System.Windows.Forms.Button btn_aceptar;
-        private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.LinkLabel lnl_olvidoPass;
+        private System.Windows.Forms.DataGridView dgv_user;
+        private System.Windows.Forms.Button btn_nuevoUser;
+        private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_eliminarUser;
+        private System.Windows.Forms.CheckBox checkActivos;
     }
 }

@@ -64,7 +64,7 @@ namespace DAL
             return sqlHelper.ExecuteQuery("usuarioQuitarAsignaciones", parameters);
         }
 
-        public bool Baja(BEusuario itemBaja)
+        public bool Baja(BE.BEusuario itemBaja)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -82,6 +82,22 @@ namespace DAL
                 dvDal.CargarDVV(2, dvv);
             }
             return resultado;
+        }
+
+        public List<BE.BEusuario>Consulta()
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+
+            };
+            DataTable data= sqlHelper.ExecuteReader("usuarioSelect", parameters);
+            List<BE.BEusuario> usuarios = new List<BEusuario>();
+            Mappers.MPusuario mapp = new Mappers.MPusuario();
+            foreach(DataRow row in data.Rows)
+            {
+                usuarios.Add(mapp.Map(row));
+            }
+            return usuarios;
         }
 
         public IList<BEusuario> Listar()
@@ -159,10 +175,10 @@ namespace DAL
 
         public List<BE.BEpermiso> ObtenerPermisoRecursivo(string usuario)
         {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+            List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
 
             var where = "is null";
-            if (!string.IsNullOrEmpty(usuario))
+            if (!String.IsNullOrEmpty(usuario))
             {
                 where = usuario;
 
@@ -191,6 +207,24 @@ namespace DAL
             }
 
             return permisos;
+        }
+
+
+        public List<BE.BEpermiso>ObtenerPermisos(BE.BEusuario bEusuario)
+        {
+            List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("idUsuario",bEusuario.IdUsuario),
+            };
+
+            DataTable data = sqlHelper.ExecuteReader("UsuarioConsultaHijos", parameters);
+            DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
+            foreach(DataRow row in data.Rows)
+            {
+                permisos.Add(mapp.Map(row));
+            }
+            return permisos; 
         }
 
 
