@@ -32,8 +32,12 @@
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notaCreditodebitoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notaCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notaDébitoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprobarIntegridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,10 +53,8 @@
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aBMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.notaCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notaDébitoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelFill = new System.Windows.Forms.Panel();
+            this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +79,7 @@
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.inicioToolStripMenuItem.Text = "Inicio";
+            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
             // 
             // gestionarToolStripMenuItem
             // 
@@ -96,6 +99,12 @@
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             // 
+            // aBMToolStripMenuItem
+            // 
+            this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
+            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem.Text = "ABM";
+            // 
             // articuloToolStripMenuItem
             // 
             this.articuloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -103,6 +112,12 @@
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
             this.articuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articuloToolStripMenuItem.Text = "Articulo";
+            // 
+            // aBMToolStripMenuItem1
+            // 
+            this.aBMToolStripMenuItem1.Name = "aBMToolStripMenuItem1";
+            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem1.Text = "ABM";
             // 
             // notaCreditodebitoToolStripMenuItem
             // 
@@ -112,6 +127,18 @@
             this.notaCreditodebitoToolStripMenuItem.Name = "notaCreditodebitoToolStripMenuItem";
             this.notaCreditodebitoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notaCreditodebitoToolStripMenuItem.Text = "Nota credito/debito";
+            // 
+            // notaCréditoToolStripMenuItem
+            // 
+            this.notaCréditoToolStripMenuItem.Name = "notaCréditoToolStripMenuItem";
+            this.notaCréditoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notaCréditoToolStripMenuItem.Text = "Nota crédito";
+            // 
+            // notaDébitoToolStripMenuItem
+            // 
+            this.notaDébitoToolStripMenuItem.Name = "notaDébitoToolStripMenuItem";
+            this.notaDébitoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notaDébitoToolStripMenuItem.Text = "Nota débito";
             // 
             // seguridadToolStripMenuItem
             // 
@@ -161,11 +188,13 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarIdiomaToolStripMenuItem});
+            this.cambiarIdiomaToolStripMenuItem,
+            this.inglesToolStripMenuItem});
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
             this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.idiomaToolStripMenuItem.Text = "Idioma";
@@ -173,8 +202,8 @@
             // cambiarIdiomaToolStripMenuItem
             // 
             this.cambiarIdiomaToolStripMenuItem.Name = "cambiarIdiomaToolStripMenuItem";
-            this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.cambiarIdiomaToolStripMenuItem.Text = "Cambiar Idioma";
+            this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarIdiomaToolStripMenuItem.Text = "Español";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -194,13 +223,13 @@
             // cambiarUsuarioToolStripMenuItem
             // 
             this.cambiarUsuarioToolStripMenuItem.Name = "cambiarUsuarioToolStripMenuItem";
-            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarUsuarioToolStripMenuItem.Text = "Cambiar Usuario";
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
             // panel
@@ -226,35 +255,27 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "VISION MANAGEMENT";
             // 
-            // aBMToolStripMenuItem
+            // panelFill
             // 
-            this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
-            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aBMToolStripMenuItem.Text = "ABM";
+            this.panelFill.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelFill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFill.Location = new System.Drawing.Point(0, 89);
+            this.panelFill.Name = "panelFill";
+            this.panelFill.Size = new System.Drawing.Size(1253, 361);
+            this.panelFill.TabIndex = 30;
             // 
-            // aBMToolStripMenuItem1
+            // inglesToolStripMenuItem
             // 
-            this.aBMToolStripMenuItem1.Name = "aBMToolStripMenuItem1";
-            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.aBMToolStripMenuItem1.Text = "ABM";
-            // 
-            // notaCréditoToolStripMenuItem
-            // 
-            this.notaCréditoToolStripMenuItem.Name = "notaCréditoToolStripMenuItem";
-            this.notaCréditoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.notaCréditoToolStripMenuItem.Text = "Nota crédito";
-            // 
-            // notaDébitoToolStripMenuItem
-            // 
-            this.notaDébitoToolStripMenuItem.Name = "notaDébitoToolStripMenuItem";
-            this.notaDébitoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.notaDébitoToolStripMenuItem.Text = "Nota débito";
+            this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
+            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inglesToolStripMenuItem.Text = "Ingles";
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 450);
+            this.Controls.Add(this.panelFill);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "MenuPrincipal";
@@ -294,5 +315,7 @@
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notaCréditoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notaDébitoToolStripMenuItem;
+        private System.Windows.Forms.Panel panelFill;
+        private System.Windows.Forms.ToolStripMenuItem inglesToolStripMenuItem;
     }
 }

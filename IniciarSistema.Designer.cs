@@ -89,7 +89,7 @@
             this.Controls.Add(this.pb_iniciarSistema);
             this.Controls.Add(this.p1_panel1);
             this.Name = "IniciarSistema";
-            this.Text = "IniciarSistema";
+            this.Text = "Vision Management/ Iniciar Sistema";
             this.p1_panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

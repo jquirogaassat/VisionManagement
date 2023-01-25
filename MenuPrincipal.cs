@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,55 @@ using System.Windows.Forms;
 
 namespace VisionTFI
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : Form , BE.IObserverForm
     {
         public MenuPrincipal()
         {
             InitializeComponent();
+        }
+
+        public void Actualizar(BEusuario u)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AbrirFormHijoMenu(object frmHijo)
+        {
+            if(this.panelFill.Controls.Count >0)
+            {
+                this.panelFill.Controls.RemoveAt(0);
+            }
+
+            Form form = frmHijo as Form;
+            form.TopLevel = false;
+            form.Dock= DockStyle.Fill;
+            this.panelFill.Controls.Add(form);
+            this.panelFill.Tag = form;
+            form.Show();
+        }
+
+        public void AbrirFormHijo(object frmHIjo)
+        {
+            if(this.panelFill.Controls.Count > 1)
+            {
+                this.panelFill.Controls.RemoveAt(0);
+            }
+            Form form= frmHIjo as Form;
+            form.TopLevel = false;
+            form.Dock=DockStyle.Fill;
+            this.panelFill.Controls.Add(form);
+            this.panelFill.Tag= form;
+            form.Show();
+        }
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(Globa.administrarUsers);
         }
     }
 }

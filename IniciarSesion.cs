@@ -23,15 +23,22 @@ namespace VisionTFI
         BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
         BE.BEreusltadoLog resultado;
 
+        public void ActualizarControles()
+        {
+           Idioma.controles(this);
+        }
         public IniciarSesion()
         {
             InitializeComponent();
+            ActualizarControles();
         }
 
         public void Actualizar(BEusuario u)
         {
             throw new NotImplementedException();
         }
+
+      
 
         private void lnl_olvidoPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -115,6 +122,20 @@ namespace VisionTFI
             Globa.menuPrincipal = new MenuPrincipal();
             Globa.menuPrincipal.Show();
             this.Hide();
+        }
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // BLL.BLLidioma.CambiarIdioma("es.txt");
+            Idioma.CambiarIdioma("es.txt");
+            ActualizarControles();
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // BLL.BLLidioma.CambiarIdioma("en.txt");
+            Idioma.CambiarIdioma("en.txt");
+            ActualizarControles();
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using BLL;
 
 namespace VisionTFI
 {
@@ -16,6 +18,7 @@ namespace VisionTFI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Idioma.CambiarIdioma(new Properties.Settings().lang);
             Application.Run(new Ingreso());
         }
     }

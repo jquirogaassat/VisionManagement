@@ -18,18 +18,17 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("idIdioma",itemAlta.Idioma.IdIdioma),
+                //new SqlParameter("idIdioma",itemAlta.Idioma.IdIdioma),
                 new SqlParameter("usuario",itemAlta.usuario),
-                new SqlParameter("apellido",itemAlta.Apellido),
-                new SqlParameter("direccion",itemAlta.Direccion),
-                new SqlParameter("tipoDocumento",itemAlta.TipoDocumento),
-                new SqlParameter("numeroDocumento",itemAlta.NumeroDocumento),
-                new SqlParameter("mail",itemAlta.Mail),
-                new SqlParameter("userName",itemAlta.UserName),
                 new SqlParameter("userPass",itemAlta.UserPass),
-                new SqlParameter("telefono",itemAlta.Telefono),
+                new SqlParameter("nombre",itemAlta.Nombre),
+                new SqlParameter("apellido",itemAlta.Apellido),
                 new SqlParameter("fechaNacimiento",itemAlta.FechaNacimiento),
-                new SqlParameter("nombre",itemAlta.Nombre)
+               // new SqlParameter("tipoDocumento",itemAlta.TipoDocumento),
+                new SqlParameter("numeroDocumento",itemAlta.NumeroDocumento),
+                new SqlParameter("telefono",itemAlta.Telefono),
+                new SqlParameter("direccion",itemAlta.Direccion),
+                new SqlParameter("mail",itemAlta.Mail),
             };
 
             int nuevoId = sqlHelper.ExecuteQueryPRUEBA("usuarioInsert", parameters);
@@ -50,7 +49,7 @@ namespace DAL
             {
                 new SqlParameter("idUsuario",idUsuario),
             };
-            return sqlHelper.ExecuteReader("usuarioConsularPorID", parameters);
+            return sqlHelper.ExecuteReader("usuarioConsultarPorID", parameters);
         }
 
 
@@ -76,9 +75,9 @@ namespace DAL
             if (resultado)
             {
                 int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(itemBaja.IdUsuario));
-                dvDal.CargarDVH("USUARIO", itemBaja.IdUsuario, dvh);
+                dvDal.CargarDVH("USUARIOV", itemBaja.IdUsuario, dvh);
 
-                int dvv = dvDal.CalcularDVV("USUARIO");
+                int dvv = dvDal.CalcularDVV("USUARIOV");
                 dvDal.CargarDVV(2, dvv);
             }
             return resultado;

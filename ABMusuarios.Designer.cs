@@ -38,17 +38,15 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_fnacimiento = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lbl_idioma = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_telefono = new System.Windows.Forms.TextBox();
+            this.txt_pass = new System.Windows.Forms.TextBox();
             this.lbl_telefono = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lbl_pass = new System.Windows.Forms.Label();
+            this.txt_direccion = new System.Windows.Forms.TextBox();
+            this.txt_mail = new System.Windows.Forms.TextBox();
             this.lbl_mail = new System.Windows.Forms.Label();
             this.lbl_direccion = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_dni = new System.Windows.Forms.TextBox();
             this.txt_apellido = new System.Windows.Forms.TextBox();
             this.lbl_dni = new System.Windows.Forms.Label();
             this.lbl_apellido = new System.Windows.Forms.Label();
@@ -106,17 +104,15 @@
             this.gb_abmusuarios.Controls.Add(this.btn_guardar);
             this.gb_abmusuarios.Controls.Add(this.dateTimePicker1);
             this.gb_abmusuarios.Controls.Add(this.lbl_fnacimiento);
-            this.gb_abmusuarios.Controls.Add(this.comboBox1);
-            this.gb_abmusuarios.Controls.Add(this.lbl_idioma);
-            this.gb_abmusuarios.Controls.Add(this.textBox1);
-            this.gb_abmusuarios.Controls.Add(this.textBox3);
+            this.gb_abmusuarios.Controls.Add(this.txt_telefono);
+            this.gb_abmusuarios.Controls.Add(this.txt_pass);
             this.gb_abmusuarios.Controls.Add(this.lbl_telefono);
-            this.gb_abmusuarios.Controls.Add(this.label3);
-            this.gb_abmusuarios.Controls.Add(this.textBox4);
-            this.gb_abmusuarios.Controls.Add(this.textBox5);
+            this.gb_abmusuarios.Controls.Add(this.lbl_pass);
+            this.gb_abmusuarios.Controls.Add(this.txt_direccion);
+            this.gb_abmusuarios.Controls.Add(this.txt_mail);
             this.gb_abmusuarios.Controls.Add(this.lbl_mail);
             this.gb_abmusuarios.Controls.Add(this.lbl_direccion);
-            this.gb_abmusuarios.Controls.Add(this.textBox2);
+            this.gb_abmusuarios.Controls.Add(this.txt_dni);
             this.gb_abmusuarios.Controls.Add(this.txt_apellido);
             this.gb_abmusuarios.Controls.Add(this.lbl_dni);
             this.gb_abmusuarios.Controls.Add(this.lbl_apellido);
@@ -139,6 +135,7 @@
             this.btn_permisos.TabIndex = 40;
             this.btn_permisos.Text = "Asignar permisos";
             this.btn_permisos.UseVisualStyleBackColor = true;
+            this.btn_permisos.Click += new System.EventHandler(this.btn_permisos_Click);
             // 
             // btn_salir
             // 
@@ -148,6 +145,7 @@
             this.btn_salir.TabIndex = 39;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_guardar
             // 
@@ -157,6 +155,7 @@
             this.btn_guardar.TabIndex = 38;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // dateTimePicker1
             // 
@@ -174,36 +173,19 @@
             this.lbl_fnacimiento.TabIndex = 36;
             this.lbl_fnacimiento.Text = "Fecha Nacimiento";
             // 
-            // comboBox1
+            // txt_telefono
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(502, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 21);
-            this.comboBox1.TabIndex = 35;
+            this.txt_telefono.Location = new System.Drawing.Point(75, 313);
+            this.txt_telefono.Name = "txt_telefono";
+            this.txt_telefono.Size = new System.Drawing.Size(200, 20);
+            this.txt_telefono.TabIndex = 32;
             // 
-            // lbl_idioma
+            // txt_pass
             // 
-            this.lbl_idioma.AutoSize = true;
-            this.lbl_idioma.Location = new System.Drawing.Point(453, 49);
-            this.lbl_idioma.Name = "lbl_idioma";
-            this.lbl_idioma.Size = new System.Drawing.Size(38, 13);
-            this.lbl_idioma.TabIndex = 34;
-            this.lbl_idioma.Text = "Idioma";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(75, 313);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 32;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(75, 273);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 30;
+            this.txt_pass.Location = new System.Drawing.Point(75, 273);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.Size = new System.Drawing.Size(200, 20);
+            this.txt_pass.TabIndex = 30;
             // 
             // lbl_telefono
             // 
@@ -214,28 +196,28 @@
             this.lbl_telefono.TabIndex = 29;
             this.lbl_telefono.Text = "Telefono";
             // 
-            // label3
+            // lbl_pass
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 276);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Apellido";
+            this.lbl_pass.AutoSize = true;
+            this.lbl_pass.Location = new System.Drawing.Point(12, 280);
+            this.lbl_pass.Name = "lbl_pass";
+            this.lbl_pass.Size = new System.Drawing.Size(61, 13);
+            this.lbl_pass.TabIndex = 31;
+            this.lbl_pass.Text = "Contraseña";
             // 
-            // textBox4
+            // txt_direccion
             // 
-            this.textBox4.Location = new System.Drawing.Point(75, 195);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 26;
+            this.txt_direccion.Location = new System.Drawing.Point(75, 195);
+            this.txt_direccion.Name = "txt_direccion";
+            this.txt_direccion.Size = new System.Drawing.Size(200, 20);
+            this.txt_direccion.TabIndex = 26;
             // 
-            // textBox5
+            // txt_mail
             // 
-            this.textBox5.Location = new System.Drawing.Point(75, 232);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 28;
+            this.txt_mail.Location = new System.Drawing.Point(75, 232);
+            this.txt_mail.Name = "txt_mail";
+            this.txt_mail.Size = new System.Drawing.Size(200, 20);
+            this.txt_mail.TabIndex = 28;
             // 
             // lbl_mail
             // 
@@ -255,12 +237,12 @@
             this.lbl_direccion.TabIndex = 27;
             this.lbl_direccion.Text = "Direccion";
             // 
-            // textBox2
+            // txt_dni
             // 
-            this.textBox2.Location = new System.Drawing.Point(75, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 24;
+            this.txt_dni.Location = new System.Drawing.Point(75, 160);
+            this.txt_dni.Name = "txt_dni";
+            this.txt_dni.Size = new System.Drawing.Size(200, 20);
+            this.txt_dni.TabIndex = 24;
             // 
             // txt_apellido
             // 
@@ -379,6 +361,7 @@
             this.Controls.Add(this.gb_abmusuarios);
             this.Name = "ABMusuarios";
             this.Text = "Vision Management/ ABM usuarios";
+            this.Load += new System.EventHandler(this.ABMusuarios_Load);
             this.gb_abmusuarios.ResumeLayout(false);
             this.gb_abmusuarios.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -395,25 +378,23 @@
         private System.Windows.Forms.Label lbl_usuarios;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.GroupBox gb_abmusuarios;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_telefono;
+        private System.Windows.Forms.TextBox txt_pass;
         private System.Windows.Forms.Label lbl_telefono;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lbl_pass;
+        private System.Windows.Forms.TextBox txt_direccion;
+        private System.Windows.Forms.TextBox txt_mail;
         private System.Windows.Forms.Label lbl_mail;
         private System.Windows.Forms.Label lbl_direccion;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_dni;
         private System.Windows.Forms.TextBox txt_apellido;
         private System.Windows.Forms.Label lbl_dni;
         private System.Windows.Forms.Label lbl_apellido;
-        private System.Windows.Forms.Label lbl_idioma;
         private System.Windows.Forms.Button btn_permisos;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lbl_fnacimiento;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seguridadToolStripMenuItem;

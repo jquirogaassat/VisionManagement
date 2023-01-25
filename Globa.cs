@@ -17,9 +17,11 @@ namespace VisionTFI
         public static BE.BEventa ventaBE = new BE.BEventa();
         public static string motivoLoginFallido;
         public static ABMusuarios abmUsuarioAlta;
+        public static AdministrarUsers administrarUsers = new AdministrarUsers();
         public static GestionarUsuarios gestionarUsuarios = new GestionarUsuarios();
         public static BE.BEusuario usuarioBE = new BE.BEusuario();
         public static BE.BEpermiso permisoBE;
+        public static string tipoProceso = null;        
         public static IniciarSesion IniciarSesion = new IniciarSesion();
         public static BE.BEbackup backupBE = new BE.BEbackup();
         public static List<BE.BEerror> errores = new List<BE.BEerror>();

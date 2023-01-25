@@ -13,8 +13,8 @@ namespace DAL.Mappers
         {
             BE.BEidioma idioma = new BE.BEidioma()
             {
-                IdIdioma = (int)row["idIdioma"],
-                Nombre= (string)row["nombreIdioma"],
+                IdIdioma = (int)row[@"idIdioma"],
+                Nombre= (string)row[@"nombreIdioma"],
             
             };
             return idioma;
