@@ -9,9 +9,16 @@ namespace BLL
 {
     public class BLLcliente : BE.ICRUd<BE.BEcliente>
     {
+          
+        DAL.DALcliente clienteDal = new DAL.DALcliente();
         public bool Alta(BEcliente item)
         {
-            throw new NotImplementedException();
+            BLL.BLLencriptacion encriptar = new BLL.BLLencriptacion();
+            item.Telefono = encriptar.encriptarAES(item.Telefono);
+            item.Direccion = encriptar.encriptarAES(item.Direccion);
+            item.Localidad = encriptar.encriptarAES(item.Localidad);
+            DAL.DALcliente clientedal = new DAL.DALcliente();
+            return clientedal.Alta(item);
         }
 
         public bool Baja(BEcliente item)

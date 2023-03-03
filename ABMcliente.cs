@@ -36,12 +36,80 @@ namespace VisionTFI
 
         public void AdaptarFormularioToModificacion()
         {
+            btn_salir.Enabled = false;
+            btn_salir.Visible = false;
 
         }
 
         public void Actualizar(BEusuario u)
         {
             throw new NotImplementedException();
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if(Globa.tipoProceso == "Alta")
+            {
+                AltaCliente();
+            }
+            if(Globa.tipoProceso== "Modificacion")
+            {
+                ModificarCliente();
+
+            }
+        }
+
+        private void ModificarCliente()
+        {
+            Globa.cllienteBE.Nombre = txt_nombre.Text;
+            Globa.cllienteBE.Apellido = txt_apellido.Text;
+            Globa.cllienteBE.Cuit = txt_cuit.Text;
+            Globa.cllienteBE.Email = txt_mail.Text;
+            Globa.cllienteBE.Direccion = txt_direccion.Text;
+            Globa.cllienteBE.Localidad = txt_localidad.Text;
+            Globa.cllienteBE.Telefono=txt_telefono.Text;
+
+            bool resultado = clienteBLL.Modificar(Globa.cllienteBE);
+
+            if( resultado)
+            {
+                MessageBox.Show("Cliente modificado con exito");
+                Hide();
+                Globa.GestionarCliente = new GestionarSocio();
+                Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarCliente);
+            }
+            else
+            {
+                MessageBox.Show("Error");
+                this.Close();
+            }
+        }
+
+        private void AltaCliente()
+        {
+            clienteBE.Nombre = txt_nombre.Text;
+            clienteBE.Apellido = txt_apellido.Text;
+            clienteBE.Cuit = txt_cuit.Text;
+            clienteBE.Email = txt_mail.Text;
+            clienteBE.Direccion = txt_direccion.Text;
+            clienteBE.Localidad = txt_localidad.Text;
+            clienteBE.Telefono = txt_telefono.Text;
+
+            bool resultado = clienteBLL.Alta(clienteBE);
+
+            if(resultado)
+            {
+                MessageBox.Show("Cliente dado de alta.");
+                Hide();
+                Globa.GestionarCliente = new GestionarSocio();
+                Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarCliente);
+            }
+            else
+            {
+                MessageBox.Show("Error, el cliente no se pudo crear.");
+                this.Close();
+            }
+
         }
     }
 }

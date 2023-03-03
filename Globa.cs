@@ -25,7 +25,9 @@ namespace VisionTFI
         public static IniciarSesion IniciarSesion = new IniciarSesion();
         public static BE.BEbackup backupBE = new BE.BEbackup();
         public static List<BE.BEerror> errores = new List<BE.BEerror>();
-
+        public static Backup Backup = new Backup();
+        public static ABMcliente ABMcliente = new ABMcliente();
+        public static GestionarSocio GestionarCliente = new GestionarSocio();// cliente
 
 
             

@@ -19,6 +19,7 @@ namespace VisionTFI
         public AdministrarUsers()
         {
             InitializeComponent();
+           // ActualizarUsuarios();
         }
 
 
@@ -44,19 +45,20 @@ namespace VisionTFI
             dgv_user.Columns[3].Visible = false;
             dgv_user.Columns[4].Visible = false;
             dgv_user.Columns[16].Visible = false;
-            dgv_user.Columns[17].Visible = false;
-
+            dgv_user.Columns[15].Visible = false;
+            dgv_user.Columns[13].Visible = false;
+            dgv_user.Columns[8].Visible= false;
 
             dgv_user.Columns[5].HeaderText = "Nombre";
-            dgv_user.Columns[6].HeaderText = "Apelido";
+            dgv_user.Columns[6].HeaderText = "Apellido";
             dgv_user.Columns[7].HeaderText = "Fecha Nacimiento";
-            dgv_user.Columns[8].HeaderText = "Tipo de documento";
+           // dgv_user.Columns[2].HeaderText = "Usuario";
             dgv_user.Columns[9].HeaderText = "Numero de documento";
             dgv_user.Columns[10].HeaderText = "Telefono";
             dgv_user.Columns[11].HeaderText = "Direccion";
             dgv_user.Columns[12].HeaderText = "Mail";
-            dgv_user.Columns[13].HeaderText = " Fecha de alta";
-
+            dgv_user.Columns[14].HeaderText = " Fecha de alta";
+            
 
             dgv_user.RowHeadersVisible = false;
             dgv_user.AllowUserToAddRows = false;
@@ -106,13 +108,13 @@ namespace VisionTFI
         private void AdministrarUsers_Load(object sender, EventArgs e)
         {
             this.Focus();
-            //Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
-           // BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
+            Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
+            BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             btn_modificar.Enabled = false;
             btn_eliminarUser.Enabled = false;
             //ValidarPermiso("Crear Usuario", btn_nuevoUser);
 
-           // ActualizarUsuarios();
+            ActualizarUsuarios();
            // BLL.BLLgestionbitacora bitacora = new BLL.BLLgestionbitacora();
             //ActualizarUsuarios();
         }
@@ -229,7 +231,8 @@ namespace VisionTFI
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            Close();
+            Globa.menuPrincipal.Show();
+            this.Hide();
         }
 
         private void checkActivos_CheckedChanged(object sender, EventArgs e)
@@ -243,6 +246,11 @@ namespace VisionTFI
                 Help ayuda = new Help();
                 ayuda.Show();
             }
+        }
+
+        private void dgv_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

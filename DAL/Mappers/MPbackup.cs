@@ -22,7 +22,7 @@ namespace DAL.Mappers
                 IdBackup = (int)row["idBackup"],
                 Usuario = (BE.BEusuario)usuarioDal.ConsultarUsuario(bEusuario),
                 Nombre = (string)row["nombre"],
-                FechaAlta = (DateTime)row["fechaCreacion"],
+                FechaAlta = (DateTime)row["fechaAlta"],
                 Particiones = (int)row["particiones"],
                 Ubicacion = (string)row["ubicacion"],
             };

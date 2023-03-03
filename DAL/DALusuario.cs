@@ -118,19 +118,17 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                 new SqlParameter("idIdioma",itemModifica.Idioma.IdIdioma),
+                new SqlParameter("idUsuario",itemModifica.IdUsuario),
                 new SqlParameter("usuario",itemModifica.usuario),
-                new SqlParameter("apellido",itemModifica.Apellido),
-                new SqlParameter("direccion",itemModifica.Direccion),
-                new SqlParameter("tipoDocumento",itemModifica.TipoDocumento),
-                new SqlParameter("numeroDocumento",itemModifica.NumeroDocumento),
-                new SqlParameter("mail",itemModifica.Mail),
-                new SqlParameter("userName",itemModifica.UserName),
                 new SqlParameter("userPass",itemModifica.UserPass),
-                new SqlParameter("telefono",itemModifica.Telefono),
-                new SqlParameter("fechaNacimiento",itemModifica.FechaNacimiento),
                 new SqlParameter("isBlocked",itemModifica.IsBlocked),
                 new SqlParameter("nombre",itemModifica.Nombre),
+                new SqlParameter("apellido",itemModifica.Apellido),
+                new SqlParameter("fechaNacimiento",itemModifica.FechaNacimiento),              
+                new SqlParameter("numeroDocumento",itemModifica.NumeroDocumento),
+                new SqlParameter("telefono",itemModifica.Telefono),
+                new SqlParameter("direccion",itemModifica.Direccion),
+                new SqlParameter("mail",itemModifica.Mail),               
                 new SqlParameter("intentosFallidos", itemModifica.intentosFallidos),
             };
 
@@ -145,7 +143,7 @@ namespace DAL
         public BE.BEusuario ConsultarUsuario(BE.BEusuario usuario)
         {
             DataTable dt = new DataTable();
-            if (usuario.IdUsuario== 0)
+            if (usuario.IdUsuario == 0)
             {
                 SqlParameter[] parameters = new SqlParameter[]
                 {

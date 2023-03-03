@@ -31,8 +31,8 @@ namespace DAL
             DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
 
             int dvh = dvDal.CalcularDVH(ConsultarBitacoraDt(idNuevo), 0);
-            dvDal.CargarDVH("BITACORA", idNuevo, dvh);
-            int dvv = dvDal.CalcularDVV("BITACORA");
+            dvDal.CargarDVHb("BITTACORA", idNuevo, dvh);
+            int dvv = dvDal.CalcularDVVb("BITTACORA");
             return dvDal.CargarDVV(1, dvv);
         }
 

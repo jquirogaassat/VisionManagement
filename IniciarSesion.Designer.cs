@@ -32,6 +32,8 @@
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +47,6 @@
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.lnl_olvidoPass = new System.Windows.Forms.LinkLabel();
-            this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.p1_panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             this.sesionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,6 +86,20 @@
             this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.idiomaToolStripMenuItem.Text = "Idioma";
             // 
+            // españolToolStripMenuItem
+            // 
+            this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
+            this.españolToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.españolToolStripMenuItem.Text = "Español";
+            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
+            // 
+            // inglesToolStripMenuItem
+            // 
+            this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
+            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.inglesToolStripMenuItem.Text = "Ingles";
+            this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
@@ -104,13 +118,13 @@
             // cambiarUsuarioToolStripMenuItem
             // 
             this.cambiarUsuarioToolStripMenuItem.Name = "cambiarUsuarioToolStripMenuItem";
-            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cambiarUsuarioToolStripMenuItem.Text = "Cambiar Usuario";
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
             // p1_panel1
@@ -120,7 +134,7 @@
             this.p1_panel1.Controls.Add(this.label2);
             this.p1_panel1.Location = new System.Drawing.Point(0, 27);
             this.p1_panel1.Name = "p1_panel1";
-            this.p1_panel1.Size = new System.Drawing.Size(800, 71);
+            this.p1_panel1.Size = new System.Drawing.Size(1396, 71);
             this.p1_panel1.TabIndex = 5;
             // 
             // label2
@@ -138,7 +152,7 @@
             // 
             this.lbl_usuario.AutoSize = true;
             this.lbl_usuario.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario.Location = new System.Drawing.Point(217, 169);
+            this.lbl_usuario.Location = new System.Drawing.Point(401, 179);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(64, 21);
             this.lbl_usuario.TabIndex = 6;
@@ -148,7 +162,7 @@
             // 
             this.lbl_pass.AutoSize = true;
             this.lbl_pass.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pass.Location = new System.Drawing.Point(192, 215);
+            this.lbl_pass.Location = new System.Drawing.Point(376, 225);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(89, 21);
             this.lbl_pass.TabIndex = 7;
@@ -156,14 +170,14 @@
             // 
             // txt_usuario
             // 
-            this.txt_usuario.Location = new System.Drawing.Point(304, 172);
+            this.txt_usuario.Location = new System.Drawing.Point(488, 182);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(129, 20);
             this.txt_usuario.TabIndex = 8;
             // 
             // txt_pass
             // 
-            this.txt_pass.Location = new System.Drawing.Point(304, 215);
+            this.txt_pass.Location = new System.Drawing.Point(488, 225);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(129, 20);
@@ -171,7 +185,7 @@
             // 
             // btn_aceptar
             // 
-            this.btn_aceptar.Location = new System.Drawing.Point(458, 275);
+            this.btn_aceptar.Location = new System.Drawing.Point(642, 285);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_aceptar.TabIndex = 10;
@@ -181,18 +195,19 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(358, 275);
+            this.btn_cancelar.Location = new System.Drawing.Point(542, 285);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 11;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // lnl_olvidoPass
             // 
             this.lnl_olvidoPass.AutoSize = true;
             this.lnl_olvidoPass.LinkColor = System.Drawing.Color.Black;
-            this.lnl_olvidoPass.Location = new System.Drawing.Point(301, 238);
+            this.lnl_olvidoPass.Location = new System.Drawing.Point(485, 248);
             this.lnl_olvidoPass.Name = "lnl_olvidoPass";
             this.lnl_olvidoPass.Size = new System.Drawing.Size(133, 13);
             this.lnl_olvidoPass.TabIndex = 12;
@@ -200,25 +215,11 @@
             this.lnl_olvidoPass.Text = "¿Se olvido su contraseña?";
             this.lnl_olvidoPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnl_olvidoPass_LinkClicked);
             // 
-            // españolToolStripMenuItem
-            // 
-            this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
-            this.españolToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.españolToolStripMenuItem.Text = "Español";
-            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
-            // 
-            // inglesToolStripMenuItem
-            // 
-            this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
-            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.inglesToolStripMenuItem.Text = "Ingles";
-            this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
-            // 
             // IniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 450);
             this.Controls.Add(this.lnl_olvidoPass);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_aceptar);
@@ -230,6 +231,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "IniciarSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vision Management-IniciarSesion";
             this.Load += new System.EventHandler(this.IniciarSesion_Load);
             this.menuStrip1.ResumeLayout(false);

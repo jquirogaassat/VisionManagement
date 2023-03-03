@@ -47,7 +47,7 @@ namespace VisionTFI
 
         public void ValorizarEntidad(BE.BEusuario usuario)
         {
-            usuario.usuario = txt_usuario.Text;
+            usuario.usuario = encriptadora.encriptarAES(txt_usuario.Text);
            // usuario.Idioma = (BE.BEidioma)cmb_idioma.SelectedItem;
             usuario.Nombre = txt_nombre.Text;
             usuario.Apellido = txt_apellido.Text;
@@ -55,7 +55,7 @@ namespace VisionTFI
             usuario.NumeroDocumento = Int32.Parse(txt_dni.Text);
             usuario.Mail = txt_mail.Text;
             //string pass = txt_pass.Text;
-            usuario.UserPass = encriptadora.encriptarAES(txt_pass.Text);
+            usuario.UserPass = encriptadora.encriptarSha256(txt_pass.Text);
             usuario.Telefono= Int32.Parse(txt_telefono.Text);
             usuario.FechaNacimiento = dateTimePicker1.Value;
 
@@ -113,7 +113,7 @@ namespace VisionTFI
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
     }
 }

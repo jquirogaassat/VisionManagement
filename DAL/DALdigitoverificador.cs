@@ -49,9 +49,25 @@ namespace DAL
             return sqlHelper.ExecuteQueryPRUEBA(query);
         }
 
+        public int CalcularDVVb(string nombreTabla)
+        {
+            string idCampo = "idBitacora";
+
+            string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
+                                                            + nombreTabla + " else select 0";
+
+            return sqlHelper.ExecuteQueryPRUEBA(query);
+        }
+
         public bool CargarDVH(string nombreTabla, int id, int dvh)
         {
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
+            return sqlHelper.ExecuteQuery(query);
+        }
+
+        public bool CargarDVHb(string nombreTabla, int id, int dvh)
+        {
+            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBitacora" + "=" + id;
             return sqlHelper.ExecuteQuery(query);
         }
 

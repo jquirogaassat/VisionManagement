@@ -90,6 +90,7 @@ namespace DAL
 
 
                     int a = (Int32)comm.ExecuteScalar();
+                    //int a = comm.ExecuteScalar();
                     return a;
                 }
             }

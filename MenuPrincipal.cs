@@ -61,5 +61,15 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(Globa.administrarUsers);
         }
+
+        private void realizarBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijo(Globa.Backup);
+        }
+
+        private void aBMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarCliente);
+        }
     }
 }

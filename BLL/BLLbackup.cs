@@ -55,9 +55,9 @@ namespace BLL
 
 
 
-        public string GenerarBackup(string pathDestino,int cantidad)
+        public bool GenerarBackup(BE.BEbackup backupBE)
         {
-            return DALbackup.GenerarBackup(cantidad, pathDestino);
+            return DALbackup.GenerarBackup(backupBE);
         }
 
         public string Restore(BE.BEbackup bEbackup)

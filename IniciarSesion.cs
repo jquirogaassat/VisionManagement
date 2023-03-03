@@ -118,10 +118,66 @@ namespace VisionTFI
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hola");
-            Globa.menuPrincipal = new MenuPrincipal();
-            Globa.menuPrincipal.Show();
-            this.Hide();
+            //MessageBox.Show("Login correcto");
+            //Globa.menuPrincipal = new MenuPrincipal();
+            //Globa.menuPrincipal.Show();
+            //this.Hide();
+
+            BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
+            BE.BEusuario usuarioLog = new BE.BEusuario();
+            usuarioLog.usuario = txt_usuario.Text;
+            usuarioLog.UserPass = txt_pass.Text;
+
+            usuarioLog = usuarioBLL.Encriptar(usuarioLog);
+
+            string pass = usuarioLog.UserPass;
+            resultado = usuarioBLL.Login(usuarioLog);
+
+            if (resultado == BE.BEreusltadoLog.LoginCorrecto)
+            {
+                MessageBox.Show("Login correcto");
+                Globa.menuPrincipal = new MenuPrincipal();
+                Globa.menuPrincipal.Show();
+                this.Hide();
+               ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                bitacoraBLL.Alta(bitacoraBE);
+
+            }
+            else
+            {
+                //MessageBox.Show("error");
+                if (resultado == BE.BEreusltadoLog.SesionActiva)
+                {
+                    MessageBox.Show("Hay una sesion activa para este usuario");
+                    ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de inicio de una sesion activa.");
+                    bitacoraBLL.Alta(bitacoraBE);
+                }
+                else
+                {
+                    if (resultado == BE.BEreusltadoLog.UsuarioInexistente)
+                    {
+                        MessageBox.Show(" El usuario no existe.");
+                        ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con usuario inexistente.");
+                        bitacoraBLL.Alta(bitacoraBE);
+                    }
+                    else
+                    {
+                        if (resultado == BE.BEreusltadoLog.PasswordIncorrecta)
+                        {
+                            MessageBox.Show("Los datos ingresados son incorrectos.");
+                            ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con contraseña erronea.");
+                            bitacoraBLL.Alta(bitacoraBE);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Los datos ingresados son erroneos, supero el limite de intentos.");
+                            ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login incorrecto 4 veces");
+                            bitacoraBLL.Alta(bitacoraBE);
+                        }
+                    }
+                }
+            }
+
         }
 
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,6 +192,11 @@ namespace VisionTFI
             // BLL.BLLidioma.CambiarIdioma("en.txt");
             Idioma.CambiarIdioma("en.txt");
             ActualizarControles();
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

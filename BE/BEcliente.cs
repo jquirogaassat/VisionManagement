@@ -15,7 +15,7 @@ namespace BE
         public string Email { get; set; }
         public int IdCliente { get; set; }
         public int Dvh { get; set; }
-        public int Cuit { get; set; }
-        public int Telefono { get; set; }
+        public string Cuit { get; set; }
+        public string Telefono { get; set; }
     }
 }

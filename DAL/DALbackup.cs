@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.IO;
 using System.IO.Compression;
+using System.Configuration;
 
 namespace DAL
 {
@@ -41,7 +42,7 @@ namespace DAL
             SqlParameter[] parametros = new SqlParameter[] {
                 new SqlParameter("idUsuario",itemAlta.Usuario.IdUsuario),
                 new SqlParameter("nombre",itemAlta.Nombre),
-                new SqlParameter("fechaCreacion",itemAlta.FechaAlta),
+                new SqlParameter("fechaAlta",itemAlta.FechaAlta),
                 new SqlParameter("particiones",itemAlta.Particiones),
                 new SqlParameter("ubicacion",itemAlta.Ubicacion),
             };
@@ -123,37 +124,50 @@ namespace DAL
 
 
 
-        public string GenerarBackup (int particiones, string pathDestino)
+        public bool GenerarBackup (BE.BEbackup backupBE)
         {
-            BE.BEbackup bEbackup = new BE.BEbackup();
-            ValorizarEntidad(particiones, pathDestino, bEbackup);
+            string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(ConnectionString);
 
-            int parte = 1;
-            qwery = @"BACKUP DATABASE VisionManagement";
-
-            if(particiones==1)
+            if (sqlHelper.comprobarConexion())
             {
-                qwery = qwery + @"TO DISK= '" + bEbackup.Ubicacion + bEbackup.Nombre + "_" + parte + @".bak";
+                string bd = conexion.Database;
+                int parte = 1;
+                qwery = @"BACKUP DATABASE " + bd + " ";
+
+                if (backupBE.Particiones == 1)
+                {
+                    qwery = qwery + @"TO DISK= '" + backupBE.Ubicacion + backupBE.Nombre  + @".bak'";
+                }
+                else
+                {
+                    while (parte < (backupBE.Particiones + 1))
+                    {
+                        if (parte == 1)
+                        {
+                            qwery = qwery + @"TO DISK = '" + backupBE.Ubicacion + backupBE.Nombre + "_" + parte + @".bak'";
+                        }
+                        else
+                        {
+                            qwery = qwery + @", DISK= '" + backupBE.Ubicacion + backupBE.Nombre + "_" + parte + @".bak'";
+                        }
+                        parte++;
+                    }
+                }
+
+                sqlHelper.ExecuteQuery(qwery);
+                Alta(backupBE);
+                return true;
             }
             else
             {
-               while(parte< (bEbackup.Particiones +1))
-                {
-                    if(parte==1)
-                    {
-                        qwery = qwery + @"TO DISK = '" + bEbackup.Ubicacion + bEbackup.Nombre + "_" + parte + @".bak";
-                    }
-                    else
-                    {
-                        qwery = qwery + @", DISK= ' " + bEbackup.Ubicacion + bEbackup.Nombre + "_" + parte + @".bak";
-                    }
-                    parte++;
-                }
+                return false;
             }
 
-            sqlHelper.ExecuteQuery(qwery);
-            Alta(bEbackup);
-            return qwery;
+            
+            
+
+           
         }
 
 
