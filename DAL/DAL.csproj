@@ -59,10 +59,12 @@
     <Compile Include="Daos\DAOarticulo.cs" />
     <Compile Include="Daos\DAObackup.cs" />
     <Compile Include="Daos\Daobitacora.cs" />
+    <Compile Include="Daos\DAOcliente.cs" />
     <Compile Include="Daos\DAOusuario.cs" />
     <Compile Include="Mappers\MParticulo.cs" />
     <Compile Include="Mappers\MPbackup.cs" />
     <Compile Include="Mappers\MPbitacora.cs" />
+    <Compile Include="Mappers\MPcliente.cs" />
     <Compile Include="Mappers\MPidioma.cs" />
     <Compile Include="Mappers\MPpermiso.cs" />
     <Compile Include="Mappers\MPtraduccion.cs" />

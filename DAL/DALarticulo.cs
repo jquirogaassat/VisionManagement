@@ -70,7 +70,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public IList<BEarticulo> Listar()
+        public List<BEarticulo> Listar()
         {
             throw new NotImplementedException();
         }
@@ -86,6 +86,11 @@ namespace DAL
 
             DataTable dt = sqlHelper.ExecuteReader("articuloConsulta", parametros);
             return dt;
+        }
+
+        public IList<BEarticulo> Lista()
+        {
+            throw new NotImplementedException();
         }
     }
 }

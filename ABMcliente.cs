@@ -25,12 +25,15 @@ namespace VisionTFI
             InitializeComponent();
         }
 
+        
+
 
         public void AdaptarFormularioToAlta()
         {
+            lbl_tipoproceso.Text = "Alta de cliente";
             btn_salir.Visible = false;
             btn_guardar.Visible = true;
-            btn_baja.Visible = false;
+            //btn_baja.Visible = false;
 
         }
 
@@ -38,6 +41,15 @@ namespace VisionTFI
         {
             btn_salir.Enabled = false;
             btn_salir.Visible = false;
+
+
+            txt_nombre.Text= Globa.cllienteBE.Nombre;
+            txt_apellido.Text = Globa.cllienteBE.Apellido;
+            txt_cuit.Text = Globa.cllienteBE.Cuit;
+            txt_mail.Text = Globa.cllienteBE.Email;
+            txt_direccion.Text = Globa.cllienteBE.Direccion;
+            txt_localidad.Text = Globa.cllienteBE.Localidad;
+            txt_telefono.Text = Globa.cllienteBE.Telefono;
 
         }
 
@@ -110,6 +122,21 @@ namespace VisionTFI
                 this.Close();
             }
 
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            Globa.GestionarCliente.Show();
+            this.Close();
+        }
+
+        private void ABMcliente_Load(object sender, EventArgs e)
+        {
+            var s = Enum.GetValues(typeof(BE.Enum.Situacion.Situacion));
+            foreach (var item in s )
+            {
+                cmb_situacion.Items.Add(item);
+            }
         }
     }
 }

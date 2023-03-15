@@ -14,6 +14,8 @@ namespace BE
 
         bool Modificar(T itemModifica);
 
-        IList<T> Listar();
+        List<T> Listar();
+
+        IList<T> Lista();
     }
 }

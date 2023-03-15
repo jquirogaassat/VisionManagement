@@ -11,9 +11,9 @@ namespace BLL
     {
           
         DAL.DALcliente clienteDal = new DAL.DALcliente();
+        BLL.BLLencriptacion encriptar = new BLL.BLLencriptacion();
         public bool Alta(BEcliente item)
-        {
-            BLL.BLLencriptacion encriptar = new BLL.BLLencriptacion();
+        {            
             item.Telefono = encriptar.encriptarAES(item.Telefono);
             item.Direccion = encriptar.encriptarAES(item.Direccion);
             item.Localidad = encriptar.encriptarAES(item.Localidad);
@@ -23,7 +23,10 @@ namespace BLL
 
         public bool Baja(BEcliente item)
         {
-            throw new NotImplementedException();
+            //DAL.DALcliente dALcliente = new DAL.DALcliente();
+            //return dALcliente.Baja(item);
+            //throw new NotImplementedException();
+            return clienteDal.Baja(item);
         }
 
         public IList<BEcliente> Listar(BEcliente item)
@@ -31,12 +34,40 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public IList<BEcliente> Listar()
-        {
-            throw new NotImplementedException();
+        public List<BEcliente> Listar()
+        {  
+            List<BEcliente> lista = new List<BEcliente>();
+            lista = clienteDal.Listar();
+            int i = 0; 
+            while(i< lista.Count)
+            {
+                lista[i] = Desencriptar(lista[i]);
+                i++;
+            }
+            return lista;
+            //throw new NotImplementedException();
         }
 
+        public BE.BEcliente Desencriptar(BE.BEcliente clienteBE)
+        {
+            clienteBE.Telefono = encriptar.desencriptarAes(clienteBE.Telefono);
+            clienteBE.Direccion = encriptar.desencriptarAes(clienteBE.Direccion);
+            clienteBE.Localidad = encriptar.desencriptarAes(clienteBE.Localidad);
+            return clienteBE;
+        }
+
+        
+
         public bool Modificar(BEcliente item)
+        {
+            item.Telefono = encriptar.encriptarAES(item.Telefono);
+            item.Direccion = encriptar.encriptarAES(item.Direccion);
+            item.Localidad = encriptar.encriptarAES(item.Localidad);
+            return clienteDal.Modificar(item);
+            //throw new NotImplementedException();
+        }
+
+        public IList<BEcliente> Lista()
         {
             throw new NotImplementedException();
         }

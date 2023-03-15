@@ -203,5 +203,15 @@ namespace BLL
             }
             return usuarioMiebro;
         }
+
+        List<BEpermiso> ICRUd<BEpermiso>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEpermiso> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

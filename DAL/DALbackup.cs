@@ -200,5 +200,15 @@ namespace DAL
             sqlHelper.ExecuteQuery(qwery);
             return qwery;
         }
+
+        List<BEbackup> ICRUd<BEbackup>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEbackup> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

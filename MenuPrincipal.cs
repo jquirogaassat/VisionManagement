@@ -71,5 +71,27 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarCliente);
         }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
+            BE.BEusuario usuarioBE = new BEusuario();
+
+            if (usuarioBLL.Logout(usuarioBE))
+            {
+                MessageBox.Show("Sesion finalizada!");
+                Close();
+                Globa.IniciarSesion.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se puede cerrar sesion!.");
+            }
+        }
+
+        private void aBMToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

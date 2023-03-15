@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace DAL
 {
     public class DALcliente : BE.ICRUd<BE.BEcliente>
     {
+
         DAL.DALdigitoverificador dv= new DALdigitoverificador();
         SqlHelper helper = new SqlHelper();
         
@@ -34,12 +36,40 @@ namespace DAL
 
         public bool Baja(BEcliente itemBaja)
         {
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("idCliente",itemBaja.IdCliente),
+            };
+            bool resultado = helper.ExecuteQuery("clienteBajaLogica", parametros);
+            if(resultado)
+            {
+                return true;
+            }
+
+            return resultado;
+           // throw new NotImplementedException();
+        }
+
+        public IList<BEcliente> Lista()
+        {
             throw new NotImplementedException();
         }
 
-        public IList<BEcliente> Listar()
+        public List<BEcliente> Listar()
         {
-            throw new NotImplementedException();
+           SqlParameter [] parametros = new SqlParameter[]
+                {};
+            DataTable dt = helper.ExecuteReader("clienteSelect", parametros);
+            List<BE.BEcliente> clientes = new List<BEcliente>();
+            Mappers.MPcliente map = new Mappers.MPcliente();
+
+            foreach(DataRow row in dt.Rows)
+            {
+                clientes.Add(map.Map(row));
+            }
+
+            // throw new NotImplementedException();
+            return clientes;
         }
 
         public bool Modificar(BEcliente itemModifica)

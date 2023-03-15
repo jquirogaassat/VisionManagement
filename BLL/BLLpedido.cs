@@ -19,12 +19,22 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        public IList<BEpedido> Lista()
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<BEpedido> Listar()
         {
             throw new NotImplementedException();
         }
 
         public bool Modificar(BEpedido itemModifica)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<BEpedido> ICRUd<BEpedido>.Listar()
         {
             throw new NotImplementedException();
         }

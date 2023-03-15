@@ -67,6 +67,7 @@
     <Compile Include="BEtraduccion.cs" />
     <Compile Include="BEusuario.cs" />
     <Compile Include="BEventa.cs" />
+    <Compile Include="Enum\Situacion.cs" />
     <Compile Include="ICRUd.cs" />
     <Compile Include="IObserverForm.cs" />
     <Compile Include="IUser.cs" />

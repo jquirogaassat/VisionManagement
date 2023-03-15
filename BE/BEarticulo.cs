@@ -10,10 +10,9 @@ namespace BE
     {
         public string Nombre { get; set; }
         public string Color { get; set; }
-        public string Origen { get; set; }
-        public double Peso { get; set; }
-        public int Tamanio { get; set; }
+        public string Origen { get; set; }       
         public int Cantidad { get; set; }
         public int Id { get; set; }
+        public string  precio { get; set; }
     }
 }

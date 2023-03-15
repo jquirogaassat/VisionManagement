@@ -114,6 +114,12 @@ namespace VisionTFI
             txt_usuario.Text = "";
 
 
+            inicioToolStripMenuItem.Visible = true;
+            seguridadToolStripMenuItem.Visible = false;
+            idiomaToolStripMenuItem.Visible = false;
+            ayudaToolStripMenuItem.Visible = true;
+            sesionToolStripMenuItem.Visible = true;
+
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
@@ -139,7 +145,8 @@ namespace VisionTFI
                 Globa.menuPrincipal = new MenuPrincipal();
                 Globa.menuPrincipal.Show();
                 this.Hide();
-               ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                LimpiarCombos();
+                ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                 bitacoraBLL.Alta(bitacoraBE);
 
             }
@@ -197,6 +204,12 @@ namespace VisionTFI
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void LimpiarCombos()
+        {
+            txt_usuario.Text = "";
+            txt_pass.Text = "";
         }
     }
 }

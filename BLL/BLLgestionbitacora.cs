@@ -49,5 +49,15 @@ namespace BLL
         {
             throw new NotImplementedException();
         }
+
+        List<BEgestionbitacora> ICRUd<BEgestionbitacora>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEgestionbitacora> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

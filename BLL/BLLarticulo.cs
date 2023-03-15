@@ -48,5 +48,15 @@ namespace BLL
         {
             return DAL.DALarticulo.GetInstancia().Modificar(itemModifica);
         }
+
+        List<BEarticulo> ICRUd<BEarticulo>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEarticulo> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -295,5 +295,15 @@ namespace BLL
 
             return userNoMiembro;
         }
+
+        List<BEusuario> ICRUd<BEusuario>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEusuario> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

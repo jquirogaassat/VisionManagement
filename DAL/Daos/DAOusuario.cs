@@ -40,5 +40,15 @@ namespace DAL.Daos
         {
             throw new NotImplementedException();
         }
+
+        List<BEusuario> ICRUd<BEusuario>.Listar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<BEusuario> Lista()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -44,8 +44,9 @@
             this.lbl_telefono = new System.Windows.Forms.Label();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_modificar = new System.Windows.Forms.Button();
-            this.btn_baja = new System.Windows.Forms.Button();
+            this.lbl_situacion = new System.Windows.Forms.Label();
+            this.cmb_situacion = new System.Windows.Forms.ComboBox();
+            this.lbl_tipoproceso = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_nombre
@@ -168,10 +169,11 @@
             this.btn_salir.TabIndex = 40;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(395, 434);
+            this.btn_guardar.Location = new System.Drawing.Point(659, 434);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(119, 40);
             this.btn_guardar.TabIndex = 41;
@@ -179,31 +181,40 @@
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // btn_modificar
+            // lbl_situacion
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(551, 434);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(119, 40);
-            this.btn_modificar.TabIndex = 44;
-            this.btn_modificar.Text = "Modificar";
-            this.btn_modificar.UseVisualStyleBackColor = true;
+            this.lbl_situacion.AutoSize = true;
+            this.lbl_situacion.Location = new System.Drawing.Point(455, 367);
+            this.lbl_situacion.Name = "lbl_situacion";
+            this.lbl_situacion.Size = new System.Drawing.Size(57, 13);
+            this.lbl_situacion.TabIndex = 42;
+            this.lbl_situacion.Text = "Situacion :";
             // 
-            // btn_baja
+            // cmb_situacion
             // 
-            this.btn_baja.Location = new System.Drawing.Point(702, 434);
-            this.btn_baja.Name = "btn_baja";
-            this.btn_baja.Size = new System.Drawing.Size(119, 40);
-            this.btn_baja.TabIndex = 45;
-            this.btn_baja.Text = "Eliminar";
-            this.btn_baja.UseVisualStyleBackColor = true;
+            this.cmb_situacion.FormattingEnabled = true;
+            this.cmb_situacion.Location = new System.Drawing.Point(511, 364);
+            this.cmb_situacion.Name = "cmb_situacion";
+            this.cmb_situacion.Size = new System.Drawing.Size(250, 21);
+            this.cmb_situacion.TabIndex = 43;
+            // 
+            // lbl_tipoproceso
+            // 
+            this.lbl_tipoproceso.AutoSize = true;
+            this.lbl_tipoproceso.Location = new System.Drawing.Point(30, 51);
+            this.lbl_tipoproceso.Name = "lbl_tipoproceso";
+            this.lbl_tipoproceso.Size = new System.Drawing.Size(58, 13);
+            this.lbl_tipoproceso.TabIndex = 44;
+            this.lbl_tipoproceso.Text = "                 ";
             // 
             // ABMcliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 576);
-            this.Controls.Add(this.btn_baja);
-            this.Controls.Add(this.btn_modificar);
+            this.Controls.Add(this.lbl_tipoproceso);
+            this.Controls.Add(this.cmb_situacion);
+            this.Controls.Add(this.lbl_situacion);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.txt_telefono);
@@ -222,6 +233,7 @@
             this.Controls.Add(this.lbl_nombre);
             this.Name = "ABMcliente";
             this.Text = "Vision Management/ ABM clientes";
+            this.Load += new System.EventHandler(this.ABMcliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +256,8 @@
         private System.Windows.Forms.Label lbl_telefono;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_modificar;
-        private System.Windows.Forms.Button btn_baja;
+        private System.Windows.Forms.Label lbl_situacion;
+        private System.Windows.Forms.ComboBox cmb_situacion;
+        private System.Windows.Forms.Label lbl_tipoproceso;
     }
 }
