@@ -17,7 +17,7 @@ namespace DAL
             string query = "";
             query = @"update dvv set dvv=" + dvv + @" where idTabla=" + idTabla;
             return sqlHelper.ExecuteQuery(query);
-        }
+        }  // generico
 
         public int CalcularDVH(DataTable dt, int id = 0)
         {
@@ -36,7 +36,7 @@ namespace DAL
                 sumaASCII += (Encoding.ASCII.GetBytes(str0.ToString())[i]) * i;
             }
             return sumaASCII;
-        }
+        }  // generico
 
 
         public int CalcularDVV(string nombreTabla)
@@ -47,7 +47,7 @@ namespace DAL
                                                             + nombreTabla + " else select 0";
 
             return sqlHelper.ExecuteQueryPRUEBA(query);
-        }
+        } // generico
 
         public int CalcularDVVb(string nombreTabla)
         {
@@ -57,19 +57,35 @@ namespace DAL
                                                             + nombreTabla + " else select 0";
 
             return sqlHelper.ExecuteQueryPRUEBA(query);
-        }
+        } // bitacora
+
+        public int CalcularDVVa (string nombreTabla)
+        {
+            string idCampo = "idArticulo";
+            string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
+                                                            + nombreTabla + " else select 0";
+           // string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from" + nombreTabla + "else select 0";
+            return sqlHelper.ExecuteQueryPRUEBA(query);
+        }  // articulo
 
         public bool CargarDVH(string nombreTabla, int id, int dvh)
         {
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
             return sqlHelper.ExecuteQuery(query);
-        }
+        }  // generico
 
         public bool CargarDVHb(string nombreTabla, int id, int dvh)
         {
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBitacora" + "=" + id;
             return sqlHelper.ExecuteQuery(query);
-        }
+        }  // bitacora
+
+        public bool CargarDVHa(string nombreTabla, int id, int dvh)
+        {
+            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idArticulo" + "=" + id;
+            //string query= @"update" + nombreTabla + " set dvh = " + dvh + "where idArticulo" + "=" + id;
+            return sqlHelper.ExecuteQuery(query);
+        }  // articulo
 
         public void ArreglarDigitos(List<string> nombreTabla, List<BE.BEtabla> tablas)
         {
@@ -113,7 +129,7 @@ namespace DAL
             string query;
 
             List<string> nombresTablas = new List<string>();
-            nombresTablas.Add("BITACORA");
+            nombresTablas.Add("BITTACORA");
             nombresTablas.Add("USUARIO");
             nombresTablas.Add("USUARIO-PERMISO");
             nombresTablas.Add("PERMISO-PERMISO");

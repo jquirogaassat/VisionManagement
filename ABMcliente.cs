@@ -99,6 +99,7 @@ namespace VisionTFI
 
         private void AltaCliente()
         {
+
             clienteBE.Nombre = txt_nombre.Text;
             clienteBE.Apellido = txt_apellido.Text;
             clienteBE.Cuit = txt_cuit.Text;
@@ -109,7 +110,7 @@ namespace VisionTFI
 
             bool resultado = clienteBLL.Alta(clienteBE);
 
-            if(resultado)
+            if (resultado)
             {
                 MessageBox.Show("Cliente dado de alta.");
                 Hide();

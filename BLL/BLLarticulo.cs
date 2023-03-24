@@ -9,23 +9,23 @@ namespace BLL
 {
     public class BLLarticulo : BE.ICRUd<BE.BEarticulo>
     {
-        #region singleton
-        private BLLarticulo()
-        {
+        //#region singleton
+        //private BLLarticulo()
+        //{
 
-        }
+        //}
 
-        private static BLLarticulo instancia;
+        //private static BLLarticulo instancia;
 
-        public static BLLarticulo GetInstancia()
-        {
-            if (instancia == null)
-            {
-                instancia = new BLLarticulo();
-            }
-            return instancia;
-        } 
-        #endregion
+        //public static BLLarticulo GetInstancia()
+        //{
+        //    if (instancia == null)
+        //    {
+        //        instancia = new BLLarticulo();
+        //    }
+        //    return instancia;
+        //} 
+        //#endregion
 
 
 
@@ -39,7 +39,7 @@ namespace BLL
             return DAL.DALarticulo.GetInstancia().Baja(itemBaja);
         }
 
-        public IList<BEarticulo> Listar()
+        public List<BEarticulo> Listar()
         {
             return DAL.DALarticulo.GetInstancia().Listar();
         }

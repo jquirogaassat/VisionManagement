@@ -33,27 +33,26 @@ namespace DAL
         #endregion
 
 
-        DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
+        
         SqlHelper sqlHelper = new SqlHelper();
 
         public bool Alta(BEarticulo itemAlta)
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("cantidad", itemAlta.Cantidad),
-                new SqlParameter("color", itemAlta.Color),
                 new SqlParameter("nombre", itemAlta.Nombre),
+                new SqlParameter("color", itemAlta.Color),
                 new SqlParameter("origen", itemAlta.Origen),
-                new SqlParameter("peso", itemAlta.Peso),
-                new SqlParameter("tamaño",itemAlta.Tamanio)
+                new SqlParameter("cantidad", itemAlta.Cantidad),                
+                new SqlParameter("precio",itemAlta.precio)
             };
 
             int nuevoId = sqlHelper.ExecuteQueryPRUEBA("articuloInsert", parameters);
-
+            DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
             int dvh = dvDal.CalcularDVH(consultarArticuloDT(nuevoId), 0);
-            dvDal.CargarDVH("ARTICULO", nuevoId, dvh);
-            int dvv = dvDal.CalcularDVV("ARTICULO");
-            DAL.DALarticulo articuloDal= new DALarticulo();
+            dvDal.CargarDVHa("Articulo1", nuevoId, dvh);
+            int dvv = dvDal.CalcularDVVa("Articulo1");
+            //DAL.DALarticulo articuloDal= new DALarticulo();
 
             dvDal.CargarDVV(0, dvv);
 
@@ -72,7 +71,15 @@ namespace DAL
 
         public List<BEarticulo> Listar()
         {
-            throw new NotImplementedException();
+            SqlParameter[] parametros = new SqlParameter[] { };
+            DataTable dt = sqlHelper.ExecuteReader("articuloSelect", parametros);
+            List<BEarticulo> articulos = new List<BEarticulo>();
+            Mappers.MParticulo map = new Mappers.MParticulo();
+            foreach(DataRow row in dt.Rows)
+            {
+                articulos.Add(map.Map(row));
+            }
+            return articulos;
         }
 
 
@@ -81,7 +88,7 @@ namespace DAL
             SqlHelper sqlHelper = new SqlHelper();
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("id",idArticulo),
+                new SqlParameter("idArticulo",idArticulo),
             };
 
             DataTable dt = sqlHelper.ExecuteReader("articuloConsulta", parametros);

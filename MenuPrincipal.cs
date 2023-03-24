@@ -91,7 +91,7 @@ namespace VisionTFI
 
         private void aBMToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarArticulo);
         }
     }
 }

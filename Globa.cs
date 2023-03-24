@@ -29,6 +29,7 @@ namespace VisionTFI
         public static ABMcliente ABMcliente = new ABMcliente();
         public static GestionarSocio GestionarCliente = new GestionarSocio();// cliente
         public static ABMarticulos ABMarticulos = new ABMarticulos();
+        public static GestionarArticulo GestionarArticulo = new GestionarArticulo();
 
 
             

@@ -46,11 +46,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(151, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(433, 85);
+            this.label1.Size = new System.Drawing.Size(351, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alta Articulo";
             // 
@@ -142,6 +142,7 @@
             this.btn_guardar.TabIndex = 11;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_salir
             // 
@@ -151,6 +152,7 @@
             this.btn_salir.TabIndex = 12;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // ABMarticulos
             // 
@@ -172,6 +174,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ABMarticulos";
             this.Text = "Vision Management / ABM articulos";
+            this.Load += new System.EventHandler(this.ABMarticulos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
