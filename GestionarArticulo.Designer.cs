@@ -73,6 +73,7 @@
             this.dg_articulo.Name = "dg_articulo";
             this.dg_articulo.Size = new System.Drawing.Size(763, 291);
             this.dg_articulo.TabIndex = 11;
+            this.dg_articulo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dg_articulo_MouseClick_1);
             // 
             // btn_salir
             // 
@@ -92,6 +93,7 @@
             this.btn_quitar.TabIndex = 14;
             this.btn_quitar.Text = "Eliminar articulo";
             this.btn_quitar.UseVisualStyleBackColor = true;
+            this.btn_quitar.Click += new System.EventHandler(this.btn_quitar_Click);
             // 
             // btn_modificar
             // 
@@ -101,6 +103,7 @@
             this.btn_modificar.TabIndex = 13;
             this.btn_modificar.Text = "Modificar articulo";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_agregar
             // 

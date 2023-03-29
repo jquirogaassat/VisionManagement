@@ -74,7 +74,21 @@ namespace DAL
 
         public bool Modificar(BEcliente itemModifica)
         {
-            throw new NotImplementedException();
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("idCliente",itemModifica.IdCliente),
+                new SqlParameter("apellido", itemModifica.Apellido),
+                new SqlParameter("nombre", itemModifica.Nombre),
+                new SqlParameter("cuit",itemModifica.Cuit),
+                new SqlParameter("mail", itemModifica.Email),
+                new SqlParameter("direccion",itemModifica.Direccion),
+                new SqlParameter("localidad",itemModifica.Localidad),
+                new SqlParameter("telefono",itemModifica.Telefono),
+
+            };
+            bool resultado = helper.ExecuteQuery("clienteUpdate", parametros);
+
+            return resultado;
         }
     }
 }

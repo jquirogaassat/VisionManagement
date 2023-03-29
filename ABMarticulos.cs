@@ -83,7 +83,7 @@ namespace VisionTFI
                 Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarArticulo);
 
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 MessageBox.Show("Error el articulo no se pudo dar de alta");
                 this.Hide();
@@ -118,26 +118,39 @@ namespace VisionTFI
 
         private void ModificarArticulo()
         {
-            Globa.articuloBE.Nombre = txt_nombre.Text;
-            Globa.articuloBE.Cantidad = Int32.Parse(txt_cantidad.Text);
-            Globa.articuloBE.Origen = txt_origen.Text;
-            Globa.articuloBE.precio = txt_precio.Text;
-            Globa.articuloBE.Color = txt_color.Text;
 
-            bool resultado = articuloBLL.Modificar(Globa.articuloBE);
-            if (resultado)
+            try
             {
+                Globa.articuloBE.Nombre = txt_nombre.Text;
+                Globa.articuloBE.Cantidad = Int32.Parse(txt_cantidad.Text);
+                Globa.articuloBE.Origen = txt_origen.Text;
+                Globa.articuloBE.precio = txt_precio.Text;
+                Globa.articuloBE.Color = txt_color.Text;
+
+                articuloBLL.Modificar(Globa.articuloBE);
                 MessageBox.Show("El articulo ha sido modificado!");
                 Hide();
                 Globa.GestionarArticulo = new GestionarArticulo();
                 Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarArticulo);
             }
-            else
+            catch (Exception)
             {
                 MessageBox.Show("Error, no se pudo modificar el articulo seleccionado.");
-                this.Close();
-
+                this.Close();                
             }
+          
+
+            //bool resultado = articuloBLL.Modificar(Globa.articuloBE);
+            //if (resultado)
+            //{
+                
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error, no se pudo modificar el articulo seleccionado.");
+            //    this.Close();
+
+            //}
 
 
         }
@@ -184,5 +197,7 @@ namespace VisionTFI
             Globa.GestionarArticulo.Show();
             Hide();
         }
+
+
     }
 }

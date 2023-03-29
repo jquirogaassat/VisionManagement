@@ -96,7 +96,7 @@
             this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             // 
             // aBMToolStripMenuItem
@@ -111,13 +111,13 @@
             this.articuloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMToolStripMenuItem1});
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
-            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.articuloToolStripMenuItem.Text = "Articulo";
             // 
             // aBMToolStripMenuItem1
             // 
             this.aBMToolStripMenuItem1.Name = "aBMToolStripMenuItem1";
-            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.aBMToolStripMenuItem1.Text = "ABM";
             this.aBMToolStripMenuItem1.Click += new System.EventHandler(this.aBMToolStripMenuItem1_Click);
             // 
@@ -127,7 +127,7 @@
             this.notaCréditoToolStripMenuItem,
             this.notaDébitoToolStripMenuItem});
             this.notaCreditodebitoToolStripMenuItem.Name = "notaCreditodebitoToolStripMenuItem";
-            this.notaCreditodebitoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notaCreditodebitoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.notaCreditodebitoToolStripMenuItem.Text = "Nota credito/debito";
             // 
             // notaCréditoToolStripMenuItem
@@ -160,6 +160,7 @@
             this.comprobarIntegridadToolStripMenuItem.Name = "comprobarIntegridadToolStripMenuItem";
             this.comprobarIntegridadToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.comprobarIntegridadToolStripMenuItem.Text = "Comprobar integridad";
+            this.comprobarIntegridadToolStripMenuItem.Click += new System.EventHandler(this.comprobarIntegridadToolStripMenuItem_Click);
             // 
             // realizarBackupToolStripMenuItem
             // 
@@ -284,6 +285,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "MenuPrincipal";
             this.Text = "Vision Management/ Menu principal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel.ResumeLayout(false);

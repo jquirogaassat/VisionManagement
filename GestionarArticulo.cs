@@ -48,8 +48,13 @@ namespace VisionTFI
             dg_articulo.EditMode = DataGridViewEditMode.EditProgrammatically;
             dg_articulo.MultiSelect = false;
             dg_articulo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dg_articulo.Columns[4].Visible = false;
 
-
+            dg_articulo.Columns[0].HeaderText = "Nombre";
+            dg_articulo.Columns[1].HeaderText = "Color";
+            dg_articulo.Columns[2].HeaderText= "Origen";
+            dg_articulo.Columns[3].HeaderText = "Cantidad";
+            dg_articulo.Columns[5].HeaderText = "Precio";
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
@@ -64,6 +69,30 @@ namespace VisionTFI
         {
             Hide();
 
+        }
+      
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Globa.tipoProceso = "MODIFICACION";
+            ABMarticulos aBMarticulos =new ABMarticulos();
+            Globa.menuPrincipal.AbrirFormHijo(aBMarticulos);
+        }
+
+        private void dg_articulo_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            var row = dg_articulo.SelectedRows[0];
+            Globa.articuloBE = (BE.BEarticulo)row.DataBoundItem;
+        }
+
+        private void btn_quitar_Click(object sender, EventArgs e)
+        {
+            var row = dg_articulo.SelectedRows[0];
+            BE.BEarticulo articuloBE = (BE.BEarticulo)row.DataBoundItem;
+            articuloBLL.Baja(articuloBE);
+            ActualizarGrillaArticulos();
+            MessageBox.Show("Articulo eliminado!");
         }
     }
 }

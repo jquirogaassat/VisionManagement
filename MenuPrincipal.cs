@@ -93,5 +93,30 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarArticulo);
         }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            this.Focus();
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+        }
+
+        private void comprobarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BLL.BLLdigitoverificador dvbll = new BLL.BLLdigitoverificador();
+            Globa.errores = dvbll.ComprobarIntegridad();
+
+
+            if(Globa.errores.Count >0)
+            {
+                Inicio inicio = new Inicio();
+                inicio.Show();
+            }
+            else
+            {
+                MessageBox.Show("Comprobacion de integridad correcta!.");
+
+            }
+        }
     }
 }

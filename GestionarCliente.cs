@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace VisionTFI
 {
@@ -103,6 +104,20 @@ namespace VisionTFI
             bEgestionbitacora.Descripcion = encriptadora.encriptarAES(bEgestionbitacora.Descripcion);
             bEgestionbitacora.Criticidad = "Alta";
 
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Globa.tipoProceso = "Modificacion";
+            ABMcliente aBMclienteModificar = new ABMcliente();            
+            Globa.menuPrincipal.AbrirFormHijo(aBMclienteModificar);
+        }
+
+        private void dg_clientes_MouseClick(object sender, MouseEventArgs e)
+        {
+            var row = dg_clientes.SelectedRows[0];
+            Globa.cllienteBE = (BE.BEcliente)row.DataBoundItem;
         }
     }
 }

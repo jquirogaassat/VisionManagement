@@ -31,7 +31,7 @@ namespace VisionTFI
         public void AdaptarFormularioToAlta()
         {
             lbl_tipoproceso.Text = "Alta de cliente";
-            btn_salir.Visible = false;
+            btn_salir.Visible = true;
             btn_guardar.Visible = true;
             //btn_baja.Visible = false;
 
@@ -39,10 +39,10 @@ namespace VisionTFI
 
         public void AdaptarFormularioToModificacion()
         {
-            btn_salir.Enabled = false;
-            btn_salir.Visible = false;
+           // btn_salir.Enabled = false;
+           // btn_salir.Visible = false;
 
-
+            
             txt_nombre.Text= Globa.cllienteBE.Nombre;
             txt_apellido.Text = Globa.cllienteBE.Apellido;
             txt_cuit.Text = Globa.cllienteBE.Cuit;
@@ -72,7 +72,7 @@ namespace VisionTFI
         }
 
         private void ModificarCliente()
-        {
+        {            
             Globa.cllienteBE.Nombre = txt_nombre.Text;
             Globa.cllienteBE.Apellido = txt_apellido.Text;
             Globa.cllienteBE.Cuit = txt_cuit.Text;
@@ -133,11 +133,27 @@ namespace VisionTFI
 
         private void ABMcliente_Load(object sender, EventArgs e)
         {
+            //this.Focus();
+            //Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
+            //BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
+
+            if(Globa.tipoProceso == "Alta")
+            {
+                AdaptarFormularioToAlta();
+            }
+            if (Globa.tipoProceso == "Modificacion")
+            {
+
+                AdaptarFormularioToModificacion();
+            }
+                
             var s = Enum.GetValues(typeof(BE.Enum.Situacion.Situacion));
             foreach (var item in s )
             {
                 cmb_situacion.Items.Add(item);
             }
+
+
         }
     }
 }

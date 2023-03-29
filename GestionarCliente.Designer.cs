@@ -47,6 +47,7 @@
             this.dg_clientes.Name = "dg_clientes";
             this.dg_clientes.Size = new System.Drawing.Size(763, 291);
             this.dg_clientes.TabIndex = 0;
+            this.dg_clientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dg_clientes_MouseClick);
             // 
             // btn_agregar
             // 
@@ -66,6 +67,7 @@
             this.btn_modificar.TabIndex = 2;
             this.btn_modificar.Text = "Modificar cliente";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_quitar
             // 

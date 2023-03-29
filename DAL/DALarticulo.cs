@@ -61,12 +61,39 @@ namespace DAL
 
         public bool Baja(BEarticulo itemBaja)
         {
-            throw new NotImplementedException();
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("idArticulo",itemBaja.Id),
+            };
+            bool resultado = sqlHelper.ExecuteQuery("articuloBajaLogica", parametros);
+
+            if(resultado)
+            {
+                return true;
+            }
+
+            return (resultado);
+            //throw new NotImplementedException();
         }
 
         public bool Modificar(BEarticulo itemModifica)
         {
-            throw new NotImplementedException();
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("idArticulo", itemModifica.Id),
+                new SqlParameter("nombre", itemModifica.Nombre),
+                new SqlParameter("color", itemModifica.Color),
+                new SqlParameter("origen", itemModifica.Origen),
+                new SqlParameter("cantidad", itemModifica.Cantidad),
+                new SqlParameter("precio",itemModifica.precio)
+            };
+
+            sqlHelper.ExecuteQuery("articuloUpdate", parametros);
+            DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
+            int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id),0);
+            dvDal.CargarDVHa("Articulo1", itemModifica.Id, dvh);
+            int dvv = dvDal.CalcularDVVa("Articulo1");
+            return dvDal.CargarDVV(0, dvv);
         }
 
         public List<BEarticulo> Listar()

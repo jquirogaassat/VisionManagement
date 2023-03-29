@@ -163,7 +163,7 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(854, 434);
+            this.btn_salir.Location = new System.Drawing.Point(911, 434);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(119, 40);
             this.btn_salir.TabIndex = 40;
@@ -173,7 +173,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(659, 434);
+            this.btn_guardar.Location = new System.Drawing.Point(767, 434);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(119, 40);
             this.btn_guardar.TabIndex = 41;
@@ -201,9 +201,11 @@
             // lbl_tipoproceso
             // 
             this.lbl_tipoproceso.AutoSize = true;
-            this.lbl_tipoproceso.Location = new System.Drawing.Point(30, 51);
+            this.lbl_tipoproceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tipoproceso.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_tipoproceso.Location = new System.Drawing.Point(579, 37);
             this.lbl_tipoproceso.Name = "lbl_tipoproceso";
-            this.lbl_tipoproceso.Size = new System.Drawing.Size(58, 13);
+            this.lbl_tipoproceso.Size = new System.Drawing.Size(207, 46);
             this.lbl_tipoproceso.TabIndex = 44;
             this.lbl_tipoproceso.Text = "                 ";
             // 
