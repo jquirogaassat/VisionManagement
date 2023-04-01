@@ -118,5 +118,10 @@ namespace VisionTFI
 
             }
         }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(Globa.restore);
+        }
     }
 }

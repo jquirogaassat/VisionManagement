@@ -174,6 +174,7 @@
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
             this.restoreToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 

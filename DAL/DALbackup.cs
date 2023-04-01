@@ -174,12 +174,16 @@ namespace DAL
 
         public string Restore( BE.BEbackup bEbackup)
         {
+            string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string db = connection.Database;
             int parte = 1;
-            qwery = @"use master ; ALTER DATABASAE VisionManagement SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE VisionManagement ";
+            qwery = @"use master; ALTER DATABASE " + db + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE " + db + " ";
+            //@"use master ; ALTER DATABASAE VisionManagement SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE VisionManagement ";
 
-            if(bEbackup.Particiones==1)
+            if (bEbackup.Particiones==1)
             {
-                qwery = qwery + @"FROM DISK = '" + bEbackup.Ubicacion + bEbackup.Nombre + @".bak";
+                qwery = qwery + @"FROM DISK = '" + bEbackup.Ubicacion + bEbackup.Nombre + @".bak'";
             }
             else
             {
@@ -187,11 +191,11 @@ namespace DAL
                 {
                     if(parte == 1)
                     {
-                        qwery = qwery + @"FROM DISK= '" + bEbackup.Ubicacion + bEbackup.Nombre +"_" + parte + @".bak";
+                        qwery = qwery + @"FROM DISK= '" + bEbackup.Ubicacion + bEbackup.Nombre +"_" + parte + @".bak'";
                     }
                     else
                     {
-                        qwery = qwery + @",DISK ='" + bEbackup.Ubicacion + bEbackup.Nombre + "_" + parte + @".bak";
+                        qwery = qwery + @",DISK ='" + bEbackup.Ubicacion + bEbackup.Nombre + "_" + parte + @".bak'";
                     }
                     parte++;
                 }
