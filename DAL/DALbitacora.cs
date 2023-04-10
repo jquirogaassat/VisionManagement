@@ -52,6 +52,45 @@ namespace DAL
 
         public List<BE.BEgestionbitacora> Consulta (DateTime fechaDesde, DateTime fechaHasta, BE.BEusuario usuario, string orden, string criticidad)
         {
+
+            if(usuario.usuario == null && criticidad =="")
+            {
+                SqlParameter[] parametros = new SqlParameter[]
+                {
+                    new SqlParameter("fechaDesde",fechaDesde),
+                    new SqlParameter("fechaHasta",fechaHasta),
+                    new SqlParameter("orden",orden),
+                };
+                DataTable data1 = sqlHelper.ExecuteReader("bitacoraConsultaA", parametros);
+                List<BE.BEgestionbitacora> bitacoraA = new List<BEgestionbitacora>();
+                Mappers.MPbitacora mappA = new Mappers.MPbitacora();
+                foreach (DataRow row in data1.Rows)
+                {
+                    bitacoraA.Add(mappA.Map(row));
+                }
+                return bitacoraA;
+            }
+            else
+            {
+                if(usuario.usuario== null)
+                {
+                    SqlParameter[] parametros1 = new SqlParameter[]
+                    {
+                        new SqlParameter("fechaDesde",fechaDesde),
+                        new SqlParameter("fechaHasta",fechaHasta),
+                        new SqlParameter("nivelCriticidad",criticidad),
+                        new SqlParameter("orden",orden),
+                    };
+                    DataTable data2 = sqlHelper.ExecuteReader("bitacoraConsultaB", parametros1);
+                    List<BE.BEgestionbitacora> bitacoraB = new List<BEgestionbitacora>();
+                    Mappers.MPbitacora mappB = new Mappers.MPbitacora();
+                    foreach(DataRow row in data2.Rows)
+                    {
+                        bitacoraB.Add(mappB.Map(row));
+                    }
+                    return bitacoraB;
+                }
+            }
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("idUsuario",usuario.IdUsuario),

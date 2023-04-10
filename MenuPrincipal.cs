@@ -99,6 +99,9 @@ namespace VisionTFI
             this.Focus();
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            Globa.nivelCriticidad.Add("ALTO");
+            Globa.nivelCriticidad.Add("MEDIO");
+            Globa.nivelCriticidad.Add("BAJO");
         }
 
         private void comprobarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +125,11 @@ namespace VisionTFI
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(Globa.restore);
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarBitacora());
         }
     }
 }

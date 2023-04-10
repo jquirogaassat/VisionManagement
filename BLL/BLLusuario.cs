@@ -27,7 +27,8 @@ namespace BLL
 
         public IList<BEusuario> Listar()
         {
-            throw new NotImplementedException();
+            return usuarioDAL.Listar();
+            //throw new NotImplementedException();
         }
 
         public List<BE.BEusuario> Consulta()

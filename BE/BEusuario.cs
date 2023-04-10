@@ -57,7 +57,10 @@ namespace BE
        // public BEidioma Idioma { get; set; }
        
 
-       
+       public string ApellidoNombre
+        {
+            get { return Apellido +","+ Nombre; }
+        }
 
 
         private List<IObserverForm> _formularios;
