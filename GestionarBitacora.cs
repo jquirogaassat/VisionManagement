@@ -54,18 +54,21 @@ namespace VisionTFI
             dgv_bitacora.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv_bitacora.MultiSelect = false;
             dgv_bitacora.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgv_bitacora.Columns[3].Visible= false;
+            //dgv_bitacora.Columns[4].Visible = false;
 
 
             dgv_bitacora.DataSource = BLLgestionbitacora.Consulta(desde, hasta, usuarioBE, orden, criticidad);
 
-            dgv_bitacora.Columns[0].HeaderText = "Id Bitacora";
-            dgv_bitacora.Columns[1].HeaderText = "Id Patente";
+            dgv_bitacora.Columns[0].HeaderText = "Descripcion";
+            dgv_bitacora.Columns[1].HeaderText = "Nivel de criticidad";
             dgv_bitacora.Columns[2].HeaderText = "Id Usuario";
-            dgv_bitacora.Columns[3].HeaderText = "Fecha y hora";
-            dgv_bitacora.Columns[4].HeaderText = "Nivel de criticidad";
-            dgv_bitacora.Columns[5].HeaderText = "Descripcion";
-
-
+            //dgv_bitacora.Columns[3].HeaderText = "Fecha y hora";
+            //dgv_bitacora.Columns[4].HeaderText = "Nivel de criticidad";
+            dgv_bitacora.Columns[5].HeaderText = "Fecha y hora";
+            dgv_bitacora.Columns[3].Visible= false;
+            dgv_bitacora.Columns[4].Visible = false;
+            dgv_bitacora.Columns[6].Visible = false;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)

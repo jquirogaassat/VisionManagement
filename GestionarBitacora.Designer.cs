@@ -156,7 +156,7 @@
             // 
             // btn_imprimir
             // 
-            this.btn_imprimir.Location = new System.Drawing.Point(957, 513);
+            this.btn_imprimir.Location = new System.Drawing.Point(896, 358);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(123, 31);
             this.btn_imprimir.TabIndex = 44;
@@ -165,15 +165,17 @@
             // 
             // dgv_bitacora
             // 
+            this.dgv_bitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_bitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_bitacora.Location = new System.Drawing.Point(12, 234);
             this.dgv_bitacora.Name = "dgv_bitacora";
-            this.dgv_bitacora.Size = new System.Drawing.Size(1137, 262);
+            this.dgv_bitacora.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_bitacora.Size = new System.Drawing.Size(846, 262);
             this.dgv_bitacora.TabIndex = 45;
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(1097, 513);
+            this.btn_cancelar.Location = new System.Drawing.Point(1036, 358);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(123, 31);
             this.btn_cancelar.TabIndex = 46;

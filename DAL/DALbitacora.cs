@@ -90,25 +90,48 @@ namespace DAL
                     }
                     return bitacoraB;
                 }
+                else
+                {
+                    if(criticidad == "")
+                    {
+                        SqlParameter[] parametros2 = new SqlParameter[]
+                        {
+                            new SqlParameter("idUsuario",usuario.IdUsuario),
+                            new SqlParameter("fechaDesde",fechaDesde),
+                            new SqlParameter("fechaHasta",fechaHasta),
+                            new SqlParameter("orden",orden)
+                        };
+                        DataTable data3 = sqlHelper.ExecuteReader("bitacoraConsultaC", parametros2);
+                        List<BE.BEgestionbitacora> bitacoraC = new List<BEgestionbitacora>();
+                        Mappers.MPbitacora mappC = new Mappers.MPbitacora();
+                        foreach(DataRow row in data3.Rows)
+                        {
+                            bitacoraC.Add(mappC.Map(row));
+                        }
+                        return bitacoraC;   
+                    }
+                    else
+                    {
+                        SqlParameter[] parameters = new SqlParameter[]
+                        {
+                             new SqlParameter("idUsuario",usuario.IdUsuario),
+                             new SqlParameter("fechaDesde",fechaDesde),
+                             new SqlParameter("fechaHasta",fechaHasta),
+                             new SqlParameter("nivelCriticidad",criticidad),
+                             new SqlParameter("orden",orden),
+                        };
+                        DataTable data = sqlHelper.ExecuteReader("bitacoraConsultar", parameters);
+                        List<BE.BEgestionbitacora> bitacora = new List<BEgestionbitacora>();
+                        Mappers.MPbitacora mapp = new Mappers.MPbitacora();
+                        foreach (DataRow row in data.Rows)
+                        {
+                            bitacora.Add(mapp.Map(row));
+                        }
+                        return bitacora;
+                    }
+                }
             }
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("idUsuario",usuario.IdUsuario),
-                new SqlParameter("fechaDesde",fechaDesde),
-                new SqlParameter("fechaHasta",fechaHasta),
-                new SqlParameter("nivelCriticidad",criticidad),
-                new SqlParameter("orden",orden),
-            };
-
-            DataTable data = sqlHelper.ExecuteReader("bitacoraConsultar", parameters);
-            List<BE.BEgestionbitacora> bitacora = new List<BEgestionbitacora>();
-            Mappers.MPbitacora mapp = new Mappers.MPbitacora();
-
-            foreach(DataRow row in data.Rows)
-            {
-                bitacora.Add(mapp.Map(row));
-            }
-            return bitacora;
+            
         }
 
 
