@@ -61,6 +61,7 @@
     <Compile Include="BEpedido.cs" />
     <Compile Include="BEpermiso.cs" />
     <Compile Include="BEreclamo.cs" />
+    <Compile Include="BEreporte.cs" />
     <Compile Include="BEreusltadoLog.cs" />
     <Compile Include="BEtabla.cs" />
     <Compile Include="BEtipoPermiso.cs" />

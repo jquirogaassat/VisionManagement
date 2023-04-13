@@ -40,9 +40,9 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public IList<BEgestionbitacora> Listar()
+        public List<BEgestionbitacora> Listar(DateTime desde, DateTime hasta, string usuario,string criticidad, bool ordFecha, bool ordUsuario, bool ordCriticidad, bool fechaDesc, bool usuarioDes, bool criticidadDesc)
         {
-            throw new NotImplementedException();
+            return DALbitacora.Listar(desde, hasta, usuario, criticidad, ordFecha, ordUsuario, ordCriticidad, fechaDesc, usuarioDes, criticidadDesc);
         }
 
         public bool Modificar(BEgestionbitacora itemModifica)

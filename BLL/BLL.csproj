@@ -58,6 +58,7 @@
     <Compile Include="BLLpedido.cs" />
     <Compile Include="BLLpermiso.cs" />
     <Compile Include="BLLreclamo.cs" />
+    <Compile Include="BLLreporte.cs" />
     <Compile Include="BLLsesion.cs" />
     <Compile Include="BLLusuario.cs" />
     <Compile Include="Globales.cs" />

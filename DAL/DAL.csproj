@@ -55,6 +55,7 @@
     <Compile Include="DALpedido.cs" />
     <Compile Include="DALpermiso.cs" />
     <Compile Include="DALreclamo.cs" />
+    <Compile Include="DALreporte.cs" />
     <Compile Include="DALusuario.cs" />
     <Compile Include="Daos\DAOarticulo.cs" />
     <Compile Include="Daos\DAObackup.cs" />

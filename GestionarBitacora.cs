@@ -54,17 +54,14 @@ namespace VisionTFI
             dgv_bitacora.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv_bitacora.MultiSelect = false;
             dgv_bitacora.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //dgv_bitacora.Columns[3].Visible= false;
-            //dgv_bitacora.Columns[4].Visible = false;
+           
 
 
             dgv_bitacora.DataSource = BLLgestionbitacora.Consulta(desde, hasta, usuarioBE, orden, criticidad);
 
             dgv_bitacora.Columns[0].HeaderText = "Descripcion";
             dgv_bitacora.Columns[1].HeaderText = "Nivel de criticidad";
-            dgv_bitacora.Columns[2].HeaderText = "Id Usuario";
-            //dgv_bitacora.Columns[3].HeaderText = "Fecha y hora";
-            //dgv_bitacora.Columns[4].HeaderText = "Nivel de criticidad";
+            dgv_bitacora.Columns[2].HeaderText = "Id Usuario";            
             dgv_bitacora.Columns[5].HeaderText = "Fecha y hora";
             dgv_bitacora.Columns[3].Visible= false;
             dgv_bitacora.Columns[4].Visible = false;
@@ -84,16 +81,12 @@ namespace VisionTFI
             cmb_nivelCriticidad.Items.Clear();
             RellenarCombos();
             btn_imprimir.Enabled = false;
-            //dgv_bitacora.DataSource = BLLgestionbitacora.Consulta();
-
-            // btn_buscar.Enabled = false;
+          
         }
 
         private void RellenarCombos()
         {
-            List<BE.BEusuario> usuarios =usuarioBLL.Consulta().Where(u => u.IsBlocked == "NO").ToList();
-            //usuarios = usuarioBLL.Listar().Where(u => u.IsBlocked == "NO").ToList();
-            //usuarios.Add(new BE.BEusuario());
+            List<BE.BEusuario> usuarios =usuarioBLL.Consulta().Where(u => u.IsBlocked == "NO").ToList();           
             cmb_usuario.DataSource = usuarios;            
             cmb_usuario.DisplayMember = "ApellidoNombre"; 
             cmb_nivelCriticidad.DataSource = Globa.nivelCriticidad;
@@ -107,6 +100,22 @@ namespace VisionTFI
                 btn_imprimir.Enabled = true;
                 
             }
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            BE.BEreporte reporteBE = new BEreporte();
+            BLL.BLLreporte reporteBLL = new BLL.BLLreporte();
+
+
+            reporteBE.usuario = usuarioBLL.ConsultarUsuario(BEcontroladorsesion.GetInstance.Usuario);
+            reporteBE.fechaCreacion = DateTime.Now;
+            reporteBE.idReporte = reporteBLL.Alta(reporteBE);
+
+            SaveFileDialog save = new SaveFileDialog();
+
+            save.FileName = DateTime.Now.ToString("yyyymmdd_hh_mm_ss") + ".pdf";
+           // string paginaHtml_text= Properties.Resources.plantilla.
         }
     }
 }
