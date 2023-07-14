@@ -13,6 +13,7 @@ namespace DAL
     {
         DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
         SqlHelper sqlHelper = new SqlHelper();
+        
 
         public bool Alta(BEusuario itemAlta)
         {
@@ -357,6 +358,13 @@ namespace DAL
         public IList<BEusuario> Lista()
         {
             throw new NotImplementedException();
+        }
+
+        public static int ObtenerId(string nombreUsuario)
+        {
+            SqlHelper helper = new SqlHelper();
+            string mCommandText = "SELECT * FROM USUARIO WHERE nombre = '" + nombreUsuario + "'";
+            return int.Parse(helper.ExecuteDataSet(mCommandText).Tables[0].Rows[0]["idUsuario"].ToString());
         }
     }
 }

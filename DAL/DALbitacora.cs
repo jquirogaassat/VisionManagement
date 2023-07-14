@@ -135,7 +135,7 @@ namespace DAL
         }
 
 
-        public List<BE.BEgestionbitacora>Consulta()
+        public List<BE.BEgestionbitacora>Consulta() // a este metodo tengo que llegar desde el reporte
         {
             SqlParameter[] parameters = new SqlParameter[]
                 {};
@@ -149,6 +149,8 @@ namespace DAL
             }
             return bitacoras;
         }
+
+  
 
         public bool Baja(BEgestionbitacora itemBaja)
         {
@@ -165,7 +167,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        List<BEgestionbitacora> ICRUd<BEgestionbitacora>.Listar()
+        public List<BEgestionbitacora> Listar()
         {
             throw new NotImplementedException();
         }

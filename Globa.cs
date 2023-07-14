@@ -31,7 +31,7 @@ namespace VisionTFI
         public static ABMarticulos ABMarticulos = new ABMarticulos();
         public static GestionarArticulo GestionarArticulo = new GestionarArticulo();
         public static Restore restore = new Restore();
-
+        public static Reporte reporte;
 
             
 

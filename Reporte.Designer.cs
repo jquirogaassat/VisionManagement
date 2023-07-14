@@ -33,22 +33,24 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(17, 12);
+            this.reportViewer1.AutoSize = true;
+            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1001, 380);
+            this.reportViewer1.Size = new System.Drawing.Size(1243, 435);
             this.reportViewer1.TabIndex = 0;
             // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 450);
+            this.ClientSize = new System.Drawing.Size(1287, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "Reporte";
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.Reporte_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

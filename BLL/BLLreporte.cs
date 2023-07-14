@@ -14,3 +14,4 @@ namespace BLL
             return reporteDAL.Alta(reporte);
         }
     }
+}

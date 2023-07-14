@@ -195,7 +195,31 @@ namespace DAL
             }
         }
 
+        public DataSet ExecuteDataSet(string CommandText)
+        {
+            using (SqlConnection conexion = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    SqlDataAdapter Adapter = new SqlDataAdapter(CommandText, conexion);
+                    DataSet ds = new DataSet();
+                    Adapter.Fill(ds);
+                    return (ds);
 
+            }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+                finally
+                {
+                    if(conexion.State != ConnectionState.Closed)
+                        conexion.Close();
+                }
+            }
+          
+        }
       
 
     }

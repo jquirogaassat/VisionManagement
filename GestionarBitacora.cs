@@ -17,9 +17,23 @@ namespace VisionTFI
          BLL.BLLgestionbitacora BLLgestionbitacora = new BLL.BLLgestionbitacora();
          BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
          string orden;
+
+
         public GestionarBitacora()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+        }
+
+        private void GestionarBitacora_Load(object sender, EventArgs e)
+        {
+            this.Focus();
+            dt_desde.Value = new DateTime(2000, 1, 1);
+            cmb_usuario.Items.Clear();
+            cmb_nivelCriticidad.Items.Clear();
+            RellenarCombos();
+            btn_imprimir.Enabled = false;
+
         }
 
         private void ValorizarBitacora (BE.BEgestionbitacora bitacoraBE)
@@ -73,16 +87,7 @@ namespace VisionTFI
             this.Hide();
         }
 
-        private void GestionarBitacora_Load(object sender, EventArgs e)
-        {
-            this.Focus();
-            dt_desde.Value = new DateTime(2000, 1, 1);
-            cmb_usuario.Items.Clear();
-            cmb_nivelCriticidad.Items.Clear();
-            RellenarCombos();
-            btn_imprimir.Enabled = false;
-          
-        }
+      
 
         private void RellenarCombos()
         {
@@ -104,18 +109,18 @@ namespace VisionTFI
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
-            BE.BEreporte reporteBE = new BEreporte();
-            BLL.BLLreporte reporteBLL = new BLL.BLLreporte();
 
-
-            reporteBE.usuario = usuarioBLL.ConsultarUsuario(BEcontroladorsesion.GetInstance.Usuario);
-            reporteBE.fechaCreacion = DateTime.Now;
-            reporteBE.idReporte = reporteBLL.Alta(reporteBE);
-
-            SaveFileDialog save = new SaveFileDialog();
-
-            save.FileName = DateTime.Now.ToString("yyyymmdd_hh_mm_ss") + ".pdf";
-           // string paginaHtml_text= Properties.Resources.plantilla.
+            DateTime Desde = dt_desde.Value;
+            DateTime Hasta = dt_hasta.Value;
+            usuarioBE = (BE.BEusuario)cmb_usuario.SelectedItem;
+            string criticidad = (string)cmb_nivelCriticidad.SelectedItem;
+            Reporte reporte= new Reporte(Desde,Hasta,usuarioBE,orden,criticidad);
+            //reporte.Show();
+            Globa.tipoProceso = "Alta";
+            //Reporte reporte = new Reporte();
+            Hide();
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporte);
+       
         }
     }
 }
