@@ -8,34 +8,7 @@ namespace BE
 {
     public class BEusuario :IUser
     {
-        //public BEusuario()
-        //{
-        //    _permisos = new List<BEcomponente>();
-        //}
-
-        //List<BEcomponente> _permisos;
-
-        //public List<BEcomponente> Permisos
-        //{
-        //    get { return _permisos; }
-        //}
-
         public int IdUsuario { get; set; }
-
-        private BEidioma _idioma;
-        public BEidioma Idioma
-        {
-            get
-            {
-                return _idioma;
-            }
-            set 
-            {
-                _idioma= value;
-                this.Notificar();
-            }
-        }
-
         public string usuario { get; set; }
         public string UserPass { get; set; }
         public string IsBlocked { get; set; }
@@ -51,26 +24,51 @@ namespace BE
         public DateTime FechaAlta { get; set; }
         public int intentosFallidos { get; set; }
         public int DVH { get; set; }
-        public List<BEpermiso> Permisos { get; set; }
-       
-        
-       // public BEidioma Idioma { get; set; }
-       
 
-       public string ApellidoNombre
+
+
+        // public BEidioma Idioma { get; set; }
+        private BEidioma _idioma;
+        public BEidioma Idioma
+        {
+            get
+            {
+                return _idioma;
+            }
+            set
+            {
+                _idioma = value;
+                this.Notificar();
+            }
+        }
+
+        public string ApellidoNombre
         {
             get { return Apellido +","+ Nombre; }
         }
 
 
         private List<IObserverForm> _formularios;
+        List<BEcomponente> _permsios;
 
         public BEusuario()
         {
             _formularios = new List<IObserverForm>();
+            _permsios = new List<BEcomponente>();
         }
 
+        public List<BEcomponente> Permisos
+        {
+            get { return _permsios; }
+        }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+        
+
+        
         public void Agregar (IObserverForm form)
         {
             if (!_formularios.Contains(form))

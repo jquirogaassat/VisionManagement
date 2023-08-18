@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,79 +8,77 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class BLLpermiso : BE.ICRUd<BE.BEpermiso>
+    public class BLLpermiso 
     {
         BLL.BLLencriptacion encriptadora = new BLLencriptacion();
         DAL.DALpermiso DALpermiso = new DAL.DALpermiso();
-        BE.BEpermiso familiaBe = new BE.BEfamilia("", "");
-        BE.BEpermiso patenteBe = new BE.BEpatente("");
-
-        public bool Alta(BEpermiso itemAlta)
-        {
-            itemAlta.nombrePermiso = encriptadora.encriptarAES(itemAlta.nombrePermiso);
-            return DALpermiso.Alta(itemAlta);
-           // throw new NotImplementedException();
-        }
-
-        public bool Baja(BEpermiso itemBaja)
-        {
-            return DALpermiso.Baja(itemBaja);
-           // throw new NotImplementedException();
-        }
-
-        public IList<BEpermiso> Listar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BE.BEpermiso> Consulta()
-        {
-            return DALpermiso.Consulta();
-        }
-
-        public bool Modificar(BEpermiso itemModifica)
-        {
-            itemModifica.nombrePermiso = encriptadora.encriptarAES(itemModifica.nombrePermiso);
-            return DALpermiso.Modificar(itemModifica);
-            //throw new NotImplementedException();
-        }
+        // BE.BEpermiso familiaBe = new BE.BEfamilia("", "");
+        //BE.BEpermiso patenteBe = new BE.BEpatente("");
 
 
+        PermisosRepository _permisos;
+       
         public BLLpermiso()
         {
-            DALpermiso= new DAL.DALpermiso();
+            _permisos = new PermisosRepository();
+        }
+      
+        public bool Existe (BEcomponente c, int id)
+        {
+            bool existe = false;
+            if(c.Id.Equals(id))
+                existe = true;
+            else
+
+            foreach(var item in c.Hijos)
+                {
+                    existe=Existe(item,id);
+                    if(existe) return true;
+                }
+            return existe;
         }
 
+
+        public Array GetAllPermission()
+        {
+            return _permisos.GetAllPermission();
+        }
+
+        public BEcomponente GuardarComponente(BEcomponente p, bool esFamilia)
+        {
+            return _permisos.GuardarComponente(p, esFamilia);
+        }
+       
+        public void GuardarFamilia(BEfamilia f)
+        {
+            _permisos.GuardarFamilia(f);
+        }
+
+        public IList<BEfamilia> GetAllFamilias()
+        {
+            return _permisos.GetAllFamilias();
+        }
+
+        public IList<BEcomponente> GetAll(string familia)
+        {
+            return _permisos.GetAll(familia);
+        }
+
+        public void FillUserComponents(BEusuario u)
+        {
+            _permisos.FillUserComponents(u);
+        }
+
+        public void FillFamilyComponents(BEfamilia f)
+        {
+            _permisos.FillFamilyComponents(f);
+        }
         public BE.BEpermiso Consultar(string nombrePermiso)
         {
             return DALpermiso.Consultar(nombrePermiso);
         }
 
-        public BE.BEpermiso Consultar (int idPermiso)
-        {
-            return DALpermiso.Consultar(idPermiso);
-        }
-
-        public bool Existe(string nombre)
-        {
-            return DALpermiso.Existe(nombre);
-        }
-
-        public List<BE.BEpermiso> ConsultarFamilias()
-        {
-            List<BE.BEpermiso> familias = new List<BE.BEpermiso>();
-            familias = DALpermiso.ConsultarFamilias();
-            foreach(BE.BEpermiso permiso in familias)
-            {
-                permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
-            }
-            return familias;
-        }
-
-        public bool QuitarAsignaciones(BE.BEpermiso p)
-        {
-            return DALpermiso.QuitarAsignaciones(p);
-        }
+    
 
 
         public void Asignar(BE.BEpermiso a, BE.BEpermiso b)
@@ -100,47 +99,7 @@ namespace BLL
         }
 
 
-        public List<BE.BEpermiso> PermisosNoAsignados( BE.BEpermiso permiso)
-        {
-            List<BE.BEpermiso> permisoT = Consulta();
-            List<BE.BEpermiso> permisoA = ObtenerHijos(permiso);
-            List<BE.BEpermiso> permisoD = new List<BEpermiso>() { };
-
-
-            foreach(BE.BEpermiso per in permisoT)
-            {
-                if (!(permisoA.Exists(permisos => permisos.idPermiso == per.idPermiso)))
-                {
-                    permisoD.Add(per);
-                }
-            }
-
-            foreach(BE.BEpermiso p in permisoD)
-            {
-                p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
-            }
-
-            return permisoD;
-
-        }
-
-
-        public bool AsignacionDirecta(BE.BEpermiso permisoPadre, BE.BEpermiso permisoHijo)
-        {
-            return DALpermiso.AsignacionDirecta(permisoPadre, permisoHijo);
-        }
-
-        public bool QuitarPermisos(BE.BEpermiso pHijo , BE.BEpermiso pPadre)
-        {
-            return DALpermiso.QuitarPermiso(pHijo, pPadre);
-        }
-
-
-        public bool TienePermiso(BE.BEpermiso pPadre, BE.BEpermiso pHijo)
-        {
-            List<BE.BEpermiso> permisos = ObtenerPermisoRecursivo(pPadre).ToList();
-            return permisos.Exists(p => p.idPermiso == pHijo.idPermiso);
-        }
+       
 
         public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEpermiso permiso)
         {
@@ -186,32 +145,8 @@ namespace BLL
 
 
 
-        public List<BE.BEusuario> Usuarios( BE.BEpermiso permiso)
-        {
-            BLL.BLLusuario BLLusuario= new BLLusuario();
-            List<BE.BEusuario> usuarios = BLLusuario.Consulta().Where(u => u.IsBlocked == "NO").ToList();
+     
 
-
-            List<BE.BEusuario> usuarioMiebro = new List<BEusuario>();
-
-            foreach(BE.BEusuario user in usuarios)
-            {
-                if(BLLusuario.AsignacionDirecta(user,permiso))
-                {
-                    usuarioMiebro.Add(user);
-                }
-            }
-            return usuarioMiebro;
-        }
-
-        List<BEpermiso> ICRUd<BEpermiso>.Listar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<BEpermiso> Lista()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

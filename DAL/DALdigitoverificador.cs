@@ -132,7 +132,7 @@ namespace DAL
             nombresTablas.Add("BITTACORA");
             nombresTablas.Add("USUARIO");
             nombresTablas.Add("USUARIO-PERMISO");
-            nombresTablas.Add("PERMISO-PERMISO");
+            nombresTablas.Add("FAMILIA-PERMISO");
             // nombresTablas.Add()
 
             List<BE.BEtabla> digitosVerticales = Consulta();

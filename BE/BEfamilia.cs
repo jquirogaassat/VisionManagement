@@ -6,45 +6,38 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BEfamilia : BEpermiso
+    public class BEfamilia : BEcomponente
     {
 
 
-        public BEfamilia(string nombrePermiso, string tipo) :base (nombrePermiso)
+        //public BEfamilia(string nombrePermiso, string tipo) :base (nombrePermiso)
+        //    {
+        //        esFamilia= true;
+        //        tipoFamilia= tipo;
+        //    }
+
+        private IList<BEcomponente> _hijos;
+        public BEfamilia()
+        {
+            _hijos= new List<BEcomponente>();
+        }
+
+        public override IList<BEcomponente> Hijos
+        {
+            get
             {
-                esFamilia= true;
-                tipoFamilia= tipo;
+                return _hijos.ToArray();
             }
-    //private IList<BEcomponente> _hijos;
+        }
 
-    //public BEfamilia()
-    //{
-    //    _hijos = new List<BEcomponente>();
-    //}
+        public override void AgregarHijo(BEcomponente c)
+        {
+            _hijos.Add(c);
+        }
 
-    //public override IList<BEcomponente> Hijos
-    //{
-    //    get
-    //    {
-    //        return _hijos.ToArray();
-    //    }
-    //}
-
-    //public override void VaciarHijos()
-    //{
-    //    _hijos = new List<BEcomponente>();
-    //}
-
-    //public override void AgregarHijo(BEcomponente c)
-    //{
-    //    _hijos.Add(c);
-    //}
-
-
-
-    //public string Familia { get; set; }
-    //// public int Permiso { get; set; }
-    //public List<BEfamilia> Familias { get; set; }
-    //public int IdFamilia { get; set; }
-}
+        public override void VaciarHijos()
+        {
+            _hijos = new List<BEcomponente>();
+        }
+    }
 }
