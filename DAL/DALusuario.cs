@@ -84,6 +84,24 @@ namespace DAL
             return resultado;
         }
 
+        public bool DesbloquearUsuario(BE.BEusuario itemDesbloquear)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("idUsuario",itemDesbloquear.IdUsuario),
+            };
+            
+            bool resultado = sqlHelper.ExecuteQuery("usuarioDesbloquear",parameters);
+            if(resultado)
+            {
+                int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(itemDesbloquear.IdUsuario));
+                dvDal.CargarDVH("USUARIO", itemDesbloquear.IdUsuario, dvh);
+            }
+            
+
+            return resultado;
+        }
+
         public List<BE.BEusuario>Consulta()
         {
             SqlParameter[] parameters = new SqlParameter[]

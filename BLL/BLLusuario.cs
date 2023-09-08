@@ -41,6 +41,11 @@ namespace BLL
             return usuarioDAL.Modificar(itemModifica);
         }
 
+        public bool DesbloquearUsuario(BEusuario itemDesbloquear)
+        {
+            return usuarioDAL.DesbloquearUsuario(itemDesbloquear);
+        }
+
         public bool QuitarAsignaciones(BE.BEusuario bEusuario)
         {
             return usuarioDAL.quitarAsignaciones(bEusuario);    

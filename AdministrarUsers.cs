@@ -45,20 +45,20 @@ namespace VisionTFI
             dgv_user.Columns[0].Visible = false;
             dgv_user.Columns[1].Visible = false;
             dgv_user.Columns[2].Visible = false;
-            dgv_user.Columns[3].Visible = false;
+            dgv_user.Columns[3].Visible = true;
             dgv_user.Columns[4].Visible = true;
             dgv_user.Columns[7].Visible = false;
             dgv_user.Columns[16].Visible = false;
             dgv_user.Columns[15].Visible = false;
-            dgv_user.Columns[13].Visible = false;
+            dgv_user.Columns[13].Visible = true;
             dgv_user.Columns[8].Visible= false;
             dgv_user.Columns[12].Visible = false;
             dgv_user.Columns[15].Visible = false;
 
             dgv_user.Columns[4].HeaderText = "Nombre";
             dgv_user.Columns[5].HeaderText = "Apellido";
-            dgv_user.Columns[6].HeaderText = "Fecha Nacimiento";
-            //dgv_user.Columns[1].HeaderText = "Usuario";
+            dgv_user.Columns[13].HeaderText = "Fecha de alta";
+            dgv_user.Columns[3].HeaderText = "Is Blocked";
            // dgv_user.Columns[2].HeaderText = "Usuario";
             dgv_user.Columns[9].HeaderText = "Telefono";
             dgv_user.Columns[10].HeaderText = "Direccion";
@@ -225,26 +225,26 @@ namespace VisionTFI
             ////return validacion;
         }
 
-        private void btn_eliminarUser_Click(object sender, EventArgs e)
-        {
-            var row = dgv_user.SelectedRows[0];
-            BE.BEusuario bEusuario = (BE.BEusuario)row.DataBoundItem;
-            usuarioBLL.Baja(bEusuario);
-            ActualizarUsuarios();
-            MessageBox.Show("Usuario eliminado");
-            //if(ValidarEliminarUsuarios(Globa.usuarioBE))
-            //{
-            //    usuarioBLL.QuitarAsignaciones(Globa.usuarioBE);
-            //    usuarioBLL.Baja(Globa.usuarioBE);
-            //    ActualizarUsuarios();
-            //    MessageBox.Show("El usuario se elimno correctamente", "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("El usuario no se pudo eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //private void btn_eliminarUser_Click(object sender, EventArgs e)
+        //{
+        //    var row = dgv_user.SelectedRows[0];
+        //    BE.BEusuario bEusuario = (BE.BEusuario)row.DataBoundItem;
+        //    usuarioBLL.Baja(bEusuario);
+        //    ActualizarUsuarios();
+        //    MessageBox.Show("Usuario eliminado");
+        //    //if(ValidarEliminarUsuarios(Globa.usuarioBE))
+        //    //{
+        //    //    usuarioBLL.QuitarAsignaciones(Globa.usuarioBE);
+        //    //    usuarioBLL.Baja(Globa.usuarioBE);
+        //    //    ActualizarUsuarios();
+        //    //    MessageBox.Show("El usuario se elimno correctamente", "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    //}
+        //    //else
+        //    //{
+        //    //    MessageBox.Show("El usuario no se pudo eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //}
-        }
+        //    //}
+        //}
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
@@ -278,6 +278,15 @@ namespace VisionTFI
             ActualizarUsuarios();
             MessageBox.Show("Usuario eliminado");
 
+        }
+
+        private void btn_desbloquearUser_Click(object sender, EventArgs e)
+        {
+            var row = dgv_user.SelectedRows[0];
+            BEusuario bEusuario= (BEusuario)row.DataBoundItem;
+            usuarioBLL.DesbloquearUsuario(bEusuario);
+            ActualizarUsuarios();
+            MessageBox.Show("Usuario desbloqueado");
         }
     }
 }
