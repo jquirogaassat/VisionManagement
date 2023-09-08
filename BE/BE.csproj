@@ -58,9 +58,7 @@
     <Compile Include="BEnotacredito.cs" />
     <Compile Include="BEnotadebito.cs" />
     <Compile Include="BEpatente.cs" />
-    <Compile Include="BEpedido.cs" />
     <Compile Include="BEpermiso.cs" />
-    <Compile Include="BEreclamo.cs" />
     <Compile Include="BEreporte.cs" />
     <Compile Include="BEreusltadoLog.cs" />
     <Compile Include="BEtabla.cs" />

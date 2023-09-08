@@ -73,80 +73,83 @@ namespace BLL
         {
             _permisos.FillFamilyComponents(f);
         }
-        public BE.BEpermiso Consultar(string nombrePermiso)
+
+        public IList<BEpatente> GetAllPatentes()
         {
-            return DALpermiso.Consultar(nombrePermiso);
+            return _permisos.GetAllPatentes();
         }
-
-    
-
+      
+        
 
         public void Asignar(BE.BEpermiso a, BE.BEpermiso b)
         {
              DALpermiso.Asignar(a, b);
         }
 
-        public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso bEpermiso)
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            permisos = DALpermiso.ObtenerHijos(bEpermiso);
+        //public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso bEpermiso)
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    permisos = DALpermiso.ObtenerHijos(bEpermiso);
 
-            foreach(BE.BEpermiso p in permisos)
-            {
-                p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
-            }
-            return permisos;
-        }
-
-
-       
-
-        public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEpermiso permiso)
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            permisos = DALpermiso.ObtenerPermisosRecursivos("=" + permiso.idPermiso);
-
-            foreach(BE.BEpermiso per in permisos)
-            {
-                per.nombrePermiso = encriptadora.desencriptarAes(per.nombrePermiso);
-            }
-
-            return permisos;
-
-        }
-
-
-        public void EncriptarPatentes()
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            permisos = DALpermiso.Consulta();
-
-
-            foreach(BE.BEpermiso permiso in permisos)
-            {
-                permiso.nombrePermiso=encriptadora.encriptarAES(permiso.nombrePermiso);
-                DALpermiso.Modificar(permiso);
-            }
-
-            
-        }
-
-        public void DesencriptarPatentes()
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            permisos=DALpermiso.Consulta();
-
-            foreach(BE.BEpermiso permiso in permisos)
-            {
-                permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
-                DALpermiso.Modificar(permiso);
-            }    
-        }
+        //    foreach(BE.BEpermiso p in permisos)
+        //    {
+        //        p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
+        //    }
+        //    return permisos;
+        //}
 
 
 
-     
 
-       
+        //public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEpermiso permiso)
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    permisos = DALpermiso.ObtenerPermisosRecursivos("=" + permiso.idPermiso);
+
+        //    foreach(BE.BEpermiso per in permisos)
+        //    {
+        //        per.nombrePermiso = encriptadora.desencriptarAes(per.nombrePermiso);
+        //    }
+
+        //    return permisos;
+
+        //}
+
+
+        //public void EncriptarPatentes()
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    permisos = DALpermiso.Consulta();
+
+
+        //    foreach(BE.BEpermiso permiso in permisos)
+        //    {
+        //        permiso.nombrePermiso=encriptadora.encriptarAES(permiso.nombrePermiso);
+        //        DALpermiso.Modificar(permiso);
+        //    }
+
+
+        //}
+
+        //public void DesencriptarPatentes()
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    permisos=DALpermiso.Consulta();
+
+        //    foreach(BE.BEpermiso permiso in permisos)
+        //    {
+        //        permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
+        //        DALpermiso.Modificar(permiso);
+        //    }    
+        //}
+        //public BE.BEpermiso Consultar(string nombrePermiso)
+        //{
+        //    return DALpermiso.Consultar(nombrePermiso);
+        //}
+
+
+
+
+
     }
 }

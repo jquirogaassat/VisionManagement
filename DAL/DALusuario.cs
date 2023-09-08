@@ -72,13 +72,13 @@ namespace DAL
             };
 
             bool resultado = sqlHelper.ExecuteQuery("usuarioBajaLogica", parameters);
-
+           // bool resultado1= sqlHelper.
             if (resultado)
             {
                 int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(itemBaja.IdUsuario));
-                dvDal.CargarDVH("USUARIOV", itemBaja.IdUsuario, dvh);
+                dvDal.CargarDVH("USUARIO", itemBaja.IdUsuario, dvh);
 
-                int dvv = dvDal.CalcularDVV("USUARIOV");
+                int dvv = dvDal.CalcularDVV("USUARIO");
                 dvDal.CargarDVV(2, dvv);
             }
             return resultado;
@@ -171,59 +171,59 @@ namespace DAL
             }
         }
 
-        public List<BE.BEpermiso> ObtenerPermisoRecursivo(string usuario)
-        {
-            List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
+        //public List<BE.BEpermiso> ObtenerPermisoRecursivo(string usuario)
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
 
-            var where = "is null";
-            if (!String.IsNullOrEmpty(usuario))
-            {
-                where = usuario;
+        //    var where = "is null";
+        //    if (!String.IsNullOrEmpty(usuario))
+        //    {
+        //        where = usuario;
 
-            }
+        //    }
 
-            var sql = $@"with recursivo as (
+        //    var sql = $@"with recursivo as (
                    
-                        select up2.idPermiso from usuario_permiso UP2
-                        where up2.idUsuario {where}
-                        UNION ALL
-                        select pp.idPermisoHijo from permiso_permiso pp
-                        inner join recursivo r on r.idPermiso = pp.idPermisoPadre
-                        )
-                        select distinct r.idPermiso,p.nombrePermiso,p.esFamilia,p.tipoFamilia
-                        from recursivo r
-                        inner join permiso p on r.idPermiso = p.idPermiso";
+        //                select up2.idPermiso from usuario_permiso UP2
+        //                where up2.idUsuario {where}
+        //                UNION ALL
+        //                select pp.idPermisoHijo from permiso_permiso pp
+        //                inner join recursivo r on r.idPermiso = pp.idPermisoPadre
+        //                )
+        //                select distinct r.idPermiso,p.nombrePermiso,p.esFamilia,p.tipoFamilia
+        //                from recursivo r
+        //                inner join permiso p on r.idPermiso = p.idPermiso";
 
-            DataTable dt = sqlHelper.ExecuteReader(sql);
+        //    DataTable dt = sqlHelper.ExecuteReader(sql);
 
-            DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
+        //    DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
 
-            foreach (DataRow row in dt.Rows)
-            {
-                BE.BEpermiso hijo = mapp.Map(row);
-                permisos.Add(hijo);
-            }
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        BE.BEpermiso hijo = mapp.Map(row);
+        //        permisos.Add(hijo);
+        //    }
 
-            return permisos;
-        }
+        //    return permisos;
+        //}
 
 
-        public List<BE.BEpermiso>ObtenerPermisos(BE.BEusuario bEusuario)
-        {
-            List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("idUsuario",bEusuario.IdUsuario),
-            };
+        //public List<BE.BEpermiso>ObtenerPermisos(BE.BEusuario bEusuario)
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
+        //    SqlParameter[] parameters = new SqlParameter[]
+        //    {
+        //        new SqlParameter("idUsuario",bEusuario.IdUsuario),
+        //    };
 
-            DataTable data = sqlHelper.ExecuteReader("UsuarioConsultaHijos", parameters);
-            DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
-            foreach(DataRow row in data.Rows)
-            {
-                permisos.Add(mapp.Map(row));
-            }
-            return permisos; 
-        }
+        //    DataTable data = sqlHelper.ExecuteReader("UsuarioConsultaHijos", parameters);
+        //    DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
+        //    foreach(DataRow row in data.Rows)
+        //    {
+        //        permisos.Add(mapp.Map(row));
+        //    }
+        //    return permisos; 
+        //}
 
 
         public bool Existe (BE.BEpermiso a, BE.BEpermiso b )

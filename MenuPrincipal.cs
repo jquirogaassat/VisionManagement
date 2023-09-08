@@ -131,5 +131,10 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarBitacora());
         }
+
+        private void familiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarFamilias());
+        }
     }
 }

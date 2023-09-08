@@ -10,11 +10,11 @@ namespace BE
     {
 
 
-        //public BEfamilia(string nombrePermiso, string tipo) :base (nombrePermiso)
-        //    {
-        //        esFamilia= true;
-        //        tipoFamilia= tipo;
-        //    }
+        //public BEfamilia(string nombrePermiso, string tipo) : base(nombrePermiso)
+        //{
+        //    esFamilia = true;
+        //    tipoFamilia = tipo;
+        //}
 
         private IList<BEcomponente> _hijos;
         public BEfamilia()

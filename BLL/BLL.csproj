@@ -55,9 +55,7 @@
     <Compile Include="BLLingreso.cs" />
     <Compile Include="BLLnotacredito.cs" />
     <Compile Include="BLLnotadebito.cs" />
-    <Compile Include="BLLpedido.cs" />
     <Compile Include="BLLpermiso.cs" />
-    <Compile Include="BLLreclamo.cs" />
     <Compile Include="BLLreporte.cs" />
     <Compile Include="BLLsesion.cs" />
     <Compile Include="BLLusuario.cs" />
@@ -70,6 +68,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{c670b9db-9d4b-44d8-91ac-ff872beae3af}</Project>
       <Name>BE</Name>
@@ -78,13 +83,6 @@
       <Project>{11c804f6-9e78-47ba-bda8-212f1eb02000}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

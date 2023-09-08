@@ -187,7 +187,8 @@
             // 
             this.familiasToolStripMenuItem.Name = "familiasToolStripMenuItem";
             this.familiasToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.familiasToolStripMenuItem.Text = "Familias";
+            this.familiasToolStripMenuItem.Text = "Familias y patentes";
+            this.familiasToolStripMenuItem.Click += new System.EventHandler(this.familiasToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 

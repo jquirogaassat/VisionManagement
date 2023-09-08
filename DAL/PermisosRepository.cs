@@ -5,38 +5,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace DAL
 {
     public class PermisosRepository
     {
-
-        
+        DALdigitoverificador dvdal = new DALdigitoverificador();
+        string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
+        SqlHelper sqlHelper= new SqlHelper();
         public Array GetAllPermission()
         {
             return Enum.GetValues(typeof(BEtipoPermiso));
         }
 
-        private string GetConnectionString()
+
+        public bool comprobarConexion()
         {
-            var cs= new SqlConnectionStringBuilder();
-            cs.IntegratedSecurity = true;
-            cs.DataSource = ".";
-            cs.InitialCatalog = "VisionManagement";
-            return cs.ConnectionString;
+            try
+            {
+                SqlConnection conexion = new SqlConnection(ConnectionString);
+                conexion.Open();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
+        //private string GetConnectionString()
+        //{
+        //    var cs= new SqlConnectionStringBuilder();
+        //    cs.IntegratedSecurity = true;
+        //    cs.DataSource = ".";
+        //    cs.InitialCatalog = "VisionManagement";
+        //    return cs.ConnectionString;
+        //}
 
         public BEcomponente GuardarComponente(BEcomponente p, bool esFamilia)
         {
             try
             {
-                var cnn = new SqlConnection(GetConnectionString());
+                var cnn = new SqlConnection(ConnectionString);
                 cnn.Open();
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                string query = $@"insert into permiso (nombre,permiso) values (@nombre,@permiso); 
-                SELECT ID AS LastID FROM permiso WHERE ID = @@Identity;       ";
+                string query = $@"insert into Permiso1 (nombre,permiso) values (@nombre,@permiso); 
+                SELECT id_permiso AS LastID FROM Permiso1 WHERE id_permiso = @@Identity;       ";
 
 
                 cmd.CommandText = query;
@@ -47,8 +65,16 @@ namespace DAL
                 else
                     cmd.Parameters.Add(new SqlParameter("permiso", p.Permiso.ToString()));
 
-                var id = cmd.ExecuteScalar();
+                 var id = cmd.ExecuteScalar();
+
+               // int id = sqlHelper.ExecuteQueryPRUEBA(query);
                 p.Id = (int)id;
+               // int dvhId = p.Id;
+
+                
+               // int dvh = dvdal.CalcularDVH(ConsultarPermisoDT(p.Id), 0);
+              
+
                 return p;
             }
             catch(Exception e)
@@ -61,7 +87,7 @@ namespace DAL
         {
             try
             {
-                var cnn = new SqlConnection(GetConnectionString());
+                var cnn = new SqlConnection(ConnectionString);
                 cnn.Open();
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
@@ -100,13 +126,13 @@ namespace DAL
 
         public IList<BEpatente> GetAllPatentes()
         {
-            var cnn = new SqlConnection(GetConnectionString());
+            var cnn = new SqlConnection(ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
 
 
-            var query= $@"select * from permiso p where p.permiso is not null;";
+            var query= $@"select * from Permiso1 p where p.permiso is not null;";
             cmd.CommandText = query;
             var reader = cmd.ExecuteReader();
 
@@ -114,7 +140,7 @@ namespace DAL
 
             while(reader.Read())
             {
-                var id = reader.GetInt32(reader.GetOrdinal("id"));
+                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
                 var permiso = reader.GetString(reader.GetOrdinal("permiso"));
 
@@ -133,12 +159,12 @@ namespace DAL
 
         public IList<BEfamilia> GetAllFamilias()
         {
-            var cnn = new SqlConnection(GetConnectionString());
+            var cnn = new SqlConnection(ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
 
-            var query = $@"select * from permiso p where p.permiso is  null;";
+            var query = $@"select * from Permiso1 p where p.permiso is  null;";
             cmd.CommandText = query;
 
             var reader = cmd.ExecuteReader();
@@ -175,7 +201,7 @@ namespace DAL
 
             }
 
-            var cnn= new SqlConnection(GetConnectionString());
+            var cnn= new SqlConnection(ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
@@ -284,7 +310,7 @@ namespace DAL
        
         public void FillUserComponents(BEusuario u)
         {
-            var cnn = new SqlConnection(GetConnectionString());
+            var cnn = new SqlConnection(ConnectionString);
             cnn.Open();
 
             var cmd = new SqlCommand();
@@ -337,6 +363,24 @@ namespace DAL
             {
                 famila.AgregarHijo(item);
             }
+        }
+
+
+
+        public DataTable ConsultarPermisoDT(int idPermiso)
+        {
+            SqlHelper helper = new SqlHelper();
+           
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("id_permiso",idPermiso),
+            };
+
+            var prueba = parameters;
+            DataTable dt = helper.ExecuteReader("permisoConsultarPorID", parameters);
+            return dt;
+
+            //  return helper.ExecuteReader("permisoConsultarPorID",parameters);
         }
 
 

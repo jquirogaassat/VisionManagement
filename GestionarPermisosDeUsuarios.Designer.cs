@@ -182,7 +182,7 @@
             this.btn_quitarPermiso.TabIndex = 135;
             this.btn_quitarPermiso.Text = "<  Quitar permiso ";
             this.btn_quitarPermiso.UseVisualStyleBackColor = true;
-            this.btn_quitarPermiso.Click += new System.EventHandler(this.btn_quitarPermiso_Click);
+           // this.btn_quitarPermiso.Click += new System.EventHandler(this.btn_quitarPermiso_Click);
             // 
             // btn_asignarPermisos
             // 
@@ -192,7 +192,7 @@
             this.btn_asignarPermisos.TabIndex = 134;
             this.btn_asignarPermisos.Text = "Asignar permiso >";
             this.btn_asignarPermisos.UseVisualStyleBackColor = true;
-            this.btn_asignarPermisos.Click += new System.EventHandler(this.btn_asignarPermisos_Click);
+           // this.btn_asignarPermisos.Click += new System.EventHandler(this.btn_asignarPermisos_Click);
             // 
             // dg_PermisosDisponibles
             // 
@@ -248,7 +248,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "GestionarPermisosDeUsuarios";
             this.Text = "Vision Management/ Gestionar Permisos de Usuarios";
-            this.Load += new System.EventHandler(this.GestionarPermisosDeUsuarios_Load);
+            //this.Load += new System.EventHandler(this.GestionarPermisosDeUsuarios_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel.ResumeLayout(false);

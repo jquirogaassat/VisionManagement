@@ -44,20 +44,20 @@ namespace DAL
         }
 
 
-        public List<BE.BEpermiso> ConsultarFamilias()
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            SqlParameter[] parameters = new SqlParameter[] { };
+        //public List<BE.BEpermiso> ConsultarFamilias()
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    SqlParameter[] parameters = new SqlParameter[] { };
 
-            DataTable data = sqlHelper.ExecuteReader("familiaConsulta", parameters);
-            DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
+        //    DataTable data = sqlHelper.ExecuteReader("familiaConsulta", parameters);
+        //    DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
 
-            foreach(DataRow row in data.Rows)
-            {
-                permisos.Add(mapp.Map(row));
-            }
-            return permisos;
-        }
+        //    foreach(DataRow row in data.Rows)
+        //    {
+        //        permisos.Add(mapp.Map(row));
+        //    }
+        //    return permisos;
+        //}
 
         public IList<BEpermiso> Listar()
         {
@@ -84,80 +84,80 @@ namespace DAL
             return a;
         }
 
-        public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso permiso)
-        {
-            List<BE.BEpermiso> hijos = new List<BEpermiso>();// aca agrego todos los hijos
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("idPermisoPadre",permiso.idPermiso),
-            };
+        //public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso permiso)
+        //{
+        //    List<BE.BEpermiso> hijos = new List<BEpermiso>();// aca agrego todos los hijos
+        //    SqlParameter[] parameters = new SqlParameter[]
+        //    {
+        //        new SqlParameter("idPermisoPadre",permiso.idPermiso),
+        //    };
 
-            DataTable data = sqlHelper.ExecuteReader("PermisoConsultaHijo", parameters);
-            DAL.Mappers.MPpermiso mapp= new DAL.Mappers.MPpermiso();
-            foreach(DataRow row in data.Rows)
-            {
-                hijos.Add(mapp.Map(row));
-            }
-            return hijos;
-        }
-
-
-        public List<BE.BEpermiso> Consulta( )
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
-            SqlParameter[] parameters = new SqlParameter[] { };
-
-            DataTable data = sqlHelper.ExecuteReader("PermisosSelect", parameters);
-            DAL.Mappers.MPpermiso mapp = new Mappers.MPpermiso();
-            foreach(DataRow row in data.Rows)
-            {
-                permisos.Add(mapp.Map(row));
-            }
-
-            return permisos;             
-        }
-
-        public BE.BEpermiso Consultar(string nombrePermiso)
-        {
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("nombrePermiso",nombrePermiso),
-            };
-
-            SqlHelper sqlHelper = new SqlHelper();
-            DataTable data = sqlHelper.ExecuteReader("PermisoConsultar", parameters);
-
-            if (data.Rows.Count>0)
-            {
-                return mapp.Map(data.Rows[0]);  
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //    DataTable data = sqlHelper.ExecuteReader("PermisoConsultaHijo", parameters);
+        //    DAL.Mappers.MPpermiso mapp= new DAL.Mappers.MPpermiso();
+        //    foreach(DataRow row in data.Rows)
+        //    {
+        //        hijos.Add(mapp.Map(row));
+        //    }
+        //    return hijos;
+        //}
 
 
-        public BE.BEpermiso Consultar(int idPermiso)
-        {
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter( "idPermiso",idPermiso),
-            };
+        //public List<BE.BEpermiso> Consulta( )
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //    SqlParameter[] parameters = new SqlParameter[] { };
 
-            SqlHelper sqlHelper = new SqlHelper();
-            DataTable data = sqlHelper.ExecuteReader("permisoConsultarPorID", parameters);
+        //    DataTable data = sqlHelper.ExecuteReader("PermisosSelect", parameters);
+        //    DAL.Mappers.MPpermiso mapp = new Mappers.MPpermiso();
+        //    foreach(DataRow row in data.Rows)
+        //    {
+        //        permisos.Add(mapp.Map(row));
+        //    }
+
+        //    return permisos;             
+        //}
+
+        //public BE.BEpermiso Consultar(string nombrePermiso)
+        //{
+        //    //SqlParameter[] parameters = new SqlParameter[]
+        //    //{
+        //    //    new SqlParameter("nombrePermiso",nombrePermiso),
+        //    //};
+
+        //    //SqlHelper sqlHelper = new SqlHelper();
+        //    //DataTable data = sqlHelper.ExecuteReader("PermisoConsultar", parameters);
+
+        //    //if (data.Rows.Count>0)
+        //    //{
+        //    //    return mapp.Map(data.Rows[0]);  
+        //    //}
+        //    //else
+        //    //{
+        //    //    return null;
+        //    //}
+        //}
+
+
+        //public BE.BEpermiso Consultar(int idPermiso)
+        //{
+        //    SqlParameter[] parameters = new SqlParameter[]
+        //    {
+        //        new SqlParameter( "idPermiso",idPermiso),
+        //    };
+
+        //    SqlHelper sqlHelper = new SqlHelper();
+        //    DataTable data = sqlHelper.ExecuteReader("permisoConsultarPorID", parameters);
             
-            if(data.Rows.Count>0)
-            {
-                return mapp.Map(data.Rows[0]);
-            }
-            else
-            {
-                return null;
-            }
+        //    if(data.Rows.Count>0)
+        //    {
+        //        return mapp.Map(data.Rows[0]);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
 
-        }
+        //}
 
 
         public bool Existe (BE.BEpermiso a, BE.BEpermiso b)
@@ -266,39 +266,39 @@ namespace DAL
         }
 
 
-        public List<BE.BEpermiso> ObtenerPermisosRecursivos(string permiso)
-        {
-            List<BE.BEpermiso> permisos = new List<BEpermiso>();
+        //public List<BE.BEpermiso> ObtenerPermisosRecursivos(string permiso)
+        //{
+        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
 
-            var where = "is null";
-            if(!string.IsNullOrEmpty(permiso))
-            {
-                where = permiso;
-            }
+        //    var where = "is null";
+        //    if(!string.IsNullOrEmpty(permiso))
+        //    {
+        //        where = permiso;
+        //    }
 
-            var sql = $@"with  recursivo as(
+        //    var sql = $@"with  recursivo as(
                                    
-                            select sp2.idPermisoPadre, sp2.idPermisoHijo from permiso_permiso SP2
-                            where sp2.idPermisoPadre{where}
-                            UNION ALL
-                            select sp.idPermisoPadre, sp.idPermisoHijo from permiso_permiso sp
-                            inner join recursivo r on r.idPermisoHijo = sp.idPermisoPadre
-                            )
-                            select r.idPermisoHijo, p.nombrePermiso, p.esFamilia, p.tipoFamilia
-                            from recursivo r
-                            inner join permiso p on r.idPermisoHijo = p.idPermiso";
+        //                    select sp2.idPermisoPadre, sp2.idPermisoHijo from permiso_permiso SP2
+        //                    where sp2.idPermisoPadre{where}
+        //                    UNION ALL
+        //                    select sp.idPermisoPadre, sp.idPermisoHijo from permiso_permiso sp
+        //                    inner join recursivo r on r.idPermisoHijo = sp.idPermisoPadre
+        //                    )
+        //                    select r.idPermisoHijo, p.nombrePermiso, p.esFamilia, p.tipoFamilia
+        //                    from recursivo r
+        //                    inner join permiso p on r.idPermisoHijo = p.idPermiso";
 
-            DataTable data = sqlHelper.ExecuteReader(sql);
+        //    DataTable data = sqlHelper.ExecuteReader(sql);
 
-            DAL.Mappers.MPpermiso mPpermiso = new Mappers.MPpermiso();
-            foreach(DataRow row in data.Rows)
-            {
-                BE.BEpermiso hijo = mapp.Map(row);
-                permisos.Add(hijo);
-            }
-            return permisos;
+        //    DAL.Mappers.MPpermiso mPpermiso = new Mappers.MPpermiso();
+        //    foreach(DataRow row in data.Rows)
+        //    {
+        //        BE.BEpermiso hijo = mapp.Map(row);
+        //        permisos.Add(hijo);
+        //    }
+        //    return permisos;
 
-        }
+        //}
 
 
         public bool AsignacionDirecta(BE.BEpermiso permisoPadre, BE.BEpermiso permisoHijo)
