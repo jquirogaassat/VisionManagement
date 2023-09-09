@@ -136,5 +136,11 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarFamilias());
         }
+
+        private void cambiarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CambiarContraseña cambiarPass = new CambiarContraseña();
+            cambiarPass.Show();
+        }
     }
 }

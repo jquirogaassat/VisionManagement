@@ -16,5 +16,15 @@ namespace VisionTFI
         {
             InitializeComponent();
         }
+
+        private void CambiarContraseña_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
