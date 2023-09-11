@@ -91,6 +91,7 @@
             resources.ApplyResources(this.btn_guardar, "btn_guardar");
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_salir
             // 
