@@ -13,7 +13,7 @@ using BE;
 namespace VisionTFI
 {
     public partial class GestionarFamilias : Form
-    {
+    {     
         BLLpermiso repo;
         BEfamilia seleccion;
         public GestionarFamilias()
@@ -24,9 +24,9 @@ namespace VisionTFI
             this.cmb_permisos.DataSource = repo.GetAllPermission();
         }  //ok
 
-
+       
         private void LlenarPatentesFamilias()
-        {
+        {              
             this.cmb_patentes.DataSource= repo.GetAllPatentes();
             this.cmb_familias.DataSource= repo.GetAllFamilias();
         }  //ok
@@ -42,8 +42,10 @@ namespace VisionTFI
 
             repo.GuardarComponente(p, false);
             LlenarPatentesFamilias();
+           
 
             MessageBox.Show("Patente guardada correctamente!!!");
+            txtNombrePatente.Clear();
         }    //ok
 
         private void btn_guardarFamilia_Click(object sender, EventArgs e)

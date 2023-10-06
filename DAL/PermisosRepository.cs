@@ -174,7 +174,7 @@ namespace DAL
             while (reader.Read())
             {
 
-                var id = reader.GetInt32(reader.GetOrdinal("id"));
+                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
 
                 BEfamilia f = new BEfamilia();

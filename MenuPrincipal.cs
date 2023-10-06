@@ -13,6 +13,8 @@ namespace VisionTFI
 {
     public partial class MenuPrincipal : Form , BE.IObserverForm
     {
+        BE.BEgestionbitacora bitacoraBe = new BE.BEgestionbitacora();
+        BLL.BLLgestionbitacora bitacoraBll = new BLL.BLLgestionbitacora();
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -59,6 +61,7 @@ namespace VisionTFI
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             Globa.menuPrincipal.AbrirFormHijoMenu(Globa.administrarUsers);
         }
 
@@ -102,6 +105,9 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("ALTO");
             Globa.nivelCriticidad.Add("MEDIO");
             Globa.nivelCriticidad.Add("BAJO");
+            //ValorizarBitacora();
+           // ValidarPermisos();
+
         }
 
         private void comprobarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,8 +145,48 @@ namespace VisionTFI
 
         private void cambiarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             CambiarContraseña cambiarPass = new CambiarContraseña();
             cambiarPass.Show();
+        }
+        private void ValorizarBitacora(BE.BEgestionbitacora bitacoraBe)
+        {
+            BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
+
+            bitacoraBe.IdUsuario = BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario;
+            bitacoraBe.FechaHora = DateTime.Now;
+            bitacoraBe.idPatente = 17;
+            bitacoraBe.Descripcion = BE.BEcontroladorsesion.GetInstance.Usuario.Nombre + " " + BE.BEcontroladorsesion.GetInstance.Usuario.Apellido + "cambio la contraseña!";
+            bitacoraBe.Descripcion = encriptadora.encriptarAES(bitacoraBe.Descripcion);
+            bitacoraBe.Criticidad = "BAJO";
+
+        }
+
+
+        void ValidarPermisos()
+        {
+            
+            try
+            {
+                if(BEcontroladorsesion.GetInstance.IsLoggedIn())
+                {
+                    this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerA);
+                    this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerB);
+                    this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerC);
+                }
+                else
+                {
+                    this.seguridadToolStripMenuItem.Enabled = false;
+                    this.gestionarToolStripMenuItem.Enabled = false;
+                    this.negocioToolStripMenuItem.Enabled = false;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("El usuario no tiene permisos");
+            }
         }
     }
 }

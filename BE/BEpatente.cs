@@ -8,6 +8,7 @@ namespace BE
 {
     public class BEpatente : BEcomponente
     {
+        // oficia de archivo en el ejemplo de youtube
         public override IList<BEcomponente> Hijos
         {
             get

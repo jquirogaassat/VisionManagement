@@ -7,15 +7,8 @@ using System.Threading.Tasks;
 namespace BE
 {
     public class BEfamilia : BEcomponente
-    {
-
-
-        //public BEfamilia(string nombrePermiso, string tipo) : base(nombrePermiso)
-        //{
-        //    esFamilia = true;
-        //    tipoFamilia = tipo;
-        //}
-
+    {      
+        // esta clase oficia como directorio en el ejemplo de youtube
         private IList<BEcomponente> _hijos;
         public BEfamilia()
         {

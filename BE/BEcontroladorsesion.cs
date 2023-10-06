@@ -9,9 +9,9 @@ namespace BE
     public class BEcontroladorsesion
     {
 
-        private static object _lock= new object();
+        private static object _lock = new object();
         private static BEcontroladorsesion session;
-        public DateTime FechaIngreso { get; set; }
+        private DateTime FechaIngreso { get; set; }
         public BEusuario Usuario;
 
         public static BEcontroladorsesion GetInstance
@@ -19,12 +19,12 @@ namespace BE
             get { return session; }
         }
 
-        public static BEreusltadoLog Log (BE.BEusuario usuario)
+        public static BEreusltadoLog Log(BE.BEusuario usuario)
         {
 
             lock (_lock)
             {
-                if(session == null)
+                if (session == null)
                 {
                     session = new BEcontroladorsesion();
                     session.Usuario = usuario;
@@ -33,7 +33,7 @@ namespace BE
                 }
                 else
                 {
-                    return BE.BEreusltadoLog.SesionActiva;    
+                    return BE.BEreusltadoLog.SesionActiva;
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace BE
 
         public static bool Logout()
         {
-            if(session !=null)
+            if (session != null)
             {
                 session = null;
                 return true;
@@ -57,77 +57,51 @@ namespace BE
 
         }
 
+        public bool IsLoggedIn()
+        {
+            return Usuario != null;
+        }
+
+        bool IsInRole(BEcomponente c, BEtipoPermiso permiso, bool existe)
+        {
+            if (c.Permiso.Equals(permiso))
+                existe = true;
+            else
+            {
+                foreach (var item in c.Hijos)
+                {
+                    existe = IsInRole(item, permiso, existe);
+                    if (existe) return true;
+                }
+            }
+
+            return existe;
+        }
+
+
+        public bool IsInRole(BEtipoPermiso permiso)
+        {
+            bool existe = false;
+            foreach(var item in Usuario.Permisos)
+            {
+                if(item.Permiso.Equals(permiso))
+                {
+                    return true;
+                }
+                else
+                {
+                    existe = IsInRole(item, permiso, existe);
+                    if (existe)
+                        return true;
+                }
+            }
+            return existe;
+        }
 
 
 
 
-        //static BEcontroladorsesion _sesion;
-        //BEusuario _usuario;
-
-        //public static BEcontroladorsesion GetInstance
-        //{
-        //    get
-        //    {
-        //        if (_sesion == null) _sesion = new BEcontroladorsesion();
-        //        return _sesion;
-        //    }
-        //}
-
-        //public bool IsloggedIn()
-        //{
-        //    return _usuario != null;
-        //}
-
-        //bool isInRole(BEcomponente c, BEtipoPermiso permiso, bool existe)
-        //{
-        //    if (c.Permiso.Equals(permiso))
-        //        existe = true;
-        //    else
-        //    {
-        //        foreach (var item in c.Hijos)
-        //        {
-        //            existe = isInRole(item, permiso, existe);
-        //            if (existe) return true;
-        //        }
-        //    }
-        //    return existe;
-        //}
-
-
-        //public bool IsInRole(BEtipoPermiso permiso)
-        //{
-        //    bool existe = false;
-        //    foreach (var item in _usuario.Permisos)
-        //    {
-        //        if (item.Permiso.Equals(permiso))
-        //            return true;
-        //        else
-        //        {
-        //            existe = isInRole(item, permiso, existe);
-        //            if (existe) return true;
-
-        //        }
-        //    }
-        //    return existe;
-
-        //}
-
-
-        //public void Logout()
-        //{
-        //    _sesion._usuario = null;
-        //}
-
-        //public void Login(BEusuario u)
-        //{
-        //    _sesion._usuario = u;
-        //}
-
-        //private BEcontroladorsesion()
-        //{
-
-        //}
-        //public int _sesion { get; set; }
+             
 
     }
 }
