@@ -55,8 +55,6 @@
     <Compile Include="BEgestionbitacora.cs" />
     <Compile Include="BEidioma.cs" />
     <Compile Include="BEingreso.cs" />
-    <Compile Include="BEnotacredito.cs" />
-    <Compile Include="BEnotadebito.cs" />
     <Compile Include="BEpatente.cs" />
     <Compile Include="BEpermiso.cs" />
     <Compile Include="BEreporte.cs" />
@@ -65,7 +63,6 @@
     <Compile Include="BEtipoPermiso.cs" />
     <Compile Include="BEtraduccion.cs" />
     <Compile Include="BEusuario.cs" />
-    <Compile Include="BEventa.cs" />
     <Compile Include="Enum\Situacion.cs" />
     <Compile Include="ICRUd.cs" />
     <Compile Include="IObserverForm.cs" />

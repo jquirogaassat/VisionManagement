@@ -15,6 +15,7 @@ namespace BLL
         BLL.BLLencriptacion encriptadora = new BLLencriptacion();
         DAL.DALusuario usuarioDAL = new DAL.DALusuario();
         DAL.DALpermiso permisoDAL = new DAL.DALpermiso();
+        DAL.UsuarioRepository _usuarios= new DAL.UsuarioRepository();
         public bool Alta(BEusuario itemAlta)
         {
             return usuarioDAL.Alta(itemAlta);
@@ -29,6 +30,11 @@ namespace BLL
         {
             return usuarioDAL.Listar();
             //throw new NotImplementedException();
+        }
+
+        public void GuardarPermisos(BEusuario u)
+        {
+            _usuarios.GuardarPermisos(u);
         }
 
         public List<BE.BEusuario> Consulta()
@@ -161,65 +167,7 @@ namespace BLL
             return bEusuario.intentosFallidos;
         }
 
-        //public List<BE.BEpermiso> ObtenerPermisos(BE.BEusuario bEusuario)
-        //{
-        //    List<BE.BEpermiso> permisos= new List<BE.BEpermiso>();
-        //    permisos= usuarioDAL.ObtenerPermisos(bEusuario);
-        //    foreach(BE.BEpermiso permiso in permisos)
-        //    {
-        //        permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
-        //    }
-        //    return permisos;
-
-        //}
-
-
-
-        //public List<BE.BEpermiso> PermisosNoAsignados (BE.BEusuario usuario)
-        //{
-        //    List<BE.BEpermiso> permisosT = permisoDAL.Consulta();
-        //    List<BE.BEpermiso> permisosA = ObtenerPermisos(usuario);
-        //    List<BE.BEpermiso> permisosD = new List<BEpermiso>()
-        //    {
-
-        //    };
-
-        //    foreach(BE.BEpermiso p in permisosT)
-        //    {
-        //        if (!(permisosA.Exists(permiso => permiso.idPermiso == p.idPermiso)))
-        //        {
-        //            permisosD.Add(p);
-        //        }
-        //    }
-
-        //    foreach(BE.BEpermiso p in permisosD)
-        //    {
-        //        p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
-        //    }
-
-        //    return permisosD;                       
-        //}
-
-
-        //public bool TienePermisoPorFamilia (BE.BEusuario usuarioBe,BE.BEpermiso permisoBe)
-        //{
-        //    BLL.BLLpermiso familiaBLL = new BLLpermiso();
-        //    BLL.BLLusuario usuarioBLL = new BLLusuario();
-        //    List<BE.BEpermiso> familias = usuarioBLL.ObtenerPermisoRecursivo(usuarioBe).Where(p => p.esFamilia == true).ToList();
-            
-        //    foreach( BE.BEfamilia familia in familias)
-        //    {
-        //        List<BE.BEpermiso> permisos = familiaBLL.ObtenerPermisoRecursivo(familia);
-
-
-        //        if(permisos.Any(p=>p.idPermiso== permisoBe.idPermiso))
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-
-        //}
+        
 
 
         public bool AsignacionDirecta(BE.BEusuario usuario, BE.BEpermiso permisoHijo)
@@ -227,22 +175,18 @@ namespace BLL
             return usuarioDAL.AsignacionDirecta(usuario,permisoHijo);
         }
 
-        //public bool TienePermiso(BE.BEusuario usuario, BE.BEpermiso permiso)
-        //{
-        //    usuario.Permisos = ObtenerPermisoRecursivo(usuario).ToList();
-        //    return ((usuario.Permisos).ToList()).Exists(per => per.idPermiso == per.idPermiso);
-        //}
+     
 
 
         public void Asignar(BE.BEusuario usuario, BE.BEpermiso permiso)
         {
             usuarioDAL.Asignar(usuario, permiso);
         }
-
         public bool QuitarPermiso(BE.BEusuario usuario, BE.BEpermiso permiso)
         {
             return usuarioDAL.QuitarPermisos(usuario, permiso);
         }
+
 
 
         public bool GuardarArchivo(string path, string nombre, string contenido, bool sobrescribir)
@@ -274,16 +218,7 @@ namespace BLL
         }
 
 
-        //public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEusuario usuario)
-        //{
-        //    List<BE.BEpermiso> permisos = usuarioDAL.ObtenerPermisoRecursivo("=" + usuario.IdUsuario);
-        //    foreach(BE.BEpermiso permiso in permisos)
-        //    {
-        //        permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
-        //    }
-
-        //    return permisos;
-        //}
+        
 
 
         public List<BE.BEusuario> FamiliaMiembro( BE.BEpermiso permiso)

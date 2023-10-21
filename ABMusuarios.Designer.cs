@@ -39,9 +39,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_fnacimiento = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
-            this.txt_pass = new System.Windows.Forms.TextBox();
             this.lbl_telefono = new System.Windows.Forms.Label();
-            this.lbl_pass = new System.Windows.Forms.Label();
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.txt_mail = new System.Windows.Forms.TextBox();
             this.lbl_mail = new System.Windows.Forms.Label();
@@ -93,9 +91,7 @@
             this.gb_abmusuarios.Controls.Add(this.dateTimePicker1);
             this.gb_abmusuarios.Controls.Add(this.lbl_fnacimiento);
             this.gb_abmusuarios.Controls.Add(this.txt_telefono);
-            this.gb_abmusuarios.Controls.Add(this.txt_pass);
             this.gb_abmusuarios.Controls.Add(this.lbl_telefono);
-            this.gb_abmusuarios.Controls.Add(this.lbl_pass);
             this.gb_abmusuarios.Controls.Add(this.txt_direccion);
             this.gb_abmusuarios.Controls.Add(this.txt_mail);
             this.gb_abmusuarios.Controls.Add(this.lbl_mail);
@@ -163,35 +159,19 @@
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Location = new System.Drawing.Point(75, 313);
+            this.txt_telefono.Location = new System.Drawing.Point(75, 270);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(200, 20);
             this.txt_telefono.TabIndex = 32;
             // 
-            // txt_pass
-            // 
-            this.txt_pass.Location = new System.Drawing.Point(75, 273);
-            this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(200, 20);
-            this.txt_pass.TabIndex = 30;
-            // 
             // lbl_telefono
             // 
             this.lbl_telefono.AutoSize = true;
-            this.lbl_telefono.Location = new System.Drawing.Point(25, 316);
+            this.lbl_telefono.Location = new System.Drawing.Point(25, 273);
             this.lbl_telefono.Name = "lbl_telefono";
             this.lbl_telefono.Size = new System.Drawing.Size(49, 13);
             this.lbl_telefono.TabIndex = 29;
             this.lbl_telefono.Text = "Telefono";
-            // 
-            // lbl_pass
-            // 
-            this.lbl_pass.AutoSize = true;
-            this.lbl_pass.Location = new System.Drawing.Point(12, 280);
-            this.lbl_pass.Name = "lbl_pass";
-            this.lbl_pass.Size = new System.Drawing.Size(61, 13);
-            this.lbl_pass.TabIndex = 31;
-            this.lbl_pass.Text = "Contraseña";
             // 
             // txt_direccion
             // 
@@ -279,9 +259,7 @@
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.GroupBox gb_abmusuarios;
         private System.Windows.Forms.TextBox txt_telefono;
-        private System.Windows.Forms.TextBox txt_pass;
         private System.Windows.Forms.Label lbl_telefono;
-        private System.Windows.Forms.Label lbl_pass;
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.TextBox txt_mail;
         private System.Windows.Forms.Label lbl_mail;

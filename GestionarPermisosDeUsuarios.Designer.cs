@@ -28,261 +28,183 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gb_permisos = new System.Windows.Forms.GroupBox();
-            this.lbl_permisosAsignados = new System.Windows.Forms.Label();
-            this.dg_PermisosAsignados = new System.Windows.Forms.DataGridView();
-            this.btn_quitarPermiso = new System.Windows.Forms.Button();
-            this.btn_asignarPermisos = new System.Windows.Forms.Button();
-            this.dg_PermisosDisponibles = new System.Windows.Forms.DataGridView();
-            this.lbl_permisosdisponibles = new System.Windows.Forms.Label();
-            this.txt_usuario = new System.Windows.Forms.TextBox();
-            this.lbl_usuario = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btn_cerrar = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
-            this.panel.SuspendLayout();
-            this.gb_permisos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_PermisosAsignados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_PermisosDisponibles)).BeginInit();
+            this.grpPatentes = new System.Windows.Forms.GroupBox();
+            this.btn_agregarFamilias = new System.Windows.Forms.Button();
+            this.cboFamilias = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_agregarPatentes = new System.Windows.Forms.Button();
+            this.cboPatentes = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmdConfigurar = new System.Windows.Forms.Button();
+            this.cboUsuarios = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.grpPatentes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // grpPatentes
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inicioToolStripMenuItem,
-            this.seguridadToolStripMenuItem,
-            this.idiomaToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
-            this.sesionToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1014, 24);
-            this.menuStrip1.TabIndex = 23;
-            this.menuStrip1.Text = "menuStrip1";
+            this.grpPatentes.Controls.Add(this.btn_agregarFamilias);
+            this.grpPatentes.Controls.Add(this.cboFamilias);
+            this.grpPatentes.Controls.Add(this.label3);
+            this.grpPatentes.Controls.Add(this.btn_agregarPatentes);
+            this.grpPatentes.Controls.Add(this.cboPatentes);
+            this.grpPatentes.Controls.Add(this.label1);
+            this.grpPatentes.Controls.Add(this.cmdConfigurar);
+            this.grpPatentes.Controls.Add(this.cboUsuarios);
+            this.grpPatentes.Controls.Add(this.label2);
+            this.grpPatentes.Location = new System.Drawing.Point(11, 67);
+            this.grpPatentes.Margin = new System.Windows.Forms.Padding(2);
+            this.grpPatentes.Name = "grpPatentes";
+            this.grpPatentes.Padding = new System.Windows.Forms.Padding(2);
+            this.grpPatentes.Size = new System.Drawing.Size(288, 303);
+            this.grpPatentes.TabIndex = 6;
+            this.grpPatentes.TabStop = false;
+            this.grpPatentes.Text = "Usuarios";
             // 
-            // inicioToolStripMenuItem
+            // btn_agregarFamilias
             // 
-            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.inicioToolStripMenuItem.Text = "Inicio";
+            this.btn_agregarFamilias.Location = new System.Drawing.Point(11, 219);
+            this.btn_agregarFamilias.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_agregarFamilias.Name = "btn_agregarFamilias";
+            this.btn_agregarFamilias.Size = new System.Drawing.Size(83, 19);
+            this.btn_agregarFamilias.TabIndex = 13;
+            this.btn_agregarFamilias.Text = "Agregar >>";
+            this.btn_agregarFamilias.UseVisualStyleBackColor = true;
+            this.btn_agregarFamilias.Click += new System.EventHandler(this.btn_agregarFamilias_Click);
             // 
-            // seguridadToolStripMenuItem
+            // cboFamilias
             // 
-            this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.seguridadToolStripMenuItem.Text = "Seguridad";
+            this.cboFamilias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFamilias.FormattingEnabled = true;
+            this.cboFamilias.Location = new System.Drawing.Point(11, 194);
+            this.cboFamilias.Margin = new System.Windows.Forms.Padding(2);
+            this.cboFamilias.Name = "cboFamilias";
+            this.cboFamilias.Size = new System.Drawing.Size(234, 21);
+            this.cboFamilias.TabIndex = 12;
             // 
-            // idiomaToolStripMenuItem
+            // label3
             // 
-            this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
-            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.idiomaToolStripMenuItem.Text = "Idioma";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 178);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Agregar Familias";
             // 
-            // ayudaToolStripMenuItem
+            // btn_agregarPatentes
             // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            this.btn_agregarPatentes.Location = new System.Drawing.Point(11, 151);
+            this.btn_agregarPatentes.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_agregarPatentes.Name = "btn_agregarPatentes";
+            this.btn_agregarPatentes.Size = new System.Drawing.Size(83, 19);
+            this.btn_agregarPatentes.TabIndex = 10;
+            this.btn_agregarPatentes.Text = "Agregar >>";
+            this.btn_agregarPatentes.UseVisualStyleBackColor = true;
+            this.btn_agregarPatentes.Click += new System.EventHandler(this.btn_agregarPatentes_Click);
             // 
-            // sesionToolStripMenuItem
+            // cboPatentes
             // 
-            this.sesionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarUsuarioToolStripMenuItem,
-            this.cerrarSesionToolStripMenuItem});
-            this.sesionToolStripMenuItem.Name = "sesionToolStripMenuItem";
-            this.sesionToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.sesionToolStripMenuItem.Text = "Sesion";
+            this.cboPatentes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPatentes.FormattingEnabled = true;
+            this.cboPatentes.Location = new System.Drawing.Point(11, 127);
+            this.cboPatentes.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPatentes.Name = "cboPatentes";
+            this.cboPatentes.Size = new System.Drawing.Size(234, 21);
+            this.cboPatentes.TabIndex = 9;
             // 
-            // cambiarUsuarioToolStripMenuItem
+            // label1
             // 
-            this.cambiarUsuarioToolStripMenuItem.Name = "cambiarUsuarioToolStripMenuItem";
-            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.cambiarUsuarioToolStripMenuItem.Text = "Cambiar Usuario";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 110);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Agregar patentes";
             // 
-            // cerrarSesionToolStripMenuItem
+            // cmdConfigurar
             // 
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cmdConfigurar.Location = new System.Drawing.Point(11, 63);
+            this.cmdConfigurar.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdConfigurar.Name = "cmdConfigurar";
+            this.cmdConfigurar.Size = new System.Drawing.Size(83, 19);
+            this.cmdConfigurar.TabIndex = 7;
+            this.cmdConfigurar.Text = "Configurar";
+            this.cmdConfigurar.UseVisualStyleBackColor = true;
+            this.cmdConfigurar.Click += new System.EventHandler(this.cmdConfigurar_Click_1);
             // 
-            // panel
+            // cboUsuarios
             // 
-            this.panel.AutoSize = true;
-            this.panel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel.Controls.Add(this.label2);
-            this.panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel.Location = new System.Drawing.Point(0, 24);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1014, 65);
-            this.panel.TabIndex = 24;
+            this.cboUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUsuarios.FormattingEnabled = true;
+            this.cboUsuarios.Location = new System.Drawing.Point(11, 39);
+            this.cboUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.cboUsuarios.Name = "cboUsuarios";
+            this.cboUsuarios.Size = new System.Drawing.Size(234, 21);
+            this.cboUsuarios.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.AllowDrop = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(536, 61);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "VISION MANAGEMENT";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Todos los usuarios";
             // 
-            // gb_permisos
+            // treeView1
             // 
-            this.gb_permisos.Controls.Add(this.btn_cerrar);
-            this.gb_permisos.Controls.Add(this.lbl_permisosAsignados);
-            this.gb_permisos.Controls.Add(this.dg_PermisosAsignados);
-            this.gb_permisos.Controls.Add(this.btn_quitarPermiso);
-            this.gb_permisos.Controls.Add(this.btn_asignarPermisos);
-            this.gb_permisos.Controls.Add(this.dg_PermisosDisponibles);
-            this.gb_permisos.Controls.Add(this.lbl_permisosdisponibles);
-            this.gb_permisos.Controls.Add(this.txt_usuario);
-            this.gb_permisos.Controls.Add(this.lbl_usuario);
-            this.gb_permisos.Location = new System.Drawing.Point(0, 90);
-            this.gb_permisos.Name = "gb_permisos";
-            this.gb_permisos.Size = new System.Drawing.Size(975, 647);
-            this.gb_permisos.TabIndex = 25;
-            this.gb_permisos.TabStop = false;
-            this.gb_permisos.Text = "Gestionar permisos de usuario";
+            this.treeView1.Location = new System.Drawing.Point(336, 69);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(325, 301);
+            this.treeView1.TabIndex = 7;
             // 
-            // lbl_permisosAsignados
+            // btn_guardar
             // 
-            this.lbl_permisosAsignados.AutoSize = true;
-            this.lbl_permisosAsignados.Location = new System.Drawing.Point(529, 103);
-            this.lbl_permisosAsignados.Name = "lbl_permisosAsignados";
-            this.lbl_permisosAsignados.Size = new System.Drawing.Size(100, 13);
-            this.lbl_permisosAsignados.TabIndex = 137;
-            this.lbl_permisosAsignados.Text = "Permisos asignados";
-            // 
-            // dg_PermisosAsignados
-            // 
-            this.dg_PermisosAsignados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_PermisosAsignados.Location = new System.Drawing.Point(521, 133);
-            this.dg_PermisosAsignados.Name = "dg_PermisosAsignados";
-            this.dg_PermisosAsignados.RowHeadersWidth = 62;
-            this.dg_PermisosAsignados.Size = new System.Drawing.Size(251, 298);
-            this.dg_PermisosAsignados.TabIndex = 136;
-            // 
-            // btn_quitarPermiso
-            // 
-            this.btn_quitarPermiso.Location = new System.Drawing.Point(270, 255);
-            this.btn_quitarPermiso.Name = "btn_quitarPermiso";
-            this.btn_quitarPermiso.Size = new System.Drawing.Size(200, 23);
-            this.btn_quitarPermiso.TabIndex = 135;
-            this.btn_quitarPermiso.Text = "<  Quitar permiso ";
-            this.btn_quitarPermiso.UseVisualStyleBackColor = true;
-           // this.btn_quitarPermiso.Click += new System.EventHandler(this.btn_quitarPermiso_Click);
-            // 
-            // btn_asignarPermisos
-            // 
-            this.btn_asignarPermisos.Location = new System.Drawing.Point(270, 161);
-            this.btn_asignarPermisos.Name = "btn_asignarPermisos";
-            this.btn_asignarPermisos.Size = new System.Drawing.Size(200, 23);
-            this.btn_asignarPermisos.TabIndex = 134;
-            this.btn_asignarPermisos.Text = "Asignar permiso >";
-            this.btn_asignarPermisos.UseVisualStyleBackColor = true;
-           // this.btn_asignarPermisos.Click += new System.EventHandler(this.btn_asignarPermisos_Click);
-            // 
-            // dg_PermisosDisponibles
-            // 
-            this.dg_PermisosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_PermisosDisponibles.Location = new System.Drawing.Point(6, 133);
-            this.dg_PermisosDisponibles.Name = "dg_PermisosDisponibles";
-            this.dg_PermisosDisponibles.RowHeadersWidth = 62;
-            this.dg_PermisosDisponibles.Size = new System.Drawing.Size(213, 298);
-            this.dg_PermisosDisponibles.TabIndex = 133;
-            // 
-            // lbl_permisosdisponibles
-            // 
-            this.lbl_permisosdisponibles.AutoSize = true;
-            this.lbl_permisosdisponibles.Location = new System.Drawing.Point(8, 103);
-            this.lbl_permisosdisponibles.Name = "lbl_permisosdisponibles";
-            this.lbl_permisosdisponibles.Size = new System.Drawing.Size(104, 13);
-            this.lbl_permisosdisponibles.TabIndex = 2;
-            this.lbl_permisosdisponibles.Text = "Permisos disponibles";
-            // 
-            // txt_usuario
-            // 
-            this.txt_usuario.Location = new System.Drawing.Point(108, 25);
-            this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(189, 20);
-            this.txt_usuario.TabIndex = 1;
-            // 
-            // lbl_usuario
-            // 
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(6, 28);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(96, 13);
-            this.lbl_usuario.TabIndex = 0;
-            this.lbl_usuario.Text = "Nombre de usuario";
-            // 
-            // btn_cerrar
-            // 
-            this.btn_cerrar.Location = new System.Drawing.Point(891, 410);
-            this.btn_cerrar.Name = "btn_cerrar";
-            this.btn_cerrar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cerrar.TabIndex = 138;
-            this.btn_cerrar.Text = "Salir";
-            this.btn_cerrar.UseVisualStyleBackColor = true;
-            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            this.btn_guardar.Location = new System.Drawing.Point(678, 351);
+            this.btn_guardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(110, 19);
+            this.btn_guardar.TabIndex = 8;
+            this.btn_guardar.Text = "Guardar cambios";
+            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // GestionarPermisosDeUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 749);
-            this.Controls.Add(this.gb_permisos);
-            this.Controls.Add(this.panel);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.grpPatentes);
             this.Name = "GestionarPermisosDeUsuarios";
             this.Text = "Vision Management/ Gestionar Permisos de Usuarios";
-            //this.Load += new System.EventHandler(this.GestionarPermisosDeUsuarios_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel.ResumeLayout(false);
-            this.gb_permisos.ResumeLayout(false);
-            this.gb_permisos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_PermisosAsignados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_PermisosDisponibles)).EndInit();
+            this.grpPatentes.ResumeLayout(false);
+            this.grpPatentes.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seguridadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sesionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox gb_permisos;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TextBox txt_usuario;
-        private System.Windows.Forms.Label lbl_usuario;
-        private System.Windows.Forms.DataGridView dg_PermisosDisponibles;
-        private System.Windows.Forms.Label lbl_permisosdisponibles;
-        private System.Windows.Forms.Button btn_asignarPermisos;
-        private System.Windows.Forms.Label lbl_permisosAsignados;
-        private System.Windows.Forms.DataGridView dg_PermisosAsignados;
-        private System.Windows.Forms.Button btn_quitarPermiso;
-        private System.Windows.Forms.Button btn_cerrar;
+        private System.Windows.Forms.GroupBox grpPatentes;
+        private System.Windows.Forms.Button btn_agregarFamilias;
+        private System.Windows.Forms.ComboBox cboFamilias;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_agregarPatentes;
+        private System.Windows.Forms.ComboBox cboPatentes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button cmdConfigurar;
+        private System.Windows.Forms.ComboBox cboUsuarios;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button btn_guardar;
     }
 }

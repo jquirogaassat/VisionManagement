@@ -10,18 +10,12 @@ namespace BLL
 {
     public class BLLpermiso 
     {
-        BLL.BLLencriptacion encriptadora = new BLLencriptacion();
-        DAL.DALpermiso DALpermiso = new DAL.DALpermiso();
-        // BE.BEpermiso familiaBe = new BE.BEfamilia("", "");
-        //BE.BEpermiso patenteBe = new BE.BEpatente("");
-
-
         PermisosRepository _permisos;
        
-        public BLLpermiso()
+        public BLLpermiso()  
         {
             _permisos = new PermisosRepository();
-        }
+        }//ok
       
         public bool Existe (BEcomponente c, int id)
         {
@@ -36,117 +30,54 @@ namespace BLL
                     if(existe) return true;
                 }
             return existe;
-        }
+        }//ok
 
 
         public Array GetAllPermission()
         {
             return _permisos.GetAllPermission();
-        }
+        }//ok
 
         public BEcomponente GuardarComponente(BEcomponente p, bool esFamilia)
         {
             return _permisos.GuardarComponente(p, esFamilia);
-        }
+        }//ok
        
         public void GuardarFamilia(BEfamilia f)
         {
             _permisos.GuardarFamilia(f);
-        }
+        }//ok
 
         public IList<BEfamilia> GetAllFamilias()
         {
             return _permisos.GetAllFamilias();
-        }
+        }//ok
 
         public IList<BEcomponente> GetAll(string familia)
         {
             return _permisos.GetAll(familia);
-        }
+        }//ok
 
         public void FillUserComponents(BEusuario u)
         {
             _permisos.FillUserComponents(u);
-        }
+        }//ok
 
         public void FillFamilyComponents(BEfamilia f)
         {
             _permisos.FillFamilyComponents(f);
-        }
+        }//ok
 
         public IList<BEpatente> GetAllPatentes()
         {
             return _permisos.GetAllPatentes();
-        }
+        }//ok
       
         
 
-        public void Asignar(BE.BEpermiso a, BE.BEpermiso b)
-        {
-             DALpermiso.Asignar(a, b);
-        }
+      
 
-        //public List<BE.BEpermiso> ObtenerHijos(BE.BEpermiso bEpermiso)
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
-        //    permisos = DALpermiso.ObtenerHijos(bEpermiso);
-
-        //    foreach(BE.BEpermiso p in permisos)
-        //    {
-        //        p.nombrePermiso = encriptadora.desencriptarAes(p.nombrePermiso);
-        //    }
-        //    return permisos;
-        //}
-
-
-
-
-        //public List<BE.BEpermiso> ObtenerPermisoRecursivo(BE.BEpermiso permiso)
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
-        //    permisos = DALpermiso.ObtenerPermisosRecursivos("=" + permiso.idPermiso);
-
-        //    foreach(BE.BEpermiso per in permisos)
-        //    {
-        //        per.nombrePermiso = encriptadora.desencriptarAes(per.nombrePermiso);
-        //    }
-
-        //    return permisos;
-
-        //}
-
-
-        //public void EncriptarPatentes()
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
-        //    permisos = DALpermiso.Consulta();
-
-
-        //    foreach(BE.BEpermiso permiso in permisos)
-        //    {
-        //        permiso.nombrePermiso=encriptadora.encriptarAES(permiso.nombrePermiso);
-        //        DALpermiso.Modificar(permiso);
-        //    }
-
-
-        //}
-
-        //public void DesencriptarPatentes()
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BEpermiso>();
-        //    permisos=DALpermiso.Consulta();
-
-        //    foreach(BE.BEpermiso permiso in permisos)
-        //    {
-        //        permiso.nombrePermiso = encriptadora.desencriptarAes(permiso.nombrePermiso);
-        //        DALpermiso.Modificar(permiso);
-        //    }    
-        //}
-        //public BE.BEpermiso Consultar(string nombrePermiso)
-        //{
-        //    return DALpermiso.Consultar(nombrePermiso);
-        //}
-
+       
 
 
 

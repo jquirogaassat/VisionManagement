@@ -55,7 +55,7 @@ namespace VisionTFI
             usuario.NumeroDocumento = Int32.Parse(txt_dni.Text);
             usuario.Mail = txt_mail.Text;
             //string pass = txt_pass.Text;
-            usuario.UserPass = encriptadora.encriptarSha256(txt_pass.Text);
+            usuario.UserPass = encriptadora.encriptarSha256(txt_usuario.Text);
             usuario.Telefono= Int32.Parse(txt_telefono.Text);
             usuario.FechaNacimiento = dateTimePicker1.Value;
 

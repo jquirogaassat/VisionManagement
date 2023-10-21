@@ -124,11 +124,6 @@ namespace VisionTFI
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Login correcto");
-            //Globa.menuPrincipal = new MenuPrincipal();
-            //Globa.menuPrincipal.Show();
-            //this.Hide();
-
             BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
             BE.BEusuario usuarioLog = new BE.BEusuario();
             usuarioLog.usuario = txt_usuario.Text;
@@ -142,6 +137,10 @@ namespace VisionTFI
             if (resultado == BE.BEreusltadoLog.LoginCorrecto)
             {
                 MessageBox.Show("Login correcto");
+                if(txt_usuario.Text==txt_pass.Text)
+                {
+                    MessageBox.Show("Usted debe cambiar su contraseña!");
+                }
                 Globa.menuPrincipal = new MenuPrincipal();
                 Globa.menuPrincipal.Show();
                 this.Hide();

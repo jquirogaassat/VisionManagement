@@ -12,9 +12,9 @@ namespace DAL
 {
     public class PermisosRepository
     {
-        DALdigitoverificador dvdal = new DALdigitoverificador();
+        
         string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        SqlHelper sqlHelper= new SqlHelper();
+       
         public Array GetAllPermission()
         {
             return Enum.GetValues(typeof(BEtipoPermiso));
@@ -67,12 +67,9 @@ namespace DAL
 
                  var id = cmd.ExecuteScalar();
 
-               // int id = sqlHelper.ExecuteQueryPRUEBA(query);
+       
                 p.Id = (int)id;
-               // int dvhId = p.Id;
-
-                
-               // int dvh = dvdal.CalcularDVH(ConsultarPermisoDT(p.Id), 0);
+              
               
 
                 return p;
@@ -315,14 +312,14 @@ namespace DAL
 
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
-            cmd.CommandText= $@"select p.* from usuarios_permisos up inner join permiso p on up.id_permiso=p.id where id_usuario=@id;";
+            cmd.CommandText= $@"select p.* from usuarios_permisos up inner join Permiso1 p on up.id_permiso=p.id_permiso where id_usuario=@id;";
             cmd.Parameters.AddWithValue("id", u.IdUsuario);
 
             var reader= cmd.ExecuteReader();
             u.Permisos.Clear();
             while(reader.Read())
             {
-                var idp = reader.GetInt32(reader.GetOrdinal("id"));
+                var idp = reader.GetInt32(reader.GetOrdinal("id_permiso"));
                 var nombrep = reader.GetString(reader.GetOrdinal("nombre"));
 
                 var permisop = String.Empty;

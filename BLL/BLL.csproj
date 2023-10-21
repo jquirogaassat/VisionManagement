@@ -53,8 +53,6 @@
     <Compile Include="BLLgestionbitacora.cs" />
     <Compile Include="BLLidioma.cs" />
     <Compile Include="BLLingreso.cs" />
-    <Compile Include="BLLnotacredito.cs" />
-    <Compile Include="BLLnotadebito.cs" />
     <Compile Include="BLLpermiso.cs" />
     <Compile Include="BLLreporte.cs" />
     <Compile Include="BLLsesion.cs" />

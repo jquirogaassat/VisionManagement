@@ -188,5 +188,11 @@ namespace VisionTFI
                 MessageBox.Show("El usuario no tiene permisos");
             }
         }
+
+        private void gestionarPermisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionarPermisosDeUsuarios gestionarPermisos = new GestionarPermisosDeUsuarios();
+            Globa.menuPrincipal.AbrirFormHijoMenu(gestionarPermisos);
+        }
     }
 }

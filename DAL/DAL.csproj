@@ -51,8 +51,6 @@
     <Compile Include="DALdigitoverificador.cs" />
     <Compile Include="DALidioma.cs" />
     <Compile Include="DALingreso.cs" />
-    <Compile Include="DALnoctacredito.cs" />
-    <Compile Include="DALnotadebito.cs" />
     <Compile Include="DALpermiso.cs" />
     <Compile Include="DALreporte.cs" />
     <Compile Include="DALusuario.cs" />

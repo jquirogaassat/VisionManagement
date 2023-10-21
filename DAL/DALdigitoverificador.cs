@@ -135,7 +135,7 @@ namespace DAL
             nombresTablas.Add("FAMILIA-PERMISO");
             // nombresTablas.Add()
 
-            List<BE.BEtabla> digitosVerticales = Consulta();
+            List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);
 
             int t = 0;
 
@@ -179,9 +179,10 @@ namespace DAL
 
         }
 
-        public List<BE.BEtabla> Consulta()
+        public List<BE.BEtabla> Consulta(List<string> tabla)
         {
             SqlParameter[] parameters = new SqlParameter[] {};
+            //parameters = tabla;
             DataTable dt = sqlHelper.ExecuteReader("dvvConsulta", parameters);
             List<BE.BEtabla> tablas = new List<BE.BEtabla>();
             Mappers.Tabla mapper = new Mappers.Tabla();

@@ -5,30 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BE;
+using System.Configuration;
 
 namespace DAL
 {
     public class UsuarioRepository
     {
-
+        DAL.SqlHelper helper = new SqlHelper();
+        string ConnectionString =ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         public UsuarioRepository()
         {
 
-        }
-
-        private string GetConnectionString()
-        {
-            var cs = new SqlConnectionStringBuilder();
-            cs.IntegratedSecurity = true;
-            cs.DataSource = ".";
-            cs.InitialCatalog = "VisionManagement";
-            return cs.ConnectionString;
-        }
+        }  
 
 
         public List<BEusuario> GetAll()
         {
-            var cnn= new SqlConnection(GetConnectionString());
+            var cnn= new SqlConnection(ConnectionString);
             cnn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
@@ -58,24 +51,29 @@ namespace DAL
         {
             try
             {
-                var cnn = new SqlConnection(GetConnectionString());
+                var cnn = new SqlConnection(ConnectionString);
                 cnn.Open();
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                cmd.CommandText= $@"delete from usuarios_permisos where id_usuario=@id;";
-                cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));
+                cmd.CommandText= $@"delete from usuarios_permisos where id_usuario=@idUsuario;";
+                cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));                
                 cmd.ExecuteNonQuery();
 
                 foreach(var item in u.Permisos)
                 {
                     cmd = new SqlCommand();
                     cmd.Connection = cnn;
-                    cmd.CommandText= $@"insert into usuarios_permisos (id_usuario,id_permiso) values (@id_usuario,@id_permiso) "; ;
-                    cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));
-                    cmd.Parameters.Add(new SqlParameter("idPermiso", item.Id));
+                    // cmd.CommandText= $@"insert into usuarios_permisos (id_usuario,id_permiso) values (@idUsuario,@id_permiso) "; 
+                    var query2 = "insert into usuarios_permisos (id_usuario,id_permiso) values (" + u.IdUsuario + ","+item.Id+ ")";
+                    //cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));
+                    //cmd.Parameters.Add(new SqlParameter("idPermiso", item.Id));
 
-                    cmd.ExecuteNonQuery();
+                    helper.ExecuteQuery(query2);
+                   // var query = cmd.ToString();
+                    //var qu2 = cmd.Parameters.ToString();
+
+                   // cmd.ExecuteNonQuery();
                 }
 
             }
