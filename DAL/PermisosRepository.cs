@@ -89,10 +89,10 @@ namespace DAL
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                var query = $@"delete from permiso_permiso where id_permiso_padre=@id;       ";
+                var query = $@"delete from permiso_permiso where id_permiso_padre=@id_permiso;       ";
 
                 cmd.CommandText= query;
-                cmd.Parameters.Add(new SqlParameter("id", f.Id));
+                cmd.Parameters.Add(new SqlParameter("id_permiso", f.Id));
                 cmd.ExecuteNonQuery();
 
                 foreach(var item in f.Hijos)
@@ -211,9 +211,9 @@ namespace DAL
                         select sp.id_permiso_padre, sp.id_permiso_hijo from permiso_permiso sp 
                         inner join recursivo r on r.id_permiso_hijo= sp.id_permiso_padre
                         )
-                        select r.id_permiso_padre,r.id_permiso_hijo,p.id,p.nombre, p.permiso
+                        select r.id_permiso_padre,r.id_permiso_hijo,p.id_permiso,p.nombre, p.permiso
                         from recursivo r 
-                        inner join permiso p on r.id_permiso_hijo = p.id 
+                        inner join Permiso1 p on r.id_permiso_hijo = p.id_permiso
 						
                         ";
 
@@ -232,7 +232,7 @@ namespace DAL
                     idPadre = reader.GetInt32(reader.GetOrdinal("id_permiso_padre"));
                 }
 
-                var id = reader.GetInt32(reader.GetOrdinal("id"));
+                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
 
                 var permiso = string.Empty;
@@ -356,7 +356,7 @@ namespace DAL
         public void FillFamilyComponents( BEfamilia famila)
         {
             famila.VaciarHijos();
-            foreach( var item in GetAll("=" + famila))
+            foreach( var item in GetAll("=" + famila.Id))
             {
                 famila.AgregarHijo(item);
             }

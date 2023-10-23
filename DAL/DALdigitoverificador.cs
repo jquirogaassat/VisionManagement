@@ -51,7 +51,7 @@ namespace DAL
 
         public int CalcularDVVb(string nombreTabla)
         {
-            string idCampo = "idBitacora";
+            string idCampo = "idBITTACORA";
 
             string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
                                                             + nombreTabla + " else select 0";
@@ -76,7 +76,7 @@ namespace DAL
 
         public bool CargarDVHb(string nombreTabla, int id, int dvh)
         {
-            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBitacora" + "=" + id;
+            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBITTACORA" + "=" + id;
             return sqlHelper.ExecuteQuery(query);
         }  // bitacora
 
@@ -129,10 +129,10 @@ namespace DAL
             string query;
 
             List<string> nombresTablas = new List<string>();
-            nombresTablas.Add("BITTACORA");
-            nombresTablas.Add("USUARIO");
-            nombresTablas.Add("USUARIO-PERMISO");
-            nombresTablas.Add("FAMILIA-PERMISO");
+            nombresTablas.Add("BITTACORA"); // si 
+            nombresTablas.Add("USUARIO");//si
+            //nombresTablas.Add("USUARIO-PERMISO");
+            //nombresTablas.Add("FAMILIA-PERMISO");
             // nombresTablas.Add()
 
             List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);

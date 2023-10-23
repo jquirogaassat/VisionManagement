@@ -148,7 +148,7 @@ namespace VisionTFI
                         if(permisoRepo.Existe(item, flia.Id))
                         {
                             esta = true;
-                            break;
+                       
                         }    
                     }
                     if(esta)

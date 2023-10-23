@@ -134,7 +134,8 @@ namespace DAL
         }
 
 
-        public List<BE.BEgestionbitacora>Consulta() // a este metodo tengo que llegar desde el reporte
+        public List<BE.BEgestionbitacora>Consultar() // a este metodo tengo que llegar desde el reporte
+                                                     // y cuando cargo la bitacora
         {
             SqlParameter[] parameters = new SqlParameter[]
                 {};

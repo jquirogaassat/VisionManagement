@@ -41,7 +41,14 @@ namespace BLL
 
         public List<BEgestionbitacora> Listar()
         {
-            throw new NotImplementedException();
+            List<BEgestionbitacora> bitacora = new List<BEgestionbitacora>();
+            bitacora = DALbitacora.Consultar();
+            foreach(BEgestionbitacora b in bitacora)
+            {
+                b.Descripcion = encriptadora.desencriptarAes(b.Descripcion);
+            }
+            return bitacora;
+           // throw new NotImplementedException();
         }
         
         public bool Modificar(BEgestionbitacora itemModifica)

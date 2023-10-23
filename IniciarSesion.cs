@@ -110,8 +110,8 @@ namespace VisionTFI
         {
             this.Focus();
 
-            txt_usuario.Text = "";
-            txt_usuario.Text = "";
+            txt_usuario.Text = "admin";
+            txt_pass.Text = "admin123";
 
 
             inicioToolStripMenuItem.Visible = true;

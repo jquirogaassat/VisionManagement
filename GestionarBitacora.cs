@@ -33,6 +33,26 @@ namespace VisionTFI
             cmb_nivelCriticidad.Items.Clear();
             RellenarCombos();
             btn_imprimir.Enabled = false;
+           // RellenarDgv();
+            dgv_bitacora.DataSource = BLLgestionbitacora.Listar();
+            RellenarDgv();
+        }
+
+        public void RellenarDgv()
+        {
+            dgv_bitacora.RowHeadersVisible = false;
+            dgv_bitacora.AllowUserToAddRows = false;
+            dgv_bitacora.AllowUserToDeleteRows = false;
+            dgv_bitacora.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgv_bitacora.MultiSelect = false;
+            dgv_bitacora.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_bitacora.Columns[0].HeaderText = "Descripcion";
+            dgv_bitacora.Columns[1].HeaderText = "Nivel de criticidad";
+            dgv_bitacora.Columns[2].HeaderText = "Id Usuario";
+            dgv_bitacora.Columns[5].HeaderText = "Fecha y hora";
+            dgv_bitacora.Columns[3].Visible = false;
+            dgv_bitacora.Columns[4].Visible = false;
+            dgv_bitacora.Columns[6].Visible = false;
 
         }
 
