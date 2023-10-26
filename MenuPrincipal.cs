@@ -15,9 +15,11 @@ namespace VisionTFI
     {
         BE.BEgestionbitacora bitacoraBe = new BE.BEgestionbitacora();
         BLL.BLLgestionbitacora bitacoraBll = new BLL.BLLgestionbitacora();
+ 
         public MenuPrincipal()
         {
             InitializeComponent();
+          
         }
 
         public void Actualizar(BEusuario u)
@@ -106,7 +108,7 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("MEDIO");
             Globa.nivelCriticidad.Add("BAJO");
             //ValorizarBitacora();
-           // ValidarPermisos();
+         //  ValidarPermisos();
 
         }
 
@@ -173,6 +175,7 @@ namespace VisionTFI
                     this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerA);
                     this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerB);
                     this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerC);
+
                 }
                 else
                 {
@@ -193,6 +196,11 @@ namespace VisionTFI
         {
             GestionarPermisosDeUsuarios gestionarPermisos = new GestionarPermisosDeUsuarios();
             Globa.menuPrincipal.AbrirFormHijoMenu(gestionarPermisos);
+        }
+
+        private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new BitacoraC());
         }
     }
 }

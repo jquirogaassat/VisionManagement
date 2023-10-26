@@ -107,6 +107,12 @@
     <Compile Include="Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
     </Compile>
+    <Compile Include="BitacoraC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoraC.Designer.cs">
+      <DependentUpon>BitacoraC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cambiar idioma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BitacoraC.resx">
+      <DependentUpon>BitacoraC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cambiar idioma.resx">
       <DependentUpon>Cambiar idioma.cs</DependentUpon>

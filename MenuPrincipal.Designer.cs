@@ -42,6 +42,7 @@
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.familiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
-            this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +130,7 @@
             this.realizarBackupToolStripMenuItem,
             this.restoreToolStripMenuItem,
             this.bitacoraToolStripMenuItem,
+            this.bitacoraDeCambiosToolStripMenuItem,
             this.familiasToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.gestionarPermisosToolStripMenuItem});
@@ -161,7 +163,7 @@
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
             this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem.Text = "Bitacora de eventos";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
             // familiasToolStripMenuItem
@@ -177,6 +179,13 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // gestionarPermisosToolStripMenuItem
+            // 
+            this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
+            this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
+            this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
             // 
             // idiomaToolStripMenuItem
             // 
@@ -281,12 +290,12 @@
             this.panelFill.Size = new System.Drawing.Size(1253, 361);
             this.panelFill.TabIndex = 30;
             // 
-            // gestionarPermisosToolStripMenuItem
+            // bitacoraDeCambiosToolStripMenuItem
             // 
-            this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
-            this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
+            this.bitacoraDeCambiosToolStripMenuItem.Name = "bitacoraDeCambiosToolStripMenuItem";
+            this.bitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.bitacoraDeCambiosToolStripMenuItem.Text = "Bitacora de cambios";
+            this.bitacoraDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraDeCambiosToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -337,5 +346,6 @@
         private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarPermisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraDeCambiosToolStripMenuItem;
     }
 }

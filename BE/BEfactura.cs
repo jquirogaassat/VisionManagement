@@ -8,10 +8,10 @@ namespace BE
 {
     public class BEfactura
     {
-        public int Numero { get; set; }
-        public float Importe { get; set; }
+        public int Id { get; set; }
         public DateTime Fecha { get; set; }
-        public BEcliente Cliente { get; set; }
-        public BEarticulo Articulo { get; set; }
+        public int IdCliente { get; set; }
+
+        public List<BEdetallefactura> Detalles { get; set; }
     }
 }

@@ -46,8 +46,10 @@
     <Compile Include="DALarticulo.cs" />
     <Compile Include="DALbackup.cs" />
     <Compile Include="DALbitacora.cs" />
+    <Compile Include="DALbitacoraC.cs" />
     <Compile Include="DALcliente.cs" />
     <Compile Include="DALconexion.cs" />
+    <Compile Include="DALdetallefactura.cs" />
     <Compile Include="DALdigitoverificador.cs" />
     <Compile Include="DALidioma.cs" />
     <Compile Include="DALingreso.cs" />

@@ -46,8 +46,10 @@
   <ItemGroup>
     <Compile Include="BLLarticulo.cs" />
     <Compile Include="BLLbackup.cs" />
+    <Compile Include="BLLbitacoraC.cs" />
     <Compile Include="BLLcliente.cs" />
     <Compile Include="BLLconexion.cs" />
+    <Compile Include="BLLdetallefactura.cs" />
     <Compile Include="BLLdigitoverificador.cs" />
     <Compile Include="BLLencriptacion.cs" />
     <Compile Include="BLLgestionbitacora.cs" />

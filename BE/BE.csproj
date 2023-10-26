@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BEarticulo.cs" />
     <Compile Include="BEbackup.cs" />
+    <Compile Include="BEbitacoraC.cs" />
     <Compile Include="BEcliente.cs" />
     <Compile Include="BEcomponente.cs" />
     <Compile Include="BEconexion.cs" />
