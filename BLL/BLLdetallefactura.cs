@@ -10,27 +10,22 @@ namespace BLL
 {
     public  class BLLdetallefactura 
     {
-        #region Singleton
-        private BLLdetallefactura() { }
+      
 
-        private static BLLdetallefactura instance;
-
-        public static BLLdetallefactura getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new BLLdetallefactura();
-            }
-            return instance;
-        } 
-        #endregion
-
-
+        private DAL.DALdetallefactura _daldetalle = new DALdetallefactura();
         public bool Add(BEdetallefactura itemAlta)
         {
-            return DAL.DALdetallefactura.get
+            return _daldetalle.Add(itemAlta);
         }
 
+        public bool Delete(BEdetallefactura itemDel)
+        {
+            return _daldetalle.Delete(itemDel);
+        }
 
+        public List<BEdetallefactura> GetAll(BEfactura facDet)
+        {
+            return _daldetalle.GetAll(facDet);
+        }
     }
 }

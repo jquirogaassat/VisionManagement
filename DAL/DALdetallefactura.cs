@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO.Pipes;
 using System.Linq;
@@ -11,24 +13,14 @@ namespace DAL
 {
     public  class DALdetallefactura
     {
-        #region Singleton
-        private DALdetallefactura() { }
-
-        private static DALdetallefactura instance;
-        public DALdetallefactura GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new DALdetallefactura();
-            }
-            return instance;
-        } 
-        #endregion
-
 
         private SqlHelper sqlHelper= new SqlHelper();
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         private string spInsert = "detalleFacturaInsert";       
         private string spDelete = "detalleFacturaDelete";
+        private SqlCommand cmd;
+
+
         public bool Add(BEdetallefactura itemAlta)
         {
             SqlParameter[] parametros = new SqlParameter[] {
@@ -68,5 +60,29 @@ namespace DAL
 
             return returnValue;
         }
+
+
+
+        public List<BEdetallefactura> GetAll(BEfactura facDet) 
+        {
+            
+            DataSet ds = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            cmd = new SqlCommand();
+            cmd.CommandType= CommandType.StoredProcedure;
+            cmd.CommandText = "DetalleFacturaSelectAllByIntIdFactura";
+            var cnn = new SqlConnection(ConnectionString);
+            cmd.Connection= cnn;
+            cmd.Parameters.AddWithValue("@id_factura", facDet.Id);
+
+            adapter.SelectCommand = cmd;
+            adapter.Fill(ds);
+
+            return Mappers.Mpdetalle.GetInstance().Map(ds);
+
+        }
+
+
+     
     }
 }

@@ -202,5 +202,10 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new BitacoraC());
         }
+
+        private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new DetalleFactura());
+        }
     }
 }

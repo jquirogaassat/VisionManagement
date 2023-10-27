@@ -40,6 +40,7 @@
             this.realizarBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.familiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
-            this.bitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -166,6 +167,13 @@
             this.bitacoraToolStripMenuItem.Text = "Bitacora de eventos";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
+            // bitacoraDeCambiosToolStripMenuItem
+            // 
+            this.bitacoraDeCambiosToolStripMenuItem.Name = "bitacoraDeCambiosToolStripMenuItem";
+            this.bitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.bitacoraDeCambiosToolStripMenuItem.Text = "Bitacora de cambios";
+            this.bitacoraDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraDeCambiosToolStripMenuItem_Click);
+            // 
             // familiasToolStripMenuItem
             // 
             this.familiasToolStripMenuItem.Name = "familiasToolStripMenuItem";
@@ -225,14 +233,16 @@
             // 
             // ventaToolStripMenuItem
             // 
+            this.ventaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facturaToolStripMenuItem});
             this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
-            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ventaToolStripMenuItem.Text = "Venta";
             // 
             // compraToolStripMenuItem
             // 
             this.compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            this.compraToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.compraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.compraToolStripMenuItem.Text = "Compra";
             // 
             // sesionToolStripMenuItem
@@ -290,12 +300,12 @@
             this.panelFill.Size = new System.Drawing.Size(1253, 361);
             this.panelFill.TabIndex = 30;
             // 
-            // bitacoraDeCambiosToolStripMenuItem
+            // facturaToolStripMenuItem
             // 
-            this.bitacoraDeCambiosToolStripMenuItem.Name = "bitacoraDeCambiosToolStripMenuItem";
-            this.bitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.bitacoraDeCambiosToolStripMenuItem.Text = "Bitacora de cambios";
-            this.bitacoraDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraDeCambiosToolStripMenuItem_Click);
+            this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
+            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturaToolStripMenuItem.Text = "Factura";
+            this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -347,5 +357,6 @@
         private System.Windows.Forms.ToolStripMenuItem compraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarPermisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturaToolStripMenuItem;
     }
 }

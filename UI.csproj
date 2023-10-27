@@ -137,6 +137,12 @@
     <Compile Include="Conexion.Designer.cs">
       <DependentUpon>Conexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetalleFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleFactura.Designer.cs">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conexion.resx">
       <DependentUpon>Conexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleFactura.resx">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarArticulo.resx">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>

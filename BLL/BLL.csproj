@@ -52,6 +52,7 @@
     <Compile Include="BLLdetallefactura.cs" />
     <Compile Include="BLLdigitoverificador.cs" />
     <Compile Include="BLLencriptacion.cs" />
+    <Compile Include="BLLfactura.cs" />
     <Compile Include="BLLgestionbitacora.cs" />
     <Compile Include="BLLidioma.cs" />
     <Compile Include="BLLingreso.cs" />

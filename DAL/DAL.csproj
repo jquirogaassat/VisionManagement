@@ -51,6 +51,7 @@
     <Compile Include="DALconexion.cs" />
     <Compile Include="DALdetallefactura.cs" />
     <Compile Include="DALdigitoverificador.cs" />
+    <Compile Include="DALfactura.cs" />
     <Compile Include="DALidioma.cs" />
     <Compile Include="DALingreso.cs" />
     <Compile Include="DALpermiso.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="Mappers\MPbackup.cs" />
     <Compile Include="Mappers\MPbitacora.cs" />
     <Compile Include="Mappers\MPcliente.cs" />
+    <Compile Include="Mappers\Mpdetalle.cs" />
+    <Compile Include="Mappers\MpFactura.cs" />
     <Compile Include="Mappers\MPidioma.cs" />
     <Compile Include="Mappers\MPpermiso.cs" />
     <Compile Include="Mappers\MPtraduccion.cs" />
