@@ -13,7 +13,8 @@ namespace VisionTFI
         public static List<string> nivelCriticidad= new List<string>(); 
         public static MenuPrincipal menuPrincipal = new MenuPrincipal();
         public static BE.BEarticulo articuloBE= new BE.BEarticulo();
-        public static BE.BEcliente cllienteBE= new BE.BEcliente();       
+        public static BE.BEcliente cllienteBE= new BE.BEcliente();  
+        public static BE.BEherramientas herramientaBE = new BE.BEherramientas();
         public static string motivoLoginFallido;
         public static ABMusuarios abmUsuarioAlta;
         public static AdministrarUsers administrarUsers = new AdministrarUsers();

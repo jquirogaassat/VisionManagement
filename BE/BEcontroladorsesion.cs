@@ -57,9 +57,10 @@ namespace BE
 
         }
 
-        public bool IsLoggedIn()
-        {
-            return Usuario != null;
+        public bool IsLoggedIn(BE.BEusuario usuario)
+        {   
+            Usuario = usuario;
+            return usuario != null;
         }
 
         bool IsInRole(BEcomponente c, BEtipoPermiso permiso, bool existe)
@@ -79,10 +80,11 @@ namespace BE
         }
 
 
-        public bool IsInRole(BEtipoPermiso permiso)
+        public bool IsInRole(BE.BEusuario usuario,BEtipoPermiso permiso)
         {
+          
             bool existe = false;
-            foreach(var item in Usuario.Permisos)
+            foreach(var item in usuario.Permisos)
             {
                 if(item.Permiso.Equals(permiso))
                 {

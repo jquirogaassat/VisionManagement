@@ -97,5 +97,12 @@ namespace VisionTFI
 
             sl.SaveAs(@"C:\Users\Jair\Desktop\ErroresBitacora20211012.xlsx");
         }
+
+        private void btn_restore_Click(object sender, EventArgs e)
+        {
+            Globa.restore.Show();
+            this.Hide();
+
+        }
     }
 }

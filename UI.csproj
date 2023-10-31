@@ -107,6 +107,12 @@
     <Compile Include="ABMfamilias.Designer.cs">
       <DependentUpon>ABMfamilias.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABMherramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMherramientas.Designer.cs">
+      <DependentUpon>ABMherramientas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABMusuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,12 @@
     </Compile>
     <Compile Include="GestionarFamilias.Designer.cs">
       <DependentUpon>GestionarFamilias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarHerramientsa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarHerramientsa.Designer.cs">
+      <DependentUpon>GestionarHerramientsa.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionarPermisosDeUsuarios.cs">
       <SubType>Form</SubType>
@@ -265,6 +277,9 @@
     <EmbeddedResource Include="ABMfamilias.resx">
       <DependentUpon>ABMfamilias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABMherramientas.resx">
+      <DependentUpon>ABMherramientas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABMusuarios.resx">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarFamilias.resx">
       <DependentUpon>GestionarFamilias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarHerramientsa.resx">
+      <DependentUpon>GestionarHerramientsa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarPermisosDeUsuarios.resx">
       <DependentUpon>GestionarPermisosDeUsuarios.cs</DependentUpon>

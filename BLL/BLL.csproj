@@ -54,6 +54,7 @@
     <Compile Include="BLLencriptacion.cs" />
     <Compile Include="BLLfactura.cs" />
     <Compile Include="BLLgestionbitacora.cs" />
+    <Compile Include="BLLherramientas.cs" />
     <Compile Include="BLLidioma.cs" />
     <Compile Include="BLLingreso.cs" />
     <Compile Include="BLLpermiso.cs" />

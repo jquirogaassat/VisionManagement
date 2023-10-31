@@ -73,7 +73,7 @@ namespace DAL
             }
 
             return (resultado);
-            //throw new NotImplementedException();
+            
         }
 
         public bool Modificar(BEarticulo itemModifica)

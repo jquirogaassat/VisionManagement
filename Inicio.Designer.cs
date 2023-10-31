@@ -35,6 +35,7 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_restore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_errores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,12 +109,24 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Error en la integridad de la base de datos";
             // 
+            // btn_restore
+            // 
+            this.btn_restore.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btn_restore.Location = new System.Drawing.Point(139, 183);
+            this.btn_restore.Name = "btn_restore";
+            this.btn_restore.Size = new System.Drawing.Size(110, 23);
+            this.btn_restore.TabIndex = 7;
+            this.btn_restore.Text = "Restore";
+            this.btn_restore.UseVisualStyleBackColor = true;
+            this.btn_restore.Click += new System.EventHandler(this.btn_restore_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(533, 238);
+            this.Controls.Add(this.btn_restore);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsuario);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_restore;
     }
 }

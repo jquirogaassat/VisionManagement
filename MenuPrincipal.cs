@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,8 @@ namespace VisionTFI
  
         public MenuPrincipal()
         {
-            InitializeComponent();
+            InitializeComponent();        
+            
           
         }
 
@@ -107,8 +109,8 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("ALTO");
             Globa.nivelCriticidad.Add("MEDIO");
             Globa.nivelCriticidad.Add("BAJO");
-            //ValorizarBitacora();
-         //  ValidarPermisos();
+            ValorizarBitacora(bitacoraBe);
+           // ValidarPermisos();
 
         }
 
@@ -170,11 +172,11 @@ namespace VisionTFI
             
             try
             {
-                if(BEcontroladorsesion.GetInstance.IsLoggedIn())
+                if(BEcontroladorsesion.GetInstance.IsLoggedIn(BE.BEcontroladorsesion.GetInstance.Usuario))
                 {
-                    this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerA);
-                    this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerB);
-                    this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BEtipoPermiso.PuedeHacerC);
+                    this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerA);
+                    this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerB);
+                    this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerC);
 
                 }
                 else
@@ -206,6 +208,11 @@ namespace VisionTFI
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new DetalleFactura());
+        }
+
+        private void aBMToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarHerramientsa());
         }
     }
 }

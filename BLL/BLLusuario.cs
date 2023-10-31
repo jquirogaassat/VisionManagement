@@ -37,6 +37,10 @@ namespace BLL
             _usuarios.GuardarPermisos(u);
         }
 
+        public List<BEusuario> GetAll()
+        {
+            return _usuarios.GetAll();
+        }
         public List<BE.BEusuario> Consulta()
         {
             return usuarioDAL.Consulta();

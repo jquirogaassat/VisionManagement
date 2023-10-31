@@ -54,6 +54,7 @@
     <Compile Include="BEfactura.cs" />
     <Compile Include="BEfamilia.cs" />
     <Compile Include="BEgestionbitacora.cs" />
+    <Compile Include="BEherramientas.cs" />
     <Compile Include="BEidioma.cs" />
     <Compile Include="BEingreso.cs" />
     <Compile Include="BEpatente.cs" />

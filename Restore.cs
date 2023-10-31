@@ -73,6 +73,9 @@ namespace VisionTFI
                 string qwery = bLLbackup.Restore(Globa.backupBE);
                 ValorizarBitacora(BEgestionbitacora);
                 MessageBox.Show("Restore generado con exito!");
+                Globa.menuPrincipal.Show();
+                this.Hide();
+                
             }
             catch (Exception)
             {

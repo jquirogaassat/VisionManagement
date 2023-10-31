@@ -14,7 +14,7 @@ namespace VisionTFI
     public partial class GestionarArticulo : Form , BE.IObserverForm
     {
         BLL.BLLarticulo articuloBLL = new BLL.BLLarticulo();
-        BE.BEarticulo articuloBE = new BE.BEarticulo();
+       // BE.BEarticulo articuloBE = new BE.BEarticulo();
         BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
 
         public GestionarArticulo()

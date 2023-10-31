@@ -36,6 +36,7 @@ namespace VisionTFI
             txt_color.Clear();
             txt_origen.Clear();
             txt_precio.Clear();
+            
 
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
 

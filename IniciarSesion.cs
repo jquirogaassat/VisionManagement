@@ -141,12 +141,35 @@ namespace VisionTFI
                 {
                     MessageBox.Show("Usted debe cambiar su contraseña!");
                 }
-                Globa.menuPrincipal = new MenuPrincipal();
-                Globa.menuPrincipal.Show();
-                this.Hide();
-                LimpiarCombos();
-                ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
-                bitacoraBLL.Alta(bitacoraBE);
+                BLL.BLLconexion conexion = new BLL.BLLconexion();
+                if (conexion.ComprobarConexion())
+                {
+
+                    BLL.BLLdigitoverificador dv = new BLL.BLLdigitoverificador();
+                    Globa.errores = dv.ComprobarIntegridad();
+                    if (Globa.errores.Count > 0)
+                    {
+                        Inicio inicio = new Inicio();                        
+                        inicio.Show();
+                        this.Hide();
+
+                    }
+                    else
+                    {
+                        Globa.menuPrincipal = new MenuPrincipal();
+                        Globa.menuPrincipal.Show();
+                        this.Hide();
+                        LimpiarCombos();
+                        ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                        bitacoraBLL.Alta(bitacoraBE);
+                    }
+                }
+               // Globa.menuPrincipal = new MenuPrincipal();
+                //Globa.menuPrincipal.Show();
+               // this.Hide();
+                //LimpiarCombos();
+                //ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                //bitacoraBLL.Alta(bitacoraBE);
 
             }
             else
