@@ -60,6 +60,11 @@
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBitacoraDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarFacturaPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -138,7 +143,7 @@
             // aBMToolStripMenuItem2
             // 
             this.aBMToolStripMenuItem2.Name = "aBMToolStripMenuItem2";
-            this.aBMToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
             this.aBMToolStripMenuItem2.Text = "ABM";
             this.aBMToolStripMenuItem2.Click += new System.EventHandler(this.aBMToolStripMenuItem2_Click);
             // 
@@ -152,7 +157,8 @@
             this.bitacoraDeCambiosToolStripMenuItem,
             this.familiasToolStripMenuItem,
             this.usuariosToolStripMenuItem,
-            this.gestionarPermisosToolStripMenuItem});
+            this.gestionarPermisosToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
             this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.seguridadToolStripMenuItem.Text = "Seguridad";
@@ -252,9 +258,10 @@
             // ventaToolStripMenuItem
             // 
             this.ventaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturaToolStripMenuItem});
+            this.facturaToolStripMenuItem,
+            this.buscarFacturaPorClienteToolStripMenuItem});
             this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
-            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.ventaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ventaToolStripMenuItem.Text = "Venta";
             // 
             // facturaToolStripMenuItem
@@ -325,6 +332,40 @@
             this.panelFill.Size = new System.Drawing.Size(1253, 361);
             this.panelFill.TabIndex = 30;
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteBitacoraDeEventosToolStripMenuItem,
+            this.reporteBitacoraDeCambiosToolStripMenuItem,
+            this.reporteDePrestamosToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporteBitacoraDeEventosToolStripMenuItem
+            // 
+            this.reporteBitacoraDeEventosToolStripMenuItem.Name = "reporteBitacoraDeEventosToolStripMenuItem";
+            this.reporteBitacoraDeEventosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteBitacoraDeEventosToolStripMenuItem.Text = "Reporte Bitacora de eventos";
+            // 
+            // reporteBitacoraDeCambiosToolStripMenuItem
+            // 
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Name = "reporteBitacoraDeCambiosToolStripMenuItem";
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Text = "Reporte Bitacora de cambios";
+            // 
+            // reporteDePrestamosToolStripMenuItem
+            // 
+            this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
+            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de prestamos";
+            // 
+            // buscarFacturaPorClienteToolStripMenuItem
+            // 
+            this.buscarFacturaPorClienteToolStripMenuItem.Name = "buscarFacturaPorClienteToolStripMenuItem";
+            this.buscarFacturaPorClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.buscarFacturaPorClienteToolStripMenuItem.Text = "Buscar factura por cliente";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,5 +419,10 @@
         private System.Windows.Forms.ToolStripMenuItem facturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maquinariasYHerramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeEventosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDePrestamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarFacturaPorClienteToolStripMenuItem;
     }
 }

@@ -33,14 +33,18 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.txt_precio = new System.Windows.Forms.TextBox();
             this.lbl_precio = new System.Windows.Forms.Label();
-            this.txt_cantidad = new System.Windows.Forms.TextBox();
-            this.lbl_cantidad = new System.Windows.Forms.Label();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
+            this.lbl_codigo = new System.Windows.Forms.Label();
             this.txt_origen = new System.Windows.Forms.TextBox();
             this.lbl_origen = new System.Windows.Forms.Label();
             this.txt_color = new System.Windows.Forms.TextBox();
             this.lbl_color = new System.Windows.Forms.Label();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.lbl_nombre = new System.Windows.Forms.Label();
+            this.txt_disponible = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_estado = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +75,7 @@
             this.btn_guardar.TabIndex = 23;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // txt_precio
             // 
@@ -88,21 +93,22 @@
             this.lbl_precio.TabIndex = 21;
             this.lbl_precio.Text = "Precio :";
             // 
-            // txt_cantidad
+            // txt_codigo
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(62, 292);
-            this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(190, 20);
-            this.txt_cantidad.TabIndex = 20;
+            this.txt_codigo.Location = new System.Drawing.Point(62, 292);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.Size = new System.Drawing.Size(190, 20);
+            this.txt_codigo.TabIndex = 20;
+            this.txt_codigo.Text = "|";
             // 
-            // lbl_cantidad
+            // lbl_codigo
             // 
-            this.lbl_cantidad.AutoSize = true;
-            this.lbl_cantidad.Location = new System.Drawing.Point(6, 299);
-            this.lbl_cantidad.Name = "lbl_cantidad";
-            this.lbl_cantidad.Size = new System.Drawing.Size(55, 13);
-            this.lbl_cantidad.TabIndex = 19;
-            this.lbl_cantidad.Text = "Cantidad :";
+            this.lbl_codigo.AutoSize = true;
+            this.lbl_codigo.Location = new System.Drawing.Point(6, 299);
+            this.lbl_codigo.Name = "lbl_codigo";
+            this.lbl_codigo.Size = new System.Drawing.Size(46, 13);
+            this.lbl_codigo.TabIndex = 19;
+            this.lbl_codigo.Text = "Codigo :";
             // 
             // txt_origen
             // 
@@ -152,17 +158,53 @@
             this.lbl_nombre.TabIndex = 13;
             this.lbl_nombre.Text = "Nombre :";
             // 
+            // txt_disponible
+            // 
+            this.txt_disponible.Location = new System.Drawing.Point(387, 185);
+            this.txt_disponible.Name = "txt_disponible";
+            this.txt_disponible.Size = new System.Drawing.Size(190, 20);
+            this.txt_disponible.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(313, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Dispponible :";
+            // 
+            // txt_estado
+            // 
+            this.txt_estado.Location = new System.Drawing.Point(369, 135);
+            this.txt_estado.Name = "txt_estado";
+            this.txt_estado.Size = new System.Drawing.Size(190, 20);
+            this.txt_estado.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(313, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Estado :";
+            // 
             // ABMherramientas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.Controls.Add(this.txt_disponible);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txt_estado);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.lbl_precio);
-            this.Controls.Add(this.txt_cantidad);
-            this.Controls.Add(this.lbl_cantidad);
+            this.Controls.Add(this.txt_codigo);
+            this.Controls.Add(this.lbl_codigo);
             this.Controls.Add(this.txt_origen);
             this.Controls.Add(this.lbl_origen);
             this.Controls.Add(this.txt_color);
@@ -172,6 +214,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ABMherramientas";
             this.Text = "ABMherramientas";
+            this.Load += new System.EventHandler(this.ABMherramientas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,13 +227,17 @@
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.Label lbl_precio;
-        private System.Windows.Forms.TextBox txt_cantidad;
-        private System.Windows.Forms.Label lbl_cantidad;
+        private System.Windows.Forms.TextBox txt_codigo;
+        private System.Windows.Forms.Label lbl_codigo;
         private System.Windows.Forms.TextBox txt_origen;
         private System.Windows.Forms.Label lbl_origen;
         private System.Windows.Forms.TextBox txt_color;
         private System.Windows.Forms.Label lbl_color;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.Label lbl_nombre;
+        private System.Windows.Forms.TextBox txt_disponible;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_estado;
+        private System.Windows.Forms.Label label3;
     }
 }

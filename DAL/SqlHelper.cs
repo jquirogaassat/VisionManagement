@@ -13,6 +13,7 @@ namespace DAL
     public class SqlHelper
     {
         string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
+        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
      
         //private SqlConnection connection;
         //private DataSet DataSet;
@@ -220,6 +221,39 @@ namespace DAL
                 }
             }
           
+        }
+
+
+        public int ExecuteNonQuery(string CommandText) 
+        {
+            try
+            {
+                conexion.Open();
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                try
+                {
+                    SqlCommand comm = new SqlCommand(CommandText, conexion);
+                    comm.Transaction = transaccion;
+                    int resp=comm.ExecuteNonQuery();
+                    transaccion.Commit();
+                    return resp;
+                }
+                catch (Exception ex)
+                {
+                    transaccion.Rollback();
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+                throw;
+            }
+            finally
+            {
+                if(conexion.State != ConnectionState.Closed)
+                    conexion.Close();
+            }
         }
 
       

@@ -55,7 +55,7 @@ namespace VisionTFI
             dg_herramienta.Columns[0].HeaderText = "Nombre";
             dg_herramienta.Columns[1].HeaderText = "Color";
             dg_herramienta.Columns[2].HeaderText = "Origen";
-            dg_herramienta.Columns[3].HeaderText = "Cantidad";
+            dg_herramienta.Columns[3].HeaderText = "Codigo";
             dg_herramienta.Columns[5].HeaderText = "Precio";
         }
 

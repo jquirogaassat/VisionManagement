@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dg_detalleFac = new System.Windows.Forms.DataGridView();
-            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dg_articulo = new System.Windows.Forms.DataGridView();
             this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.lbl_totApagar = new System.Windows.Forms.Label();
@@ -41,6 +37,13 @@
             this.btn_cargarArticulo = new System.Windows.Forms.Button();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
+            this.lbl_productos = new System.Windows.Forms.Label();
+            this.lbl_clientes = new System.Windows.Forms.Label();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_detalleFac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_articulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
@@ -49,9 +52,11 @@
             // dg_detalleFac
             // 
             this.dg_detalleFac.AllowUserToAddRows = false;
+            this.dg_detalleFac.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_detalleFac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_detalleFac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Productos,
+            this.Codigo,
+            this.Nombre,
             this.Cantidad,
             this.PrecioUnitario,
             this.SubTotal});
@@ -63,60 +68,35 @@
             this.dg_detalleFac.Size = new System.Drawing.Size(579, 198);
             this.dg_detalleFac.TabIndex = 9;
             // 
-            // Productos
-            // 
-            this.Productos.HeaderText = "Productos";
-            this.Productos.MinimumWidth = 6;
-            this.Productos.Name = "Productos";
-            this.Productos.Width = 125;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 125;
-            // 
-            // PrecioUnitario
-            // 
-            this.PrecioUnitario.HeaderText = "Precio Unitario";
-            this.PrecioUnitario.MinimumWidth = 6;
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            this.PrecioUnitario.Width = 150;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 125;
-            // 
             // dg_articulo
             // 
-            this.dg_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_articulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dg_articulo.Location = new System.Drawing.Point(11, 292);
             this.dg_articulo.Margin = new System.Windows.Forms.Padding(2);
             this.dg_articulo.Name = "dg_articulo";
             this.dg_articulo.RowHeadersWidth = 51;
             this.dg_articulo.RowTemplate.Height = 24;
-            this.dg_articulo.Size = new System.Drawing.Size(490, 230);
+            this.dg_articulo.Size = new System.Drawing.Size(611, 230);
             this.dg_articulo.TabIndex = 18;
             // 
             // dg_cliente
             // 
+            this.dg_cliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_cliente.Location = new System.Drawing.Point(537, 292);
+            this.dg_cliente.Location = new System.Drawing.Point(651, 292);
             this.dg_cliente.Margin = new System.Windows.Forms.Padding(2);
             this.dg_cliente.Name = "dg_cliente";
             this.dg_cliente.RowHeadersWidth = 51;
             this.dg_cliente.RowTemplate.Height = 24;
-            this.dg_cliente.Size = new System.Drawing.Size(478, 230);
+            this.dg_cliente.Size = new System.Drawing.Size(503, 230);
             this.dg_cliente.TabIndex = 19;
             // 
             // lbl_totApagar
             // 
             this.lbl_totApagar.AutoSize = true;
             this.lbl_totApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_totApagar.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lbl_totApagar.Location = new System.Drawing.Point(726, 59);
             this.lbl_totApagar.Name = "lbl_totApagar";
             this.lbl_totApagar.Size = new System.Drawing.Size(163, 30);
@@ -127,6 +107,7 @@
             // 
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lbl_total.Location = new System.Drawing.Point(913, 60);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(26, 29);
@@ -173,11 +154,64 @@
             this.lblCantidad.TabIndex = 27;
             this.lblCantidad.Text = "Cantidad";
             // 
+            // lbl_productos
+            // 
+            this.lbl_productos.AutoSize = true;
+            this.lbl_productos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_productos.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_productos.Location = new System.Drawing.Point(12, 265);
+            this.lbl_productos.Name = "lbl_productos";
+            this.lbl_productos.Size = new System.Drawing.Size(109, 25);
+            this.lbl_productos.TabIndex = 31;
+            this.lbl_productos.Text = "Productos";
+            // 
+            // lbl_clientes
+            // 
+            this.lbl_clientes.AutoSize = true;
+            this.lbl_clientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_clientes.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_clientes.Location = new System.Drawing.Point(655, 265);
+            this.lbl_clientes.Name = "lbl_clientes";
+            this.lbl_clientes.Size = new System.Drawing.Size(90, 25);
+            this.lbl_clientes.TabIndex = 32;
+            this.lbl_clientes.Text = "Clientes";
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.HeaderText = "Precio Unitario";
+            this.PrecioUnitario.MinimumWidth = 6;
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            // 
             // DetalleFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 533);
+            this.ClientSize = new System.Drawing.Size(1165, 533);
+            this.Controls.Add(this.lbl_clientes);
+            this.Controls.Add(this.lbl_productos);
             this.Controls.Add(this.btn_generarFactura);
             this.Controls.Add(this.btn_cargarArticulo);
             this.Controls.Add(this.txt_cantidad);
@@ -201,10 +235,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dg_detalleFac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridView dg_articulo;
         private System.Windows.Forms.DataGridView dg_cliente;
         private System.Windows.Forms.Label lbl_totApagar;
@@ -213,5 +243,12 @@
         private System.Windows.Forms.Button btn_cargarArticulo;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label lbl_productos;
+        private System.Windows.Forms.Label lbl_clientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
     }
 }

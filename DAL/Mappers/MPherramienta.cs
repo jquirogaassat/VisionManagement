@@ -12,14 +12,17 @@ namespace DAL.Mappers
         public BE.BEherramientas Map(DataRow row)
         {
 
-            BE.BEherramientas herrameintaBE= new BE.BEherramientas()
+            BE.BEherramientas herrameintaBE = new BE.BEherramientas()
             {
                 Id = int.Parse(row["idHerramienta"].ToString()),
                 Nombre = row["nombre"].ToString(),
                 Color = row["color"].ToString(),
                 Origen = row["origen"].ToString(),
-                Cantidad = int.Parse(row["cantidad"].ToString()),
-                precio = row["precio"].ToString()
+                Codigo = int.Parse(row["codigo"].ToString()),
+                Precio = int.Parse(row["precio"].ToString()),
+                Estado = int.Parse(row["estado"].ToString()),
+                Disponible = row["disponible"].ToString(),
+                UltimaModificacion = (DateTime)row["ultimaModificacion"],
             };
 
             return herrameintaBE;

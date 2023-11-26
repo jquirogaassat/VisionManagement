@@ -33,7 +33,7 @@ namespace DAL.Mappers
             {
                 bEfacturas.Add(new BEfactura()
                 {
-                    Id = int.Parse(row["id_factura"].ToString()),
+                    Id = int.Parse(row["id_factu"].ToString()),
                     Fecha = DateTime.Parse(row["fecha"].ToString()),
                     IdCliente = int.Parse(row["id_cliente"].ToString())
                 });

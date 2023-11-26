@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,18 @@ namespace BLL
 {
     public class BLLherramientas
     {
+        internal BEbitacoraC _bitacoraC=null;
+        internal BLLbitacoraC _llBitacoraC=null;
         //Alta Herramienta
-        public bool Alta(BEherramientas itemAlta)
+        public bool Alta(BEherramientas itemAlta, string nombreUsuario)
         {
-            return DAL.DALherramientas.getInstance().Alta(itemAlta);
+            _bitacoraC = new BEbitacoraC();
+            _bitacoraC.UltimaModificacion = DateTime.Now;
+            _bitacoraC.Usuario= nombreUsuario;
+            _bitacoraC.Activo = 1;
+            _bitacoraC.Tipo = "AGREGADO";
+            _bitacoraC.Herramienta = DALherramientas.Obtener(itemAlta.Codigo);
+            return DAL.DALherramientas.getInstance().Alta(itemAlta);            
         }
         //Baja logica de herramientas
         public bool Baja(BEherramientas itemBaja)

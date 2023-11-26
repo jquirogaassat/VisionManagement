@@ -36,6 +36,7 @@ namespace VisionTFI
            // RellenarDgv();
             dgv_bitacora.DataSource = BLLgestionbitacora.Listar();
             RellenarDgv();
+            //ValorizarBitacora();
         }
 
         public void RellenarDgv()

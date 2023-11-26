@@ -1,4 +1,4 @@
-﻿using BE;
+﻿    using BE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +89,17 @@ namespace DAL
             bool resultado = helper.ExecuteQuery("clienteUpdate", parametros);
 
             return resultado;
+        }
+
+        public DataTable ConsultarClienteDT(int idCliente)
+        {
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("idCliente",idCliente),
+            };
+
+            DataTable dt= helper.ExecuteReader("ClienteConsultar",parametros),
+            return dt;
         }
     }
 }

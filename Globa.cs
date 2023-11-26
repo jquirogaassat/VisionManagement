@@ -30,6 +30,7 @@ namespace VisionTFI
         public static GestionarSocio GestionarCliente = new GestionarSocio();// cliente
         public static ABMarticulos ABMarticulos = new ABMarticulos();
         public static GestionarArticulo GestionarArticulo = new GestionarArticulo();
+        public static GestionarHerramientsa GestionarHerramienta = new GestionarHerramientsa();
         public static Restore restore = new Restore();
         public static Reporte reporte;
         public static CambiarContraseña cambiarPass = new CambiarContraseña();

@@ -41,7 +41,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("@id_factura",facBaja.Id),
+                new SqlParameter("@id_factu",facBaja.Id),
             };
 
             bool returnValue= sqlHelper.ExecuteQuery(spDelete, parametros);
@@ -92,7 +92,7 @@ namespace DAL
             var cnn = new SqlConnection(ConnectionString);
 
             cmd.Connection=cnn;
-            cmd.Parameters.AddWithValue("@id_factura",bEfactura.Id);
+            cmd.Parameters.AddWithValue("@id_factu",bEfactura.Id);
             adapter.SelectCommand=cmd;
             adapter.Fill(ds);
 

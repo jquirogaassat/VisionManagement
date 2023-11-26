@@ -25,7 +25,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[] {
             new SqlParameter("@id_articulo", itemAlta.IdArticulo),
-            new SqlParameter("@id_factura", itemAlta.IdFactura),
+            new SqlParameter("@id_factu", itemAlta.IdFactura),
             new SqlParameter("@cantidad",itemAlta.Cantidad),
             };
             bool returnValue = sqlHelper.ExecuteQuery(spInsert, parametros);
@@ -38,7 +38,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[] {
             new SqlParameter("@id_articulo", itemAlta.IdArticulo),
-            new SqlParameter("@id_factura", itemAlta.IdFactura),
+            new SqlParameter("@id_factu", itemAlta.IdFactura),
             new SqlParameter("@cantidad",itemAlta.Cantidad),
             };
 
@@ -53,7 +53,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("@id_detalleFactura",itemBaja.Id ),
+                new SqlParameter("@id_detalleFactu",itemBaja.Id ),
             };
 
             bool returnValue= sqlHelper.ExecuteQuery(spDelete, parametros);
@@ -73,7 +73,7 @@ namespace DAL
             cmd.CommandText = "DetalleFacturaSelectAllByIntIdFactura";
             var cnn = new SqlConnection(ConnectionString);
             cmd.Connection= cnn;
-            cmd.Parameters.AddWithValue("@id_factura", facDet.Id);
+            cmd.Parameters.AddWithValue("@id_factu", facDet.Id);
 
             adapter.SelectCommand = cmd;
             adapter.Fill(ds);

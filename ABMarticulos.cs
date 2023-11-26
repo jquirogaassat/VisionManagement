@@ -91,29 +91,7 @@ namespace VisionTFI
                 //throw;
             }
 
-            //Globa.articuloBE = null;
-            //Globa.articuloBE = new BE.BEarticulo();
-            //Globa.articuloBE.Nombre = txt_nombre.Text;
-            //Globa.articuloBE.Color = txt_color.Text;
-            //Globa.articuloBE.Cantidad = Int32.Parse(txt_cantidad.Text);
-            //Globa.articuloBE.precio = txt_precio.Text;
-            //Globa.articuloBE.Origen = txt_origen.Text;
-
-            //bool resultado = articuloBLL.Alta(Globa.articuloBE);
-
-            //if(resultado)
-            //{
-            //    MessageBox.Show("Articulo dado de alta!");
-            //    Hide();
-            //    Globa.GestionarArticulo = new GestionarArticulo();
-            //    Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarArticulo);                
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se pudo crear el articulo.");
-            //    this.Close();
-            //}
-
+           
 
         }
 
@@ -141,18 +119,7 @@ namespace VisionTFI
             }
           
 
-            //bool resultado = articuloBLL.Modificar(Globa.articuloBE);
-            //if (resultado)
-            //{
-                
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Error, no se pudo modificar el articulo seleccionado.");
-            //    this.Close();
-
-            //}
-
+          
 
         }
 

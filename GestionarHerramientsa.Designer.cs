@@ -115,9 +115,9 @@
             this.lbl_nombre.AutoSize = true;
             this.lbl_nombre.Location = new System.Drawing.Point(12, 105);
             this.lbl_nombre.Name = "lbl_nombre";
-            this.lbl_nombre.Size = new System.Drawing.Size(104, 13);
+            this.lbl_nombre.Size = new System.Drawing.Size(40, 13);
             this.lbl_nombre.TabIndex = 19;
-            this.lbl_nombre.Text = "Nombre Herramienta";
+            this.lbl_nombre.Text = "Codigo";
             // 
             // txt_buscar
             // 

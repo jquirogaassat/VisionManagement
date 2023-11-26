@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,133 @@ using System.Windows.Forms;
 
 namespace VisionTFI
 {
-    public partial class ABMherramientas : Form
+    public partial class ABMherramientas : Form , BE.IObserverForm
     {
+
+        BEbitacoraC _bitacoraC = new BEbitacoraC();
+        BLLbitacoraC _bitacoraCb = new BLLbitacoraC();
+        BEherramientas _herramientas= new BEherramientas();
+        BLLherramientas _herramientasBL = new BLLherramientas();
         public ABMherramientas()
         {
             InitializeComponent();
         }
+
+        public void Actualizar(BEusuario u)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ABMherramientas_Load(object sender, EventArgs e)
+        {
+            Focus();
+            txt_nombre.Clear();
+            txt_color.Clear();
+            txt_codigo.Clear();
+            txt_origen.Clear();
+            txt_precio.Clear();
+            txt_estado.Clear();
+            txt_disponible.Clear();
+
+            BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
+
+            if (Globa.tipoProceso == "ALTA")
+            {
+                AdaptarFormularioAlta();
+            }
+            if (Globa.tipoProceso == "MODIFICACION")
+            {
+                AdaptarFormularioModificacion();
+            }
+        }
+
+        private void AdaptarFormularioAlta()
+        {
+            btn_salir.Visible = true;
+        }
+
+        private void AdaptarFormularioModificacion()
+        {
+            txt_nombre.Text = Globa.herramientaBE.Nombre.ToString();
+            txt_color.Text = Globa.herramientaBE.Color.ToString();
+            txt_origen.Text= Globa.herramientaBE.Origen.ToString();
+            txt_codigo.Text = Globa.herramientaBE.Codigo.ToString();
+            txt_precio.Text = Globa.herramientaBE.Precio.ToString();
+            txt_estado.Text = Globa.herramientaBE.Estado.ToString();
+            txt_disponible.Text = Globa.herramientaBE.Disponible.ToString();
+        }
+
+        private void AltaHerramienta()
+        {
+            try
+            {
+                _herramientas.Nombre = txt_nombre.Text;
+                _herramientas.Color = txt_color.Text;
+                _herramientas.Origen = txt_origen.Text;
+                _herramientas.Codigo = Int32.Parse(txt_codigo.Text);
+                _herramientas.Precio = Int32.Parse(txt_precio.Text);
+                _herramientas.Estado = Int32.Parse(txt_estado.Text);
+                _herramientas.Disponible = txt_disponible.Text;
+                _herramientas.UltimaModificacion= DateTime.Now;
+
+                _herramientasBL.Alta(_herramientas,BEcontroladorsesion.GetInstance.Usuario.usuario.ToString());
+
+                MessageBox.Show("Herramienta dada de alta");
+                Hide();
+                Globa.GestionarHerramienta = new GestionarHerramientsa();
+                Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarHerramienta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se puede dar de alta la herramienta" + ex);
+                Hide();
+            }
+        }
+
+        private void ModificarHerramienta()
+        {
+            try
+            {
+                Globa.herramientaBE.Nombre = txt_nombre.Text;
+                Globa.herramientaBE.Color = txt_color.Text;
+                Globa.herramientaBE.Origen = txt_origen.Text;
+                Globa.herramientaBE.Codigo = Int32.Parse(txt_codigo.Text);
+                Globa.herramientaBE.Precio = Int32.Parse(txt_precio.Text);
+                Globa.herramientaBE.Estado = Int32.Parse(txt_estado.Text);
+                Globa.herramientaBE.Disponible = txt_disponible.Text;
+                Globa.herramientaBE.UltimaModificacion= DateTime.Now;
+
+                _herramientasBL.Modificar(Globa.herramientaBE);
+                MessageBox.Show("Herramienta modificada");
+                Hide();
+                Globa.GestionarHerramienta = new GestionarHerramientsa();
+                Globa.menuPrincipal.AbrirFormHijoMenu(Globa.GestionarHerramienta);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("No se puede modificar la herramienta" + ex);
+                Hide();
+            }
+        }
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if(Globa.tipoProceso=="ALTA")
+            {
+                AltaHerramienta();
+            }
+            if(Globa.tipoProceso=="MODIFICACION")
+            {
+                ModificarHerramienta();
+            }
+
+           // ValorizarBitC();
+        }
+
+        //private void ValorizarBitacoraC(BE.BEbitacoraC bitacoraC)
+        //{
+        //    bitacoraC.
+        //}
+
+       
     }
 }

@@ -11,8 +11,12 @@ namespace BE
         public string Nombre { get; set; }
         public string Color { get; set; }
         public string Origen { get; set; }
-        public int Cantidad { get; set; }
+        public int Codigo { get; set; }
         public int Id { get; set; }
-        public string precio { get; set; }
+        public int Precio { get; set; }
+        public int Estado { get; set; }
+        public string Disponible { get; set; }
+        public DateTime UltimaModificacion { get; set; }
+
     }
 }

@@ -15,7 +15,7 @@ namespace BLL
 
         public static string Salt = "asd";
 
-
+        //metodo reversible
         public string encriptarAES(string pDesencriptado)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(pDesencriptado);

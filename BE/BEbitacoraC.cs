@@ -8,12 +8,12 @@ namespace BE
 {
     public class BEbitacoraC
     {
-        public int Id { get;set; }   
-        public int Cantidad {  get;set; }
+        public int Id { get;set; }
+        public int Activo { get; set; }
         public string Usuario {  get;set; }
         public DateTime UltimaModificacion {  get;set; }
-        public BEarticulo Articulo { get;set; }
-        public string Nombre { get; set; }
-        public string Accion {  get;set; }
+        public BEherramientas Herramienta { get;set; }
+        public string Tipo { get; set; }
+        
     }
 }
