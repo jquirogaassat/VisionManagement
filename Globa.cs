@@ -15,6 +15,7 @@ namespace VisionTFI
         public static BE.BEarticulo articuloBE= new BE.BEarticulo();
         public static BE.BEcliente cllienteBE= new BE.BEcliente();  
         public static BE.BEherramientas herramientaBE = new BE.BEherramientas();
+        public static BE.BEprestamo prestamoBe= new BE.BEprestamo();
         public static string motivoLoginFallido;
         public static ABMusuarios abmUsuarioAlta;
         public static AdministrarUsers administrarUsers = new AdministrarUsers();
@@ -34,6 +35,7 @@ namespace VisionTFI
         public static Restore restore = new Restore();
         public static Reporte reporte;
         public static CambiarContraseña cambiarPass = new CambiarContraseña();
+        public static AdministrarPrestamos administrarPrestamos = new AdministrarPrestamos();
 
             
 

@@ -98,7 +98,7 @@ namespace DAL
                 new SqlParameter("idCliente",idCliente),
             };
 
-            DataTable dt= helper.ExecuteReader("ClienteConsultar",parametros),
+            DataTable dt = helper.ExecuteReader("ClienteConsultar", parametros);
             return dt;
         }
     }

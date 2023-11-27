@@ -11,6 +11,8 @@ namespace DAL
 {
     public class DALherramientas
     {
+
+     
         #region Singleton
         //private DALherramientas()
         //{
@@ -27,6 +29,7 @@ namespace DAL
         //}
         #endregion
 
+      
         private SqlHelper sqlHelper = new SqlHelper();
 
         //consulto el id

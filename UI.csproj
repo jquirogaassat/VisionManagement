@@ -210,6 +210,12 @@
     <Compile Include="ABMusuarios.Designer.cs">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarPrestamos.Designer.cs">
+      <DependentUpon>AdministrarPrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,12 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoPrestamo.Designer.cs">
+      <DependentUpon>NuevoPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecuperarContraseña.cs">
@@ -352,6 +364,12 @@
     <Compile Include="Reporte.Designer.cs">
       <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportePrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportePrestamo.Designer.cs">
+      <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +377,11 @@
       <DependentUpon>Restore.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="VisionManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ABMarticulos.resx">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABMusuarios.resx">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarPrestamos.resx">
+      <DependentUpon>AdministrarPrestamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarUsers.resx">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
@@ -434,6 +460,9 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevoPrestamo.resx">
+      <DependentUpon>NuevoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -452,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteBitacora.rdlc" />
     <EmbeddedResource Include="ReporteFactura.rdlc" />
+    <EmbeddedResource Include="ReportePrestamo.resx">
+      <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
@@ -466,6 +498,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="VisionManagementDataSet.xsc">
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VisionManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionManagementDataSet.xss">
+      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -214,5 +214,10 @@ namespace VisionTFI
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarHerramientsa());
         }
+
+        private void administrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijo(new AdministrarPrestamos());
+        }
     }
 }

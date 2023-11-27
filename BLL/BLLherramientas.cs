@@ -15,28 +15,26 @@ namespace BLL
         //Alta Herramienta
         public bool Alta(BEherramientas itemAlta, string nombreUsuario)
         {
-            _bitacoraC = new BEbitacoraC();
-            _bitacoraC.UltimaModificacion = DateTime.Now;
-            _bitacoraC.Usuario= nombreUsuario;
-            _bitacoraC.Activo = 1;
-            _bitacoraC.Tipo = "AGREGADO";
-            _bitacoraC.Herramienta = DALherramientas.Obtener(itemAlta.Codigo);
-            return DAL.DALherramientas.getInstance().Alta(itemAlta);            
+            DAL.DALherramientas herramientaD=new DALherramientas();
+            return herramientaD.Alta(itemAlta);         
         }
         //Baja logica de herramientas
         public bool Baja(BEherramientas itemBaja)
         {
-            return DAL.DALherramientas.getInstance().Baja(itemBaja); 
+            DAL.DALherramientas herramientaD = new DALherramientas();
+            return herramientaD.Baja(itemBaja);
         }
         // listar todas las herramientas
         public List<BEherramientas> Listar()
         {
-            return DAL.DALherramientas.getInstance().Listar();
+            DAL.DALherramientas herramientaD = new DALherramientas();
+            return herramientaD.Listar();
         }
         // modificar herramientas
         public bool Modificar(BEherramientas itemModifica)
         {
-            return DAL.DALherramientas.getInstance().Modificar(itemModifica);
+            DAL.DALherramientas herramientaD = new DALherramientas();
+            return herramientaD.Modificar(itemModifica);
         }
     }
 }

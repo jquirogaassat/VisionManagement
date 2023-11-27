@@ -47,8 +47,8 @@ namespace DAL
             nuevoID = _sqlHelper.ExecuteQueryPRUEBA("herramientaEstadoInsert", parametros);
 
             dvh= _dvdal.CalcularDVH(_herramientaD.ConsultarHerramientaEstadoDT(nuevoID), 0);
-            _dvdal.CargarDVH("Estado_Herramienta",nuevoID,dvh);
-            dvv = _dvdal.CalcularDVV("Estado_Herramienta");
+            _dvdal.CargarDVHp("Estado_Herramienta",nuevoID,dvh);
+            dvv = _dvdal.CalcularDVVp("Estado_Herramienta");
 
             return _dvdal.CargarDVV(9, dvv);
         }

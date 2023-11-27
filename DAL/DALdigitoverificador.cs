@@ -49,6 +49,16 @@ namespace DAL
             return sqlHelper.ExecuteQueryPRUEBA(query);
         } // generico
 
+        public int CalcularDVVp(string nombreTabla)
+        {
+            string idCampo = "idEstadoHerramienta";
+
+            string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
+                                                            + nombreTabla + " else select 0";
+
+            return sqlHelper.ExecuteQueryPRUEBA(query);
+        }
+
         public int CalcularDVVb(string nombreTabla)
         {
             string idCampo = "idBITTACORA";
@@ -74,6 +84,11 @@ namespace DAL
             return sqlHelper.ExecuteQuery(query);
         }  // generico
 
+        public bool CargarDVHp(string nombreTabla, int id, int dvh)
+        {
+            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idEstadoHerramienta" + "=" + id;
+            return sqlHelper.ExecuteQuery(query);
+        }
         public bool CargarDVHb(string nombreTabla, int id, int dvh)
         {
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBITTACORA" + "=" + id;

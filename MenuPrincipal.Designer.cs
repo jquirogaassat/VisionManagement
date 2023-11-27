@@ -46,6 +46,10 @@
             this.familiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBitacoraDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +57,7 @@
             this.negocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarFacturaPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,11 +65,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteBitacoraDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteBitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarFacturaPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -219,6 +220,34 @@
             this.gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
             this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteBitacoraDeEventosToolStripMenuItem,
+            this.reporteBitacoraDeCambiosToolStripMenuItem,
+            this.reporteDePrestamosToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // reporteBitacoraDeEventosToolStripMenuItem
+            // 
+            this.reporteBitacoraDeEventosToolStripMenuItem.Name = "reporteBitacoraDeEventosToolStripMenuItem";
+            this.reporteBitacoraDeEventosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteBitacoraDeEventosToolStripMenuItem.Text = "Reporte Bitacora de eventos";
+            // 
+            // reporteBitacoraDeCambiosToolStripMenuItem
+            // 
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Name = "reporteBitacoraDeCambiosToolStripMenuItem";
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteBitacoraDeCambiosToolStripMenuItem.Text = "Reporte Bitacora de cambios";
+            // 
+            // reporteDePrestamosToolStripMenuItem
+            // 
+            this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
+            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de prestamos";
+            // 
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -267,14 +296,22 @@
             // facturaToolStripMenuItem
             // 
             this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
-            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.facturaToolStripMenuItem.Text = "Factura";
             this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
             // 
+            // buscarFacturaPorClienteToolStripMenuItem
+            // 
+            this.buscarFacturaPorClienteToolStripMenuItem.Name = "buscarFacturaPorClienteToolStripMenuItem";
+            this.buscarFacturaPorClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.buscarFacturaPorClienteToolStripMenuItem.Text = "Buscar factura por cliente";
+            // 
             // prestamoToolStripMenuItem
             // 
+            this.prestamoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administrarToolStripMenuItem});
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
-            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoToolStripMenuItem.Text = "Prestamo";
             // 
             // sesionToolStripMenuItem
@@ -332,39 +369,12 @@
             this.panelFill.Size = new System.Drawing.Size(1253, 361);
             this.panelFill.TabIndex = 30;
             // 
-            // reportesToolStripMenuItem
+            // administrarToolStripMenuItem
             // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteBitacoraDeEventosToolStripMenuItem,
-            this.reporteBitacoraDeCambiosToolStripMenuItem,
-            this.reporteDePrestamosToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // reporteBitacoraDeEventosToolStripMenuItem
-            // 
-            this.reporteBitacoraDeEventosToolStripMenuItem.Name = "reporteBitacoraDeEventosToolStripMenuItem";
-            this.reporteBitacoraDeEventosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.reporteBitacoraDeEventosToolStripMenuItem.Text = "Reporte Bitacora de eventos";
-            // 
-            // reporteBitacoraDeCambiosToolStripMenuItem
-            // 
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Name = "reporteBitacoraDeCambiosToolStripMenuItem";
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Text = "Reporte Bitacora de cambios";
-            // 
-            // reporteDePrestamosToolStripMenuItem
-            // 
-            this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
-            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de prestamos";
-            // 
-            // buscarFacturaPorClienteToolStripMenuItem
-            // 
-            this.buscarFacturaPorClienteToolStripMenuItem.Name = "buscarFacturaPorClienteToolStripMenuItem";
-            this.buscarFacturaPorClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.buscarFacturaPorClienteToolStripMenuItem.Text = "Buscar factura por cliente";
+            this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.administrarToolStripMenuItem.Text = "Administrar";
+            this.administrarToolStripMenuItem.Click += new System.EventHandler(this.administrarToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -424,5 +434,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeCambiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDePrestamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarFacturaPorClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
     }
 }
