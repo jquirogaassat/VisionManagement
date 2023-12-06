@@ -12,44 +12,17 @@ namespace DAL
 {
     public class SqlHelper
     {
-        string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
-     
-        //private SqlConnection connection;
-        //private DataSet DataSet;
-        //private SqlCommand command;
-        //private SqlDataReader reader;
-        //private SqlDataAdapter adapter;
-        //private DataTable dt;
+       // string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
+        string connectionString= @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
 
-
-
-        //public string connectionString { get; private set; }
-
-        //#region Singleton
-        //private SqlHelper(string connStr)
-        //{
-        //    this.connectionString = connStr;
-        //}
-
-        //private static SqlHelper instancia;
-
-        //public static SqlHelper getInstancia(string connStr)
-        //{
-        //    if (instancia == null)
-        //    {
-        //        instancia = new SqlHelper(connStr);
-        //    }
-        //    return instancia;
-        //}
-        //#endregion
+       
 
 
         public bool comprobarConexion()
         {
             try
             {
-                SqlConnection conexion = new SqlConnection(ConnectionString);
+                SqlConnection conexion = new SqlConnection(connectionString);
                 conexion.Open();
                 return true;
             }
@@ -63,7 +36,7 @@ namespace DAL
       
         public bool ExecuteQuery(string storedProcedure, SqlParameter[]parameters)//con
         {
-            using( SqlConnection conexion = new SqlConnection(ConnectionString))
+            using( SqlConnection conexion = new SqlConnection(connectionString))
             {
                     using( SqlCommand comm= new SqlCommand())
                 {
@@ -80,7 +53,7 @@ namespace DAL
 
         public int ExecuteQueryPRUEBA(string storedProcedure, SqlParameter[]parameters)//con
         {
-            using(SqlConnection conexion= new SqlConnection(ConnectionString))
+            using(SqlConnection conexion= new SqlConnection(connectionString))
             {
                 using(SqlCommand comm= new SqlCommand())
                 {
@@ -102,7 +75,7 @@ namespace DAL
 
         public string ExecuteQueryString( string storedPrcedure, SqlParameter[]parameters)//con
         {
-            using(SqlConnection conexion= new SqlConnection(ConnectionString))
+            using(SqlConnection conexion= new SqlConnection(connectionString))
             {
                 using ( SqlCommand comm= new SqlCommand())
                 {
@@ -123,7 +96,7 @@ namespace DAL
 
         public int ExecuteQueryPRUEBA(string qwery)// con
         {
-            using( SqlConnection conexion = new SqlConnection(ConnectionString))
+            using( SqlConnection conexion = new SqlConnection(connectionString))
             {
                 using ( SqlCommand comm= new SqlCommand())
                 {
@@ -142,7 +115,7 @@ namespace DAL
 
         public bool ExecuteQuery( string qwery)// con
         {
-            using(SqlConnection conexion= new SqlConnection (ConnectionString))
+            using(SqlConnection conexion= new SqlConnection (connectionString))
             {
                 using( SqlCommand comm= new SqlCommand())
                 {
@@ -156,10 +129,13 @@ namespace DAL
             }
         }
 
+       
+
+
 
         public DataTable ExecuteReader(string storedProcedure, SqlParameter[]parameters=null)//desc
         {
-            using(SqlConnection conexion= new SqlConnection(ConnectionString))
+            using(SqlConnection conexion= new SqlConnection(connectionString))
             
                 using(SqlCommand comm = new SqlCommand())
                 {
@@ -170,7 +146,7 @@ namespace DAL
                 {
                     comm.Parameters.AddRange(parameters);
                 }
-                conexion.Open ();
+                conexion.Open();
                 SqlDataReader reader = comm.ExecuteReader();
                 DataTable data = new DataTable();
                 data.Load(reader);
@@ -183,7 +159,7 @@ namespace DAL
 
         public DataTable ExecuteReader( string qwery)
         {
-            using (SqlConnection conexion= new SqlConnection(ConnectionString))
+            using (SqlConnection conexion= new SqlConnection(connectionString))
                 using( SqlCommand comm= new SqlCommand())
             {
                 comm.Connection = conexion;
@@ -199,7 +175,7 @@ namespace DAL
 
         public DataSet ExecuteDataSet(string CommandText)
         {
-            using (SqlConnection conexion = new SqlConnection(ConnectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionString))
             {
                 try
                 {
@@ -224,24 +200,31 @@ namespace DAL
         }
 
 
-        public int ExecuteNonQuery(string CommandText) 
+        public int ExecuteNonQuery(string CommandText)
         {
             try
             {
-                conexion.Open();
-                SqlTransaction transaccion = conexion.BeginTransaction();
-                try
+                using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
-                    SqlCommand comm = new SqlCommand(CommandText, conexion);
-                    comm.Transaction = transaccion;
-                    int resp=comm.ExecuteNonQuery();
-                    transaccion.Commit();
-                    return resp;
-                }
-                catch (Exception ex)
-                {
-                    transaccion.Rollback();
-                    throw ex;
+                    SqlTransaction transaccion = conexion.BeginTransaction();
+                    try
+                    {
+                        SqlCommand comm = new SqlCommand(CommandText, conexion);
+                        comm.Transaction = transaccion;
+                        int resp = comm.ExecuteNonQuery();
+                        transaccion.Commit();
+                        return resp;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaccion.Rollback();
+                        throw ex;
+                    }
+                    finally
+                    {
+                        if (conexion.State != ConnectionState.Closed)
+                            conexion.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -249,14 +232,30 @@ namespace DAL
                 throw (ex);
                 throw;
             }
-            finally
-            {
-                if(conexion.State != ConnectionState.Closed)
-                    conexion.Close();
-            }
+            
         }
+       
+            public int ExecuteNonQuery(string query, SqlParameter[] parameters)
+            {
+                int rowsAffected = 0;
 
-      
+                using (SqlConnection connection = new SqlConnection(connectionString)) // Reemplaza con tu cadena de conexión
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddRange(parameters);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+
+                return rowsAffected;
+            }
+        
+
+
+
 
 
     }

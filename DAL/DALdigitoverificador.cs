@@ -187,7 +187,7 @@ namespace DAL
                 t++;
             }
 
-            ArreglarDigitos(nombresTablas, digitosVerticales);
+            //ArreglarDigitos(nombresTablas, digitosVerticales);
 
             return errores;
 

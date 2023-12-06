@@ -48,6 +48,8 @@ namespace BE
         }
 
 
+
+
         private List<IObserverForm> _formularios;
         List<BEcomponente> _permsios;
 

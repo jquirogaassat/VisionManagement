@@ -100,5 +100,19 @@ namespace VisionTFI
             reporteP.ShowDialog();
 
         }
+
+        private void btn_serializar_Click(object sender, EventArgs e)
+        {
+            XmlSerializator.Serializar(_prestamoBL.Consultar(), "Prestamos.xml");
+            MessageBox.Show("Serializacion ok!!");
+        }
+
+        private void btn_deserializar_Click(object sender, EventArgs e)
+        {
+            XmlSerializator.Deserializar(_prestamoBL.Consultar(), "Prestamos.xml");
+            MessageBox.Show("Deserealizacion ok!!");
+        }
+
+      
     }
 }

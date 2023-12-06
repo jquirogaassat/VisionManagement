@@ -43,7 +43,13 @@ namespace BLL
         }
         public List<BE.BEusuario> Consulta()
         {
-            return usuarioDAL.Consulta();
+            List<BEusuario> usuarios = new List<BEusuario> ();
+            usuarios= usuarioDAL.Consulta();
+            foreach (var u in usuarios)
+            {
+                u.usuario = encriptadora.desencriptarAes(u.usuario);
+            }
+            return usuarios;
         }
 
         public bool Modificar(BEusuario itemModifica)

@@ -11,26 +11,9 @@ namespace DAL
 {
     public class DALherramientas
     {
-
-     
-        #region Singleton
-        //private DALherramientas()
-        //{
-
-        //}
-        //private static DALherramientas instance;
-        //public static DALherramientas getInstance()
-        //{
-        //    if (instance == null)
-        //    {
-        //        instance = new DALherramientas();
-        //    }
-        //    return instance;
-        //}
-        #endregion
-
+        
       
-        private SqlHelper sqlHelper = new SqlHelper();
+        public SqlHelper sqlHelper = new SqlHelper();
 
         //consulto el id
         public DataTable consultarHerramientaDT(int idHerramienta)
@@ -137,16 +120,32 @@ namespace DAL
         }
 
 
+      
         public static int ModificarC(BEherramientas _herramienta)
         {
-            string cmd= "UPDATE Herramienta  SET nombre = '"+_herramienta.Nombre + "', color = '"+_herramienta.Color +"',origen='"+_herramienta.Origen+
-                        "',codigo= '"+_herramienta.Codigo +"',precio ='"+_herramienta.Precio + "',estado='"+_herramienta.Estado +
-                        "',disponible ='"+_herramienta.Disponible + "', ultimaModificacion='"+_herramienta.UltimaModificacion +
-                        "WHERE idHerramienta ='"+ _herramienta.Id + "';";
+            string cmd = "UPDATE Herramienta SET nombre = @Nombre, color = @Color, origen = @Origen, codigo = @Codigo, " +
+                         "precio = @Precio, estado = @Estado, disponible = @Disponible, ultimaModificacion = @UltimaModificacion " +
+                         "WHERE idHerramienta = @Id";
+
             SqlHelper sqlHelper = new SqlHelper();
-            int val = sqlHelper.ExecuteNonQuery(cmd);
+
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+             new SqlParameter("@Nombre", _herramienta.Nombre),
+             new SqlParameter("@Color", _herramienta.Color),
+             new SqlParameter("@Origen", _herramienta.Origen),
+             new SqlParameter("@Codigo", _herramienta.Codigo),
+             new SqlParameter("@Precio", _herramienta.Precio),
+             new SqlParameter("@Estado", _herramienta.Estado),
+             new SqlParameter("@Disponible", _herramienta.Disponible),
+             new SqlParameter("@UltimaModificacion", _herramienta.UltimaModificacion),
+             new SqlParameter("@Id", _herramienta.Id)
+            };
+
+            int val = sqlHelper.ExecuteNonQuery(cmd, parametros);
             return val;
         }
+
 
 
         public static BEherramientas Obtener(int codigo)
@@ -177,6 +176,39 @@ namespace DAL
             bEherramientas.Disponible = dr["disponible"].ToString();
             bEherramientas.UltimaModificacion = (DateTime)dr["ultimaModificacion"];
         }
-    
+
+        public static int Eliminar(int idHerramienta)
+        {
+            SqlHelper helper = new SqlHelper();
+            string query = "DELETE Herramienta  WHERE idHerramienta = " + idHerramienta;
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public static int Guardar(BEherramientas pherramienta)
+        {
+            string cmd = "INSERT INTO Herramienta (nombre, color, origen, codigo, precio, estado, disponible, ultimaModificacion) " +
+                         "VALUES (@Nombre, @Color, @Origen, @Codigo, @Precio, @Estado, @Disponible, @UltimaModificacion)";
+
+            SqlHelper sqlHelper = new SqlHelper();
+
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@Nombre", pherramienta.Nombre),
+        new SqlParameter("@Color", pherramienta.Color),
+        new SqlParameter("@Origen", pherramienta.Origen),
+        new SqlParameter("@Codigo", pherramienta.Codigo),
+        new SqlParameter("@Precio", pherramienta.Precio),
+        new SqlParameter("@Estado", pherramienta.Estado),
+        new SqlParameter("@Disponible", pherramienta.Disponible),
+        new SqlParameter("@UltimaModificacion", pherramienta.UltimaModificacion)
+            };
+
+            int val = sqlHelper.ExecuteNonQuery(cmd, parametros);
+            return val;
+        }
+
+       
+
+
     }
 }

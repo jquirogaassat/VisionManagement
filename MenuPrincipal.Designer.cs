@@ -57,15 +57,14 @@
             this.negocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarFacturaPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFill = new System.Windows.Forms.Panel();
-            this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +113,7 @@
             // aBMToolStripMenuItem
             // 
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
-            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aBMToolStripMenuItem.Text = "ABM";
             this.aBMToolStripMenuItem.Click += new System.EventHandler(this.aBMToolStripMenuItem_Click);
             // 
@@ -129,7 +128,7 @@
             // aBMToolStripMenuItem1
             // 
             this.aBMToolStripMenuItem1.Name = "aBMToolStripMenuItem1";
-            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aBMToolStripMenuItem1.Text = "ABM";
             this.aBMToolStripMenuItem1.Click += new System.EventHandler(this.aBMToolStripMenuItem1_Click);
             // 
@@ -144,7 +143,7 @@
             // aBMToolStripMenuItem2
             // 
             this.aBMToolStripMenuItem2.Name = "aBMToolStripMenuItem2";
-            this.aBMToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
+            this.aBMToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.aBMToolStripMenuItem2.Text = "ABM";
             this.aBMToolStripMenuItem2.Click += new System.EventHandler(this.aBMToolStripMenuItem2_Click);
             // 
@@ -260,13 +259,13 @@
             // cambiarIdiomaToolStripMenuItem
             // 
             this.cambiarIdiomaToolStripMenuItem.Name = "cambiarIdiomaToolStripMenuItem";
-            this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarIdiomaToolStripMenuItem.Text = "Español";
             // 
             // inglesToolStripMenuItem
             // 
             this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
-            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inglesToolStripMenuItem.Text = "Ingles";
             // 
             // ayudaToolStripMenuItem
@@ -287,8 +286,7 @@
             // ventaToolStripMenuItem
             // 
             this.ventaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturaToolStripMenuItem,
-            this.buscarFacturaPorClienteToolStripMenuItem});
+            this.facturaToolStripMenuItem});
             this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
             this.ventaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ventaToolStripMenuItem.Text = "Venta";
@@ -296,15 +294,9 @@
             // facturaToolStripMenuItem
             // 
             this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
-            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facturaToolStripMenuItem.Text = "Factura";
             this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
-            // 
-            // buscarFacturaPorClienteToolStripMenuItem
-            // 
-            this.buscarFacturaPorClienteToolStripMenuItem.Name = "buscarFacturaPorClienteToolStripMenuItem";
-            this.buscarFacturaPorClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.buscarFacturaPorClienteToolStripMenuItem.Text = "Buscar factura por cliente";
             // 
             // prestamoToolStripMenuItem
             // 
@@ -313,6 +305,13 @@
             this.prestamoToolStripMenuItem.Name = "prestamoToolStripMenuItem";
             this.prestamoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prestamoToolStripMenuItem.Text = "Prestamo";
+            // 
+            // administrarToolStripMenuItem
+            // 
+            this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.administrarToolStripMenuItem.Text = "Administrar";
+            this.administrarToolStripMenuItem.Click += new System.EventHandler(this.administrarToolStripMenuItem_Click);
             // 
             // sesionToolStripMenuItem
             // 
@@ -368,13 +367,6 @@
             this.panelFill.Name = "panelFill";
             this.panelFill.Size = new System.Drawing.Size(1253, 361);
             this.panelFill.TabIndex = 30;
-            // 
-            // administrarToolStripMenuItem
-            // 
-            this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.administrarToolStripMenuItem.Text = "Administrar";
-            this.administrarToolStripMenuItem.Click += new System.EventHandler(this.administrarToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -433,7 +425,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeEventosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeCambiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDePrestamosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarFacturaPorClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
     }
 }

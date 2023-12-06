@@ -12,11 +12,17 @@ namespace BLL
     {
         internal BEbitacoraC _bitacoraC=null;
         internal BLLbitacoraC _llBitacoraC=null;
-        //Alta Herramienta
-        public bool Alta(BEherramientas itemAlta, string nombreUsuario)
+
+        public BLLherramientas() 
         {
-            DAL.DALherramientas herramientaD=new DALherramientas();
-            return herramientaD.Alta(itemAlta);         
+            _llBitacoraC= new BLLbitacoraC();
+        }
+        //Alta Herramienta
+        public bool Alta(BEherramientas itemAlta, string usuario)
+        {
+            DAL.DALherramientas herramientaD=new DALherramientas();          
+            return herramientaD.Alta(itemAlta);  
+          
         }
         //Baja logica de herramientas
         public bool Baja(BEherramientas itemBaja)
@@ -33,8 +39,10 @@ namespace BLL
         // modificar herramientas
         public bool Modificar(BEherramientas itemModifica)
         {
-            DAL.DALherramientas herramientaD = new DALherramientas();
+            DAL.DALherramientas herramientaD = new DALherramientas();          
             return herramientaD.Modificar(itemModifica);
         }
+
+       
     }
 }

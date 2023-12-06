@@ -12,49 +12,108 @@ namespace BLL
     {
        private bool _herramientaRecuperada = false;
         private string _idHerramientaRecuperada = "";
+        DALbitacoraC _bitacoraC = new DALbitacoraC();
+        BLLencriptacion encriptadora = new BLLencriptacion();
 
         public void ReportarBitacora(BEbitacoraC bEbitacoraC)
         {
-            if(bEbitacoraC.Tipo !="Agregado")
+            
+            if(bEbitacoraC.Tipo != "AGREGADO")
             {
-                BEbitacoraC bEbitacoraCactivo = DALbitacoraC.ObtenerActivo(bEbitacoraC);
-                if(bEbitacoraCactivo==null)
+                BEbitacoraC bitacorC = DALbitacoraC.ObtenerUltimoRegistroActivo(bEbitacoraC);
+                if(bitacorC != null)
                 {
+                    DALbitacoraC.DesactivarRegistro(bitacorC.Id);
+                    DALbitacoraC.ReportarBitacoraCambios(bEbitacoraC);
                     return;
                 }
-                DALbitacoraC.Desactivar(bEbitacoraCactivo.Id);
-            }
+                //DALbitacoraC.DesactivarRegistro(bitacorC.Id);
+            }            
             DALbitacoraC.ReportarBitacoraCambios(bEbitacoraC);
         }
 
-        public void Desactivar( int id)
+
+        public bool Activar(BEbitacoraC bitacoraC)
         {
-            DALbitacoraC.Desactivar(id);
-        }
+            //OBTENGO EL REGISTRO A DESACTIVAR
+            BEbitacoraC _bebitactivo = DALbitacoraC.ObtenerUltimoRegistroActivo(bitacoraC);
 
-        public bool Activar(BEbitacoraC _beBitacoraC)
-        {
-            BEbitacoraC obtenerAvtivo= DALbitacoraC.ObtenerActivo(_beBitacoraC);
+            //DESACTIVVO EL RESGISTRO
+            DALbitacoraC.DesactivarRegistro(_bebitactivo.Id);
 
-            DALbitacoraC.Desactivar(obtenerAvtivo.Id);
+            //ACTIVO EL NUEVO REGISTRO
+            DALbitacoraC.MarcarRegistroActivo(bitacoraC.Id);
 
-            DALbitacoraC.Activar(_beBitacoraC.Id);
-
-
-            if(obtenerAvtivo.Tipo == "MODIFICADO" || obtenerAvtivo.Tipo=="AGREGADO")
+            //SI EL CAMBIO IMPLICA ELIMINAR EL REGISTRO
+            if (bitacoraC.Tipo == "ELIMINADO")
             {
-                DALherramientas.ModificarC(_beBitacoraC.Herramienta);
+                if (ValidarSiEsEliminable(bitacoraC.IdHerramienta.Id))
+                {
+                    DALherramientas.Eliminar(bitacoraC.IdHerramienta.Id);
+                    return true;
+                }
+                return false;
+
+            }
+            
+            //ACTUALIZO LA TABLA DE HERRAMIENTAS CON EL NUEVO REGISTRO ACTIVO
+            if(_bebitactivo.Tipo=="MODIFICADO"||_bebitactivo.Tipo=="AGREGADO")
+            {
+                DALherramientas.ModificarC(bitacoraC.IdHerramienta);
                 return true;
             }
-            else
+            else if(_bebitactivo.Tipo =="ELIMINADO")
             {
-                return false;
+                if(DALherramientas.Obtener(bitacoraC.IdHerramienta.Codigo)==null)
+                {
+                    DALherramientas.Guardar(bitacoraC.IdHerramienta);
+                    BEherramientas herramientaB = DALherramientas.Obtener(bitacoraC.IdHerramienta.Codigo);
+                    List<BEbitacoraC> listaBitacora = DALbitacoraC.ListarPorId(bitacoraC.IdHerramienta.Id);
+                    foreach(BEbitacoraC item in listaBitacora)
+                    {
+                        item.IdHerramienta = herramientaB;
+                        DALbitacoraC.ActualizarIdHerramienta(item);
+                        _herramientaRecuperada = true;
+                        _idHerramientaRecuperada = item.IdHerramienta.Id.ToString();
+                    }
+                    return true;
+                }
             }
+            return false;
+        }
+
+
+        public bool ValidarSiEsEliminable(int idHerramienta)
+        {
+            BLprestamo _prestamoBl = new BLprestamo();
+            List<BEprestamo> prestamos = _prestamoBl.Consultar();
+            BEprestamo prestamoAsociado = prestamos.Find(prestamo=> prestamo.Herramienta.Id == idHerramienta);
+            if(prestamoAsociado == null)
+            {
+                return true;
+            }
+            return false;
         }
 
         public List<BEbitacoraC> Listar()
         {
-            return DALbitacoraC.Listar();
+            List<BEbitacoraC> bitacora = new List<BEbitacoraC>();
+            bitacora = DALbitacoraC.Listar();
+            //foreach(var item in bitacora)
+            //{
+            //    item.Usuario=encriptadora.desencriptarAes(item.Usuario);
+            //}
+            return bitacora;
+        }
+
+        public List<string>ListarCodigo()
+        {
+            return DALbitacoraC.ListarCodigo();
+        }
+
+        public List<BEbitacoraC> FiltrarBitacora(string codigo = null, string fechaInicio = null, string fechaFin = null, string nombreUsuario = null)
+        {
+            return DALbitacoraC.FiltrarBitacora(codigo, fechaInicio, fechaFin, nombreUsuario);
         }
 
     }

@@ -8,88 +8,268 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
+
 namespace DAL
 {
     public class DALbitacoraC
     {
-     
-        
-       public static int ReportarBitacoraCambios(BEbitacoraC bEbitacoraC)
-        {
-            string cmd = "INSERT INTO BitacoraCambios (ultimaModificacion, usuario, activo, idHerramienta, disponible, estado, tipo) VALUES "
-                + "('" + bEbitacoraC.UltimaModificacion + "','" + bEbitacoraC.Usuario + "'," + bEbitacoraC.Activo + ",'" + bEbitacoraC.Herramienta.Id + "','"
-                + bEbitacoraC.Herramienta.Disponible + "'," + bEbitacoraC.Herramienta.Estado + ",'" + bEbitacoraC.Tipo + "'); ";
-            SqlHelper sqlHelper = new SqlHelper();            
-            return sqlHelper.ExecuteNonQuery(cmd);
-        }
-       public static BEbitacoraC ObtenerActivo(BEbitacoraC bEbitacoraC)
-        {
-            string commandText = "SELECT * FROM BitacoraCambios WHERE idHerramienta = " + bEbitacoraC.Herramienta.Id + "AND activo =1 ";
-            SqlHelper sqlHelper = new SqlHelper();
 
-            DataSet mds= sqlHelper.ExecuteDataSet(commandText);
+       string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
 
-            if(mds.Tables.Count > 0 && mds.Tables[0].Rows.Count>0 ) 
+       
+      
+        public static int ReportarBitacoraCambios(BEbitacoraC beBitacoraC)
+        {
+            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            int rowsAffected = 0;
+
+           
+            string query = "INSERT INTO BitacoraCambios (ultimaModificacion, usuario, activo, idHerramienta, disponible, estado, tipo, nombre, color, origen, codigo, precio) VALUES " +
+                            "(@UltimaModificacion, @Usuario, @Activo, @IdHerramienta, @Disponible, @Estado, @Tipo, @Nombre, @Color, @Origen, @Codigo, @Precio)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                BEbitacoraC _beBitacoraC= new BEbitacoraC();
-                Valorizar(_beBitacoraC, mds.Tables[0].Rows[0]);
-                return _beBitacoraC;
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@UltimaModificacion", beBitacoraC.UltimaModificacion);
+                command.Parameters.AddWithValue("@Usuario", beBitacoraC.Usuario);
+                command.Parameters.AddWithValue("@Activo", beBitacoraC.Activo);
+                command.Parameters.AddWithValue("@IdHerramienta", beBitacoraC.IdHerramienta.Id);
+                command.Parameters.AddWithValue("@Disponible", beBitacoraC.IdHerramienta.Disponible);
+                command.Parameters.AddWithValue("@Estado", beBitacoraC.IdHerramienta.Estado);
+                command.Parameters.AddWithValue("@Tipo", beBitacoraC.Tipo);
+                command.Parameters.AddWithValue("@Nombre", beBitacoraC.IdHerramienta.Nombre);
+                command.Parameters.AddWithValue("@Color", beBitacoraC.IdHerramienta.Color);
+                command.Parameters.AddWithValue("@Origen", beBitacoraC.IdHerramienta.Origen);
+                command.Parameters.AddWithValue("@Codigo", beBitacoraC.IdHerramienta.Codigo);
+                command.Parameters.AddWithValue("@Precio", beBitacoraC.IdHerramienta.Precio);
+
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
             }
-            else
+
+            return rowsAffected;
+        }
+
+
+        // Método para obtener el último registro activo de la bitácora para una herramienta específica
+        public static  BEbitacoraC ObtenerUltimoRegistroActivo(BEbitacoraC bitacoraC)
+        {
+            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            BEbitacoraC bitacora = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return null;
+                string query = "SELECT TOP 1 * FROM BitacoraCambios WHERE IdHerramienta = "+bitacoraC.IdHerramienta.Id +" AND activo =1;";
 
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@idHerramienta", bitacoraC.IdHerramienta.Id);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    bitacora = new BEbitacoraC
+                    {
+                        Id = Convert.ToInt32(reader["idBitacoraC"]),
+                        Activo = Convert.ToInt32(reader["Activo"]),
+                        Usuario = reader["Usuario"].ToString(),
+                        UltimaModificacion = Convert.ToDateTime(reader["UltimaModificacion"]),
+                        IdHerramienta = new BEherramientas // Asegúrate de definir la clase BEherramientas adecuadamente
+                        {
+                            Id= Convert.ToInt32(reader["idHerramienta"]),
+                        },
+                        Tipo = reader["Tipo"].ToString()
+                    };
+                }
+
+                reader.Close();
+            }
+
+            return bitacora;
+        }
+
+        // Método para marcar un registro como activo y los demás como inactivos para una herramienta específica
+        public static void MarcarRegistroActivo(int idBit)
+        {
+            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string updateQuery = "UPDATE BitacoraCambios SET Activo = 1  WHERE idBitacoraC = "+ idBit+";";
+
+                SqlCommand command = new SqlCommand(updateQuery, connection);
+                command.Parameters.AddWithValue("@idBitacoraC", idBit);
+                //command.Parameters.AddWithValue("@HerramientaId", herramientaId);
+
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
 
-        public static void Desactivar(int _idBitacoraC)
+        public static int DesactivarRegistro(int idBit)
         {
-            string commandText = "UPDATE BitacoraCambios SET activo = 0 WHERE idHerramienta = " + _idBitacoraC + ";";
-            SqlHelper sqlHelper = new SqlHelper();
-            sqlHelper.ExecuteNonQuery(commandText);
+            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            int rowsAffected = 0;
+
+            
+            string query = "UPDATE BitacoraCambios SET Activo = 0 WHERE idBitacoraC = "+idBit+";";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@idBitacoraC", idBit);
+
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+
+            return rowsAffected;
         }
 
-        public static void Activar( int _idBitacoraC) 
+
+        public static List<BEbitacoraC> ListarPorId(int idHerramientaBit)
         {
-            string commandText= "UPDATE BitacoraCambios SET activo = 1 WHERE idHerramienta = " + _idBitacoraC + ";";
+            string mCommandText = "SELECT * FROM BitacoraCambios WHERE codigo= " + idHerramientaBit + ";";
+
+            SqlHelper _helper = new SqlHelper();
+
+            DataSet mDs = _helper.ExecuteDataSet(mCommandText);
+            List<BEbitacoraC> listaBitacora = new List<BEbitacoraC>();
+
+            if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow mDr in mDs.Tables[0].Rows)
+                {
+                    BEbitacoraC _bebitacoraC = new BEbitacoraC();
+                    ValorizarEntidad(_bebitacoraC, mDr);
+                    listaBitacora.Add(_bebitacoraC);
+                }
+            }
+            return listaBitacora;
+        }
+
+
+        internal static void ValorizarEntidad(BEbitacoraC pBitCambio, DataRow pDataRow)
+        {            
+            pBitCambio.Id = int.Parse(pDataRow["idBitacoraC"].ToString());
+            pBitCambio.UltimaModificacion = (DateTime)pDataRow["ultimaModificacion"];
+            pBitCambio.Usuario = pDataRow["usuario"].ToString();
+            pBitCambio.Activo = int.Parse(pDataRow["activo"].ToString());
+            pBitCambio.IdHerramienta = new BEherramientas();
+            pBitCambio.IdHerramienta.Id = int.Parse(pDataRow["idHerramienta"].ToString());
+            pBitCambio.IdHerramienta.Disponible = pDataRow["disponible"].ToString();            
+            pBitCambio.IdHerramienta.Estado = int.Parse(pDataRow["estado"].ToString());
+            pBitCambio.IdHerramienta.Nombre = pDataRow["nombre"].ToString();
+            pBitCambio.IdHerramienta.Color = pDataRow["color"].ToString();
+            pBitCambio.IdHerramienta.Origen = pDataRow["origen"].ToString();
+            pBitCambio.IdHerramienta.Codigo = int.Parse(pDataRow["codigo"].ToString());
+            pBitCambio.IdHerramienta.Precio = int.Parse(pDataRow["precio"].ToString());
+            pBitCambio.Tipo = pDataRow["tipo"].ToString();
+        }
+
+
+        public static int ActualizarIdHerramienta(BEbitacoraC bEbitacoraC) 
+        {
+            string mCommandText = "UPDATE BitacoraCambios SET idHerramienta = " + bEbitacoraC.IdHerramienta.Id + "WHERE idBitacora = " + bEbitacoraC.Id + ";";
             SqlHelper sqlHelper = new SqlHelper();
-            sqlHelper.ExecuteNonQuery(commandText);
+            return sqlHelper.ExecuteNonQuery(mCommandText);
         }
 
         public static List<BEbitacoraC> Listar()
         {
-            string mCmd = "SELECT * FROM BitacoraCambios;";
+            string mCommandText = "SELECT * FROM BitacoraCambios ;";
+            SqlHelper _helper = new SqlHelper();
 
-            SqlHelper sqlHelper= new SqlHelper();
-            DataSet ds= sqlHelper.ExecuteDataSet(mCmd);
-            List<BEbitacoraC> lista= new List<BEbitacoraC> ();
+            DataSet mDs = _helper.ExecuteDataSet(mCommandText);
+            List<BEbitacoraC> listaBitacora = new List<BEbitacoraC>();
 
-            if(ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
+            if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
-                foreach(DataRow dr in ds.Tables[0].Rows)
+                foreach (DataRow mDr in mDs.Tables[0].Rows)
                 {
-                    BEbitacoraC _bitacoraC= new BEbitacoraC ();
-                    Valorizar(_bitacoraC,dr);
-                    lista.Add(_bitacoraC);
+                    BEbitacoraC _bEbitacoraC = new BEbitacoraC();
+                    ValorizarEntidad(_bEbitacoraC, mDr);
+                    listaBitacora.Add(_bEbitacoraC);
                 }
             }
-            return lista;
+            return listaBitacora;
+
         }
 
-
-        internal static void Valorizar(BEbitacoraC bitacoraC, DataRow pDataRow)
+        public static List<string> ListarCodigo()
         {
-            bitacoraC.Id = int.Parse(pDataRow["idBitacoraC"].ToString());
-            bitacoraC.UltimaModificacion = (DateTime)pDataRow["ultimaModificacion"];
-            bitacoraC.Usuario = pDataRow["usuario"].ToString();
-            bitacoraC.Activo = int.Parse(pDataRow["activo"].ToString());
-            bitacoraC.Herramienta = new BEherramientas();
-            bitacoraC.Herramienta.Id = int.Parse(pDataRow["idHerramienta"].ToString());
-            bitacoraC.Herramienta.Disponible = pDataRow["disponible"].ToString();
-            bitacoraC.Herramienta.Estado = int.Parse(pDataRow["estado"].ToString());
-            bitacoraC.Tipo= pDataRow["tipo"].ToString();
+            string mCommandText = "SELECT DISTINCT codigo FROM BitacoraCambios;";
+            SqlHelper _helper = new SqlHelper();
 
+            DataSet mDs =_helper.ExecuteDataSet(mCommandText);
+            List<string> listaCodigo = new List<string>();
+            listaCodigo.Add("");
+            if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow mDr in mDs.Tables[0].Rows)
+                {
+                    listaCodigo.Add(mDr["codigo"].ToString());
+                }
+
+            }
+            return listaCodigo;
         }
 
+        public static List<BEbitacoraC> FiltrarBitacora(string codigo = null, string fechaInicio = null, string fechaFin = null, string nombreUsuario = null)
+        {
+            string mCommandText = "SELECT * FROM BitacoraCambios WHERE ";
+
+            if (codigo != null && codigo != "")
+            {
+                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                {
+                    mCommandText += "AND";
+                }
+                mCommandText += "codigo =" + int.Parse(codigo) + " ";
+            }
+            if ((fechaInicio != null && fechaFin != null) && (fechaInicio != "" && fechaFin != ""))
+            {
+                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                {
+                    mCommandText += " AND ";
+                }
+                mCommandText += "ultimaModificacion BETWEEN '" + fechaInicio + "' AND '" + fechaFin + "' ";
+            }
+            if (nombreUsuario != null )
+            {
+                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                {
+                    mCommandText += " AND ";
+                }
+                mCommandText += "usuario = '" + nombreUsuario + "' ";
+            }
+
+            mCommandText += ";";
+
+            SqlHelper _helper = new SqlHelper();
+            DataSet mDs = _helper.ExecuteDataSet(mCommandText);
+            List<BEbitacoraC> listaBitacora = new List<BEbitacoraC>();
+
+            if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow mDr in mDs.Tables[0].Rows)
+                {
+                    BEbitacoraC _bitacoraC = new BEbitacoraC();
+                    ValorizarEntidad(_bitacoraC, mDr);
+                    listaBitacora.Add(_bitacoraC);
+                }
+
+            }
+            return listaBitacora;
+        }
+        
     }
+
 }
+
+
+
+
+

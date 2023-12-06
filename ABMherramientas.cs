@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace VisionTFI
 {
     public partial class ABMherramientas : Form , BE.IObserverForm
     {
-
+        BLLencriptacion _encriptadora = new BLLencriptacion();
         BEbitacoraC _bitacoraC = new BEbitacoraC();
         BLLbitacoraC _bitacoraCb = new BLLbitacoraC();
         BEherramientas _herramientas= new BEherramientas();
@@ -82,6 +83,13 @@ namespace VisionTFI
                 _herramientas.UltimaModificacion= DateTime.Now;
 
                 _herramientasBL.Alta(_herramientas,BEcontroladorsesion.GetInstance.Usuario.usuario.ToString());
+                _bitacoraC.UltimaModificacion = DateTime.Now;
+               // _bitacoraC.Usuario = BEcontroladorsesion.GetInstance.Usuario.usuario.ToString();
+                _bitacoraC.Usuario = _encriptadora.desencriptarAes(BEcontroladorsesion.GetInstance.Usuario.usuario);
+                _bitacoraC.Activo = 1;
+                _bitacoraC.Tipo = "AGREGADO";
+                _bitacoraC.IdHerramienta = DALherramientas.Obtener(_herramientas.Codigo);
+                _bitacoraCb.ReportarBitacora(_bitacoraC);
 
                 MessageBox.Show("Herramienta dada de alta");
                 Hide();
@@ -109,6 +117,12 @@ namespace VisionTFI
                 Globa.herramientaBE.UltimaModificacion= DateTime.Now;
 
                 _herramientasBL.Modificar(Globa.herramientaBE);
+                _bitacoraC.UltimaModificacion= DateTime.Now;
+                _bitacoraC.Usuario = _encriptadora.desencriptarAes(BEcontroladorsesion.GetInstance.Usuario.usuario);
+                _bitacoraC.Activo = 1;
+                _bitacoraC.Tipo = "MODIFICADO";
+                _bitacoraC.IdHerramienta= Globa.herramientaBE;
+                _bitacoraCb.ReportarBitacora(_bitacoraC);
                 MessageBox.Show("Herramienta modificada");
                 Hide();
                 Globa.GestionarHerramienta = new GestionarHerramientsa();

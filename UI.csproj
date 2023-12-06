@@ -370,6 +370,11 @@
     <Compile Include="ReportePrestamo.Designer.cs">
       <DependentUpon>ReportePrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
     <Compile Include="Restore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +387,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XmlSerializator.cs" />
     <EmbeddedResource Include="ABMarticulos.resx">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,6 +489,10 @@
     <EmbeddedResource Include="ReporteFactura.rdlc" />
     <EmbeddedResource Include="ReportePrestamo.resx">
       <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>

@@ -12,7 +12,7 @@ namespace BE
         public int Activo { get; set; }
         public string Usuario {  get;set; }
         public DateTime UltimaModificacion {  get;set; }
-        public BEherramientas Herramienta { get;set; }
+        public BEherramientas IdHerramienta { get;set; }
         public string Tipo { get; set; }
         
     }

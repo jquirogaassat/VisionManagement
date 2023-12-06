@@ -133,7 +133,7 @@ namespace VisionTFI
                 if(_factura.Add(factura))
                 {
                     MessageBox.Show("Factura exitosa");
-                    GenerarFactura();
+                    //GenerarFactura();
                     GenerarPDFYMostrar();
                     dg_detalleFac.DataSource = "";
                     txt_cantidad.Clear();
@@ -151,12 +151,12 @@ namespace VisionTFI
             }
         }
 
-        private void GenerarFactura()
+        private void GenerarFactura(string rutaGuardado)
         {
             try
             {
                 //Creo el documento pdf
-                PdfWriter pdfwriter = new PdfWriter("Factura.pdf");
+                PdfWriter pdfwriter = new PdfWriter(rutaGuardado);
                 PdfDocument pdf= new PdfDocument(pdfwriter);
                 Document documento= new Document(pdf);
 
@@ -193,7 +193,7 @@ namespace VisionTFI
 
                 documento.Close();
 
-                //MessageBox.Show("Se genero el pdf de factura");
+               
 
             }
             catch (Exception ex)
@@ -208,11 +208,15 @@ namespace VisionTFI
             try
             {
                 // Generar el PDF
-                GenerarFactura();
+                
 
-                // Ruta del archivo PDF recién generado
-                string rutaArchivoPDF = "Factura.pdf";
+                string directorioFacturas = @"C:\Users\jair\Desktop\Facturas VM";
 
+                string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
+
+                string rutaArchivoPDF = Path.Combine(directorioFacturas, "Factura_" +nombreCliente+".pdf");
+
+                GenerarFactura(rutaArchivoPDF);
                 // Verificar si el archivo existe
                 if (File.Exists(rutaArchivoPDF))
                 {

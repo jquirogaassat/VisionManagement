@@ -43,7 +43,7 @@ namespace VisionTFI
         private void btn_login_Click(object sender, EventArgs e)
         {
             MessageBox.Show(" Digitos arreglados!");
-            Globa.IniciarSesion.Show();
+            Globa.menuPrincipal.Show();
             this.Hide();
 
         }

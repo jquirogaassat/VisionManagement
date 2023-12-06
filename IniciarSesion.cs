@@ -142,6 +142,15 @@ namespace VisionTFI
                     MessageBox.Show("Usted debe cambiar su contraseña!");
                 }
                 BLL.BLLconexion conexion = new BLL.BLLconexion();
+               // Globa.menuPrincipal = new MenuPrincipal();
+               // Globa.menuPrincipal.Show();
+               // this.Hide();
+               // LimpiarCombos();
+               // ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+               // bitacoraBLL.Alta(bitacoraBE);
+
+
+
                 if (conexion.ComprobarConexion())
                 {
 
@@ -149,10 +158,17 @@ namespace VisionTFI
                     Globa.errores = dv.ComprobarIntegridad();
                     if (Globa.errores.Count > 0)
                     {
-                        Inicio inicio = new Inicio();                        
-                        inicio.Show();
-                        this.Hide();
-
+                        if (txt_usuario.Text != "admin")
+                        {
+                            MessageBox.Show("¡Sistema inhabilitado, por favor comuniquese con su administrador!");
+                            this.Focus();
+                        }
+                        else
+                        {
+                            Inicio inicio = new Inicio();
+                            inicio.Show();
+                            this.Hide();
+                        }
                     }
                     else
                     {
@@ -164,9 +180,9 @@ namespace VisionTFI
                         bitacoraBLL.Alta(bitacoraBE);
                     }
                 }
-               // Globa.menuPrincipal = new MenuPrincipal();
+                // Globa.menuPrincipal = new MenuPrincipal();
                 //Globa.menuPrincipal.Show();
-               // this.Hide();
+                // this.Hide();
                 //LimpiarCombos();
                 //ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                 //bitacoraBLL.Alta(bitacoraBE);

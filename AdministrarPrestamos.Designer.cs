@@ -38,6 +38,8 @@
             this.btn_consultar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_reporteP = new System.Windows.Forms.Button();
+            this.btn_serializar = new System.Windows.Forms.Button();
+            this.btn_deserializar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,10 +56,11 @@
             // 
             // dgv_prestamos
             // 
+            this.dgv_prestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_prestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_prestamos.Location = new System.Drawing.Point(12, 133);
             this.dgv_prestamos.Name = "dgv_prestamos";
-            this.dgv_prestamos.Size = new System.Drawing.Size(739, 331);
+            this.dgv_prestamos.Size = new System.Drawing.Size(703, 331);
             this.dgv_prestamos.TabIndex = 1;
             this.dgv_prestamos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_prestamos_MouseClick);
             // 
@@ -118,7 +121,7 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(930, 27);
+            this.btn_salir.Location = new System.Drawing.Point(989, 26);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(75, 23);
             this.btn_salir.TabIndex = 8;
@@ -128,19 +131,41 @@
             // 
             // btn_reporteP
             // 
-            this.btn_reporteP.Location = new System.Drawing.Point(777, 348);
+            this.btn_reporteP.Location = new System.Drawing.Point(777, 326);
             this.btn_reporteP.Name = "btn_reporteP";
             this.btn_reporteP.Size = new System.Drawing.Size(122, 52);
             this.btn_reporteP.TabIndex = 9;
-            this.btn_reporteP.Text = "Ver reporte";
+            this.btn_reporteP.Text = "Ver y guardar reporte";
             this.btn_reporteP.UseVisualStyleBackColor = true;
             this.btn_reporteP.Click += new System.EventHandler(this.btn_reporteP_Click);
+            // 
+            // btn_serializar
+            // 
+            this.btn_serializar.Location = new System.Drawing.Point(959, 326);
+            this.btn_serializar.Name = "btn_serializar";
+            this.btn_serializar.Size = new System.Drawing.Size(75, 23);
+            this.btn_serializar.TabIndex = 10;
+            this.btn_serializar.Text = "Serializar";
+            this.btn_serializar.UseVisualStyleBackColor = true;
+            this.btn_serializar.Click += new System.EventHandler(this.btn_serializar_Click);
+            // 
+            // btn_deserializar
+            // 
+            this.btn_deserializar.Location = new System.Drawing.Point(959, 371);
+            this.btn_deserializar.Name = "btn_deserializar";
+            this.btn_deserializar.Size = new System.Drawing.Size(75, 23);
+            this.btn_deserializar.TabIndex = 11;
+            this.btn_deserializar.Text = "Deserializar";
+            this.btn_deserializar.UseVisualStyleBackColor = true;
+            this.btn_deserializar.Click += new System.EventHandler(this.btn_deserializar_Click);
             // 
             // AdministrarPrestamos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 539);
+            this.ClientSize = new System.Drawing.Size(1076, 570);
+            this.Controls.Add(this.btn_deserializar);
+            this.Controls.Add(this.btn_serializar);
             this.Controls.Add(this.btn_reporteP);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_consultar);
@@ -172,5 +197,7 @@
         private System.Windows.Forms.Button btn_consultar;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_reporteP;
+        private System.Windows.Forms.Button btn_serializar;
+        private System.Windows.Forms.Button btn_deserializar;
     }
 }
