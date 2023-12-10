@@ -45,6 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_estado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_serializar = new System.Windows.Forms.Button();
+            this.btn_deserializar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,6 +68,7 @@
             this.btn_salir.TabIndex = 24;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_guardar
             // 
@@ -190,11 +193,33 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Estado :";
             // 
+            // btn_serializar
+            // 
+            this.btn_serializar.Location = new System.Drawing.Point(720, 124);
+            this.btn_serializar.Name = "btn_serializar";
+            this.btn_serializar.Size = new System.Drawing.Size(92, 31);
+            this.btn_serializar.TabIndex = 29;
+            this.btn_serializar.Text = "Serializar";
+            this.btn_serializar.UseVisualStyleBackColor = true;
+            this.btn_serializar.Click += new System.EventHandler(this.btn_serializar_Click);
+            // 
+            // btn_deserializar
+            // 
+            this.btn_deserializar.Location = new System.Drawing.Point(720, 174);
+            this.btn_deserializar.Name = "btn_deserializar";
+            this.btn_deserializar.Size = new System.Drawing.Size(92, 31);
+            this.btn_deserializar.TabIndex = 30;
+            this.btn_deserializar.Text = "Deserializar";
+            this.btn_deserializar.UseVisualStyleBackColor = true;
+            this.btn_deserializar.Click += new System.EventHandler(this.btn_deserializar_Click);
+            // 
             // ABMherramientas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.Controls.Add(this.btn_deserializar);
+            this.Controls.Add(this.btn_serializar);
             this.Controls.Add(this.txt_disponible);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_estado);
@@ -239,5 +264,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_estado;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_serializar;
+        private System.Windows.Forms.Button btn_deserializar;
     }
 }

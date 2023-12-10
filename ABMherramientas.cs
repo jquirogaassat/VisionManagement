@@ -33,13 +33,7 @@ namespace VisionTFI
         private void ABMherramientas_Load(object sender, EventArgs e)
         {
             Focus();
-            txt_nombre.Clear();
-            txt_color.Clear();
-            txt_codigo.Clear();
-            txt_origen.Clear();
-            txt_precio.Clear();
-            txt_estado.Clear();
-            txt_disponible.Clear();
+            LimpiarTxt();
 
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
 
@@ -51,6 +45,16 @@ namespace VisionTFI
             {
                 AdaptarFormularioModificacion();
             }
+        }
+        private void LimpiarTxt()
+        {
+            txt_nombre.Clear();
+            txt_color.Clear();
+            txt_codigo.Clear();
+            txt_origen.Clear();
+            txt_precio.Clear();
+            txt_estado.Clear();
+            txt_disponible.Clear();
         }
 
         private void AdaptarFormularioAlta()
@@ -148,11 +152,46 @@ namespace VisionTFI
            // ValorizarBitC();
         }
 
+        private void btn_serializar_Click(object sender, EventArgs e)
+        {
+            BEherramientas herramienta = new BEherramientas()
+            {
+                Nombre = txt_nombre.Text,
+                Color = txt_color.Text,
+                Origen = txt_origen.Text,
+                Codigo = int.Parse(txt_codigo.Text),
+                Precio = int.Parse(txt_precio.Text),
+                Estado = int.Parse(txt_estado.Text),
+                Disponible = txt_disponible.Text,
+            };
+            XmlSerializator.Serializar(herramienta, "Herramienta.xml");
+            MessageBox.Show("Serializacion ok!");
+            LimpiarTxt();
+        }
+
+        private void btn_deserializar_Click(object sender, EventArgs e)
+        {
+            BEherramientas herramienta = new BEherramientas();
+            herramienta = (BEherramientas)XmlSerializator.Deserializar<BEherramientas>("Herramienta.xml");
+            txt_nombre.Text= herramienta.Nombre.ToString();
+            txt_color.Text= herramienta.Color.ToString();
+            txt_codigo.Text = herramienta.Codigo.ToString();
+            txt_origen.Text=herramienta.Origen.ToString();
+            txt_precio.Text=herramienta.Precio.ToString();
+            txt_estado.Text=herramienta.Estado.ToString();
+            txt_disponible.Text = herramienta.Disponible.ToString();
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
         //private void ValorizarBitacoraC(BE.BEbitacoraC bitacoraC)
         //{
         //    bitacoraC.
         //}
 
-       
+
     }
 }

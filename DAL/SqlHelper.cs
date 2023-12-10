@@ -239,8 +239,8 @@ namespace DAL
             {
                 int rowsAffected = 0;
 
-                using (SqlConnection connection = new SqlConnection(connectionString)) // Reemplaza con tu cadena de conexión
-                {
+                using (SqlConnection connection = new SqlConnection(connectionString)) 
+                {  
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddRange(parameters);

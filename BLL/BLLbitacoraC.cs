@@ -59,7 +59,8 @@ namespace BLL
             //ACTUALIZO LA TABLA DE HERRAMIENTAS CON EL NUEVO REGISTRO ACTIVO
             if(_bebitactivo.Tipo=="MODIFICADO"||_bebitactivo.Tipo=="AGREGADO")
             {
-                DALherramientas.ModificarC(bitacoraC.IdHerramienta);
+                DALherramientas herramientaD = new DALherramientas();
+                herramientaD.Modificar(bitacoraC.IdHerramienta);
                 return true;
             }
             else if(_bebitactivo.Tipo =="ELIMINADO")

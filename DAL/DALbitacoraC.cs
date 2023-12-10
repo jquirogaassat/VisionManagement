@@ -60,7 +60,7 @@ namespace DAL
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TOP 1 * FROM BitacoraCambios WHERE IdHerramienta = "+bitacoraC.IdHerramienta.Id +" AND activo =1;";
+                string query = "SELECT TOP 1 * FROM BitacoraCambios WHERE idHerramienta = "+bitacoraC.IdHerramienta.Id +" AND activo =1;";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@idHerramienta", bitacoraC.IdHerramienta.Id);

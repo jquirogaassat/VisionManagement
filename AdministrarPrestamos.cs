@@ -109,8 +109,8 @@ namespace VisionTFI
 
         private void btn_deserializar_Click(object sender, EventArgs e)
         {
-            XmlSerializator.Deserializar(_prestamoBL.Consultar(), "Prestamos.xml");
-            MessageBox.Show("Deserealizacion ok!!");
+            //XmlSerializator.Deserializar(_prestamoBL.Consultar(), "Prestamos.xml");
+            //MessageBox.Show("Deserealizacion ok!!");
         }
 
       

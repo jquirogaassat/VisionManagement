@@ -19,25 +19,23 @@ namespace VisionTFI
             fstream.Dispose();
 
         }
-        //public static object Deserializar(object serializator, string directorio)
-        //{
-        //    XmlSerializer serializar = new XmlSerializer(serializator.GetType());
-        //    FileStream fstream = File.Open(directorio, FileMode.Create, FileAccess.Read);
-        //    serializar.Deserialize(fstream);
-        //    fstream.Close();
-        //    fstream.Dispose();
-        //    return serializar;
+       
 
-        //}
-
-        public static object Deserializar(object serializator, string directorio)
+        public static Object Deserializar <T>(string directorio)
         {
-            XmlSerializer serializar = new XmlSerializer(serializator.GetType());
-            using (FileStream fstream = File.Open(directorio, FileMode.Open, FileAccess.Read))
-            {
-                object objetoDeserializado = serializar.Deserialize(fstream);
-                return objetoDeserializado;
-            }
+            XmlSerializer serializar = new XmlSerializer(typeof(T));
+            FileStream fStream = File.Open(directorio, FileMode.Open);
+            Object objetoDeserializado = serializar.Deserialize(fStream);
+            fStream.Close();
+            fStream.Dispose();
+            return objetoDeserializado;
+
+            //XmlSerializer serializar = new XmlSerializer(serializator.GetType());
+            //using (FileStream fstream = File.Open(directorio, FileMode.Open, FileAccess.Read))
+            //{
+            //    object objetoDeserializado = serializar.Deserialize(fstream);
+            //    return objetoDeserializado;
+            //}
             
         }
 

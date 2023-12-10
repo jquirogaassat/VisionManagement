@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,21 +43,24 @@ namespace VisionTFI
             dgv_bitacora.DataSource = null;
             _table = new DataTable();
 
-            _table.Columns.Add("ID BITACORA CAMBIO", typeof(int));
-            _table.Columns.Add("ULTIMA MODIFICACION", typeof(string));
-            _table.Columns.Add("USUARIO", typeof(string));
-            _table.Columns.Add("ACTIVO", typeof(int));
-            _table.Columns.Add("CODIGO", typeof(int));
-            _table.Columns.Add("NOMBRE", typeof(string));
-           // _table.Columns.Add("ESTADO", typeof(string));
-            _table.Columns.Add("TIPO", typeof(string));
-            _table.Columns.Add("COLOR", typeof(string));
-            _table.Columns.Add("PRECIO", typeof(int));
+            _table.Columns.Add("ID BITACORA CAMBIO", typeof(int)); //0
+            _table.Columns.Add("ULTIMA MODIFICACION", typeof(DateTime));  //1
+            _table.Columns.Add("USUARIO", typeof(string));  //2
+            _table.Columns.Add("ACTIVO", typeof(int));//3
+            _table.Columns.Add("ID HERRAMIENTA", typeof(int));//4
+            _table.Columns.Add("CODIGO", typeof(int));//5
+            _table.Columns.Add("NOMBRE", typeof(string));//6
+            _table.Columns.Add("ORIGEN", typeof(string));//7
+            _table.Columns.Add("TIPO", typeof(string));//8
+            _table.Columns.Add("COLOR", typeof(string));//9
+            _table.Columns.Add("PRECIO", typeof(int));//10
+            _table.Columns.Add("DISPONIBLE", typeof(string));//11
 
 
             foreach (BEbitacoraC bitacora in listaBitacora)
             {
-                _table.Rows.Add(bitacora.Id, bitacora.UltimaModificacion,bitacora.Usuario, bitacora.Activo, bitacora.IdHerramienta.Codigo, bitacora.IdHerramienta.Nombre, bitacora.Tipo, bitacora.IdHerramienta.Color, bitacora.IdHerramienta.Precio);
+                _table.Rows.Add(bitacora.Id, bitacora.UltimaModificacion,bitacora.Usuario, bitacora.Activo, bitacora.IdHerramienta.Id,
+                    bitacora.IdHerramienta.Codigo, bitacora.IdHerramienta.Nombre, bitacora.IdHerramienta.Origen, bitacora.Tipo, bitacora.IdHerramienta.Color, bitacora.IdHerramienta.Precio, bitacora.IdHerramienta.Disponible);
 
             }
             dgv_bitacora.DataSource = _table;
@@ -65,7 +69,7 @@ namespace VisionTFI
         private void btn_consultar_Click(object sender, EventArgs e)
         {
             
-            ActualizarTabla(_blBitacora.FiltrarBitacora(cmb_producto.Text,DateTime.Parse(dt_desde.Text).ToString("yyyy-MM-dd HH:mm:ss"),DateTime.Parse(dt_hasta.Text).ToString("yyyy-MM-dd HH:mm:ss"),cmb_usuario.Text));
+            ActualizarTabla(_blBitacora.FiltrarBitacora(cmb_producto.Text,DateTime.Parse(dt_desde.Text).ToString("MM-dd-yyyy HH:mm:ss"),DateTime.Parse(dt_hasta.Text).ToString("MM-dd-yyyy HH:mm:ss"),cmb_usuario.Text));
             hayFiltro = true;
         }
 
@@ -96,7 +100,50 @@ namespace VisionTFI
 
         private void btn_activar_Click(object sender, EventArgs e)
         {
+            if (dgv_bitacora.SelectedRows.Count > 0)
+            {
+                if (dgv_bitacora.SelectedRows[0].Cells[3].Value.ToString()=="0")
+                {
+                    BEbitacoraC _bitacoraC = new BEbitacoraC();
+                    ValorizarBitacora(_bitacoraC);
+                    if (_blBitacora.Activar(_bitacoraC))
+                    {
+                        MessageBox.Show("¡Estado actualizado en la tabla Herramientas!");
+                    }
+                    else
+                    {
+                        ActualizarTabla(_blBitacora.Listar());
+                    }                        
+                }
+                else
+                {
+                    MessageBox.Show("¡El item ya se encuentra activo!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un registro.");
+            }
+        }
 
+        private void ValorizarBitacora(BEbitacoraC bitacora)
+        {
+            bitacora.Id = int.Parse(dgv_bitacora.SelectedRows[0].Cells[0].Value.ToString());   //0 id                 
+            bitacora.UltimaModificacion =DateTime.Parse(dgv_bitacora.SelectedRows[0].Cells[1].Value.ToString());//1 ultmod
+            bitacora.Usuario = dgv_bitacora.SelectedRows[0].Cells[2].Value.ToString();//2 user
+            bitacora.Activo = int.Parse(dgv_bitacora.SelectedRows[0].Cells[3].Value.ToString());//3 activo
+            bitacora.IdHerramienta = new BEherramientas();
+            bitacora.IdHerramienta.Id = int.Parse(dgv_bitacora.SelectedRows[0].Cells[4].Value.ToString());// 4 id herramienta
+            bitacora.IdHerramienta.Codigo= int.Parse(dgv_bitacora.SelectedRows[0].Cells[5].Value.ToString());//5 codigo
+            bitacora.IdHerramienta.Nombre= dgv_bitacora.SelectedRows[0].Cells[6].Value.ToString();// 6 nombre
+            bitacora.IdHerramienta.Origen = dgv_bitacora.SelectedRows[0].Cells[7].Value.ToString();//7 origen
+            bitacora.Tipo= dgv_bitacora.SelectedRows[0].Cells[8].Value.ToString();//8 tipo
+            bitacora.IdHerramienta.Color = dgv_bitacora.SelectedRows[0].Cells[9].Value.ToString(); // 9 color
+            bitacora.IdHerramienta.Precio = int.Parse(dgv_bitacora.SelectedRows[0].Cells[10].Value.ToString());//10 precio
+            bitacora.IdHerramienta.Disponible= dgv_bitacora.SelectedRows[0].Cells[11].Value.ToString();
+            bitacora.IdHerramienta.UltimaModificacion = DateTime.Parse(dgv_bitacora.SelectedRows[0].Cells[1].Value.ToString());
+
+           
         }
     }
 }
