@@ -264,6 +264,24 @@
     <Compile Include="DetalleFactura.Designer.cs">
       <DependentUpon>DetalleFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenuAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuAdministrador.Designer.cs">
+      <DependentUpon>FrmMenuAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuUsuarios1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuUsuarios1.Designer.cs">
+      <DependentUpon>FrmMenuUsuarios1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrimerosPasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrimerosPasos.Designer.cs">
+      <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +448,15 @@
     <EmbeddedResource Include="DetalleFactura.resx">
       <DependentUpon>DetalleFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuAdministrador.resx">
+      <DependentUpon>FrmMenuAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuUsuarios1.resx">
+      <DependentUpon>FrmMenuUsuarios1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrimerosPasos.resx">
+      <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionarArticulo.resx">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -557,6 +584,25 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

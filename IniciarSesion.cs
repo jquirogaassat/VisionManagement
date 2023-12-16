@@ -22,6 +22,7 @@ namespace VisionTFI
         BLL.BLLgestionbitacora bitacoraBLL = new BLL.BLLgestionbitacora();
         BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
         BE.BEreusltadoLog resultado;
+        int fallo = 0;
 
         public void ActualizarControles()
         {
@@ -141,15 +142,7 @@ namespace VisionTFI
                 {
                     MessageBox.Show("Usted debe cambiar su contraseña!");
                 }
-                BLL.BLLconexion conexion = new BLL.BLLconexion();
-               // Globa.menuPrincipal = new MenuPrincipal();
-               // Globa.menuPrincipal.Show();
-               // this.Hide();
-               // LimpiarCombos();
-               // ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
-               // bitacoraBLL.Alta(bitacoraBE);
-
-
+                BLL.BLLconexion conexion = new BLL.BLLconexion();    
 
                 if (conexion.ComprobarConexion())
                 {
@@ -180,17 +173,12 @@ namespace VisionTFI
                         bitacoraBLL.Alta(bitacoraBE);
                     }
                 }
-                // Globa.menuPrincipal = new MenuPrincipal();
-                //Globa.menuPrincipal.Show();
-                // this.Hide();
-                //LimpiarCombos();
-                //ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
-                //bitacoraBLL.Alta(bitacoraBE);
+              
 
             }
             else
             {
-                //MessageBox.Show("error");
+                
                 if (resultado == BE.BEreusltadoLog.SesionActiva)
                 {
                     MessageBox.Show("Hay una sesion activa para este usuario");
@@ -206,22 +194,27 @@ namespace VisionTFI
                         bitacoraBLL.Alta(bitacoraBE);
                     }
                     else
-                    {
-                        if (resultado == BE.BEreusltadoLog.PasswordIncorrecta)
-                        {
-                            MessageBox.Show("Los datos ingresados son incorrectos.");
-                            ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con contraseña erronea.");
-                            bitacoraBLL.Alta(bitacoraBE);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Los datos ingresados son erroneos, supero el limite de intentos.");
-                            ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login incorrecto 4 veces");
-                            bitacoraBLL.Alta(bitacoraBE);
-                        }
+                    {                       
+                        
+                            if (resultado == BE.BEreusltadoLog.PasswordIncorrecta && fallo<=3)
+                            {                               
+                                MessageBox.Show("Los datos ingresados son incorrectos.");
+                                ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con contraseña erronea.");
+                                bitacoraBLL.Alta(bitacoraBE);
+                                fallo ++;
+                            }
+                            else
+                            {
+                                usuarioLog.IsBlocked = "SI";
+                                MessageBox.Show("Los datos ingresados son erroneos, supero el limite de intentos. Por favor comuniquese con el administrdor!");
+                                ValorizarBitacora(bitacoraBE, "ALTO", "Intento de login incorrecto 3 veces");
+                                bitacoraBLL.Alta(bitacoraBE);
+                            }
+                        
                     }
                 }
             }
+            fallo = 0;
 
         }
 

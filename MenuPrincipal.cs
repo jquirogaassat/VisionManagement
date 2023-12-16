@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using iText.Kernel.Pdf;
 
 namespace VisionTFI
 {
@@ -218,6 +220,21 @@ namespace VisionTFI
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijo(new AdministrarPrestamos());
+        }
+
+        private void primerosPasosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new FrmPrimerosPasos());
+        }
+
+        private void manualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new FrmMenuUsuarios1());
+        }
+
+        private void manualDeAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globa.menuPrincipal.AbrirFormHijoMenu(new FrmMenuAdministrador());
         }
     }
 }

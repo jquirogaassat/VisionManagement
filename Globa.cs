@@ -36,6 +36,7 @@ namespace VisionTFI
         public static Reporte reporte;
         public static CambiarContraseña cambiarPass = new CambiarContraseña();
         public static AdministrarPrestamos administrarPrestamos = new AdministrarPrestamos();
+        public static FrmPrimerosPasos primeros= new FrmPrimerosPasos();
 
             
 
