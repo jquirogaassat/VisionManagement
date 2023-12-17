@@ -332,6 +332,7 @@
       <DependentUpon>Help.cs</DependentUpon>
     </Compile>
     <Compile Include="Idioma.cs" />
+    <Compile Include="IdiomaManager.cs" />
     <Compile Include="Ingreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +388,11 @@
     </Compile>
     <Compile Include="ReportePrestamo.Designer.cs">
       <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Res.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -516,6 +522,10 @@
     <EmbeddedResource Include="ReporteFactura.rdlc" />
     <EmbeddedResource Include="ReportePrestamo.resx">
       <DependentUpon>ReportePrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Res.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using iText.Kernel.Pdf;
+using System.Globalization;
+using Microsoft.Reporting.WinForms;
+using Org.BouncyCastle.Crypto.IO;
 
 namespace VisionTFI
 {
@@ -18,6 +21,45 @@ namespace VisionTFI
     {
         BE.BEgestionbitacora bitacoraBe = new BE.BEgestionbitacora();
         BLL.BLLgestionbitacora bitacoraBll = new BLL.BLLgestionbitacora();
+
+        void ActualizarControles()
+        {
+            //IdiomaManager.Controles(this);
+            //this.Text = IdiomaManager.info["Text3"];
+            inicioToolStripMenuItem.Text = IdiomaManager.info["inicioToolStripMenuItem"]; 
+            gestionarToolStripMenuItem.Text = IdiomaManager.info["gestionarToolStripMenuItem"];
+            clienteToolStripMenuItem.Text = IdiomaManager.info["clienteToolStripMenuItem"];
+            articuloToolStripMenuItem.Text = IdiomaManager.info["articuloToolStripMenuItem"];
+            maquinariasYHerramientasToolStripMenuItem.Text = IdiomaManager.info["maquinariasYHerramientasToolStripMenuItem"];
+            aBMToolStripMenuItem.Text = IdiomaManager.info["aBMToolStripMenuItem"];
+            seguridadToolStripMenuItem.Text = IdiomaManager.info["seguridadToolStripMenuItem"];
+            comprobarIntegridadToolStripMenuItem.Text = IdiomaManager.info["comprobarIntegridadToolStripMenuItem"];
+            restoreToolStripMenuItem.Text = IdiomaManager.info["restoreToolStripMenuItem"];
+            bitacoraToolStripMenuItem.Text = IdiomaManager.info["bitacoraToolStripMenuItem"];
+            bitacoraDeCambiosToolStripMenuItem.Text      = IdiomaManager.info["bitacoraDeCambiosToolStripMenuItem"];
+            familiasToolStripMenuItem.Text = IdiomaManager.info["familiasToolStripMenuItem"];
+            usuariosToolStripMenuItem.Text = IdiomaManager.info["usuariosToolStripMenuItem"];
+            gestionarPermisosToolStripMenuItem.Text = IdiomaManager.info["gestionarPermisosToolStripMenuItem"];
+            reportesToolStripMenuItem.Text = IdiomaManager.info["reportesToolStripMenuItem"];
+            reporteBitacoraDeEventosToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeEventosToolStripMenuItem"];
+            reporteBitacoraDeCambiosToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeCambiosToolStripMenuItem"];
+            reporteDePrestamosToolStripMenuItem.Text = IdiomaManager.info["reporteDePrestamosToolStripMenuItem"];
+            idiomaToolStripMenuItem.Text = IdiomaManager.info["idiomaToolStripMenuItem"];
+            cambiarIdiomaToolStripMenuItem.Text = IdiomaManager.info["cambiarIdiomaToolStripMenuItem"];
+            inglesToolStripMenuItem.Text = IdiomaManager.info["inglesToolStripMenuItem"];
+            ayudaToolStripMenuItem.Text = IdiomaManager.info["ayudaToolStripMenuItem"];
+            primerosPasosToolStripMenuItem.Text = IdiomaManager.info["primerosPasosToolStripMenuItem"];
+            manualDeUsuarioToolStripMenuItem.Text = IdiomaManager.info["manualDeUsuarioToolStripMenuItem"];
+            manualDeAToolStripMenuItem.Text = IdiomaManager.info["manualDeAToolStripMenuItem"];
+            negocioToolStripMenuItem.Text = IdiomaManager.info["negocioToolStripMenuItem"];
+            ventaToolStripMenuItem.Text = IdiomaManager.info["ventaToolStripMenuItem"];
+            facturaToolStripMenuItem.Text = IdiomaManager.info["facturaToolStripMenuItem"];
+            prestamoToolStripMenuItem.Text = IdiomaManager.info["prestamoToolStripMenuItem"];
+            administrarToolStripMenuItem.Text = IdiomaManager.info["administrarToolStripMenuItem"];
+            sesionToolStripMenuItem.Text = IdiomaManager.info["sesionToolStripMenuItem"];
+            cambiarUsuarioToolStripMenuItem.Text = IdiomaManager.info["cambiarUsuarioToolStripMenuItem"];
+            cerrarSesionToolStripMenuItem.Text = IdiomaManager.info["cerrarSesionToolStripMenuItem"];
+        }
  
         public MenuPrincipal()
         {
@@ -111,8 +153,8 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("ALTO");
             Globa.nivelCriticidad.Add("MEDIO");
             Globa.nivelCriticidad.Add("BAJO");
-            ValorizarBitacora(bitacoraBe);
-           // ValidarPermisos();
+            ValorizarBitacora(bitacoraBe); 
+            // ValidarPermisos();
 
         }
 
@@ -235,6 +277,18 @@ namespace VisionTFI
         private void manualDeAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new FrmMenuAdministrador());
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IdiomaManager.CambiarIdioma("en.txt");
+            ActualizarControles();
+        }
+
+        private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IdiomaManager.CambiarIdioma("es.txt");
+            ActualizarControles();
         }
     }
 }

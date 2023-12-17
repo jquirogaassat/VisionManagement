@@ -133,6 +133,15 @@ namespace VisionTFI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Bitacora de cambios.
+        /// </summary>
+        internal static string Bitacora_de_cambios {
+            get {
+                return ResourceManager.GetString("Bitacora de cambios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Bitacora de eventos.
         /// </summary>
         internal static string Bitacora_de_eventos {
@@ -439,6 +448,24 @@ namespace VisionTFI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Manual de administrador.
+        /// </summary>
+        internal static string Manual_de_administrador {
+            get {
+                return ResourceManager.GetString("Manual de administrador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Manual de usuario.
+        /// </summary>
+        internal static string Manual_de_usuario {
+            get {
+                return ResourceManager.GetString("Manual de usuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Maquinarias y herramientas.
         /// </summary>
         internal static string Maquinarias_y_herramientas {
@@ -511,6 +538,24 @@ namespace VisionTFI {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Perfiles de usuario.
+        /// </summary>
+        internal static string Perfiles_de_usuario {
+            get {
+                return ResourceManager.GetString("Perfiles de usuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permisos de usuario.
+        /// </summary>
+        internal static string Permisos_de_usuario {
+            get {
+                return ResourceManager.GetString("Permisos de usuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Precio.
         /// </summary>
         internal static string Precio {
@@ -525,6 +570,15 @@ namespace VisionTFI {
         internal static string Prestamo {
             get {
                 return ResourceManager.GetString("Prestamo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Primeros pasos.
+        /// </summary>
+        internal static string Primeros_pasos {
+            get {
+                return ResourceManager.GetString("Primeros pasos", resourceCulture);
             }
         }
         
@@ -619,7 +673,7 @@ namespace VisionTFI {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Seleccione el tamño.
+        ///   Busca una cadena traducida similar a Seleccione el tamaño.
         /// </summary>
         internal static string Seleccione_el_tamaño {
             get {

@@ -121,234 +121,219 @@
     <value>ABM</value>
   </data>
   <data name="Activar" xml:space="preserve">
-    <value>Activar</value>
+    <value>Activate</value>
   </data>
   <data name="Administrar" xml:space="preserve">
-    <value>Administrar</value>
+    <value>Manage</value>
   </data>
   <data name="Alta Articulo" xml:space="preserve">
-    <value>Alta Articulo</value>
+    <value>Article registration</value>
   </data>
   <data name="Apellido" xml:space="preserve">
-    <value>Apellido</value>
+    <value>Last name</value>
   </data>
   <data name="Articulos" xml:space="preserve">
-    <value>Articulos</value>
+    <value>Article</value>
   </data>
   <data name="Asignar permisos" xml:space="preserve">
-    <value>Asignar permisos</value>
+    <value>Assign permissions</value>
   </data>
   <data name="Ayuda" xml:space="preserve">
-    <value>Ayuda</value>
+    <value>Help</value>
   </data>
   <data name="Bitacora de cambios" xml:space="preserve">
-    <value>Bitacora de cambios</value>
+    <value>Change log</value>
   </data>
   <data name="Bitacora de eventos" xml:space="preserve">
-    <value>Bitacora de eventos</value>
+    <value>Event log</value>
   </data>
   <data name="Buscar" xml:space="preserve">
-    <value>Buscar</value>
+    <value>Search</value>
   </data>
   <data name="Cambiar contraseña" xml:space="preserve">
-    <value>Cambiar contraseña</value>
+    <value>Change password</value>
   </data>
   <data name="Cantidad" xml:space="preserve">
-    <value>Cantidad</value>
+    <value>Quantity</value>
   </data>
   <data name="Cerrar" xml:space="preserve">
-    <value>Cerrar</value>
+    <value>Close</value>
   </data>
   <data name="Cerrar Sesion" xml:space="preserve">
-    <value>Cerrar Sesion</value>
+    <value>Logout</value>
   </data>
   <data name="Cliente" xml:space="preserve">
-    <value>Cliente</value>
+    <value>Customer</value>
   </data>
   <data name="Clientes" xml:space="preserve">
-    <value>Clientes</value>
+    <value>Customers</value>
   </data>
   <data name="Color" xml:space="preserve">
     <value>Color</value>
   </data>
   <data name="Comprobar integridad" xml:space="preserve">
-    <value>Comprobar integridad</value>
+    <value>Check integrity</value>
   </data>
   <data name="Confirmar contraseña" xml:space="preserve">
-    <value>Confirmar contraseña</value>
+    <value>Confirm password</value>
   </data>
   <data name="Consultar" xml:space="preserve">
-    <value>Consultar</value>
+    <value>Consult</value>
   </data>
   <data name="Consultar prestamo" xml:space="preserve">
-    <value>Consultar prestamo</value>
+    <value>Consult loan</value>
   </data>
   <data name="Contraseña actual" xml:space="preserve">
-    <value>Contraseña actual</value>
+    <value>Current password</value>
   </data>
   <data name="Desbloquear usuario" xml:space="preserve">
-    <value>Desbloquear usuario</value>
+    <value>Unblock user</value>
   </data>
   <data name="Direccion" xml:space="preserve">
-    <value>Direccion</value>
+    <value>Addres</value>
   </data>
   <data name="Disponible" xml:space="preserve">
-    <value>Disponible</value>
+    <value>Available</value>
   </data>
   <data name="Eliminar usuario" xml:space="preserve">
-    <value>Eliminar usuario</value>
+    <value>Delete user</value>
   </data>
   <data name="Español" xml:space="preserve">
-    <value>Español</value>
+    <value>Spanish</value>
   </data>
   <data name="Estado" xml:space="preserve">
-    <value>Estado</value>
+    <value>Status</value>
   </data>
   <data name="Factura" xml:space="preserve">
-    <value>Factura</value>
+    <value>Invoice</value>
   </data>
   <data name="Familias y patentes" xml:space="preserve">
-    <value>Familias y patentes</value>
+    <value>Families &amp; patents</value>
   </data>
   <data name="Fecha Nacimiento" xml:space="preserve">
-    <value>Fecha Nacimiento</value>
+    <value>Date of birth</value>
   </data>
   <data name="Gestionar" xml:space="preserve">
-    <value>Gestionar</value>
+    <value>Manage</value>
   </data>
   <data name="Gestionar permisos" xml:space="preserve">
-    <value>Gestionar permisos</value>
+    <value>Manage licences</value>
   </data>
   <data name="Gestionar Prestamos" xml:space="preserve">
-    <value>Gestionar Prestamos</value>
+    <value>Manage loans</value>
   </data>
   <data name="Guardar" xml:space="preserve">
-    <value>Guardar</value>
+    <value>Save</value>
   </data>
   <data name="Guardar como" xml:space="preserve">
-    <value>Guardar como</value>
+    <value>Save as</value>
   </data>
   <data name="Herramienta" xml:space="preserve">
-    <value>Herramienta</value>
+    <value>Tool</value>
   </data>
   <data name="Idioma" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Language</value>
   </data>
   <data name="Ingles" xml:space="preserve">
-    <value>Ingles</value>
+    <value>English</value>
   </data>
   <data name="Inicio" xml:space="preserve">
-    <value>Inicio</value>
+    <value>Home</value>
   </data>
   <data name="Localidad" xml:space="preserve">
-    <value>Localidad</value>
+    <value>Location</value>
   </data>
   <data name="Mail" xml:space="preserve">
     <value>Mail</value>
   </data>
-  <data name="Manual de administrador" xml:space="preserve">
-    <value>Manual de administrador</value>
-  </data>
-  <data name="Manual de usuario" xml:space="preserve">
-    <value>Manual de usuario</value>
-  </data>
   <data name="Maquinarias y herramientas" xml:space="preserve">
-    <value>Maquinarias y herramientas</value>
+    <value>Machines &amp; tools</value>
   </data>
   <data name="Modificar usuario" xml:space="preserve">
-    <value>Modificar Usuario</value>
+    <value>Update user</value>
   </data>
   <data name="Negocio" xml:space="preserve">
-    <value>Negocio</value>
+    <value>Bussines</value>
   </data>
   <data name="Nombre" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Name</value>
   </data>
   <data name="Nueva contraseña" xml:space="preserve">
-    <value>Nueva contraseña</value>
+    <value>New password</value>
   </data>
   <data name="Nuevo prestamo" xml:space="preserve">
-    <value>Nuevo prestamo</value>
+    <value>New loan </value>
   </data>
   <data name="Nuevo usuario" xml:space="preserve">
-    <value>Nuevo Usuario</value>
+    <value>New user</value>
   </data>
   <data name="Origen" xml:space="preserve">
-    <value>Origen</value>
-  </data>
-  <data name="Perfiles de usuario" xml:space="preserve">
-    <value>Perfiles de usuario</value>
-  </data>
-  <data name="Permisos de usuario" xml:space="preserve">
-    <value>Permisos de usuario</value>
+    <value>Origin</value>
   </data>
   <data name="Precio" xml:space="preserve">
-    <value>Precio</value>
+    <value>Price</value>
   </data>
   <data name="Prestamo" xml:space="preserve">
-    <value>Prestamo</value>
-  </data>
-  <data name="Primeros pasos" xml:space="preserve">
-    <value>Primeros pasos</value>
+    <value>Loan</value>
   </data>
   <data name="Productos" xml:space="preserve">
-    <value>Productos</value>
+    <value>Products</value>
   </data>
   <data name="Realizar backup" xml:space="preserve">
-    <value>Realizar backup</value>
+    <value>Backup</value>
   </data>
   <data name="Registrar devolucion" xml:space="preserve">
-    <value>Registrar devolucion</value>
+    <value>Record return</value>
   </data>
   <data name="Reporte Bitacora de cambios" xml:space="preserve">
-    <value>Reporte Bitacora de cambios</value>
+    <value>Logbook report of changes</value>
   </data>
   <data name="Reporte Bitacora de eventos" xml:space="preserve">
-    <value>Reporte Bitacora de eventos</value>
+    <value>Logbook report of event</value>
   </data>
   <data name="Reporte de prestamos" xml:space="preserve">
-    <value>Reporte de prestamos</value>
+    <value>Loan reporting</value>
   </data>
   <data name="Reportes" xml:space="preserve">
-    <value>Reportes</value>
+    <value>Reporting</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Restore</value>
   </data>
   <data name="Salir" xml:space="preserve">
-    <value>Salir</value>
+    <value>Exit</value>
   </data>
   <data name="Seguridad" xml:space="preserve">
-    <value>Seguridad</value>
+    <value>Security</value>
   </data>
   <data name="Seleccione el tamaño" xml:space="preserve">
-    <value>Seleccione el tamaño</value>
+    <value>Select size</value>
   </data>
   <data name="Sesion" xml:space="preserve">
     <value>Sesion</value>
   </data>
   <data name="Situacion" xml:space="preserve">
-    <value>Situacion</value>
+    <value>Status</value>
   </data>
   <data name="Telefono" xml:space="preserve">
-    <value>Telefono</value>
+    <value>Phone number</value>
   </data>
   <data name="Toltal a pagar" xml:space="preserve">
-    <value>Total a pagar</value>
+    <value>Total due</value>
   </data>
   <data name="Usuario" xml:space="preserve">
-    <value>Usuario</value>
+    <value>User</value>
   </data>
   <data name="Usuario activos" xml:space="preserve">
-    <value>Usuarios activos</value>
+    <value>Active users</value>
   </data>
   <data name="Usuarios" xml:space="preserve">
-    <value>Usuarios</value>
+    <value>Users</value>
   </data>
   <data name="Venta" xml:space="preserve">
-    <value>Venta</value>
+    <value>Sale</value>
   </data>
   <data name="Ver reporte" xml:space="preserve">
-    <value>Ver reporte</value>
+    <value>View report</value>
   </data>
 </root>
