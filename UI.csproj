@@ -411,6 +411,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VisionTFIDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="XmlSerializator.cs" />
     <EmbeddedResource Include="ABMarticulos.resx">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
@@ -555,6 +560,17 @@
     </None>
     <None Include="VisionManagementDataSet.xss">
       <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet.xsc">
+      <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionTFIDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionTFIDataSet.xss">
+      <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

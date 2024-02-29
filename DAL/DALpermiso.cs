@@ -35,7 +35,7 @@ namespace DAL
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("diPermiso",itemBaja.idPermiso),
+                new SqlParameter("idPermiso",itemBaja.idPermiso),
             };
 
             return sqlHelper.ExecuteQuery("permisoBaja", parameters);
