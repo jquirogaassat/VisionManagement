@@ -14,17 +14,15 @@ namespace DAL
     public class DALbitacoraC
     {
 
-       string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
-
-       
+              
       
         public static int ReportarBitacoraCambios(BEbitacoraC beBitacoraC)
         {
-            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             int rowsAffected = 0;
 
            
-            string query = "INSERT INTO BitacoraCambios (ultimaModificacion, usuario, activo, idHerramienta, disponible, estado, tipo, nombre, color, origen, codigo, precio) VALUES " +
+            string query = "INSERT INTO BitacoraCambio (ultimaModificacion, usuario, activo, idHerramienta, disponible, estado, tipo, nombre, color, origen, codigo, precio) VALUES " +
                             "(@UltimaModificacion, @Usuario, @Activo, @IdHerramienta, @Disponible, @Estado, @Tipo, @Nombre, @Color, @Origen, @Codigo, @Precio)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -55,12 +53,12 @@ namespace DAL
         // Método para obtener el último registro activo de la bitácora para una herramienta específica
         public static  BEbitacoraC ObtenerUltimoRegistroActivo(BEbitacoraC bitacoraC)
         {
-            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             BEbitacoraC bitacora = null;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TOP 1 * FROM BitacoraCambios WHERE idHerramienta = "+bitacoraC.IdHerramienta.Id +" AND activo =1;";
+                string query = "SELECT TOP 1 * FROM BitacoraCambio WHERE idHerramienta = "+bitacoraC.IdHerramienta.Id +" AND activo =1;";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@idHerramienta", bitacoraC.IdHerramienta.Id);
@@ -73,7 +71,7 @@ namespace DAL
                 {
                     bitacora = new BEbitacoraC
                     {
-                        Id = Convert.ToInt32(reader["idBitacoraC"]),
+                        Id = Convert.ToInt32(reader["idBitacoraCambio"]),
                         Activo = Convert.ToInt32(reader["Activo"]),
                         Usuario = reader["Usuario"].ToString(),
                         UltimaModificacion = Convert.ToDateTime(reader["UltimaModificacion"]),
@@ -94,13 +92,13 @@ namespace DAL
         // Método para marcar un registro como activo y los demás como inactivos para una herramienta específica
         public static void MarcarRegistroActivo(int idBit)
         {
-            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string updateQuery = "UPDATE BitacoraCambios SET Activo = 1  WHERE idBitacoraC = "+ idBit+";";
+                string updateQuery = "UPDATE BitacoraCambio SET Activo = 1  WHERE idBitacoraCambio = "+ idBit+";";
 
                 SqlCommand command = new SqlCommand(updateQuery, connection);
-                command.Parameters.AddWithValue("@idBitacoraC", idBit);
+                command.Parameters.AddWithValue("@idBitacoraCambio", idBit);
                 //command.Parameters.AddWithValue("@HerramientaId", herramientaId);
 
                 connection.Open();
@@ -110,16 +108,16 @@ namespace DAL
 
         public static int DesactivarRegistro(int idBit)
         {
-            string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             int rowsAffected = 0;
 
             
-            string query = "UPDATE BitacoraCambios SET Activo = 0 WHERE idBitacoraC = "+idBit+";";
+            string query = "UPDATE BitacoraCambio SET Activo = 0 WHERE idBitacoraCambio = "+idBit+";";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@idBitacoraC", idBit);
+                command.Parameters.AddWithValue("@idBitacoraCambio", idBit);
 
                 connection.Open();
                 rowsAffected = command.ExecuteNonQuery();
@@ -131,7 +129,7 @@ namespace DAL
 
         public static List<BEbitacoraC> ListarPorId(int idHerramientaBit)
         {
-            string mCommandText = "SELECT * FROM BitacoraCambios WHERE codigo= " + idHerramientaBit + ";";
+            string mCommandText = "SELECT * FROM BitacoraCambio WHERE codigo= " + idHerramientaBit + ";";
 
             SqlHelper _helper = new SqlHelper();
 
@@ -153,7 +151,7 @@ namespace DAL
 
         internal static void ValorizarEntidad(BEbitacoraC pBitCambio, DataRow pDataRow)
         {            
-            pBitCambio.Id = int.Parse(pDataRow["idBitacoraC"].ToString());
+            pBitCambio.Id = int.Parse(pDataRow["idBitacoraCambio"].ToString());
             pBitCambio.UltimaModificacion = (DateTime)pDataRow["ultimaModificacion"];
             pBitCambio.Usuario = pDataRow["usuario"].ToString();
             pBitCambio.Activo = int.Parse(pDataRow["activo"].ToString());
@@ -172,14 +170,14 @@ namespace DAL
 
         public static int ActualizarIdHerramienta(BEbitacoraC bEbitacoraC) 
         {
-            string mCommandText = "UPDATE BitacoraCambios SET idHerramienta = " + bEbitacoraC.IdHerramienta.Id + "WHERE idBitacora = " + bEbitacoraC.Id + ";";
+            string mCommandText = "UPDATE BitacoraCambio SET idHerramienta = " + bEbitacoraC.IdHerramienta.Id + "WHERE idBitacoraCambio = " + bEbitacoraC.Id + ";";
             SqlHelper sqlHelper = new SqlHelper();
             return sqlHelper.ExecuteNonQuery(mCommandText);
         }
 
         public static List<BEbitacoraC> Listar()
         {
-            string mCommandText = "SELECT * FROM BitacoraCambios ;";
+            string mCommandText = "SELECT * FROM BitacoraCambio ;";
             SqlHelper _helper = new SqlHelper();
 
             DataSet mDs = _helper.ExecuteDataSet(mCommandText);
@@ -200,7 +198,7 @@ namespace DAL
 
         public static List<string> ListarCodigo()
         {
-            string mCommandText = "SELECT DISTINCT codigo FROM BitacoraCambios;";
+            string mCommandText = "SELECT DISTINCT codigo FROM BitacoraCambio;";
             SqlHelper _helper = new SqlHelper();
 
             DataSet mDs =_helper.ExecuteDataSet(mCommandText);
@@ -219,11 +217,11 @@ namespace DAL
 
         public static List<BEbitacoraC> FiltrarBitacora(string codigo = null, string fechaInicio = null, string fechaFin = null, string nombreUsuario = null)
         {
-            string mCommandText = "SELECT * FROM BitacoraCambios WHERE ";
+            string mCommandText = "SELECT * FROM BitacoraCambio WHERE ";
 
             if (codigo != null && codigo != "")
             {
-                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                if (mCommandText != "SELECT * FROM BitacoraCambio WHERE ")
                 {
                     mCommandText += "AND";
                 }
@@ -231,7 +229,7 @@ namespace DAL
             }
             if ((fechaInicio != null && fechaFin != null) && (fechaInicio != "" && fechaFin != ""))
             {
-                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                if (mCommandText != "SELECT * FROM BitacoraCambio WHERE ")
                 {
                     mCommandText += " AND ";
                 }
@@ -239,7 +237,7 @@ namespace DAL
             }
             if (nombreUsuario != null )
             {
-                if (mCommandText != "SELECT * FROM BitacoraCambios WHERE ")
+                if (mCommandText != "SELECT * FROM BitacoraCambio WHERE ")
                 {
                     mCommandText += " AND ";
                 }

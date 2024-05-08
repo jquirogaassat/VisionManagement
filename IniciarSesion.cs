@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
 using BE;
+using DAL;
 
 namespace VisionTFI
 {
@@ -125,6 +126,11 @@ namespace VisionTFI
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
+            //Globa.menuPrincipal = new MenuPrincipal();
+            //Globa.menuPrincipal.Show();
+            //this.Hide();
+
+
             BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
             BE.BEusuario usuarioLog = new BE.BEusuario();
             usuarioLog.usuario = txt_usuario.Text;
@@ -138,11 +144,20 @@ namespace VisionTFI
             if (resultado == BE.BEreusltadoLog.LoginCorrecto)
             {
                 MessageBox.Show("Login correcto");
-                if(txt_usuario.Text==txt_pass.Text)
+                if (txt_usuario.Text == txt_pass.Text)
                 {
                     MessageBox.Show("Usted debe cambiar su contraseña!");
+                    CambiarContraseña cambiarPass = new CambiarContraseña();
+                    cambiarPass.Show();
+                    //Globa.cambiarPass = new CambiarContraseña();
+                    //Globa.cambiarPass.Show();
+                    //this.Hide();
+                    LimpiarCombos();
+                    ValorizarBitacora(bitacoraBE, "Medio", "Se cambio contraseña", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                    bitacoraBLL.Alta(bitacoraBE);
+
                 }
-                BLL.BLLconexion conexion = new BLL.BLLconexion();    
+                BLL.BLLconexion conexion = new BLL.BLLconexion();
 
                 if (conexion.ComprobarConexion())
                 {
@@ -171,14 +186,15 @@ namespace VisionTFI
                         LimpiarCombos();
                         ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                         bitacoraBLL.Alta(bitacoraBE);
+                        
                     }
                 }
-              
+
 
             }
             else
             {
-                
+
                 if (resultado == BE.BEreusltadoLog.SesionActiva)
                 {
                     MessageBox.Show("Hay una sesion activa para este usuario");
@@ -194,23 +210,23 @@ namespace VisionTFI
                         bitacoraBLL.Alta(bitacoraBE);
                     }
                     else
-                    {                       
-                        
-                            if (resultado == BE.BEreusltadoLog.PasswordIncorrecta && fallo<=3)
-                            {                               
-                                MessageBox.Show("Los datos ingresados son incorrectos.");
-                                ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con contraseña erronea.");
-                                bitacoraBLL.Alta(bitacoraBE);
-                                fallo ++;
-                            }
-                            else
-                            {
-                                usuarioLog.IsBlocked = "SI";
-                                MessageBox.Show("Los datos ingresados son erroneos, supero el limite de intentos. Por favor comuniquese con el administrdor!");
-                                ValorizarBitacora(bitacoraBE, "ALTO", "Intento de login incorrecto 3 veces");
-                                bitacoraBLL.Alta(bitacoraBE);
-                            }
-                        
+                    {
+
+                        if (resultado == BE.BEreusltadoLog.PasswordIncorrecta && fallo <= 3)
+                        {
+                            MessageBox.Show("Los datos ingresados son incorrectos.");
+                            ValorizarBitacora(bitacoraBE, "MEDIO", "Intento de login con contraseña erronea.");
+                            bitacoraBLL.Alta(bitacoraBE);
+                            fallo++;
+                        }
+                        else
+                        {
+                            usuarioLog.IsBlocked = "SI";
+                            MessageBox.Show("Los datos ingresados son erroneos, supero el limite de intentos. Por favor comuniquese con el administrdor!");
+                            ValorizarBitacora(bitacoraBE, "ALTO", "Intento de login incorrecto 3 veces");
+                            bitacoraBLL.Alta(bitacoraBE);
+                        }
+
                     }
                 }
             }

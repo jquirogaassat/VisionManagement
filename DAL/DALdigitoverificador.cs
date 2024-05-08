@@ -144,8 +144,8 @@ namespace DAL
             string query;
 
             List<string> nombresTablas = new List<string>();
-            nombresTablas.Add("BITTACORA"); // si 
-            nombresTablas.Add("USUARIO");//si
+            nombresTablas.Add("Bitacora"); // si 
+            nombresTablas.Add("Usuario");//si
             //nombresTablas.Add("USUARIO-PERMISO");
             //nombresTablas.Add("FAMILIA-PERMISO");
             // nombresTablas.Add()
@@ -206,7 +206,7 @@ namespace DAL
                 tablas.Add(mapper.Map(row));
             }
 
-            return tablas;
+            return tablas; 
         }
     }
 }

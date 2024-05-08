@@ -35,14 +35,7 @@ namespace DAL
             }
 
         }
-        //private string GetConnectionString()
-        //{
-        //    var cs= new SqlConnectionStringBuilder();
-        //    cs.IntegratedSecurity = true;
-        //    cs.DataSource = ".";
-        //    cs.InitialCatalog = "VisionManagement";
-        //    return cs.ConnectionString;
-        //}
+     
 
         public BEcomponente GuardarComponente(BEcomponente p, bool esFamilia)
         {
@@ -53,8 +46,8 @@ namespace DAL
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                string query = $@"insert into Permiso1 (nombre,permiso) values (@nombre,@permiso); 
-                SELECT id_permiso AS LastID FROM Permiso1 WHERE id_permiso = @@Identity;       ";
+                string query = $@"insert into Permiso (nombre,permiso) values (@nombre,@permiso); 
+                SELECT idPermiso AS LastID FROM Permiso WHERE idPermiso = @@Identity;       ";
 
 
                 cmd.CommandText = query;
@@ -89,10 +82,10 @@ namespace DAL
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                var query = $@"delete from permiso_permiso where id_permiso_padre=@id_permiso;       ";
+                var query = $@"delete from permiso_permiso where idPermisoPadre=@idPermiso;       ";
 
                 cmd.CommandText= query;
-                cmd.Parameters.Add(new SqlParameter("id_permiso", f.Id));
+                cmd.Parameters.Add(new SqlParameter("idPermiso", f.Id));
                 cmd.ExecuteNonQuery();
 
                 foreach(var item in f.Hijos)
@@ -100,12 +93,12 @@ namespace DAL
                     cmd = new SqlCommand();
                     cmd.Connection = cnn;
 
-                    query= $@"insert into permiso_permiso (id_permiso_padre,id_permiso_hijo) 
-                            values (@id_permiso_padre,@id_permiso_hijo) ";
+                    query= $@"insert into permiso_permiso (idPermisoPadre,idPermisoHijo) 
+                            values (@idPermisoPadre,@idPermisoHijo) ";
 
                     cmd.CommandText = query;
-                    cmd.Parameters.Add(new SqlParameter("id_permiso_padre",f.Id));
-                    cmd.Parameters.Add(new SqlParameter("id_permiso_hijo",item.Id));
+                    cmd.Parameters.Add(new SqlParameter("idPermisoPadre",f.Id));
+                    cmd.Parameters.Add(new SqlParameter("idPermisoHijo",item.Id));
 
                     cmd.ExecuteNonQuery();
                 }
@@ -129,7 +122,7 @@ namespace DAL
             cmd.Connection = cnn;
 
 
-            var query= $@"select * from Permiso1 p where p.permiso is not null;";
+            var query= $@"select * from Permiso p where p.permiso is not null;";
             cmd.CommandText = query;
             var reader = cmd.ExecuteReader();
 
@@ -137,7 +130,7 @@ namespace DAL
 
             while(reader.Read())
             {
-                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
+                var id = reader.GetInt32(reader.GetOrdinal("idPermiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
                 var permiso = reader.GetString(reader.GetOrdinal("permiso"));
 
@@ -161,7 +154,7 @@ namespace DAL
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
 
-            var query = $@"select * from Permiso1 p where p.permiso is  null;";
+            var query = $@"select * from Permiso p where p.permiso is  null;";
             cmd.CommandText = query;
 
             var reader = cmd.ExecuteReader();
@@ -171,7 +164,7 @@ namespace DAL
             while (reader.Read())
             {
 
-                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
+                var id = reader.GetInt32(reader.GetOrdinal("idPermiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
 
                 BEfamilia f = new BEfamilia();
@@ -205,15 +198,15 @@ namespace DAL
 
 
             var sql= $@"with recursivo as (
-                        select sp2.id_permiso_padre, sp2.id_permiso_hijo  from permiso_permiso SP2
-                        where sp2.id_permiso_padre {where} --acá se va variando la familia que busco
+                        select sp2.idPermisoPadre, sp2.idPermisoHijo  from permiso_permiso SP2
+                        where sp2.idPermisoPadre {where} --acá se va variando la familia que busco
                         UNION ALL 
-                        select sp.id_permiso_padre, sp.id_permiso_hijo from permiso_permiso sp 
-                        inner join recursivo r on r.id_permiso_hijo= sp.id_permiso_padre
+                        select sp.idPermisoPadre, sp.idPermisoHijo from permiso_permiso sp 
+                        inner join recursivo r on r.idPermisoHijo= sp.idPermisoPadre
                         )
-                        select r.id_permiso_padre,r.id_permiso_hijo,p.id_permiso,p.nombre, p.permiso
+                        select r.idPermisoPadre,r.idPermisoHijo,p.idPermiso,p.nombre, p.permiso
                         from recursivo r 
-                        inner join Permiso1 p on r.id_permiso_hijo = p.id_permiso
+                        inner join Permiso p on r.idPermisoHijo = p.idPermiso
 						
                         ";
 
@@ -227,12 +220,12 @@ namespace DAL
             while( reader.Read())
             {
                 int idPadre = 0;
-                if (reader["id_permiso_padre"] != DBNull.Value)
+                if (reader["idPermisoPadre"] != DBNull.Value)
                 {
-                    idPadre = reader.GetInt32(reader.GetOrdinal("id_permiso_padre"));
+                    idPadre = reader.GetInt32(reader.GetOrdinal("idPermisoPadre"));
                 }
 
-                var id = reader.GetInt32(reader.GetOrdinal("id_permiso"));
+                var id = reader.GetInt32(reader.GetOrdinal("idPermiso"));
                 var nombre = reader.GetString(reader.GetOrdinal("nombre"));
 
                 var permiso = string.Empty;
@@ -312,14 +305,14 @@ namespace DAL
 
             var cmd = new SqlCommand();
             cmd.Connection = cnn;
-            cmd.CommandText= $@"select p.* from usuarios_permisos up inner join Permiso1 p on up.id_permiso=p.id_permiso where id_usuario=@id;";
+            cmd.CommandText= $@"select p.* from usuarios_permisos up inner join Permiso p on up.idPermiso=p.idPermiso where idUsuario=@id;";
             cmd.Parameters.AddWithValue("id", u.IdUsuario);
 
             var reader= cmd.ExecuteReader();
             u.Permisos.Clear();
             while(reader.Read())
             {
-                var idp = reader.GetInt32(reader.GetOrdinal("id_permiso"));
+                var idp = reader.GetInt32(reader.GetOrdinal("idPermiso"));
                 var nombrep = reader.GetString(reader.GetOrdinal("nombre"));
 
                 var permisop = String.Empty;
@@ -370,7 +363,7 @@ namespace DAL
            
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("id_permiso",idPermiso),
+                new SqlParameter("idPermiso",idPermiso),
             };
 
             var prueba = parameters;

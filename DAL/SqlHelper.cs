@@ -12,8 +12,8 @@ namespace DAL
 {
     public class SqlHelper
     {
-       // string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        string connectionString= @"Data Source=.\sqlexpress;Initial Catalog=VisionManagement;Integrated Security=True";
+        
+        string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
 
        
 

@@ -14,6 +14,7 @@ using iText.Kernel.Pdf;
 using System.Globalization;
 using Microsoft.Reporting.WinForms;
 using Org.BouncyCastle.Crypto.IO;
+using DAL;
 
 namespace VisionTFI
 {
@@ -154,7 +155,7 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("MEDIO");
             Globa.nivelCriticidad.Add("BAJO");
             ValorizarBitacora(bitacoraBe); 
-            // ValidarPermisos();
+            ValidarPermisos();
 
         }
 
@@ -213,15 +214,18 @@ namespace VisionTFI
 
         void ValidarPermisos()
         {
-            
+            (new PermisosRepository()).FillUserComponents(BE.BEcontroladorsesion.GetInstance.Usuario);
             try
             {
-                if(BEcontroladorsesion.GetInstance.IsLoggedIn(BE.BEcontroladorsesion.GetInstance.Usuario))
+               if(BEcontroladorsesion.GetInstance.IsLoggedIn(BE.BEcontroladorsesion.GetInstance.Usuario))
+              // if(BEcontroladorsesion.GetInstance.IsLoggedInPrueba())
                 {
                     this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerA);
                     this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerB);
                     this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerC);
-
+                   // this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerA);
+                   // this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerB);
+                   // this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerC);
                 }
                 else
                 {

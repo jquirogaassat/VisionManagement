@@ -27,7 +27,7 @@ namespace DAL
             cmd.Connection = cnn;
 
 
-            var sql= $@"select * from usuarios;";
+            var sql= $@"select * from Usuario;";
             cmd.CommandText = sql;
 
             var reader = cmd.ExecuteReader();
@@ -56,7 +56,7 @@ namespace DAL
                 var cmd = new SqlCommand();
                 cmd.Connection = cnn;
 
-                cmd.CommandText= $@"delete from usuarios_permisos where id_usuario=@idUsuario;";
+                cmd.CommandText= $@"delete from usuarios_permisos where idUsuario=@idUsuario;";
                 cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));                
                 cmd.ExecuteNonQuery();
 
@@ -64,16 +64,11 @@ namespace DAL
                 {
                     cmd = new SqlCommand();
                     cmd.Connection = cnn;
-                    // cmd.CommandText= $@"insert into usuarios_permisos (id_usuario,id_permiso) values (@idUsuario,@id_permiso) "; 
-                    var query2 = "insert into usuarios_permisos (id_usuario,id_permiso) values (" + u.IdUsuario + ","+item.Id+ ")";
-                    //cmd.Parameters.Add(new SqlParameter("idUsuario", u.IdUsuario));
-                    //cmd.Parameters.Add(new SqlParameter("idPermiso", item.Id));
-
+                     
+                    var query2 = "insert into usuarios_permisos (idUsuario,idPermiso) values (" + u.IdUsuario + ","+item.Id+ ")";
+                
                     helper.ExecuteQuery(query2);
-                   // var query = cmd.ToString();
-                    //var qu2 = cmd.Parameters.ToString();
-
-                   // cmd.ExecuteNonQuery();
+                 
                 }
 
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iText.Kernel.Pdf.Canvas.Draw;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace BE
 
         private static object _lock = new object();
         private static BEcontroladorsesion session;
+        
         private DateTime FechaIngreso { get; set; }
         public BEusuario Usuario;
 
@@ -21,6 +23,7 @@ namespace BE
 
         public static BEreusltadoLog Log(BE.BEusuario usuario)
         {
+            
 
             lock (_lock)
             {
@@ -63,6 +66,9 @@ namespace BE
             return usuario != null;
         }
 
+        public bool IsLoggedInPrueba() // voy a probar si este metodo me trae las familias
+        { return Usuario !=null; }
+
         bool IsInRole(BEcomponente c, BEtipoPermiso permiso, bool existe)
         {
             if (c.Permiso.Equals(permiso))
@@ -101,9 +107,27 @@ namespace BE
         }
 
 
+        public bool IsInRolePrueba(BEtipoPermiso permiso) // voy  aprobar si me trae las flias
+        {
+            bool existe = false;
+            foreach (var item in Usuario.Permisos)
+            {
+                if (item.Permiso.Equals(permiso))
+                    return true;
+                else
+                {
+                    existe = IsInRole(item, permiso, existe);
+                    if (existe) return true;
+                }
+
+            }
+
+            return existe;
+        }
 
 
-             
+
+
 
     }
 }

@@ -140,7 +140,7 @@ namespace DAL
                 new SqlParameter("idUsuario",itemModifica.IdUsuario),
                 new SqlParameter("usuario",itemModifica.usuario),
                 new SqlParameter("userPass",itemModifica.UserPass),
-                new SqlParameter("isBlocked",itemModifica.IsBlocked),
+              //  new SqlParameter("isBlocked",itemModifica.IsBlocked),
                 new SqlParameter("nombre",itemModifica.Nombre),
                 new SqlParameter("apellido",itemModifica.Apellido),
                 new SqlParameter("fechaNacimiento",itemModifica.FechaNacimiento),              
@@ -148,7 +148,7 @@ namespace DAL
                 new SqlParameter("telefono",itemModifica.Telefono),
                 new SqlParameter("direccion",itemModifica.Direccion),
                 new SqlParameter("mail",itemModifica.Mail),               
-                new SqlParameter("intentosFallidos", itemModifica.intentosFallidos),
+              //  new SqlParameter("intentosFallidos", itemModifica.intentosFallidos),
             };
 
             sqlHelper.ExecuteQuery("usuarioUpdate", parameters);

@@ -50,7 +50,7 @@ namespace DAL
                 new SqlParameter("precio",itemAlta.Precio),
                 new SqlParameter("estado", itemAlta.Estado),
                 new SqlParameter("disponible",itemAlta.Disponible),
-                new SqlParameter("ultmiaModificacion",itemAlta.UltimaModificacion),
+                new SqlParameter("ultimaModificacion",itemAlta.UltimaModificacion),
             };
 
             int nuevoId = sqlHelper.ExecuteQueryPRUEBA("herramientaInsert", parametros);
@@ -92,7 +92,7 @@ namespace DAL
                 new SqlParameter("precio",itemModifica.Precio),
                 new SqlParameter("estado",itemModifica.Estado),
                 new SqlParameter("disponible",itemModifica.Disponible),
-                new SqlParameter("ultmiaModificacion",itemModifica.UltimaModificacion),
+                new SqlParameter("ultimaModificacion",itemModifica.UltimaModificacion),
             };
 
             sqlHelper.ExecuteQuery("herramientaUpdate", parametros);

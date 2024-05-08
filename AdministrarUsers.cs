@@ -120,7 +120,7 @@ namespace VisionTFI
             btn_update.Enabled = true;
             this.Focus();
            // Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
-            BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
+            //BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
           
             //ValidarPermiso("Crear Usuario", btn_nuevoUser);
 

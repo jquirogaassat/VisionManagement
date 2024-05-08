@@ -14,7 +14,7 @@ namespace DAL.Mappers
         {
             BE.BEgestionbitacora bitacora = new BE.BEgestionbitacora()
             {
-                IdBitacora = (int)row["idBITTACORA"],
+                IdBitacora = (int)row["idBitacora"],
                 idPatente = (int)row["idPatente"],
                 IdUsuario = (int)row["idUsuario"],
                 FechaHora = (DateTime)row["fechaHora"],

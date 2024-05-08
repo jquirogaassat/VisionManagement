@@ -50,8 +50,8 @@ namespace DAL
             int nuevoId = sqlHelper.ExecuteQueryPRUEBA("articuloInsert", parameters);
             DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
             int dvh = dvDal.CalcularDVH(consultarArticuloDT(nuevoId), 0);
-            dvDal.CargarDVHa("Articulo1", nuevoId, dvh);
-            int dvv = dvDal.CalcularDVVa("Articulo1");
+            dvDal.CargarDVH("Articulo", nuevoId, dvh);
+            int dvv = dvDal.CalcularDVV("Articulo");
             //DAL.DALarticulo articuloDal= new DALarticulo();
 
             dvDal.CargarDVV(0, dvv);
@@ -91,8 +91,8 @@ namespace DAL
             sqlHelper.ExecuteQuery("articuloUpdate", parametros);
             DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
             int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id),0);
-            dvDal.CargarDVHa("Articulo1", itemModifica.Id, dvh);
-            int dvv = dvDal.CalcularDVVa("Articulo1");
+            dvDal.CargarDVH("Articulo", itemModifica.Id, dvh);
+            int dvv = dvDal.CalcularDVV("Articulo");
             return dvDal.CargarDVV(0, dvv);
         }
 

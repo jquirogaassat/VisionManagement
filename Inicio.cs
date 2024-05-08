@@ -95,7 +95,8 @@ namespace VisionTFI
                 sl.SetCellValue("D" + fila, error.id);
             }
 
-            sl.SaveAs(@"C:\Users\Jair\Desktop\ErroresBitacora20211012.xlsx");
+            sl.SaveAs(@"C:\Users\Usuario\Desktop\ErroresBitacora.xlsx");
+      
         }
 
         private void btn_restore_Click(object sender, EventArgs e)

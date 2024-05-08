@@ -30,8 +30,8 @@ namespace DAL
             DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
 
             int dvh = dvDal.CalcularDVH(ConsultarBitacoraDt(idNuevo), 0);
-            dvDal.CargarDVHb("BITTACORA", idNuevo, dvh);
-            int dvv = dvDal.CalcularDVVb("BITTACORA");
+            dvDal.CargarDVH("Bitacora", idNuevo, dvh);
+            int dvv = dvDal.CalcularDVV("Bitacora");
             return dvDal.CargarDVV(1, dvv);
         }
 
@@ -157,11 +157,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<BEgestionbitacora> Listar(DateTime desde, DateTime hasta, string usuario, string criticidad, bool ordFecha, bool ordUsuario, bool ordCriticidad, bool fechaDesc, bool usuarioDes, bool criticidadDesc)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public bool Modificar(BEgestionbitacora itemModifica)
         {
             throw new NotImplementedException();
