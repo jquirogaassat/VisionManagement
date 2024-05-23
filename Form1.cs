@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VisionTFI
 {
-    public partial class Help : Form
+    public partial class Form1 : Form
     {
-        public Help()
+        public Form1()
         {
             InitializeComponent();
         }

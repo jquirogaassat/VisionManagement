@@ -22,7 +22,7 @@ namespace DAL.Mappers
                 Direccion= (string)row["direccion"],
                 FechaNacimiento = (DateTime)row["fechaNacimiento"],
                // FechaAlta= (DateTime)row["fechaAlta"],
-               // IsBlocked = (string)row["isBlocked"],
+                IsBlocked = (string)row["IsBlocked"],
                 //Idioma= idioma.ConsultaIdioma((int)row["idioma"]),
                 Mail= (string)row["mail"],
                 usuario= (string)row["usuario"],

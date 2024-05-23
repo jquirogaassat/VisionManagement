@@ -152,7 +152,7 @@
             // 
             this.lbl_usuario.AutoSize = true;
             this.lbl_usuario.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario.Location = new System.Drawing.Point(401, 179);
+            this.lbl_usuario.Location = new System.Drawing.Point(478, 210);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(64, 21);
             this.lbl_usuario.TabIndex = 6;
@@ -162,7 +162,7 @@
             // 
             this.lbl_pass.AutoSize = true;
             this.lbl_pass.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pass.Location = new System.Drawing.Point(376, 225);
+            this.lbl_pass.Location = new System.Drawing.Point(453, 256);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(89, 21);
             this.lbl_pass.TabIndex = 7;
@@ -170,14 +170,14 @@
             // 
             // txt_usuario
             // 
-            this.txt_usuario.Location = new System.Drawing.Point(488, 182);
+            this.txt_usuario.Location = new System.Drawing.Point(565, 213);
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(129, 20);
             this.txt_usuario.TabIndex = 8;
             // 
             // txt_pass
             // 
-            this.txt_pass.Location = new System.Drawing.Point(488, 225);
+            this.txt_pass.Location = new System.Drawing.Point(565, 256);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(129, 20);
@@ -185,7 +185,7 @@
             // 
             // btn_aceptar
             // 
-            this.btn_aceptar.Location = new System.Drawing.Point(642, 285);
+            this.btn_aceptar.Location = new System.Drawing.Point(719, 316);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_aceptar.TabIndex = 10;
@@ -195,7 +195,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(542, 285);
+            this.btn_cancelar.Location = new System.Drawing.Point(619, 316);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 11;
@@ -207,7 +207,7 @@
             // 
             this.lnl_olvidoPass.AutoSize = true;
             this.lnl_olvidoPass.LinkColor = System.Drawing.Color.Black;
-            this.lnl_olvidoPass.Location = new System.Drawing.Point(485, 248);
+            this.lnl_olvidoPass.Location = new System.Drawing.Point(562, 279);
             this.lnl_olvidoPass.Name = "lnl_olvidoPass";
             this.lnl_olvidoPass.Size = new System.Drawing.Size(133, 13);
             this.lnl_olvidoPass.TabIndex = 12;
@@ -233,6 +233,7 @@
             this.Name = "IniciarSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vision Management-IniciarSesion";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.IniciarSesion_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -40,14 +40,14 @@
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(800, 450);
+            this.axAcroPDF1.Size = new System.Drawing.Size(1049, 450);
             this.axAcroPDF1.TabIndex = 0;
             // 
             // FrmMenuUsuarios1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1049, 450);
             this.Controls.Add(this.axAcroPDF1);
             this.Name = "FrmMenuUsuarios1";
             this.Text = "Ayuda-Menu de usuarios";
@@ -57,8 +57,10 @@
 
         }
 
+        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+
         #endregion
 
-        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+        // private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
     }
 }

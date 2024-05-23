@@ -100,10 +100,12 @@ namespace VisionTFI
                     ValorizarBitacora(bitacoraBE);
                     bitacora.Alta(bitacoraBE);
                     MessageBox.Show("¡Backup generado exitosamente!");
+                    this.Hide();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("No se pudo generar el backup!");                    
+                    MessageBox.Show("No se pudo generar el backup!");
+                    this.Hide();
                 }
             }
             else

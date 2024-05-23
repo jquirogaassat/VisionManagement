@@ -26,13 +26,13 @@ namespace VisionTFI
         private void MostrarAyuda()
         {
 
-            string ruta = @"C:\Users\jair\source\repos\VisionTFI\bin\Debug\VisionManagement- Ayuda en línea- Manual de administrador.pdf";
+            string ruta = @"C:\Users\Usuario\source\repos\VisionManagement\bin\Debug\VisionManagement- Ayuda en línea- Manual de administrador.pdf";
             try
             {
                 string rutaCompleta = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ruta);
                 if (System.IO.File.Exists(rutaCompleta))
                 {
-                    axAcroPDF1.src = rutaCompleta;
+                    axAcroPDF2.src = rutaCompleta;
                 }
                 else
                 {

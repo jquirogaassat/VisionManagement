@@ -17,7 +17,7 @@ namespace VisionTFI
          BLL.BLLgestionbitacora BLLgestionbitacora = new BLL.BLLgestionbitacora();
          BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
          string orden;
-
+        BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
 
         public GestionarBitacora()
         {
@@ -32,8 +32,7 @@ namespace VisionTFI
             cmb_usuario.Items.Clear();
             cmb_nivelCriticidad.Items.Clear();
             RellenarCombos();
-            btn_imprimir.Enabled = false;
-           // RellenarDgv();
+            btn_imprimir.Enabled = false;         
             dgv_bitacora.DataSource = BLLgestionbitacora.Listar();
             RellenarDgv();
             //ValorizarBitacora();
@@ -130,7 +129,7 @@ namespace VisionTFI
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
-
+            
             DateTime Desde = dt_desde.Value;
             DateTime Hasta = dt_hasta.Value;
             usuarioBE = (BE.BEusuario)cmb_usuario.SelectedItem;
@@ -139,6 +138,7 @@ namespace VisionTFI
             //reporte.Show();
             Globa.tipoProceso = "Alta";
             //Reporte reporte = new Reporte();
+            ValorizarBitacora(bitacoraBE);
             Hide();
             Globa.menuPrincipal.AbrirFormHijoMenu(reporte);
        

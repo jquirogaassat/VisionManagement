@@ -1,4 +1,5 @@
-﻿namespace VisionTFI
+﻿
+namespace VisionTFI
 {
     partial class FrmMenuAdministrador
     {
@@ -29,36 +30,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuAdministrador));
-            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
+            this.axAcroPDF2 = new AxAcroPDFLib.AxAcroPDF();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF2)).BeginInit();
             this.SuspendLayout();
             // 
-            // axAcroPDF1
+            // axAcroPDF2
             // 
-            this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
-            this.axAcroPDF1.Name = "axAcroPDF1";
-            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(800, 450);
-            this.axAcroPDF1.TabIndex = 0;
+            this.axAcroPDF2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axAcroPDF2.Enabled = true;
+            this.axAcroPDF2.Location = new System.Drawing.Point(0, 0);
+            this.axAcroPDF2.Name = "axAcroPDF2";
+            this.axAcroPDF2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF2.OcxState")));
+            this.axAcroPDF2.Size = new System.Drawing.Size(1049, 450);
+            this.axAcroPDF2.TabIndex = 0;
             // 
             // FrmMenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.axAcroPDF1);
+            this.ClientSize = new System.Drawing.Size(1049, 450);
+            this.Controls.Add(this.axAcroPDF2);
             this.Name = "FrmMenuAdministrador";
-            this.Text = "FrmMenuAdministrador";
+            this.Text = "Ayuda-Menu de administrador";
             this.Load += new System.EventHandler(this.FrmMenuAdministrador_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+       // private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
+        private AxAcroPDFLib.AxAcroPDF axAcroPDF2;
     }
 }

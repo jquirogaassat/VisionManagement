@@ -125,14 +125,14 @@ namespace VisionTFI
       
 
 
-        public void GestionarPermisosDeUsuarios_KeyDown( object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode== Keys.F1)
-            {
-                Help ayuda = new Help();
-                ayuda.Show(); 
-            }
-        }
+        //public void GestionarPermisosDeUsuarios_KeyDown( object sender, KeyEventArgs e)
+        //{
+        //    if(e.KeyCode== Keys.F1)
+        //    {
+        //        Help ayuda = new Help();
+        //        ayuda.Show(); 
+        //    }
+        //}
 
         private void btn_agregarFamilias_Click(object sender, EventArgs e)
         {

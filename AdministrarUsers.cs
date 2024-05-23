@@ -256,14 +256,14 @@ namespace VisionTFI
         {
             ActualizarUsuarios();
         }
-        private void AdministrarUsers_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.F1)
-            {
-                Help ayuda = new Help();
-                ayuda.Show();
-            }
-        }
+        //private void AdministrarUsers_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if(e.KeyCode == Keys.F1)
+        //    {
+        //        Help ayuda = new Help();
+        //        ayuda.Show();
+        //    }
+        //}
 
         private void dgv_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
