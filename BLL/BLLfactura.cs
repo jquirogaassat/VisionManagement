@@ -12,9 +12,10 @@ namespace BLL
         DAL.DALfactura _facturadal= new DAL.DALfactura();
 
         //alta de factura
-        public bool Add(BEfactura facAlta)
+     
+        public int AddPrueba(BEfactura facAlta)
         {
-            return _facturadal.Add(facAlta);
+            return _facturadal.AddPrueba(facAlta);
         }
 
         //baja de factura

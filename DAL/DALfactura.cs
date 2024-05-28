@@ -22,18 +22,21 @@ namespace DAL
         private SqlCommand cmd;
 
         // alta de factura
-        public bool Add(BEfactura facAlta)
+  
+        public int AddPrueba(BEfactura factura)
         {
-            SqlParameter[] parametros = new SqlParameter[]
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                new SqlParameter("@fecha",facAlta.Fecha),
-                new SqlParameter("@id_cliente",facAlta.IdCliente),
-            };
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO Factura (IdCliente, Fecha) OUTPUT INSERTED.idFactu VALUES (@IdCliente, @Fecha)", conn);
+                cmd.Parameters.AddWithValue("@IdCliente", factura.IdCliente);
+                cmd.Parameters.AddWithValue("@Fecha", factura.Fecha);
 
-
-            bool returnValue= sqlHelper.ExecuteQuery(spInsert, parametros);
-
-            return returnValue;
+                // Obtener el ID generado
+                int newId = (int)cmd.ExecuteScalar();
+                return newId;
+            }
         }
 
         //baja de factura

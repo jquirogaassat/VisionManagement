@@ -24,8 +24,8 @@ namespace DAL
         public bool Add(BEdetallefactura itemAlta)
         {
             SqlParameter[] parametros = new SqlParameter[] {
-            new SqlParameter("@id_articulo", itemAlta.IdArticulo),
-            new SqlParameter("@id_factu", itemAlta.IdFactura),
+            new SqlParameter("@idArticulo", itemAlta.IdArticulo),
+            new SqlParameter("@idFactura", itemAlta.IdFactura),
             new SqlParameter("@cantidad",itemAlta.Cantidad),
             };
             bool returnValue = sqlHelper.ExecuteQuery(spInsert, parametros);

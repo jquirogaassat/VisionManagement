@@ -18,6 +18,11 @@ namespace BLL
             return _daldetalle.Add(itemAlta);
         }
 
+        public bool Add(BEdetallefactura itemAlta, BEfactura factura)
+        {
+            return _daldetalle.Add(itemAlta, factura);
+        }
+
         public bool Delete(BEdetallefactura itemDel)
         {
             return _daldetalle.Delete(itemDel);

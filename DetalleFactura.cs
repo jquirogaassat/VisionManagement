@@ -14,6 +14,9 @@ using iText.Layout;
 using iText.Layout.Element;
 using System.IO;
 using System.Diagnostics;
+using iText.IO.Image;
+using Aspose.Pdf.Annotations;
+using iText.Kernel.Pdf.Canvas;
 
 namespace VisionTFI
 {
@@ -22,6 +25,7 @@ namespace VisionTFI
         private BLLcliente _clienteBll = new BLLcliente();
         private BLLarticulo _articulo = new BLLarticulo();
         private BLLfactura _factura = new BLLfactura();
+        private BLLdetallefactura _detallefactura=new BLLdetallefactura();
         public DetalleFactura()
         {
             InitializeComponent();
@@ -104,6 +108,53 @@ namespace VisionTFI
             }
         }
 
+        //private void btn_generarFactura_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        BEfactura factura = new BEfactura
+        //        {
+        //            IdCliente = Convert.ToInt32(dg_cliente.CurrentRow.Cells[5].Value),
+        //            Fecha = DateTime.Now,
+        //        };
+
+        //        List<BEdetallefactura> detalle = new List<BEdetallefactura>();
+
+        //        BEdetallefactura detalleFactu = new BEdetallefactura();
+        //        foreach (DataGridViewRow row in dg_detalleFac.Rows)
+        //        {
+        //            detalleFactu.IdArticulo = Convert.ToInt32(row.Cells[0].Value);
+        //            detalleFactu.Cantidad = Convert.ToInt32(row.Cells[0].Value);
+        //            detalle.Add(detalleFactu);  
+        //        }
+
+        //        foreach (BEdetallefactura det in detalle)
+        //        {
+        //            factura.Detalles = detalle;
+        //        }
+
+        //        if (_factura.Add(factura))
+        //        {                    
+        //            MessageBox.Show("Factura exitosa");
+        //            //GenerarFactura();
+        //            GenerarPDFYMostrar();
+        //            dg_detalleFac.DataSource = "";
+        //            txt_cantidad.Clear();
+        //            lbl_total.Text = "0";
+        //            this.Close();
+        //        }
+
+        //        else
+        //        {
+        //            MessageBox.Show("Error al generar la factura");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
         private void btn_generarFactura_Click(object sender, EventArgs e)
         {
             try
@@ -114,42 +165,57 @@ namespace VisionTFI
                     Fecha = DateTime.Now,
                 };
 
+                // Insertar factura y obtener el ID generado
+                int facturaId = _factura.AddPrueba(factura);
+                factura.Id = facturaId;
+
                 List<BEdetallefactura> detalle = new List<BEdetallefactura>();
 
-
-                foreach(DataGridViewRow row in dg_detalleFac.Rows) 
+                foreach (DataGridViewRow row in dg_detalleFac.Rows)
                 {
-                    BEdetallefactura detalleFactu= new BEdetallefactura();
-                    detalleFactu.IdArticulo= Convert.ToInt32(row.Cells[0].Value);
-                    detalleFactu.Cantidad= Convert.ToInt32(row.Cells[0].Value);
+                    BEdetallefactura detalleFactu = new BEdetallefactura
+                    {
+                        IdFactura = facturaId,
+                        IdArticulo = Convert.ToInt32(row.Cells[0].Value),
+                        Cantidad = Convert.ToInt32(row.Cells[2].Value) // Cambié esto para que tenga sentido
+                    };
                     detalle.Add(detalleFactu);
                 }
 
-                foreach(BEdetallefactura det in detalle)
+                bool allDetailsAdded = true;
+
+                foreach (BEdetallefactura det in detalle)
                 {
-                    factura.Detalles = detalle;
+                    if (!_detallefactura.Add(det))
+                    {
+                        allDetailsAdded = false;
+                        break;
+                    }
                 }
 
-                if(_factura.Add(factura))
+                if (allDetailsAdded)
                 {
                     MessageBox.Show("Factura exitosa");
-                    //GenerarFactura();
+                    // GenerarFactura();
                     GenerarPDFYMostrar();
-                    dg_detalleFac.DataSource = "";
+                    dg_detalleFac.DataSource = null;
                     txt_cantidad.Clear();
                     lbl_total.Text = "0";
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error al generar la factura");
+                    MessageBox.Show("Error al agregar detalles de la factura");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);              
+                MessageBox.Show(ex.Message);
             }
         }
+
+
+
 
         private void GenerarFactura(string rutaGuardado)
         {
@@ -160,23 +226,53 @@ namespace VisionTFI
                 PdfDocument pdf= new PdfDocument(pdfwriter);
                 Document documento= new Document(pdf);
 
+                //agrego el logo
+                string logoPath = @"C:\Users\Usuario\Desktop\Jair\Imagenes VisionManagement\V.png"; // Ruta al logo de la empresa
+                if (!File.Exists(logoPath))
+                {
+                    throw new FileNotFoundException("El archivo no se encontro!");
+                }
+                
+                ImageData imageData = ImageDataFactory.Create(logoPath);
+                iText.Layout.Element.Image logo = new iText.Layout.Element.Image(imageData).ScaleToFit(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.LEFT);
+                documento.Add(logo);
+
+                
                 //obtengo los datos de la factura
-                string nombreEmpresa = "VisionManagement";
+                string nombreEmpresa = "VisionManagement SRL";
                 DateTime fechaFactu = DateTime.Now;
                 string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
                 string apellidoCliente = dg_cliente.CurrentRow.Cells[1].Value.ToString();
 
+                //pongo los encabezados
+                Table encabezado = new Table(1).UseAllAvailableWidth();
+                Cell infoEmpresa = new Cell().
+                    Add(new Paragraph(nombreEmpresa.ToUpper()).SetBold().SetFontSize(20))
+                   .Add(new Paragraph("Fecha :" + fechaFactu.ToString("dd/MM/yyyy")).SetFontSize(10))
+                   .Add(new Paragraph("Cliente :" + nombreCliente.ToUpper() + " " + apellidoCliente.ToUpper()).SetFontSize(10))
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT);
+                  
+                encabezado.AddCell(infoEmpresa);
+                documento.Add(encabezado);
+
                 //agrego la info de la factura  al pdf
-                documento.Add(new Paragraph("Factura"));
-                documento.Add(new Paragraph("Nombre de la empresa: " + nombreEmpresa));
-                documento.Add(new Paragraph("Fecha: " + fechaFactu.ToString()));
-                documento.Add(new Paragraph("Nombre :"+nombreCliente));
-                documento.Add(new Paragraph("Apellido :" + apellidoCliente));
+                //documento.Add(new Paragraph("Factura").SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(35)); ;
+                //documento.Add(new Paragraph("B").SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(35));
+                //documento.Add(new Paragraph("Razon social: " + nombreEmpresa.ToUpper()));
+                //documento.Add(new Paragraph("Fecha: " + fechaFactu.ToString()).SetBold());
+                //documento.Add(new Paragraph("Nombre : "+nombreCliente.ToUpper()).SetBold());
+                //documento.Add(new Paragraph("Apellido : " + apellidoCliente.ToUpper()).SetBold());
 
                 //agrego el detalle de la factura
-                documento.Add(new Paragraph("Detalle"));
+                documento.Add(new Paragraph("\nDetalle"));
 
-
+                Table table = new Table(4).UseAllAvailableWidth();
+                
+                table.AddCell("Producto");
+                table.AddCell("Cantidad");
+                table.AddCell("Precio");
+                table.AddCell("Subtotal");
+                
                 decimal total = 0;
                 foreach(DataGridViewRow row  in dg_detalleFac.Rows)
                 {
@@ -185,11 +281,17 @@ namespace VisionTFI
                     decimal precio= Convert.ToDecimal(row.Cells[3].Value);//precio
                     decimal subTotal = Convert.ToDecimal(row.Cells[4].Value);// subtotal
 
-                    documento.Add(new Paragraph($"Prducto: {nombreProducto}, Cantidad : {cantidad}, Precio: {precio}, Subtotal :{subTotal}"));
+                    table.AddCell(nombreProducto);
+                    table.AddCell(cantidad.ToString());
+                    table.AddCell(precio.ToString());
+                    table.AddCell(subTotal.ToString());
+
+               
 
                     total += subTotal;
                 }
-                documento.Add(new Paragraph("Total :"+ total.ToString()));
+                documento.Add(table);
+                documento.Add(new Paragraph("Total :"+ total.ToString()).SetBold().SetFontSize(20));
 
                 documento.Close();
 
@@ -210,11 +312,14 @@ namespace VisionTFI
                 // Generar el PDF
                 
 
-                string directorioFacturas = @"C:\Users\jair\Desktop\Facturas VM";
+                string directorioFacturas = @"C:\Users\Usuario\Desktop\FacturasVM";
 
                 string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
+                DateTime fecha = DateTime.Now;
+                string nombreArchivo = $"Factura_{nombreCliente}_{fecha:yyyyMMdd_HHmmss}.pdf";
 
-                string rutaArchivoPDF = Path.Combine(directorioFacturas, "Factura_" +nombreCliente+".pdf");
+               // string rutaArchivoPDF = Path.Combine(directorioFacturas, "Factura_" +nombreCliente+".pdf");
+                string rutaArchivoPDF = Path.Combine(directorioFacturas, nombreArchivo); 
 
                 GenerarFactura(rutaArchivoPDF);
                 // Verificar si el archivo existe

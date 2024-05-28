@@ -33,9 +33,9 @@ namespace DAL.Mappers
             {
                 bEfacturas.Add(new BEfactura()
                 {
-                    Id = int.Parse(row["id_factu"].ToString()),
+                    Id = int.Parse(row["idFactu"].ToString()),
                     Fecha = DateTime.Parse(row["fecha"].ToString()),
-                    IdCliente = int.Parse(row["id_cliente"].ToString())
+                    IdCliente = int.Parse(row["idCliente"].ToString())
                 });
             }
             return bEfacturas;

@@ -21,7 +21,7 @@ namespace VisionTFI
     public partial class MenuPrincipal : Form , BE.IObserverForm
     {
         BE.BEgestionbitacora bitacoraBe = new BE.BEgestionbitacora();
-        BLL.BLLgestionbitacora bitacoraBll = new BLL.BLLgestionbitacora();
+       
 
         void ActualizarControles()
         {
@@ -65,8 +65,6 @@ namespace VisionTFI
         public MenuPrincipal()
         {
             InitializeComponent();        
-            
-          
         }
 
         public void Actualizar(BEusuario u)
@@ -102,28 +100,27 @@ namespace VisionTFI
             this.panelFill.Tag= form;
             form.Show();
         }
-
+        //inicio
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
         }
-
+        //administracion de usuarios
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        {            
             Globa.menuPrincipal.AbrirFormHijoMenu(Globa.administrarUsers);
         }
-
+        //backup
         private void realizarBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijo(Globa.Backup);
         }
-
+        //gestionar clientes
         private void aBMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarCliente);
         }
-
+        //cerrar la sesion
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
@@ -140,7 +137,7 @@ namespace VisionTFI
                 MessageBox.Show("No se puede cerrar sesion!.");
             }
         }
-
+        //gestionar articulos
         private void aBMToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijo(Globa.GestionarArticulo);
@@ -158,7 +155,7 @@ namespace VisionTFI
             ValidarPermisos();
 
         }
-
+        //comprobar integridad de la base de datos
         private void comprobarIntegridadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BLL.BLLdigitoverificador dvbll = new BLL.BLLdigitoverificador();
@@ -176,28 +173,28 @@ namespace VisionTFI
 
             }
         }
-
+        //restore
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(Globa.restore);
         }
-
+        //bitacora de eventos
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarBitacora());
         }
-
+        //gestionar familias 
         private void familiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarFamilias());
         }
-
+        //cambiar contraseña
         private void cambiarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
+        {           
             CambiarContraseña cambiarPass = new CambiarContraseña();
             cambiarPass.Show();
         }
+        // aca en este metodo valorizo los datos que voy a grabar en la bitacora de eventos
         private void ValorizarBitacora(BE.BEgestionbitacora bitacoraBe)
         {
             BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
@@ -210,29 +207,23 @@ namespace VisionTFI
             bitacoraBe.Criticidad = "BAJO";
 
         }
-
-
+        // valido los permisos de usuario
         void ValidarPermisos()
         {
             (new PermisosRepository()).FillUserComponents(BE.BEcontroladorsesion.GetInstance.Usuario);
             try
             {
-               if(BEcontroladorsesion.GetInstance.IsLoggedIn(BE.BEcontroladorsesion.GetInstance.Usuario))
-              // if(BEcontroladorsesion.GetInstance.IsLoggedInPrueba())
+               if(BEcontroladorsesion.GetInstance.IsLoggedIn(BE.BEcontroladorsesion.GetInstance.Usuario))          
                 {
                     this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerA);
                     this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerB);
-                    this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerC);
-                   // this.seguridadToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerA);
-                   // this.gestionarToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerB);
-                   // this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRolePrueba(BEtipoPermiso.PuedeHacerC);
+                    this.negocioToolStripMenuItem.Enabled = BEcontroladorsesion.GetInstance.IsInRole(BE.BEcontroladorsesion.GetInstance.Usuario,BEtipoPermiso.PuedeHacerC);                  
                 }
                 else
                 {
                     this.seguridadToolStripMenuItem.Enabled = false;
                     this.gestionarToolStripMenuItem.Enabled = false;
                     this.negocioToolStripMenuItem.Enabled = false;
-
                 }
             }
             catch (Exception)
@@ -241,54 +232,54 @@ namespace VisionTFI
                 MessageBox.Show("El usuario no tiene permisos");
             }
         }
-
+        //gestionar los permisos de usuario
         private void gestionarPermisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GestionarPermisosDeUsuarios gestionarPermisos = new GestionarPermisosDeUsuarios();
             Globa.menuPrincipal.AbrirFormHijoMenu(gestionarPermisos);
         }
-
+        // bitacora de cambios
         private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new BitacoraC());
         }
-
+        // generar una factura
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new DetalleFactura());
         }
-
+        // gestionar herramientas
         private void aBMToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new GestionarHerramientsa());
         }
-
+        //administrar los prestamos
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijo(new AdministrarPrestamos());
         }
-
+        // ayuda primeros pasos
         private void primerosPasosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new FrmPrimerosPasos());
         }
-
+        // ayuda usuarios
         private void manualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new FrmMenuUsuarios1());
         }
-
+        // ayuda administrador
         private void manualDeAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Globa.menuPrincipal.AbrirFormHijoMenu(new FrmMenuAdministrador());
         }
-
+        // cambiar idioma ingles
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IdiomaManager.CambiarIdioma("en.txt");
             ActualizarControles();
         }
-
+        //cambiar idioma español
         private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IdiomaManager.CambiarIdioma("es.txt");

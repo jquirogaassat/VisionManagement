@@ -31,9 +31,9 @@ namespace DAL.Mappers
             {
                 detalles.Add(new BEdetallefactura()
                 {
-                    Id = int.Parse(item["id_detalleFactu"].ToString()),
-                    IdArticulo = int.Parse(item["id_articulo"].ToString()),
-                    IdFactura = int.Parse(item["id_factu"].ToString()),
+                    Id = int.Parse(item["idDetalleFactu"].ToString()),
+                    IdArticulo = int.Parse(item["idArticulo"].ToString()),
+                    IdFactura = int.Parse(item["idFactu"].ToString()),
                     Cantidad = int.Parse(item["cantidad"].ToString())
                 });
             }
