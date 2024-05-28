@@ -245,23 +245,21 @@ namespace VisionTFI
                 string apellidoCliente = dg_cliente.CurrentRow.Cells[1].Value.ToString();
 
                 //pongo los encabezados
+                Table encabezado1 = new Table(1).SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.TOP).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+                Cell tipoFactura = new Cell().Add(new Paragraph("Factura \nB")).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(15);
+                encabezado1.AddCell(tipoFactura);
+                documento.Add(encabezado1);
+                documento.Add(new Paragraph("\n"));
+
+                // encabezado info de la empresa y el cliente
                 Table encabezado = new Table(1).UseAllAvailableWidth();
                 Cell infoEmpresa = new Cell().
                     Add(new Paragraph(nombreEmpresa.ToUpper()).SetBold().SetFontSize(20))
                    .Add(new Paragraph("Fecha :" + fechaFactu.ToString("dd/MM/yyyy")).SetFontSize(10))
                    .Add(new Paragraph("Cliente :" + nombreCliente.ToUpper() + " " + apellidoCliente.ToUpper()).SetFontSize(10))
-                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT);
-                  
+                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT);                  
                 encabezado.AddCell(infoEmpresa);
-                documento.Add(encabezado);
-
-                //agrego la info de la factura  al pdf
-                //documento.Add(new Paragraph("Factura").SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(35)); ;
-                //documento.Add(new Paragraph("B").SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(35));
-                //documento.Add(new Paragraph("Razon social: " + nombreEmpresa.ToUpper()));
-                //documento.Add(new Paragraph("Fecha: " + fechaFactu.ToString()).SetBold());
-                //documento.Add(new Paragraph("Nombre : "+nombreCliente.ToUpper()).SetBold());
-                //documento.Add(new Paragraph("Apellido : " + apellidoCliente.ToUpper()).SetBold());
+                documento.Add(encabezado);            
 
                 //agrego el detalle de la factura
                 documento.Add(new Paragraph("\nDetalle"));

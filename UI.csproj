@@ -224,34 +224,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMarticulos.cs">
+    <Compile Include="ABM%27s\ABMarticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMarticulos.Designer.cs">
+    <Compile Include="ABM%27s\ABMarticulos.Designer.cs">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMcliente.cs">
+    <Compile Include="ABM%27s\ABMcliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMcliente.Designer.cs">
+    <Compile Include="ABM%27s\ABMcliente.Designer.cs">
       <DependentUpon>ABMcliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMfamilias.cs">
+    <Compile Include="ABM%27s\ABMfamilias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMfamilias.Designer.cs">
+    <Compile Include="ABM%27s\ABMfamilias.Designer.cs">
       <DependentUpon>ABMfamilias.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMherramientas.cs">
+    <Compile Include="ABM%27s\ABMherramientas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMherramientas.Designer.cs">
+    <Compile Include="ABM%27s\ABMherramientas.Designer.cs">
       <DependentUpon>ABMherramientas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMusuarios.cs">
+    <Compile Include="ABM%27s\ABMusuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMusuarios.Designer.cs">
+    <Compile Include="ABM%27s\ABMusuarios.Designer.cs">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministrarPrestamos.cs">
@@ -266,16 +266,16 @@
     <Compile Include="AdministrarUsers.Designer.cs">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Backup.cs">
+    <Compile Include="Seguridad\Backup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Backup.Designer.cs">
+    <Compile Include="Seguridad\Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
     </Compile>
-    <Compile Include="BitacoraC.cs">
+    <Compile Include="Seguridad\BitacoraC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BitacoraC.Designer.cs">
+    <Compile Include="Seguridad\BitacoraC.Designer.cs">
       <DependentUpon>BitacoraC.cs</DependentUpon>
     </Compile>
     <Compile Include="Cambiar idioma.cs">
@@ -290,10 +290,10 @@
     <Compile Include="CambiarContraseña.Designer.cs">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComprobarIntegridad.cs">
+    <Compile Include="Seguridad\ComprobarIntegridad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComprobarIntegridad.Designer.cs">
+    <Compile Include="Seguridad\ComprobarIntegridad.Designer.cs">
       <DependentUpon>ComprobarIntegridad.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs">
@@ -338,10 +338,10 @@
     <Compile Include="GestionarArticulo.Designer.cs">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarBitacora.cs">
+    <Compile Include="Seguridad\GestionarBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarBitacora.Designer.cs">
+    <Compile Include="Seguridad\GestionarBitacora.Designer.cs">
       <DependentUpon>GestionarBitacora.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionarFamilias.cs">
@@ -443,10 +443,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.resx</DependentUpon>
     </Compile>
-    <Compile Include="Restore.cs">
+    <Compile Include="Seguridad\Restore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Restore.Designer.cs">
+    <Compile Include="Seguridad\Restore.Designer.cs">
       <DependentUpon>Restore.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -461,19 +461,19 @@
       <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="XmlSerializator.cs" />
-    <EmbeddedResource Include="ABMarticulos.resx">
+    <EmbeddedResource Include="ABM%27s\ABMarticulos.resx">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMcliente.resx">
+    <EmbeddedResource Include="ABM%27s\ABMcliente.resx">
       <DependentUpon>ABMcliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMfamilias.resx">
+    <EmbeddedResource Include="ABM%27s\ABMfamilias.resx">
       <DependentUpon>ABMfamilias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMherramientas.resx">
+    <EmbeddedResource Include="ABM%27s\ABMherramientas.resx">
       <DependentUpon>ABMherramientas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMusuarios.resx">
+    <EmbeddedResource Include="ABM%27s\ABMusuarios.resx">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarPrestamos.resx">
@@ -482,10 +482,10 @@
     <EmbeddedResource Include="AdministrarUsers.resx">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Backup.resx">
+    <EmbeddedResource Include="Seguridad\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BitacoraC.resx">
+    <EmbeddedResource Include="Seguridad\BitacoraC.resx">
       <DependentUpon>BitacoraC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cambiar idioma.resx">
@@ -494,7 +494,7 @@
     <EmbeddedResource Include="CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComprobarIntegridad.resx">
+    <EmbeddedResource Include="Seguridad\ComprobarIntegridad.resx">
       <DependentUpon>ComprobarIntegridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Conexion.resx">
@@ -515,7 +515,7 @@
     <EmbeddedResource Include="GestionarArticulo.resx">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarBitacora.resx">
+    <EmbeddedResource Include="Seguridad\GestionarBitacora.resx">
       <DependentUpon>GestionarBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarFamilias.resx">
@@ -580,7 +580,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Restore.resx">
+    <EmbeddedResource Include="Seguridad\Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
