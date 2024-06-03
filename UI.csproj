@@ -284,10 +284,10 @@
     <Compile Include="Cambiar idioma.Designer.cs">
       <DependentUpon>Cambiar idioma.cs</DependentUpon>
     </Compile>
-    <Compile Include="CambiarContraseña.cs">
+    <Compile Include="Administrar\CambiarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CambiarContraseña.Designer.cs">
+    <Compile Include="Administrar\CambiarContraseña.Designer.cs">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\ComprobarIntegridad.cs">
@@ -296,40 +296,34 @@
     <Compile Include="Seguridad\ComprobarIntegridad.Designer.cs">
       <DependentUpon>ComprobarIntegridad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Conexion.cs">
+    <Compile Include="Seguridad\Conexion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Conexion.Designer.cs">
+    <Compile Include="Seguridad\Conexion.Designer.cs">
       <DependentUpon>Conexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetalleFactura.cs">
+    <Compile Include="Negocio\DetalleFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetalleFactura.Designer.cs">
+    <Compile Include="Negocio\DetalleFactura.Designer.cs">
       <DependentUpon>DetalleFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Menues\FrmMenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMenuAdministrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMenuAdministrador.Designer.cs">
+    <Compile Include="Menues\FrmMenuAdministrador.Designer.cs">
       <DependentUpon>FrmMenuAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuUsuarios1.cs">
+    <Compile Include="Menues\FrmMenuUsuarios1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenuUsuarios1.Designer.cs">
+    <Compile Include="Menues\FrmMenuUsuarios1.Designer.cs">
       <DependentUpon>FrmMenuUsuarios1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrimerosPasos.cs">
+    <Compile Include="Menues\FrmPrimerosPasos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrimerosPasos.Designer.cs">
+    <Compile Include="Menues\FrmPrimerosPasos.Designer.cs">
       <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion\GestionarArticulo.cs">
@@ -401,16 +395,16 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="Menues\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
+    <Compile Include="Menues\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevoPrestamo.cs">
+    <Compile Include="Negocio\NuevoPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevoPrestamo.Designer.cs">
+    <Compile Include="Negocio\NuevoPrestamo.Designer.cs">
       <DependentUpon>NuevoPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -491,25 +485,25 @@
     <EmbeddedResource Include="Cambiar idioma.resx">
       <DependentUpon>Cambiar idioma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CambiarContraseña.resx">
+    <EmbeddedResource Include="Administrar\CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\ComprobarIntegridad.resx">
       <DependentUpon>ComprobarIntegridad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Conexion.resx">
+    <EmbeddedResource Include="Seguridad\Conexion.resx">
       <DependentUpon>Conexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetalleFactura.resx">
+    <EmbeddedResource Include="Negocio\DetalleFactura.resx">
       <DependentUpon>DetalleFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuAdministrador.resx">
+    <EmbeddedResource Include="Menues\FrmMenuAdministrador.resx">
       <DependentUpon>FrmMenuAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuUsuarios1.resx">
+    <EmbeddedResource Include="Menues\FrmMenuUsuarios1.resx">
       <DependentUpon>FrmMenuUsuarios1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrimerosPasos.resx">
+    <EmbeddedResource Include="Menues\FrmPrimerosPasos.resx">
       <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion\GestionarArticulo.resx">
@@ -545,10 +539,10 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
+    <EmbeddedResource Include="Menues\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevoPrestamo.resx">
+    <EmbeddedResource Include="Negocio\NuevoPrestamo.resx">
       <DependentUpon>NuevoPrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
