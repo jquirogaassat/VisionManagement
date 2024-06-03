@@ -11,16 +11,18 @@ namespace DAL
     public class DALdigitoverificador
     {
          private SqlHelper sqlHelper = new SqlHelper();
+        /* esta clase calculca y carga los digitos verificadores, tanto verticales como horizontales,
+         comprueba la integridad de la base de datos, y si hay un error en la misma la repara arreglando los digitos verifcadores.*/
 
-        public bool CargarDVV(int idTabla, int dvv)
-        {          
-            string query = "";
-            query = @"update Dvv set dvv=" + dvv + @" where idTabla=" + idTabla;
-            return sqlHelper.ExecuteQuery(query);
-        }  // generico
+        #region Calculo y carga de DV
 
-    
-        //este es una version mejorada, lo voy a probar
+
+
+        /*
+         En esta clase se observan metodos modificados a los genericos, se que estan mal pero la base de datos la tenia modificada y
+        tuve que recurrir a harcodear algunos metodos.
+         */
+       
         public int CalcularDVH(DataTable dt, int id = 0)
         {
             if (dt == null || dt.Rows.Count == 0)
@@ -49,7 +51,7 @@ namespace DAL
             }
 
             return sumaASCII;
-        }
+        } //este es una version mejorada, lo voy a probar
 
 
         public int CalcularDVV(string nombreTabla)
@@ -61,7 +63,7 @@ namespace DAL
                                                             + nombreTabla + " else select 0";
 
             return sqlHelper.ExecuteQueryPRUEBA(query);
-        } // generico
+        } // generico, que calcula los dvv sumando todos los campos correspondientes a dvh que se encuentren en la tabla
 
         public int CalcularDVVp(string nombreTabla)
         {
@@ -71,9 +73,16 @@ namespace DAL
                                                             + nombreTabla + " else select 0";
 
             return sqlHelper.ExecuteQueryPRUEBA(query);
-        }
+        } // aca encontramos un metodo que calcula el dvv para la herramienta 
 
-     
+
+        public bool CargarDVV(int idTabla, int dvv)
+        {
+            string query = "";
+            query = @"update Dvv set dvv=" + dvv + @" where idTabla=" + idTabla;
+            return sqlHelper.ExecuteQuery(query);
+        }  // generico
+
 
         public bool CargarDVH(string nombreTabla, int id, int dvh)
         {
@@ -84,20 +93,24 @@ namespace DAL
                 string query1 = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla1 + "=" + id;
                 return sqlHelper.ExecuteQuery(query1);
             }
-           
-            
-           string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
-           return sqlHelper.ExecuteQuery(query);
+
+
+            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
+            return sqlHelper.ExecuteQuery(query);
         }  // generico
 
         public bool CargarDVHp(string nombreTabla, int id, int dvh)
         {
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idEstadoHerramienta" + "=" + id;
             return sqlHelper.ExecuteQuery(query);
-        }
-   
+        }// aca cargo el dvh para herramienta
 
-     
+
+        #endregion
+
+
+        #region Metodos de interidad
+
         public void ArreglarDigitos(List<string> nombreTabla, List<BE.BEtabla> tablas)
         {
 
@@ -132,7 +145,7 @@ namespace DAL
                 }
                 t++;
             }
-        }
+        } // metodo para arreglar los digitos verificadores, q se activa cuando hay un error de integridad en la bd
 
 
         public List<BE.BEerror> ComprobarIntegridad()
@@ -155,9 +168,9 @@ namespace DAL
             int t = 0;
 
 
-            while(t< digitosVerticales.Count)
+            while (t < digitosVerticales.Count)
             {
-                query= @"select * from " + nombresTablas[t];
+                query = @"select * from " + nombresTablas[t];
                 DataTable tabla = sqlHelper.ExecuteReader(query);
                 int i = 0;
                 int filas = tabla.Rows.Count;
@@ -166,12 +179,12 @@ namespace DAL
                 string idTabla = "id" + nombresTablas[t];
                 if (idTabla == "idFactura")
                     idTabla = "idFactu";
-                while(i<filas)
+                while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
                     int dvhCalculo = CalcularDVH(tabla, i);
                     int dvhDb = 0;
-                    dvhDb= (int)tabla.Rows[i]["dvh"];
+                    dvhDb = (int)tabla.Rows[i]["dvh"];
                     if (dvhCalculo != dvhDb)
                     {
                         idError++;
@@ -182,7 +195,7 @@ namespace DAL
 
                 int dvvCalculo = CalcularDVV(nombresTablas[t]);
                 int dvvDb = digitosVerticales[t].DVV;
-                if(dvvCalculo != dvvDb)
+                if (dvvCalculo != dvvDb)
                 {
                     idError++;
                     errores.Add(new BE.BEerror(idError, nombresTablas[t], "DVV", digitosVerticales[t].idDVV));
@@ -195,21 +208,25 @@ namespace DAL
             return errores;
 
 
-        }
+        }// metodo para comprobar integridad
 
         public List<BE.BEtabla> Consulta(List<string> tabla)
         {
-            SqlParameter[] parameters = new SqlParameter[] {};
+            SqlParameter[] parameters = new SqlParameter[] { };
             //parameters = tabla;
             DataTable dt = sqlHelper.ExecuteReader("dvvConsulta", parameters);
             List<BE.BEtabla> tablas = new List<BE.BEtabla>();
             Mappers.Tabla mapper = new Mappers.Tabla();
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 tablas.Add(mapper.Map(row));
             }
 
-            return tablas; 
-        }
+            return tablas;
+        }// metodo para consultar los dvv 
+
+
+        #endregion
+
     }
 }
