@@ -254,16 +254,16 @@
     <Compile Include="ABM%27s\ABMusuarios.Designer.cs">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministrarPrestamos.cs">
+    <Compile Include="Administrar\AdministrarPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministrarPrestamos.Designer.cs">
+    <Compile Include="Administrar\AdministrarPrestamos.Designer.cs">
       <DependentUpon>AdministrarPrestamos.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministrarUsers.cs">
+    <Compile Include="Administrar\AdministrarUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministrarUsers.Designer.cs">
+    <Compile Include="Administrar\AdministrarUsers.Designer.cs">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\Backup.cs">
@@ -332,10 +332,10 @@
     <Compile Include="FrmPrimerosPasos.Designer.cs">
       <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarArticulo.cs">
+    <Compile Include="Gestion\GestionarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarArticulo.Designer.cs">
+    <Compile Include="Gestion\GestionarArticulo.Designer.cs">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\GestionarBitacora.cs">
@@ -344,34 +344,34 @@
     <Compile Include="Seguridad\GestionarBitacora.Designer.cs">
       <DependentUpon>GestionarBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarFamilias.cs">
+    <Compile Include="Seguridad\GestionarFamilias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarFamilias.Designer.cs">
+    <Compile Include="Seguridad\GestionarFamilias.Designer.cs">
       <DependentUpon>GestionarFamilias.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarHerramientsa.cs">
+    <Compile Include="Gestion\GestionarHerramientsa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarHerramientsa.Designer.cs">
+    <Compile Include="Gestion\GestionarHerramientsa.Designer.cs">
       <DependentUpon>GestionarHerramientsa.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarPermisosDeUsuarios.cs">
+    <Compile Include="Gestion\GestionarPermisosDeUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarPermisosDeUsuarios.Designer.cs">
+    <Compile Include="Gestion\GestionarPermisosDeUsuarios.Designer.cs">
       <DependentUpon>GestionarPermisosDeUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarCliente.cs">
+    <Compile Include="Gestion\GestionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarCliente.Designer.cs">
+    <Compile Include="Gestion\GestionarCliente.Designer.cs">
       <DependentUpon>GestionarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarUsuarios.cs">
+    <Compile Include="Gestion\GestionarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarUsuarios.Designer.cs">
+    <Compile Include="Gestion\GestionarUsuarios.Designer.cs">
       <DependentUpon>GestionarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Globa.cs" />
@@ -476,10 +476,10 @@
     <EmbeddedResource Include="ABM%27s\ABMusuarios.resx">
       <DependentUpon>ABMusuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarPrestamos.resx">
+    <EmbeddedResource Include="Administrar\AdministrarPrestamos.resx">
       <DependentUpon>AdministrarPrestamos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarUsers.resx">
+    <EmbeddedResource Include="Administrar\AdministrarUsers.resx">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\Backup.resx">
@@ -512,25 +512,25 @@
     <EmbeddedResource Include="FrmPrimerosPasos.resx">
       <DependentUpon>FrmPrimerosPasos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarArticulo.resx">
+    <EmbeddedResource Include="Gestion\GestionarArticulo.resx">
       <DependentUpon>GestionarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\GestionarBitacora.resx">
       <DependentUpon>GestionarBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarFamilias.resx">
+    <EmbeddedResource Include="Seguridad\GestionarFamilias.resx">
       <DependentUpon>GestionarFamilias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarHerramientsa.resx">
+    <EmbeddedResource Include="Gestion\GestionarHerramientsa.resx">
       <DependentUpon>GestionarHerramientsa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarPermisosDeUsuarios.resx">
+    <EmbeddedResource Include="Gestion\GestionarPermisosDeUsuarios.resx">
       <DependentUpon>GestionarPermisosDeUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarCliente.resx">
+    <EmbeddedResource Include="Gestion\GestionarCliente.resx">
       <DependentUpon>GestionarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarUsuarios.resx">
+    <EmbeddedResource Include="Gestion\GestionarUsuarios.resx">
       <DependentUpon>GestionarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ingreso.resx">

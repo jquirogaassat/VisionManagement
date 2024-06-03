@@ -31,9 +31,20 @@ namespace DAL
             };
 
             int nuevoClienteID= helper.ExecuteQueryPRUEBA("clienteInsert",parametros);
+            int dvh = dv.CalcularDVH(ConsultarClienteDT(nuevoClienteID), 0);
+            dv.CargarDVH("Cliente", nuevoClienteID, dvh);
+            int dvv = dv.CalcularDVV("Cliente");
+            dv.CargarDVV(3, dvv);
+            //int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(nuevoId), 0);
+            //dvDal.CargarDVH("Usuario", nuevoId, dvh);
+            //int dvv = dvDal.CalcularDVV("Usuario");
+
+
+            //itemAlta.IdUsuario = nuevoId;
+            //return dvDal.CargarDVV(2, dvv);
             return nuevoClienteID > 0; 
         }
-
+        
         public bool Baja(BEcliente itemBaja)
         {
             SqlParameter[] parametros = new SqlParameter[]

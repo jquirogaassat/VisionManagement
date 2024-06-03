@@ -12,7 +12,7 @@ namespace DAL.Mappers
     {
         public BE.BEusuario Map(DataRow row)
         {
-            //DAL.DALidioma idioma = new DAL.DALidioma();
+           
             BE.BEusuario usuario = new BE.BEusuario()
             {
                 IdUsuario =(int)row["idUsuario"],
@@ -20,10 +20,8 @@ namespace DAL.Mappers
                 Apellido= (string)row["apellido"],
                 DVH= (int)row["dvh"],
                 Direccion= (string)row["direccion"],
-                FechaNacimiento = (DateTime)row["fechaNacimiento"],
-               // FechaAlta= (DateTime)row["fechaAlta"],
-                IsBlocked = (string)row["IsBlocked"],
-                //Idioma= idioma.ConsultaIdioma((int)row["idioma"]),
+                FechaNacimiento = (DateTime)row["fechaNacimiento"],              
+                IsBlocked = (string)row["IsBlocked"],              
                 Mail= (string)row["mail"],
                 usuario= (string)row["usuario"],
                 UserPass= (string)row["userPass"],

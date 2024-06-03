@@ -54,9 +54,9 @@ namespace DAL
             int dvv = dvDal.CalcularDVV("Articulo");
             //DAL.DALarticulo articuloDal= new DALarticulo();
 
-            dvDal.CargarDVV(0, dvv);
+            dvDal.CargarDVV(4, dvv);
 
-            return dvDal.CargarDVV(0, dvv);
+            return dvDal.CargarDVV(4, dvv);
         }
 
         public bool Baja(BEarticulo itemBaja)

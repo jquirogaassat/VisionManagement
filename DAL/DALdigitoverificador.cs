@@ -10,39 +10,53 @@ namespace DAL
 {
     public class DALdigitoverificador
     {
-        SqlHelper sqlHelper = new SqlHelper();
+         private SqlHelper sqlHelper = new SqlHelper();
 
         public bool CargarDVV(int idTabla, int dvv)
-        {
+        {          
             string query = "";
-            query = @"update dvv set dvv=" + dvv + @" where idTabla=" + idTabla;
+            query = @"update Dvv set dvv=" + dvv + @" where idTabla=" + idTabla;
             return sqlHelper.ExecuteQuery(query);
         }  // generico
 
+    
+        //este es una version mejorada, lo voy a probar
         public int CalcularDVH(DataTable dt, int id = 0)
         {
+            if (dt == null || dt.Rows.Count == 0)
+                throw new ArgumentException("La tabla de datos está vacía.");
+
+            if (id < 0 || id >= dt.Rows.Count)
+                throw new ArgumentOutOfRangeException("El id proporcionado está fuera del rango de filas.");
+
             int cantidadColumnas = dt.Columns.Count;
-            int a = 0;
-            string str0 = "";
-            int sumaASCII = 0;
-            while (a < cantidadColumnas - 1)
+            if (cantidadColumnas == 0)
+                throw new ArgumentException("La tabla de datos no tiene columnas.");
+
+            StringBuilder str0 = new StringBuilder();
+
+            for (int a = 0; a < cantidadColumnas - 1; a++)
             {
-                str0 = str0 + (dt.Rows[id][a]).ToString();
-                a++;
+                if (dt.Rows[id][a] != DBNull.Value)
+                    str0.Append(dt.Rows[id][a].ToString());
             }
 
-            for (int i = 0; i < Encoding.ASCII.GetBytes(str0.ToString()).Count(); i++)
+            int sumaASCII = 0;
+            byte[] asciiBytes = Encoding.ASCII.GetBytes(str0.ToString());
+            for (int i = 0; i < asciiBytes.Length; i++)
             {
-                sumaASCII += (Encoding.ASCII.GetBytes(str0.ToString())[i]) * i;
+                sumaASCII += asciiBytes[i] * (i + 1); // (i + 1) para evitar multiplicar por 0
             }
+
             return sumaASCII;
-        }  // generico
+        }
 
 
         public int CalcularDVV(string nombreTabla)
         {
             string idCampo = "id" + nombreTabla;
-
+            if (idCampo == "idFactura")
+                idCampo = "idFactu";
             string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
                                                             + nombreTabla + " else select 0";
 
@@ -59,29 +73,21 @@ namespace DAL
             return sqlHelper.ExecuteQueryPRUEBA(query);
         }
 
-        public int CalcularDVVb(string nombreTabla)
-        {
-            string idCampo = "idBITTACORA";
-
-            string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
-                                                            + nombreTabla + " else select 0";
-
-            return sqlHelper.ExecuteQueryPRUEBA(query);
-        } // bitacora
-
-        public int CalcularDVVa (string nombreTabla)
-        {
-            string idCampo = "idArticulo";
-            string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
-                                                            + nombreTabla + " else select 0";
-           // string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from" + nombreTabla + "else select 0";
-            return sqlHelper.ExecuteQueryPRUEBA(query);
-        }  // articulo
+     
 
         public bool CargarDVH(string nombreTabla, int id, int dvh)
         {
-            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
-            return sqlHelper.ExecuteQuery(query);
+            if (nombreTabla == "Factura")
+            {
+                var nombreTabla1 = nombreTabla;
+                nombreTabla1 = "Factu";
+                string query1 = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla1 + "=" + id;
+                return sqlHelper.ExecuteQuery(query1);
+            }
+           
+            
+           string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
+           return sqlHelper.ExecuteQuery(query);
         }  // generico
 
         public bool CargarDVHp(string nombreTabla, int id, int dvh)
@@ -89,19 +95,9 @@ namespace DAL
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idEstadoHerramienta" + "=" + id;
             return sqlHelper.ExecuteQuery(query);
         }
-        public bool CargarDVHb(string nombreTabla, int id, int dvh)
-        {
-            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idBITTACORA" + "=" + id;
-            return sqlHelper.ExecuteQuery(query);
-        }  // bitacora
+   
 
-        public bool CargarDVHa(string nombreTabla, int id, int dvh)
-        {
-            string query = @"update " + nombreTabla + " set dvh = " + dvh + " where idArticulo" + "=" + id;
-            //string query= @"update" + nombreTabla + " set dvh = " + dvh + "where idArticulo" + "=" + id;
-            return sqlHelper.ExecuteQuery(query);
-        }  // articulo
-
+     
         public void ArreglarDigitos(List<string> nombreTabla, List<BE.BEtabla> tablas)
         {
 
@@ -113,6 +109,8 @@ namespace DAL
                 int i = 0;
                 int filas = tabla.Rows.Count;
                 string idTabla = "id" + nombreTabla[t];
+                if (idTabla == "idFactura")
+                    idTabla = "idFactu";
                 while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
@@ -145,10 +143,12 @@ namespace DAL
 
             List<string> nombresTablas = new List<string>();
             nombresTablas.Add("Bitacora"); // si 
-            nombresTablas.Add("Usuario");//si
-            //nombresTablas.Add("USUARIO-PERMISO");
-            //nombresTablas.Add("FAMILIA-PERMISO");
-            // nombresTablas.Add()
+            //nombresTablas.Add("Usuario");//si
+            nombresTablas.Add("Articulo");//si
+            nombresTablas.Add("Cliente");// si
+            nombresTablas.Add("Herramienta");//si
+            nombresTablas.Add("Factura");// si
+            nombresTablas.Add("Prestamo");// si
 
             List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);
 
@@ -164,11 +164,14 @@ namespace DAL
 
 
                 string idTabla = "id" + nombresTablas[t];
+                if (idTabla == "idFactura")
+                    idTabla = "idFactu";
                 while(i<filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
                     int dvhCalculo = CalcularDVH(tabla, i);
-                    int dvhDb= (int)tabla.Rows[i]["dvh"];
+                    int dvhDb = 0;
+                    dvhDb= (int)tabla.Rows[i]["dvh"];
                     if (dvhCalculo != dvhDb)
                     {
                         idError++;
@@ -187,7 +190,7 @@ namespace DAL
                 t++;
             }
 
-            //ArreglarDigitos(nombresTablas, digitosVerticales);
+            ArreglarDigitos(nombresTablas, digitosVerticales);
 
             return errores;
 

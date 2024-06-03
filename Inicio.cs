@@ -15,6 +15,7 @@ namespace VisionTFI
 {
     public partial class Inicio : Form
     {
+      
         public Inicio()
         {
             InitializeComponent();
@@ -41,11 +42,10 @@ namespace VisionTFI
         }
 
         private void btn_login_Click(object sender, EventArgs e)
-        {
+        {      
             MessageBox.Show(" Digitos arreglados!");
             Globa.menuPrincipal.Show();
             this.Hide();
-
         }
 
         private void btn_salir_Click(object sender, EventArgs e)

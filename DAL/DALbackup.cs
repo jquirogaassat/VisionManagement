@@ -183,7 +183,7 @@ namespace DAL
 
             if (bEbackup.Particiones==1)
             {
-                qwery = qwery + @"FROM DISK = '" + bEbackup.Ubicacion + bEbackup.Nombre + @".bak'";
+                qwery = qwery + @"FROM DISK = '" + bEbackup.Ubicacion + bEbackup.Nombre + @".bak'" + @"WITH REPLACE; ALTER DATABASE VisionTFI SET MULTI_USER;";
             }
             else
             {

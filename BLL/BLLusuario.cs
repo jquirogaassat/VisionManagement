@@ -79,7 +79,7 @@ namespace BLL
                     if(bEusuario.UserPass==usuarioRegistrado.UserPass)
                     {
                         usuarioRegistrado.intentosFallidos = 0;
-                        usuarioDAL.Modificar(usuarioRegistrado);
+                        //usuarioDAL.Modificar(usuarioRegistrado);
                         return BE.BEcontroladorsesion.Log(usuarioRegistrado);
                     }
                     else

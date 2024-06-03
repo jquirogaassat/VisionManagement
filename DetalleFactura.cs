@@ -107,53 +107,7 @@ namespace VisionTFI
                 MessageBox.Show(ex.Message);                
             }
         }
-
-        //private void btn_generarFactura_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        BEfactura factura = new BEfactura
-        //        {
-        //            IdCliente = Convert.ToInt32(dg_cliente.CurrentRow.Cells[5].Value),
-        //            Fecha = DateTime.Now,
-        //        };
-
-        //        List<BEdetallefactura> detalle = new List<BEdetallefactura>();
-
-        //        BEdetallefactura detalleFactu = new BEdetallefactura();
-        //        foreach (DataGridViewRow row in dg_detalleFac.Rows)
-        //        {
-        //            detalleFactu.IdArticulo = Convert.ToInt32(row.Cells[0].Value);
-        //            detalleFactu.Cantidad = Convert.ToInt32(row.Cells[0].Value);
-        //            detalle.Add(detalleFactu);  
-        //        }
-
-        //        foreach (BEdetallefactura det in detalle)
-        //        {
-        //            factura.Detalles = detalle;
-        //        }
-
-        //        if (_factura.Add(factura))
-        //        {                    
-        //            MessageBox.Show("Factura exitosa");
-        //            //GenerarFactura();
-        //            GenerarPDFYMostrar();
-        //            dg_detalleFac.DataSource = "";
-        //            txt_cantidad.Clear();
-        //            lbl_total.Text = "0";
-        //            this.Close();
-        //        }
-
-        //        else
-        //        {
-        //            MessageBox.Show("Error al generar la factura");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+      
 
         private void btn_generarFactura_Click(object sender, EventArgs e)
         {
@@ -240,6 +194,7 @@ namespace VisionTFI
                 
                 //obtengo los datos de la factura
                 string nombreEmpresa = "VisionManagement SRL";
+                string domicilio = " Tacuari 1353 - 1103 - Ciudad Autonoma de Buenos Aires ";
                 DateTime fechaFactu = DateTime.Now;
                 string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
                 string apellidoCliente = dg_cliente.CurrentRow.Cells[1].Value.ToString();
@@ -252,15 +207,16 @@ namespace VisionTFI
                 documento.Add(new Paragraph("\n"));
 
                 // encabezado info de la empresa y el cliente
-                Table encabezado = new Table(1).UseAllAvailableWidth();
+                Table encabezado = new Table(1).UseAllAvailableWidth().SetBorder(iText.Layout.Borders.Border.NO_BORDER);
                 Cell infoEmpresa = new Cell().
                     Add(new Paragraph(nombreEmpresa.ToUpper()).SetBold().SetFontSize(20))
+                   .Add(new Paragraph("Domicilio fiscal" + domicilio).SetFontSize(10))
                    .Add(new Paragraph("Fecha :" + fechaFactu.ToString("dd/MM/yyyy")).SetFontSize(10))
                    .Add(new Paragraph("Cliente :" + nombreCliente.ToUpper() + " " + apellidoCliente.ToUpper()).SetFontSize(10))
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.LEFT);                  
                 encabezado.AddCell(infoEmpresa);
                 documento.Add(encabezado);            
-
+                
                 //agrego el detalle de la factura
                 documento.Add(new Paragraph("\nDetalle"));
 
@@ -289,7 +245,7 @@ namespace VisionTFI
                     total += subTotal;
                 }
                 documento.Add(table);
-                documento.Add(new Paragraph("Total :"+ total.ToString()).SetBold().SetFontSize(20));
+                documento.Add(new Paragraph("Total $: "+ total.ToString()).SetBold().SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.RIGHT));
 
                 documento.Close();
 

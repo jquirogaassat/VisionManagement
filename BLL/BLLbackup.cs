@@ -43,8 +43,8 @@ namespace BLL
 
         public void Comprimir (string pathDestino)
         {
-            var outFileName = Path.GetFileNameWithoutExtension("VisionManagement") + ".zip";
-            var fileNameToAdd = Path.Combine(@"" + pathDestino, "VisionManagement.bak");
+            var outFileName = Path.GetFileNameWithoutExtension("VisionTFI") + ".zip";
+            var fileNameToAdd = Path.Combine(@"" + pathDestino, "VisionTFI.bak");
             var zipFileName = Path.Combine("@" + pathDestino, outFileName);
 
             using (ZipArchive archivo = ZipFile.Open(zipFileName, ZipArchiveMode.Create))

@@ -19,29 +19,29 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                //new SqlParameter("idIdioma",itemAlta.Idioma.IdIdioma),
                 new SqlParameter("usuario",itemAlta.usuario),
                 new SqlParameter("userPass",itemAlta.UserPass),
                 new SqlParameter("nombre",itemAlta.Nombre),
                 new SqlParameter("apellido",itemAlta.Apellido),
-                new SqlParameter("fechaNacimiento",itemAlta.FechaNacimiento),
-               // new SqlParameter("tipoDocumento",itemAlta.TipoDocumento),
+                new SqlParameter("fechaNacimiento",itemAlta.FechaNacimiento),              
                 new SqlParameter("numeroDocumento",itemAlta.NumeroDocumento),
                 new SqlParameter("telefono",itemAlta.Telefono),
                 new SqlParameter("direccion",itemAlta.Direccion),
                 new SqlParameter("mail",itemAlta.Mail),
             };
 
-            int nuevoId = sqlHelper.ExecuteQueryPRUEBA("usuarioInsert", parameters);
-            DAL.DALdigitoverificador dvDal= new DALdigitoverificador();
+           // int nuevoId = sqlHelper.ExecuteQueryPRUEBA("usuarioInsert", parameters);
+            //DAL.DALdigitoverificador dvDal= new DALdigitoverificador();
 
-            int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(nuevoId), 0);
-            dvDal.CargarDVH("USUARIO", nuevoId, dvh);
-            int dvv = dvDal.CalcularDVV("USUARIO");
+            //int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(nuevoId), 0);
+            //dvDal.CargarDVH("Usuario", nuevoId, dvh);
+            //int dvv = dvDal.CalcularDVV("Usuario");
 
 
-            itemAlta.IdUsuario = nuevoId;
-            return dvDal.CargarDVV(2, dvv);
+            //itemAlta.IdUsuario = nuevoId;
+            //return dvDal.CargarDVV(2, dvv);
+           bool resultado= sqlHelper.ExecuteQuery("usuarioInsert", parameters);
+           return resultado;
         }
 
         public DataTable ConsultarUsuarioDT(int idUsuario)
@@ -76,9 +76,9 @@ namespace DAL
             if (resultado)
             {
                 int dvh = dvDal.CalcularDVH(ConsultarUsuarioDT(itemBaja.IdUsuario));
-                dvDal.CargarDVH("USUARIO", itemBaja.IdUsuario, dvh);
+                dvDal.CargarDVH("Usuario", itemBaja.IdUsuario, dvh);
 
-                int dvv = dvDal.CalcularDVV("USUARIO");
+                int dvv = dvDal.CalcularDVV("Usuario");
                 dvDal.CargarDVV(2, dvv);
             }
             return resultado;
@@ -140,7 +140,7 @@ namespace DAL
                 new SqlParameter("idUsuario",itemModifica.IdUsuario),
                 new SqlParameter("usuario",itemModifica.usuario),
                 new SqlParameter("userPass",itemModifica.UserPass),
-              //  new SqlParameter("isBlocked",itemModifica.IsBlocked),
+                //new SqlParameter("isBlocked",itemModifica.IsBlocked),
                 new SqlParameter("nombre",itemModifica.Nombre),
                 new SqlParameter("apellido",itemModifica.Apellido),
                 new SqlParameter("fechaNacimiento",itemModifica.FechaNacimiento),              
@@ -189,59 +189,7 @@ namespace DAL
             }
         }
 
-        //public List<BE.BEpermiso> ObtenerPermisoRecursivo(string usuario)
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
-
-        //    var where = "is null";
-        //    if (!String.IsNullOrEmpty(usuario))
-        //    {
-        //        where = usuario;
-
-        //    }
-
-        //    var sql = $@"with recursivo as (
-                   
-        //                select up2.idPermiso from usuario_permiso UP2
-        //                where up2.idUsuario {where}
-        //                UNION ALL
-        //                select pp.idPermisoHijo from permiso_permiso pp
-        //                inner join recursivo r on r.idPermiso = pp.idPermisoPadre
-        //                )
-        //                select distinct r.idPermiso,p.nombrePermiso,p.esFamilia,p.tipoFamilia
-        //                from recursivo r
-        //                inner join permiso p on r.idPermiso = p.idPermiso";
-
-        //    DataTable dt = sqlHelper.ExecuteReader(sql);
-
-        //    DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
-
-        //    foreach (DataRow row in dt.Rows)
-        //    {
-        //        BE.BEpermiso hijo = mapp.Map(row);
-        //        permisos.Add(hijo);
-        //    }
-
-        //    return permisos;
-        //}
-
-
-        //public List<BE.BEpermiso>ObtenerPermisos(BE.BEusuario bEusuario)
-        //{
-        //    List<BE.BEpermiso> permisos = new List<BE.BEpermiso>();
-        //    SqlParameter[] parameters = new SqlParameter[]
-        //    {
-        //        new SqlParameter("idUsuario",bEusuario.IdUsuario),
-        //    };
-
-        //    DataTable data = sqlHelper.ExecuteReader("UsuarioConsultaHijos", parameters);
-        //    DAL.Mappers.MPpermiso mapp = new DAL.Mappers.MPpermiso();
-        //    foreach(DataRow row in data.Rows)
-        //    {
-        //        permisos.Add(mapp.Map(row));
-        //    }
-        //    return permisos; 
-        //}
+ 
 
 
         public bool Existe (BE.BEpermiso a, BE.BEpermiso b )

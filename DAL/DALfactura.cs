@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -35,6 +36,11 @@ namespace DAL
 
                 // Obtener el ID generado
                 int newId = (int)cmd.ExecuteScalar();
+                DALdigitoverificador dvDAL = new DALdigitoverificador();
+                int dvh = dvDAL.CalcularDVH(ConsultarFacturaDT(newId), 0);
+                dvDAL.CargarDVH("Factura", newId, dvh);
+                int dvv = dvDAL.CalcularDVV("Factura");
+                dvDAL.CargarDVV(5, dvv);
                 return newId;
             }
         }
@@ -104,6 +110,15 @@ namespace DAL
 
             return facturabe;
 
+        }
+
+        public DataTable ConsultarFacturaDT(int idFactura)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+           {
+                new SqlParameter("idFactu",idFactura),
+           };
+            return sqlHelper.ExecuteReader("facturaConsultarPorID", parameters);
         }
     }
 }

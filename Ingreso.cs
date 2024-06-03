@@ -41,28 +41,7 @@ namespace VisionTFI
                 timer2.Stop();
                 this.Hide();
                 Globa.IniciarSesion.ShowDialog();
-                //BLL.BLLconexion conexion = new BLL.BLLconexion();
-                //if (conexion.ComprobarConexion())
-                //{
-
-                //    BLL.BLLdigitoverificador dv = new BLL.BLLdigitoverificador();
-                //    Globa.errores = dv.ComprobarIntegridad();
-                //    if (Globa.errores.Count > 0)
-                //    {
-                //        Inicio inicio = new Inicio();
-                //        inicio.Show();
-                //    }
-                //    else
-                //    {
-                //        Globa.IniciarSesion.ShowDialog();
-                //    }
-
-                //}
-                //else
-                //{
-                //    Conexion frmconexion = new Conexion();
-                //    frmconexion.Show();
-                //}
+          
             }
         }
 

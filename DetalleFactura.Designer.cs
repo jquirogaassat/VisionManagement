@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dg_detalleFac = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dg_articulo = new System.Windows.Forms.DataGridView();
             this.dg_cliente = new System.Windows.Forms.DataGridView();
             this.lbl_totApagar = new System.Windows.Forms.Label();
@@ -39,11 +44,6 @@
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lbl_productos = new System.Windows.Forms.Label();
             this.lbl_clientes = new System.Windows.Forms.Label();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_detalleFac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_articulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cliente)).BeginInit();
@@ -67,6 +67,35 @@
             this.dg_detalleFac.RowTemplate.Height = 24;
             this.dg_detalleFac.Size = new System.Drawing.Size(579, 198);
             this.dg_detalleFac.TabIndex = 9;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.HeaderText = "Precio Unitario";
+            this.PrecioUnitario.MinimumWidth = 6;
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
             // 
             // dg_articulo
             // 
@@ -97,18 +126,18 @@
             this.lbl_totApagar.AutoSize = true;
             this.lbl_totApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_totApagar.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_totApagar.Location = new System.Drawing.Point(726, 59);
+            this.lbl_totApagar.Location = new System.Drawing.Point(621, 53);
             this.lbl_totApagar.Name = "lbl_totApagar";
-            this.lbl_totApagar.Size = new System.Drawing.Size(163, 30);
+            this.lbl_totApagar.Size = new System.Drawing.Size(184, 30);
             this.lbl_totApagar.TabIndex = 26;
-            this.lbl_totApagar.Text = "Total a pagar";
+            this.lbl_totApagar.Text = "Total a pagar $";
             // 
             // lbl_total
             // 
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_total.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_total.Location = new System.Drawing.Point(913, 60);
+            this.lbl_total.Location = new System.Drawing.Point(802, 54);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(26, 29);
             this.lbl_total.TabIndex = 25;
@@ -176,48 +205,19 @@
             this.lbl_clientes.TabIndex = 32;
             this.lbl_clientes.Text = "Clientes";
             // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // PrecioUnitario
-            // 
-            this.PrecioUnitario.HeaderText = "Precio Unitario";
-            this.PrecioUnitario.MinimumWidth = 6;
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "SubTotal";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            // 
             // DetalleFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 533);
+            this.Controls.Add(this.lbl_totApagar);
+            this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.lbl_clientes);
             this.Controls.Add(this.lbl_productos);
             this.Controls.Add(this.btn_generarFactura);
             this.Controls.Add(this.btn_cargarArticulo);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.lbl_totApagar);
-            this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.dg_cliente);
             this.Controls.Add(this.dg_articulo);
             this.Controls.Add(this.dg_detalleFac);
