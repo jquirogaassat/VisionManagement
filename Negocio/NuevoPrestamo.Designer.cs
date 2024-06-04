@@ -62,7 +62,7 @@
             // 
             // dgv_herramientas
             // 
-            this.dgv_herramientas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgv_herramientas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_herramientas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgv_herramientas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_herramientas.EnableHeadersVisualStyles = false;
@@ -114,7 +114,7 @@
             // 
             // txt_clienteSeleccionado
             // 
-            this.txt_clienteSeleccionado.Location = new System.Drawing.Point(587, 448);
+            this.txt_clienteSeleccionado.Location = new System.Drawing.Point(667, 448);
             this.txt_clienteSeleccionado.Name = "txt_clienteSeleccionado";
             this.txt_clienteSeleccionado.Size = new System.Drawing.Size(350, 20);
             this.txt_clienteSeleccionado.TabIndex = 12;
@@ -124,7 +124,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(587, 414);
+            this.label4.Location = new System.Drawing.Point(667, 414);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(206, 24);
             this.label4.TabIndex = 11;
@@ -132,7 +132,7 @@
             // 
             // btn_seleccionaC
             // 
-            this.btn_seleccionaC.Location = new System.Drawing.Point(817, 344);
+            this.btn_seleccionaC.Location = new System.Drawing.Point(1069, 344);
             this.btn_seleccionaC.Name = "btn_seleccionaC";
             this.btn_seleccionaC.Size = new System.Drawing.Size(120, 23);
             this.btn_seleccionaC.TabIndex = 10;
@@ -153,29 +153,30 @@
             // 
             // dgv_clientes
             // 
-            this.dgv_clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgv_clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_clientes.EnableHeadersVisualStyles = false;
             this.dgv_clientes.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgv_clientes.Location = new System.Drawing.Point(667, 134);
             this.dgv_clientes.Name = "dgv_clientes";
-            this.dgv_clientes.Size = new System.Drawing.Size(460, 204);
+            this.dgv_clientes.Size = new System.Drawing.Size(522, 204);
             this.dgv_clientes.TabIndex = 7;
             this.dgv_clientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_clientes_MouseClick);
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(619, 516);
+            this.btn_salir.Location = new System.Drawing.Point(885, 517);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(106, 36);
             this.btn_salir.TabIndex = 13;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_aceptar
             // 
-            this.btn_aceptar.Location = new System.Drawing.Point(772, 516);
+            this.btn_aceptar.Location = new System.Drawing.Point(1038, 517);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(136, 36);
             this.btn_aceptar.TabIndex = 14;
@@ -219,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 581);
+            this.ClientSize = new System.Drawing.Size(1225, 581);
             this.Controls.Add(this.btn_buscarC);
             this.Controls.Add(this.txt_buscarC);
             this.Controls.Add(this.btn_buscarH);

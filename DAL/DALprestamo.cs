@@ -12,10 +12,10 @@ namespace DAL
 {
     public class DALprestamo
     {
-        SqlHelper _sqlHelper;
-        DALdigitoverificador _dvdal;
-        DALherramientas _herramientaD = new DALherramientas();
-        Mappers.MPprestamo mapper= new Mappers.MPprestamo();
+       private SqlHelper _sqlHelper;
+       private  DALdigitoverificador _dvdal;
+       private DALherramientas _herramientaD = new DALherramientas();
+       private Mappers.MPprestamo mapper= new Mappers.MPprestamo();
 
 
         public bool Alta(BEprestamo prestamo)
@@ -31,7 +31,7 @@ namespace DAL
                 new SqlParameter("@observaciones",prestamo.Observaciones)
             };
 
-            int nuevoID = _sqlHelper.ExecuteQueryPRUEBA("prestamoInsert", parametros);
+            int nuevoID = _sqlHelper.ExecuteQueryPRUEBA("prestamoInsert", parametros); // store procedure ok
             int dvh = _dvdal.CalcularDVH(consultarPrestamoDT(nuevoID), 0);
             _dvdal.CargarDVH("Prestamo",nuevoID,dvh);
             int dvv = _dvdal.CalcularDVV("Prestamo");
@@ -44,13 +44,13 @@ namespace DAL
                 new SqlParameter("fecha",prestamo.FechaInicio),
             };
 
-            nuevoID = _sqlHelper.ExecuteQueryPRUEBA("herramientaEstadoInsert", parametros);
+            nuevoID = _sqlHelper.ExecuteQueryPRUEBA("herramientaEstadoInsert", parametros); // store procedure ok
 
             dvh= _dvdal.CalcularDVH(_herramientaD.ConsultarHerramientaEstadoDT(nuevoID), 0);
             _dvdal.CargarDVHp("Estado_Herramienta",nuevoID,dvh);
             dvv = _dvdal.CalcularDVVp("Estado_Herramienta");
 
-            return _dvdal.CargarDVV(9, dvv);
+            return _dvdal.CargarDVV(8, dvv);
         }
 
 
@@ -59,7 +59,7 @@ namespace DAL
             _sqlHelper = new SqlHelper();
             SqlParameter[] parametros = new SqlParameter[]
             {};
-            DataTable dt = _sqlHelper.ExecuteReader("prestamoSelect", parametros);
+            DataTable dt = _sqlHelper.ExecuteReader("prestamoSelect", parametros);// storeprocedure ok
             List<BEprestamo> prestamos = new List<BEprestamo>();
             Mappers.MPprestamo mapper = new Mappers.MPprestamo();
             
@@ -93,7 +93,7 @@ namespace DAL
                 new SqlParameter("idPrestamo",idPrestamo),
             };
 
-            DataTable dt = _sqlHelper.ExecuteReader("prestamoConsultar", parametros);
+            DataTable dt = _sqlHelper.ExecuteReader("prestamoConsultar", parametros);// store procedure ok
             return dt;
 
         }

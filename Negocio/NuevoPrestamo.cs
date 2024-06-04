@@ -50,17 +50,24 @@ namespace VisionTFI
             dgv_herramientas.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv_herramientas.MultiSelect = false;
             dgv_herramientas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgv_herramientas.Columns[4].Visible= false;
+
         }
 
         private void ActualizarGrillaClientes()
         {
-            dgv_clientes.DataSource = _clienteBl.Listar();
+            dgv_clientes.DataSource = _clienteBl.Listar();                       
             dgv_clientes.RowHeadersVisible = false;
             dgv_clientes.AllowUserToAddRows = false;
             dgv_clientes.AllowUserToDeleteRows = false;
             dgv_clientes.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv_clientes.MultiSelect = false;
             dgv_clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgv_clientes.Columns[2].Visible = false;
+            dgv_clientes.Columns[5].Visible = false;
+            dgv_clientes.Columns[6].Visible = false;
         }
 
         private void NuevoPrestamo_Load(object sender, EventArgs e)
@@ -122,6 +129,11 @@ namespace VisionTFI
         private void btn_seleccionarH_Click(object sender, EventArgs e)
         {
             txt_herramienta.Text = Globa.herramientaBE.Id + "--" + Globa.herramientaBE.Nombre;
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

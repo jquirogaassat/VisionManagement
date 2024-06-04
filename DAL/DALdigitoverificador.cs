@@ -55,10 +55,12 @@ namespace DAL
 
 
         public int CalcularDVV(string nombreTabla)
-        {
+        {   
             string idCampo = "id" + nombreTabla;
             if (idCampo == "idFactura")
                 idCampo = "idFactu";
+            if (idCampo == "idEstado_Herramienta")
+                idCampo="idEstadoHerramienta";
             string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
                                                             + nombreTabla + " else select 0";
 
@@ -124,6 +126,8 @@ namespace DAL
                 string idTabla = "id" + nombreTabla[t];
                 if (idTabla == "idFactura")
                     idTabla = "idFactu";
+                if (idTabla == "idEstado_Herramienta")
+                    idTabla = "idEstadoHerramienta";
                 while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
@@ -149,7 +153,7 @@ namespace DAL
 
 
         public List<BE.BEerror> ComprobarIntegridad()
-        {
+        {            
             int idError = 0;
             List<BE.BEerror> errores = new List<BE.BEerror>();
             string query;
@@ -162,7 +166,7 @@ namespace DAL
             nombresTablas.Add("Herramienta");//si
             nombresTablas.Add("Factura");// si
             nombresTablas.Add("Prestamo");// si
-
+            nombresTablas.Add("Estado_Herramienta");//si
             List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);
 
             int t = 0;
@@ -179,6 +183,8 @@ namespace DAL
                 string idTabla = "id" + nombresTablas[t];
                 if (idTabla == "idFactura")
                     idTabla = "idFactu";
+                if (idTabla == "idEstado_Herramienta")
+                    idTabla = "idEstadoHerramienta";
                 while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
@@ -189,6 +195,7 @@ namespace DAL
                     {
                         idError++;
                         errores.Add(new BE.BEerror(idError, nombresTablas[t], "dvh", idDVH));
+                        
                     }
                     i++;
                 }
@@ -202,7 +209,6 @@ namespace DAL
                 }
                 t++;
             }
-
             ArreglarDigitos(nombresTablas, digitosVerticales);
 
             return errores;
