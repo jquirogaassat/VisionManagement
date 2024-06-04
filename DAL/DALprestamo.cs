@@ -16,7 +16,8 @@ namespace DAL
        private  DALdigitoverificador _dvdal;
        private DALherramientas _herramientaD = new DALherramientas();
        private Mappers.MPprestamo mapper= new Mappers.MPprestamo();
-
+        /* EN ESTA CLASE SE ENCUENTRA TODO LO RELACIONADO CON EL PRESTAMO DE HERRAMIENTAS
+         */
 
         public bool Alta(BEprestamo prestamo)
         {
