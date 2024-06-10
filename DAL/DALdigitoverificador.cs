@@ -96,6 +96,14 @@ namespace DAL
                 return sqlHelper.ExecuteQuery(query1);
             }
 
+            if(nombreTabla =="Estado_Herramienta")
+            {
+                var nombreTabla2 = nombreTabla;
+                nombreTabla2 = "EstadoHerramienta";
+                string query2 = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla2 + "=" + id;
+                return sqlHelper.ExecuteQuery(query2);
+            }
+
 
             string query = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla + "=" + id;
             return sqlHelper.ExecuteQuery(query);

@@ -28,8 +28,17 @@ namespace BLL
 
         public List<BEprestamo> Consultar()
         {
-            return _prestamoD.Consultar();
+            List<BEprestamo> prestamos = new List<BEprestamo>();
+            prestamos = _prestamoD.Consultar();
+            return prestamos;            
         }
+
+        //public List<BEprestamo>ConsultarReporte( int idHerramienta, int idCliente, DateTime fechaInicio, DateTime fechaFin, string estado, string observaciones)
+        //{
+        //    List<BEprestamo> prestamos = new List<BEprestamo> ();
+        //    return prestamos; 
+
+        //}
 
         public BEprestamo ConsultarPrestamo(int idPrestamo)
         {

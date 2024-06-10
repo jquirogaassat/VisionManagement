@@ -16,5 +16,23 @@ namespace BE
         public string Estado { get; set; }
         public string Observaciones { get; set; }
         public int Dvh { get; set; }
+
+        public string NombreHerramienta
+        {
+            get
+            {
+                return Herramienta != null ? Herramienta.Nombre : string.Empty;
+            }
+        }
+
+        public string NombreCliente
+        {
+            get
+            {
+                return Cliente != null ? Cliente.Nombre +","+Cliente.Apellido : string.Empty;
+            }
+        }
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace VisionTFI
         {
             List<BEprestamo> prestamos = _prestamoBL.Consultar();
             dgv_prestamos.Columns.Clear();
-            dgv_prestamos.Columns.Add("idPrestamo", "Id Prestamo");
+            dgv_prestamos.Columns.Add("idPrestamo", "Prestamo");
             dgv_prestamos.Columns.Add("herramienta", "Herramienta");
             dgv_prestamos.Columns.Add("cliente", "Cliente");
             dgv_prestamos.Columns.Add("fechaInicio", "Fecha de inicio");
@@ -96,9 +96,8 @@ namespace VisionTFI
 
         private void btn_reporteP_Click(object sender, EventArgs e)
         {
-            ReportePrestamo reporteP = new ReportePrestamo();
-            reporteP.ShowDialog();
-
+            FrmReportePrestamos reporte = new FrmReportePrestamos();
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporte);                   
         }
 
         private void btn_serializar_Click(object sender, EventArgs e)

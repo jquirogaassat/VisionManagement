@@ -260,6 +260,17 @@
     <Compile Include="Administrar\AdministrarUsers.Designer.cs">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="DsPrestamos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsPrestamos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportePrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportePrestamos.Designer.cs">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,12 +426,6 @@
     <Compile Include="Reporte.Designer.cs">
       <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportePrestamo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportePrestamo.Designer.cs">
-      <DependentUpon>ReportePrestamo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Res.en-US.Designer.cs">
       <DependentUpon>Res.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -438,15 +443,25 @@
       <DependentUpon>Restore.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="VisionManagementDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="VisionTFIDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VisionTFIDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionTFIDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VisionTFIDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionTFIDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VisionTFIDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionTFIDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="XmlSerializator.cs" />
     <EmbeddedResource Include="ABM%27s\ABMarticulos.resx">
@@ -470,6 +485,10 @@
     <EmbeddedResource Include="Administrar\AdministrarUsers.resx">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportePrestamos.resx">
+      <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPrestamo.rdlc" />
     <EmbeddedResource Include="Seguridad\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
     </EmbeddedResource>
@@ -557,9 +576,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteBitacora.rdlc" />
     <EmbeddedResource Include="ReporteFactura.rdlc" />
-    <EmbeddedResource Include="ReportePrestamo.resx">
-      <DependentUpon>ReportePrestamo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Res.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
@@ -571,8 +587,20 @@
     <EmbeddedResource Include="Seguridad\Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DsPrestamos.xsc">
+      <DependentUpon>DsPrestamos.xsd</DependentUpon>
+    </None>
+    <None Include="DsPrestamos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsPrestamos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsPrestamos.xss">
+      <DependentUpon>DsPrestamos.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BE.BEgestionbitacora.datasource" />
+    <None Include="Properties\DataSources\BE.BEprestamo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -582,17 +610,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VisionManagementDataSet.xsc">
-      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VisionManagementDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VisionManagementDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="VisionManagementDataSet.xss">
-      <DependentUpon>VisionManagementDataSet.xsd</DependentUpon>
-    </None>
     <None Include="VisionTFIDataSet.xsc">
       <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
     </None>
@@ -603,6 +620,39 @@
     </None>
     <None Include="VisionTFIDataSet.xss">
       <DependentUpon>VisionTFIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet1.xsc">
+      <DependentUpon>VisionTFIDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionTFIDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionTFIDataSet1.xss">
+      <DependentUpon>VisionTFIDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet2.xsc">
+      <DependentUpon>VisionTFIDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionTFIDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionTFIDataSet2.xss">
+      <DependentUpon>VisionTFIDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet3.xsc">
+      <DependentUpon>VisionTFIDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionTFIDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionTFIDataSet3.xss">
+      <DependentUpon>VisionTFIDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

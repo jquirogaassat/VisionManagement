@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="VisionManagementDataSet" targetNamespace="http://tempuri.org/VisionManagementDataSet.xsd" xmlns:mstns="http://tempuri.org/VisionManagementDataSet.xsd" xmlns="http://tempuri.org/VisionManagementDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="VisionTFIDataSet3" targetNamespace="http://tempuri.org/VisionTFIDataSet3.xsd" xmlns:mstns="http://tempuri.org/VisionTFIDataSet3.xsd" xmlns="http://tempuri.org/VisionTFIDataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="VisionManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VisionManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VisionTFI.Properties.Settings.GlobalReference.Default.VisionManagementConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="VisionTFIConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VisionTFIConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VisionTFI.Properties.Settings.GlobalReference.Default.VisionTFIConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PrestamoTableAdapter" GeneratorDataComponentClassName="PrestamoTableAdapter" Name="Prestamo" UserDataComponentName="PrestamoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="VisionManagementConnectionString (Settings)" DbObjectName="VisionManagement.dbo.Prestamo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="VisionTFIConnectionString (Settings)" DbObjectName="VisionTFI.dbo.Prestamo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Prestamo] WHERE (([idPrestamo] = @Original_idPrestamo) AND ((@IsNull_idHerramienta = 1 AND [idHerramienta] IS NULL) OR ([idHerramienta] = @Original_idHerramienta)) AND ((@IsNull_idCliente = 1 AND [idCliente] IS NULL) OR ([idCliente] = @Original_idCliente)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_fechaDevolucion = 1 AND [fechaDevolucion] IS NULL) OR ([fechaDevolucion] = @Original_fechaDevolucion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[Prestamo] WHERE (([idPrestamo] = @Original_idPrestamo) AND ((@IsNull_idHerramienta = 1 AND [idHerramienta] IS NULL) OR ([idHerramienta] = @Original_idHerramienta)) AND ((@IsNull_idCliente = 1 AND [idCliente] IS NULL) OR ([idCliente] = @Original_idCliente)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_fechaDevolucion = 1 AND [fechaDevolucion] IS NULL) OR ([fechaDevolucion] = @Original_fechaDevolucion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idPrestamo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idPrestamo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idHerramienta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idHerramienta" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -25,38 +25,42 @@
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fechaDevolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaDevolucion" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_estado" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_observaciones" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_observaciones" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Prestamo] ([idHerramienta], [idCliente], [fechaInicio], [fechaDevolucion], [estado]) VALUES (@idHerramienta, @idCliente, @fechaInicio, @fechaDevolucion, @estado);
-SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado FROM Prestamo WHERE (idPrestamo = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [dbo].[Prestamo] ([idHerramienta], [idCliente], [fechaInicio], [fechaDevolucion], [estado], [observaciones]) VALUES (@idHerramienta, @idCliente, @fechaInicio, @fechaDevolucion, @estado, @observaciones);
+SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado, observaciones FROM Prestamo WHERE (idPrestamo = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idHerramienta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idHerramienta" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idCliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fechaInicio" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fechaDevolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaDevolucion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@observaciones" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado FROM dbo.Prestamo</CommandText>
+                    <CommandText>SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado, observaciones FROM dbo.Prestamo</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Prestamo] SET [idHerramienta] = @idHerramienta, [idCliente] = @idCliente, [fechaInicio] = @fechaInicio, [fechaDevolucion] = @fechaDevolucion, [estado] = @estado WHERE (([idPrestamo] = @Original_idPrestamo) AND ((@IsNull_idHerramienta = 1 AND [idHerramienta] IS NULL) OR ([idHerramienta] = @Original_idHerramienta)) AND ((@IsNull_idCliente = 1 AND [idCliente] IS NULL) OR ([idCliente] = @Original_idCliente)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_fechaDevolucion = 1 AND [fechaDevolucion] IS NULL) OR ([fechaDevolucion] = @Original_fechaDevolucion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)));
-SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado FROM Prestamo WHERE (idPrestamo = @idPrestamo)</CommandText>
+                    <CommandText>UPDATE [dbo].[Prestamo] SET [idHerramienta] = @idHerramienta, [idCliente] = @idCliente, [fechaInicio] = @fechaInicio, [fechaDevolucion] = @fechaDevolucion, [estado] = @estado, [observaciones] = @observaciones WHERE (([idPrestamo] = @Original_idPrestamo) AND ((@IsNull_idHerramienta = 1 AND [idHerramienta] IS NULL) OR ([idHerramienta] = @Original_idHerramienta)) AND ((@IsNull_idCliente = 1 AND [idCliente] IS NULL) OR ([idCliente] = @Original_idCliente)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_fechaDevolucion = 1 AND [fechaDevolucion] IS NULL) OR ([fechaDevolucion] = @Original_fechaDevolucion)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_observaciones = 1 AND [observaciones] IS NULL) OR ([observaciones] = @Original_observaciones)));
+SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estado, observaciones FROM Prestamo WHERE (idPrestamo = @idPrestamo)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idHerramienta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idHerramienta" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idCliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fechaInicio" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fechaDevolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaDevolucion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@observaciones" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idPrestamo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idPrestamo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_idHerramienta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idHerramienta" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idHerramienta" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idHerramienta" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -68,7 +72,9 @@ SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estad
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fechaDevolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fechaDevolucion" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_estado" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_estado" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="estado" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="idPrestamo" ColumnName="idPrestamo" DataSourceName="VisionManagement.dbo.Prestamo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idPrestamo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idPrestamo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_observaciones" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_observaciones" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="observaciones" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idPrestamo" ColumnName="idPrestamo" DataSourceName="VisionTFI.dbo.Prestamo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idPrestamo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idPrestamo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -81,6 +87,7 @@ SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estad
               <Mapping SourceColumn="fechaInicio" DataSetColumn="fechaInicio" />
               <Mapping SourceColumn="fechaDevolucion" DataSetColumn="fechaDevolucion" />
               <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="observaciones" DataSetColumn="observaciones" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -89,7 +96,7 @@ SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estad
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="VisionManagementDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="VisionManagementDataSet" msprop:Generator_DataSetName="VisionManagementDataSet">
+  <xs:element name="VisionTFIDataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="VisionTFIDataSet3" msprop:Generator_DataSetName="VisionTFIDataSet3">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Prestamo" msprop:Generator_RowEvHandlerName="PrestamoRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamoRowDeleted" msprop:Generator_RowDeletingName="PrestamoRowDeleting" msprop:Generator_RowEvArgName="PrestamoRowChangeEvent" msprop:Generator_TablePropName="Prestamo" msprop:Generator_RowChangedName="PrestamoRowChanged" msprop:Generator_RowChangingName="PrestamoRowChanging" msprop:Generator_TableClassName="PrestamoDataTable" msprop:Generator_RowClassName="PrestamoRow" msprop:Generator_TableVarName="tablePrestamo" msprop:Generator_UserTableName="Prestamo">
@@ -103,7 +110,14 @@ SELECT idPrestamo, idHerramienta, idCliente, fechaInicio, fechaDevolucion, estad
               <xs:element name="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_UserColumnName="estado" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="observaciones" msprop:Generator_ColumnPropNameInRow="observaciones" msprop:Generator_ColumnPropNameInTable="observacionesColumn" msprop:Generator_ColumnVarNameInTable="columnobservaciones" msprop:Generator_UserColumnName="observaciones" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
