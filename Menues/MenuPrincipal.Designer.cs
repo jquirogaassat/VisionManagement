@@ -249,6 +249,7 @@
             this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
             this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de prestamos";
+            this.reporteDePrestamosToolStripMenuItem.Click += new System.EventHandler(this.reporteDePrestamosToolStripMenuItem_Click);
             // 
             // idiomaToolStripMenuItem
             // 

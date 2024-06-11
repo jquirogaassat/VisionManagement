@@ -39,23 +39,29 @@ namespace VisionTFI
         {
             List<BEprestamo> prestamos = new DAL.DALprestamo().CargarReporte();
             List<BEprestamo> prestamosAcargar = new List<BEprestamo>();
-
-            foreach (BEprestamo p in prestamos)
-            {              
-                BEprestamo prestamo = new BEprestamo
+            try
+            {
+                foreach (BEprestamo p in prestamos)
                 {
-                    IdPrestamo = p.IdPrestamo,
-                    Herramienta = p.Herramienta,
-                    Cliente = p.Cliente,
-                    FechaInicio = p.FechaInicio,
-                    FechaDevolucion = p.FechaDevolucion,
-                    Estado = p.Estado,
-                    Observaciones = p.Observaciones,
-                };
-                prestamosAcargar.Add(prestamo);
+                    BEprestamo prestamo = new BEprestamo
+                    {
+                        IdPrestamo = p.IdPrestamo,
+                        Herramienta = p.Herramienta,
+                        Cliente = p.Cliente,
+                        FechaInicio = p.FechaInicio,
+                        FechaDevolucion = p.FechaDevolucion,
+                        Estado = p.Estado,
+                        Observaciones = p.Observaciones,
+                    };
+                    prestamosAcargar.Add(prestamo);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al generar un reporte! Verifique los campos y vuelva a intentarlo.");
             }
 
-            return prestamos;
+            return prestamosAcargar;
         }
 
        

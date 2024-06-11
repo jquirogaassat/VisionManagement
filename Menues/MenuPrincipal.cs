@@ -285,5 +285,11 @@ namespace VisionTFI
             IdiomaManager.CambiarIdioma("es.txt");
             ActualizarControles();
         }
+        //btn para imprimir reporte de todos los prestamos 
+        private void reporteDePrestamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportePrestamos reporte = new FrmReportePrestamos();
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporte);
+        }
     }
 }

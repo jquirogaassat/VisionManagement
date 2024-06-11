@@ -13,24 +13,25 @@ namespace VisionTFI
 {
     public partial class AdministrarPrestamos : Form , BE.IObserverForm
     {
-        BLL.BLprestamo _prestamoBL = new BLL.BLprestamo();
+        private BLL.BLprestamo _prestamoBL = new BLL.BLprestamo();
         public AdministrarPrestamos()
         {
             InitializeComponent();
         }
-
-        public void Actualizar(BEusuario u)
-        {
-            throw new NotImplementedException();
-        }
-
         private void AdministrarPrestamos_Load(object sender, EventArgs e)
         {
             this.Focus();
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             ActualizarGrillaPrestamos();
         }
+        public void Actualizar(BEusuario u)
+        {
+            throw new NotImplementedException();
+        }
 
+
+
+        #region Grillas y dgv
         private void ActualizarGrillaPrestamos()
         {
             List<BEprestamo> prestamos = _prestamoBL.Consultar();
@@ -45,12 +46,12 @@ namespace VisionTFI
 
             int i = 0;
 
-            foreach(BEprestamo p in prestamos) 
+            foreach (BEprestamo p in prestamos)
             {
                 dgv_prestamos.Rows.Add();
                 dgv_prestamos[0, i].Value = p.IdPrestamo;
                 dgv_prestamos[1, i].Value = p.Herramienta.Nombre;
-                dgv_prestamos[2, i].Value = p.Cliente.Nombre +","+p.Cliente.Apellido;
+                dgv_prestamos[2, i].Value = p.Cliente.Nombre + "," + p.Cliente.Apellido;
                 dgv_prestamos[3, i].Value = p.FechaInicio;
                 dgv_prestamos[4, i].Value = p.FechaDevolucion;
                 dgv_prestamos[5, i].Value = p.Estado;
@@ -72,7 +73,7 @@ namespace VisionTFI
             btn_consultar.Enabled = true;
             btn_devolucion.Enabled = true;
 
-            if(dgv_prestamos.SelectedRows.Count > 0)
+            if (dgv_prestamos.SelectedRows.Count > 0)
             {
                 var row = dgv_prestamos.SelectedRows[0];
                 int id = Int32.Parse(dgv_prestamos.SelectedRows[0].Cells["idPrestamo"].Value.ToString());
@@ -80,7 +81,10 @@ namespace VisionTFI
                 Globa.prestamoBe = _prestamoBL.ConsultarPrestamo(id);
             }
         }
+        #endregion
 
+
+        #region Botones y funcionalidades
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Close();
@@ -97,7 +101,7 @@ namespace VisionTFI
         private void btn_reporteP_Click(object sender, EventArgs e)
         {
             FrmReportePrestamos reporte = new FrmReportePrestamos();
-            Globa.menuPrincipal.AbrirFormHijoMenu(reporte);                   
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporte);
         }
 
         private void btn_serializar_Click(object sender, EventArgs e)
@@ -111,7 +115,10 @@ namespace VisionTFI
             //XmlSerializator.Deserializar(_prestamoBL.Consultar(), "Prestamos.xml");
             //MessageBox.Show("Deserealizacion ok!!");
         }
+        #endregion
 
-      
+
+
+
     }
 }
