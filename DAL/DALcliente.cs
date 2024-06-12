@@ -97,9 +97,14 @@ namespace DAL
                 new SqlParameter("telefono",itemModifica.Telefono),
 
             };
-            bool resultado = helper.ExecuteQuery("clienteUpdate", parametros);
 
-            return resultado;
+            helper.ExecuteQuery("clienteUpdate", parametros);
+            int dvh = dv.CalcularDVH(ConsultarClienteDT(itemModifica.IdCliente), 0);
+            dv.CargarDVH("CLiente",itemModifica.IdCliente, 0);
+            int dvv = dv.CalcularDVV("Cliente");
+
+
+            return dv.CargarDVV(3,dvv);
         }
 
         public DataTable ConsultarClienteDT(int idCliente)

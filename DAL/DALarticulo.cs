@@ -54,7 +54,7 @@ namespace DAL
             int dvv = dvDal.CalcularDVV("Articulo");
             //DAL.DALarticulo articuloDal= new DALarticulo();
 
-            dvDal.CargarDVV(4, dvv);
+            
 
             return dvDal.CargarDVV(4, dvv);
         }
@@ -93,7 +93,7 @@ namespace DAL
             int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id),0);
             dvDal.CargarDVH("Articulo", itemModifica.Id, dvh);
             int dvv = dvDal.CalcularDVV("Articulo");
-            return dvDal.CargarDVV(0, dvv);
+            return dvDal.CargarDVV(4, dvv);
         }
 
         public List<BEarticulo> Listar()

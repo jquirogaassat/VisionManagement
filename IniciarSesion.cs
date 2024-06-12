@@ -125,12 +125,7 @@ namespace VisionTFI
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)
-        {
-            //Globa.menuPrincipal = new MenuPrincipal();
-            //Globa.menuPrincipal.Show();
-            //this.Hide();
-
-
+        {           
             BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
             BE.BEusuario usuarioLog = new BE.BEusuario();
             usuarioLog.usuario = txt_usuario.Text;
@@ -148,10 +143,7 @@ namespace VisionTFI
                 {
                     MessageBox.Show("Usted debe cambiar su contraseña!");
                     CambiarContraseña cambiarPass = new CambiarContraseña();
-                    cambiarPass.Show();
-                    //Globa.cambiarPass = new CambiarContraseña();
-                    //Globa.cambiarPass.Show();
-                    //this.Hide();
+                    cambiarPass.Show();                  
                     LimpiarCombos();
                     ValorizarBitacora(bitacoraBE, "Medio", "Se cambio contraseña", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                     bitacoraBLL.Alta(bitacoraBE);

@@ -59,8 +59,8 @@ namespace DAL
             dvDal.CargarDVH("Herramienta", nuevoId, dvh);
             int dvv = dvDal.CalcularDVV("Herramienta");
 
-            dvDal.CargarDVV(3, dvv);
-            return dvDal.CargarDVV(3, dvv);
+            //dvDal.CargarDVV(6, dvv);
+            return dvDal.CargarDVV(6, dvv);
         }
         // Baja logica de la herramienta
         public bool Baja(BEherramientas itemBaja)
@@ -101,8 +101,8 @@ namespace DAL
             dvDal.CargarDVH("Herramienta", itemModifica.Id, dvh);
             int dvv = dvDal.CalcularDVV("Herramienta");
 
-            dvDal.CargarDVV(3, dvv);
-            return dvDal.CargarDVV(3, dvv);
+            //dvDal.CargarDVV(3, dvv);
+            return dvDal.CargarDVV(6, dvv);
         }
 
         // traigo todas las herramientas

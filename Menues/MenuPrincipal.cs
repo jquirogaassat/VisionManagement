@@ -125,11 +125,13 @@ namespace VisionTFI
         {
             BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
             BE.BEusuario usuarioBE = new BEusuario();
+            DAL.DALdigitoverificador dvdal= new DALdigitoverificador();
 
             if (usuarioBLL.Logout(usuarioBE))
             {
                 MessageBox.Show("Sesion finalizada!");
                 Close();
+                dvdal.ComprobarIntegridad();
                 Globa.IniciarSesion.Show();
             }
             else
