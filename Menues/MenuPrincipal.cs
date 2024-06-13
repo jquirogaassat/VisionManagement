@@ -41,9 +41,8 @@ namespace VisionTFI
             familiasToolStripMenuItem.Text = IdiomaManager.info["familiasToolStripMenuItem"];
             usuariosToolStripMenuItem.Text = IdiomaManager.info["usuariosToolStripMenuItem"];
             gestionarPermisosToolStripMenuItem.Text = IdiomaManager.info["gestionarPermisosToolStripMenuItem"];
-            reportesToolStripMenuItem.Text = IdiomaManager.info["reportesToolStripMenuItem"];
-            reporteBitacoraDeEventosToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeEventosToolStripMenuItem"];
-            reporteBitacoraDeCambiosToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeCambiosToolStripMenuItem"];
+            reportesToolStripMenuItem.Text = IdiomaManager.info["reportesToolStripMenuItem"];            
+            reporteFacturaToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeCambiosToolStripMenuItem"];
             reporteDePrestamosToolStripMenuItem.Text = IdiomaManager.info["reporteDePrestamosToolStripMenuItem"];
             idiomaToolStripMenuItem.Text = IdiomaManager.info["idiomaToolStripMenuItem"];
             cambiarIdiomaToolStripMenuItem.Text = IdiomaManager.info["cambiarIdiomaToolStripMenuItem"];
@@ -292,6 +291,12 @@ namespace VisionTFI
         {
             FrmReportePrestamos reporte = new FrmReportePrestamos();
             Globa.menuPrincipal.AbrirFormHijoMenu(reporte);
+        }
+
+        private void reporteFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteFactura reporteFactura= new FrmReporteFactura();
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporteFactura);
         }
     }
 }

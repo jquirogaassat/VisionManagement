@@ -47,8 +47,7 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteBitacoraDeEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteBitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDePrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,29 +224,23 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteBitacoraDeEventosToolStripMenuItem,
-            this.reporteBitacoraDeCambiosToolStripMenuItem,
+            this.reporteFacturaToolStripMenuItem,
             this.reporteDePrestamosToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
-            // reporteBitacoraDeEventosToolStripMenuItem
+            // reporteFacturaToolStripMenuItem
             // 
-            this.reporteBitacoraDeEventosToolStripMenuItem.Name = "reporteBitacoraDeEventosToolStripMenuItem";
-            this.reporteBitacoraDeEventosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.reporteBitacoraDeEventosToolStripMenuItem.Text = "Reporte Bitacora de eventos";
-            // 
-            // reporteBitacoraDeCambiosToolStripMenuItem
-            // 
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Name = "reporteBitacoraDeCambiosToolStripMenuItem";
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.reporteBitacoraDeCambiosToolStripMenuItem.Text = "Reporte Bitacora de cambios";
+            this.reporteFacturaToolStripMenuItem.Name = "reporteFacturaToolStripMenuItem";
+            this.reporteFacturaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.reporteFacturaToolStripMenuItem.Text = "Reporte de facturas ";
+            this.reporteFacturaToolStripMenuItem.Click += new System.EventHandler(this.reporteFacturaToolStripMenuItem_Click);
             // 
             // reporteDePrestamosToolStripMenuItem
             // 
             this.reporteDePrestamosToolStripMenuItem.Name = "reporteDePrestamosToolStripMenuItem";
-            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.reporteDePrestamosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.reporteDePrestamosToolStripMenuItem.Text = "Reporte de prestamos";
             this.reporteDePrestamosToolStripMenuItem.Click += new System.EventHandler(this.reporteDePrestamosToolStripMenuItem_Click);
             // 
@@ -454,8 +447,7 @@
         private System.Windows.Forms.ToolStripMenuItem maquinariasYHerramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeEventosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteBitacoraDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteFacturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDePrestamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem primerosPasosToolStripMenuItem;

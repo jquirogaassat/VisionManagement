@@ -67,6 +67,42 @@ namespace DAL
             return Mappers.MpFactura.getInstancia().Map(table);
         }
 
+        public DataTable CargarReporte()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                string query = @"
+                     SELECT 
+                        c.Nombre,
+	                    c.apellido,
+                        f.IdFactu,
+	                    f.fecha,
+                        SUM(df.Cantidad * a.precio) AS TotalFactura
+                    FROM 
+                        Cliente c
+                    INNER JOIN 
+                        Factura f ON c.idCliente = f.idCliente
+                    INNER JOIN 
+                        DetalleFactura df ON f.IdFactu = df.IdFactura
+                    INNER JOIN
+	                    Articulo a ON df.idArticulo = a.idArticulo
+                    GROUP BY 
+                        c.Nombre,c.apellido, f.idFactu, f.fecha
+                    ORDER BY 
+                        f.idFactu";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+
+            return dt;
+        }
+
         // traigo facturas por id de cliente
         public List<BEfactura> SellectAllByIdCliente(BEfactura factura) 
         {

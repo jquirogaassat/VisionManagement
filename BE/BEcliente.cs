@@ -17,5 +17,12 @@ namespace BE
         public int Dvh { get; set; }
         public string Cuit { get; set; }
         public string Telefono { get; set; }
+
+
+        public string NombreCliente
+        {
+            get { return Nombre + "," + Apellido; }
+        }
+       
     }
 }

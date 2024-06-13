@@ -283,10 +283,21 @@
     <Compile Include="Administrar\AdministrarUsers.Designer.cs">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="DsFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsFacturas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DsPrestamos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsPrestamos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteFactura.Designer.cs">
+      <DependentUpon>FrmReporteFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReportePrestamos.cs">
       <SubType>Form</SubType>
@@ -507,9 +518,13 @@
     <EmbeddedResource Include="Administrar\AdministrarUsers.resx">
       <DependentUpon>AdministrarUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteFactura.resx">
+      <DependentUpon>FrmReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReportePrestamos.resx">
       <DependentUpon>FrmReportePrestamos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteFactu.rdlc" />
     <EmbeddedResource Include="ReportPrestamo.rdlc" />
     <EmbeddedResource Include="Seguridad\Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
@@ -609,6 +624,17 @@
     <EmbeddedResource Include="Seguridad\Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DsFacturas.xsc">
+      <DependentUpon>DsFacturas.xsd</DependentUpon>
+    </None>
+    <None Include="DsFacturas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsFacturas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsFacturas.xss">
+      <DependentUpon>DsFacturas.xsd</DependentUpon>
+    </None>
     <None Include="DsPrestamos.xsc">
       <DependentUpon>DsPrestamos.xsd</DependentUpon>
     </None>
@@ -621,6 +647,8 @@
       <DependentUpon>DsPrestamos.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BE.BEcliente.datasource" />
+    <None Include="Properties\DataSources\BE.BEfactura.datasource" />
     <None Include="Properties\DataSources\BE.BEgestionbitacora.datasource" />
     <None Include="Properties\DataSources\BE.BEprestamo.datasource" />
     <None Include="Properties\Settings.settings">
