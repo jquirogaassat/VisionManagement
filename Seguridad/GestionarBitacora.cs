@@ -13,11 +13,11 @@ namespace VisionTFI
 {
     public partial class GestionarBitacora : Form
     {
-         BE.BEusuario usuarioBE = new BE.BEusuario();
-         BLL.BLLgestionbitacora BLLgestionbitacora = new BLL.BLLgestionbitacora();
-         BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
-         string orden;
-        BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
+        private BE.BEusuario usuarioBE = new BE.BEusuario();
+        private BLL.BLLgestionbitacora BLLgestionbitacora = new BLL.BLLgestionbitacora();
+        private BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
+        private string orden;
+        private BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
 
         public GestionarBitacora()
         {

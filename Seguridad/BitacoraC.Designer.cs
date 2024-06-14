@@ -186,7 +186,7 @@
             this.Controls.Add(this.btn_consultar);
             this.Controls.Add(this.dgv_bitacora);
             this.Name = "BitacoraC";
-            this.Text = "BitacoraC";
+            this.Text = "Bitacora de cambios";
             this.Load += new System.EventHandler(this.BitacoraC_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bitacora)).EndInit();
             this.ResumeLayout(false);

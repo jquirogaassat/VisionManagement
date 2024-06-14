@@ -299,6 +299,12 @@
     <Compile Include="FrmReporteFactura.Designer.cs">
       <DependentUpon>FrmReporteFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteInteligente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteInteligente.Designer.cs">
+      <DependentUpon>FrmReporteInteligente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReportePrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -520,6 +526,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteFactura.resx">
       <DependentUpon>FrmReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteInteligente.resx">
+      <DependentUpon>FrmReporteInteligente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportePrestamos.resx">
       <DependentUpon>FrmReportePrestamos.cs</DependentUpon>

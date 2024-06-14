@@ -298,5 +298,11 @@ namespace VisionTFI
             FrmReporteFactura reporteFactura= new FrmReporteFactura();
             Globa.menuPrincipal.AbrirFormHijoMenu(reporteFactura);
         }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteInteligente reporteInteligente = new FrmReporteInteligente();
+            Globa.menuPrincipal.AbrirFormHijoMenu(reporteInteligente);
+        }
     }
 }

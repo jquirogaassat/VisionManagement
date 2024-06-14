@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,11 @@ namespace BLL
         public IList<BEarticulo> Lista()
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable CargarInforme()
+        {
+            return DAL.DALarticulo.GetInstancia().CargarInforme();
         }
     }
 }

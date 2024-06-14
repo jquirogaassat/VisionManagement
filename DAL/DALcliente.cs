@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 namespace DAL
 {
     public class DALcliente : BE.ICRUd<BE.BEcliente>
     {
-
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         DAL.DALdigitoverificador dv= new DALdigitoverificador();
         SqlHelper helper = new SqlHelper();
         
@@ -116,6 +117,37 @@ namespace DAL
 
             DataTable dt = helper.ExecuteReader("ClienteConsultar", parametros);
             return dt;
+        }
+
+
+        public DataTable CargarInforme()
+        {
+            DataTable DT = new DataTable();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                string query = @"SELECT 
+                                        c.idCliente AS NumeroDeCliente,
+                                        c.Nombre AS NombreCliente,
+                                        COUNT(f.idFactu) AS NumeroCompras
+                                    FROM 
+                                        Cliente c
+                                    JOIN 
+                                        Factura f ON c.idCliente = f.IdCliente
+                                    GROUP BY 
+                                        c.idCliente, c.Nombre
+                                    ORDER BY 
+                                        NumeroCompras DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(DT);
+                }
+            }
+            return DT;
+
         }
     }
 }

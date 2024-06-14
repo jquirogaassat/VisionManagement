@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.SqlServer.Server;
+using System.Configuration;
 
 namespace DAL
 {
@@ -33,7 +35,7 @@ namespace DAL
         #endregion
 
 
-        
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         SqlHelper sqlHelper = new SqlHelper();
 
         public bool Alta(BEarticulo itemAlta)
@@ -125,6 +127,34 @@ namespace DAL
         public IList<BEarticulo> Lista()
         {
             throw new NotImplementedException();
+        }
+
+        public DataTable CargarInforme()
+        {            
+            DataTable DT = new DataTable();
+
+            using(SqlConnection con= new SqlConnection(ConnectionString))
+            {
+                string query = @"SELECT a.nombre AS NombreArticulo,
+                                 SUM(d.Cantidad) AS CantidadVendida,
+                                 SUM(d.Cantidad * a.precio ) AS IngresosGenerados
+                                 FROM DetalleFactura d
+                                 JOIN 
+                                 Articulo a ON d.idArticulo = a.idArticulo
+                                 GROUP BY 
+                                 a.nombre
+                                 ORDER BY 
+                                 CantidadVendida DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(DT);
+                }
+            }
+            return DT;
+
         }
     }
 }
