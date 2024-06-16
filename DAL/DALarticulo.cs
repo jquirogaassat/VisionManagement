@@ -36,8 +36,9 @@ namespace DAL
 
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        SqlHelper sqlHelper = new SqlHelper();
+        private SqlHelper sqlHelper = new SqlHelper();
 
+        #region ABM's
         public bool Alta(BEarticulo itemAlta)
         {
             SqlParameter[] parameters = new SqlParameter[]
@@ -45,7 +46,7 @@ namespace DAL
                 new SqlParameter("nombre", itemAlta.Nombre),
                 new SqlParameter("color", itemAlta.Color),
                 new SqlParameter("origen", itemAlta.Origen),
-                new SqlParameter("cantidad", itemAlta.Cantidad),                
+                new SqlParameter("cantidad", itemAlta.Cantidad),
                 new SqlParameter("precio",itemAlta.precio)
             };
 
@@ -56,7 +57,7 @@ namespace DAL
             int dvv = dvDal.CalcularDVV("Articulo");
             //DAL.DALarticulo articuloDal= new DALarticulo();
 
-            
+
 
             return dvDal.CargarDVV(4, dvv);
         }
@@ -69,13 +70,13 @@ namespace DAL
             };
             bool resultado = sqlHelper.ExecuteQuery("articuloBajaLogica", parametros);
 
-            if(resultado)
+            if (resultado)
             {
                 return true;
             }
 
             return (resultado);
-            
+
         }
 
         public bool Modificar(BEarticulo itemModifica)
@@ -92,7 +93,7 @@ namespace DAL
 
             sqlHelper.ExecuteQuery("articuloUpdate", parametros);
             DAL.DALdigitoverificador dvDal = new DALdigitoverificador();
-            int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id),0);
+            int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id), 0);
             dvDal.CargarDVH("Articulo", itemModifica.Id, dvh);
             int dvv = dvDal.CalcularDVV("Articulo");
             return dvDal.CargarDVV(4, dvv);
@@ -104,7 +105,7 @@ namespace DAL
             DataTable dt = sqlHelper.ExecuteReader("articuloSelect", parametros);
             List<BEarticulo> articulos = new List<BEarticulo>();
             Mappers.MParticulo map = new Mappers.MParticulo();
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 articulos.Add(map.Map(row));
             }
@@ -128,12 +129,14 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Reporte
         public DataTable CargarInforme()
-        {            
+        {
             DataTable DT = new DataTable();
 
-            using(SqlConnection con= new SqlConnection(ConnectionString))
+            using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 string query = @"SELECT a.nombre AS NombreArticulo,
                                  SUM(d.Cantidad) AS CantidadVendida,
@@ -156,5 +159,7 @@ namespace DAL
             return DT;
 
         }
+        #endregion
+
     }
 }

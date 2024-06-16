@@ -17,15 +17,16 @@ namespace VisionTFI
         {
             InitializeComponent();
         }
-
+        //boton de salida 
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this. Close();
         }
 
+        #region Botonoes de busqueda
         private void btn_buscarProductos_Click(object sender, EventArgs e)
-        {            
-            BLL.BLLarticulo _blArticulo= new BLL.BLLarticulo();
+        {
+            BLL.BLLarticulo _blArticulo = new BLL.BLLarticulo();
             DataTable dt = _blArticulo.CargarInforme();
             dgv_Productos.DataSource = dt;
             ActualizarDgvProductos();
@@ -38,6 +39,9 @@ namespace VisionTFI
             ActualizarDgvClientes();
         }
 
+        #endregion
+
+        #region Actualizar las grillas
         private void ActualizarDgvProductos()
         {
             dgv_Productos.RowHeadersVisible = false;
@@ -49,7 +53,7 @@ namespace VisionTFI
 
             dgv_Productos.Columns[0].HeaderText = "Nombre de articulo ";
             dgv_Productos.Columns[1].HeaderText = "Cantidad vendida ";
-            dgv_Productos.Columns[2].HeaderText = "Ingresos obtenidos";         
+            dgv_Productos.Columns[2].HeaderText = "Ingresos obtenidos";
 
         }
 
@@ -67,6 +71,8 @@ namespace VisionTFI
             dgv_clientes.Columns[2].HeaderText = "Numero de compras";
         }
 
-        
+        #endregion
+
+
     }
 }

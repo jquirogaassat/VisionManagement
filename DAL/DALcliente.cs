@@ -14,10 +14,10 @@ namespace DAL
     public class DALcliente : BE.ICRUd<BE.BEcliente>
     {
         private string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
-        DAL.DALdigitoverificador dv= new DALdigitoverificador();
-        SqlHelper helper = new SqlHelper();
-        
+        private DALdigitoverificador dv= new DALdigitoverificador();
+        private SqlHelper helper = new SqlHelper();
 
+        #region ABM's
         public bool Alta(BEcliente itemAlta)
         {
             SqlParameter[] parametros = new SqlParameter[]
@@ -31,7 +31,7 @@ namespace DAL
                 new SqlParameter("telefono",itemAlta.Telefono),
             };
 
-            int nuevoClienteID= helper.ExecuteQueryPRUEBA("clienteInsert",parametros);
+            int nuevoClienteID = helper.ExecuteQueryPRUEBA("clienteInsert", parametros);
             int dvh = dv.CalcularDVH(ConsultarClienteDT(nuevoClienteID), 0);
             dv.CargarDVH("Cliente", nuevoClienteID, dvh);
             int dvv = dv.CalcularDVV("Cliente");
@@ -43,9 +43,9 @@ namespace DAL
 
             //itemAlta.IdUsuario = nuevoId;
             //return dvDal.CargarDVV(2, dvv);
-            return nuevoClienteID > 0; 
+            return nuevoClienteID > 0;
         }
-        
+
         public bool Baja(BEcliente itemBaja)
         {
             SqlParameter[] parametros = new SqlParameter[]
@@ -53,13 +53,13 @@ namespace DAL
                 new SqlParameter("idCliente",itemBaja.IdCliente),
             };
             bool resultado = helper.ExecuteQuery("clienteBajaLogica", parametros);
-            if(resultado)
+            if (resultado)
             {
                 return true;
             }
 
             return resultado;
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public IList<BEcliente> Lista()
@@ -69,13 +69,13 @@ namespace DAL
 
         public List<BEcliente> Listar()
         {
-           SqlParameter [] parametros = new SqlParameter[]
-                {};
+            SqlParameter[] parametros = new SqlParameter[]
+                 {};
             DataTable dt = helper.ExecuteReader("clienteSelect", parametros);
             List<BE.BEcliente> clientes = new List<BEcliente>();
             Mappers.MPcliente map = new Mappers.MPcliente();
 
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 clientes.Add(map.Map(row));
             }
@@ -101,11 +101,11 @@ namespace DAL
 
             helper.ExecuteQuery("clienteUpdate", parametros);
             int dvh = dv.CalcularDVH(ConsultarClienteDT(itemModifica.IdCliente), 0);
-            dv.CargarDVH("CLiente",itemModifica.IdCliente, 0);
+            dv.CargarDVH("CLiente", itemModifica.IdCliente, 0);
             int dvv = dv.CalcularDVV("Cliente");
 
 
-            return dv.CargarDVV(3,dvv);
+            return dv.CargarDVV(3, dvv);
         }
 
         public DataTable ConsultarClienteDT(int idCliente)
@@ -119,7 +119,9 @@ namespace DAL
             return dt;
         }
 
+        #endregion
 
+        #region INforme
         public DataTable CargarInforme()
         {
             DataTable DT = new DataTable();
@@ -149,5 +151,7 @@ namespace DAL
             return DT;
 
         }
+        #endregion
+
     }
 }

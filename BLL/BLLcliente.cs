@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 namespace BLL
 {
     public class BLLcliente : BE.ICRUd<BE.BEcliente>
-    {
-          
+    {          
         DAL.DALcliente clienteDal = new DAL.DALcliente();
         BLL.BLLencriptacion encriptar = new BLL.BLLencriptacion();
+
+        #region ABM's
         public bool Alta(BEcliente item)
-        {            
+        {
             item.Telefono = encriptar.encriptarAES(item.Telefono);
             item.Direccion = encriptar.encriptarAES(item.Direccion);
             item.Localidad = encriptar.encriptarAES(item.Localidad);
@@ -36,11 +37,11 @@ namespace BLL
         }
 
         public List<BEcliente> Listar()
-        {  
+        {
             List<BEcliente> lista = new List<BEcliente>();
             lista = clienteDal.Listar();
-            int i = 0; 
-            while(i< lista.Count)
+            int i = 0;
+            while (i < lista.Count)
             {
                 lista[i] = Desencriptar(lista[i]);
                 i++;
@@ -57,8 +58,6 @@ namespace BLL
             return clienteBE;
         }
 
-        
-
         public bool Modificar(BEcliente item)
         {
             item.Telefono = encriptar.encriptarAES(item.Telefono);
@@ -73,9 +72,14 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region Informe
         public DataTable CargarInforme()
         {
             return clienteDal.CargarInforme();
         }
+        #endregion
+
     }
 }

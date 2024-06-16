@@ -10,6 +10,7 @@ namespace BLL
 {
     public class BLLarticulo : BE.ICRUd<BE.BEarticulo>
     {
+        #region ABM's
         //Alta articulo
         public bool Alta(BEarticulo itemAlta)
         {
@@ -40,10 +41,14 @@ namespace BLL
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Reporte
         public DataTable CargarInforme()
         {
             return DAL.DALarticulo.GetInstancia().CargarInforme();
         }
+        #endregion
+
     }
 }
