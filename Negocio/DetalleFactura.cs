@@ -264,10 +264,7 @@ namespace VisionTFI
             try
             {
                 // Generar el PDF
-                
-
                 string directorioFacturas = @"C:\Users\Usuario\Desktop\FacturasVM";
-
                 string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
                 DateTime fecha = DateTime.Now;
                 string nombreArchivo = $"Factura_{nombreCliente}_{fecha:yyyyMMdd_HHmmss}.pdf";

@@ -131,13 +131,14 @@ namespace DAL
                 string query = @"SELECT 
                                         c.idCliente AS NumeroDeCliente,
                                         c.Nombre AS NombreCliente,
+                                        c.Apellido AS ApellidoCliente,
                                         COUNT(f.idFactu) AS NumeroCompras
                                     FROM 
                                         Cliente c
                                     JOIN 
                                         Factura f ON c.idCliente = f.IdCliente
                                     GROUP BY 
-                                        c.idCliente, c.Nombre
+                                        c.idCliente, c.Nombre, c.Apellido
                                     ORDER BY 
                                         NumeroCompras DESC";
 

@@ -155,6 +155,7 @@
             this.btn_imprimirProductos.TabIndex = 48;
             this.btn_imprimirProductos.Text = "Imprmir";
             this.btn_imprimirProductos.UseVisualStyleBackColor = true;
+            this.btn_imprimirProductos.Click += new System.EventHandler(this.btn_imprimirProductos_Click);
             // 
             // btn_imprimirClientes
             // 
@@ -164,6 +165,7 @@
             this.btn_imprimirClientes.TabIndex = 49;
             this.btn_imprimirClientes.Text = "Imprimir";
             this.btn_imprimirClientes.UseVisualStyleBackColor = true;
+            this.btn_imprimirClientes.Click += new System.EventHandler(this.btn_imprimirClientes_Click);
             // 
             // btn_salir
             // 
