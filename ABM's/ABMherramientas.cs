@@ -184,13 +184,10 @@ namespace VisionTFI
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
-        //private void ValorizarBitacoraC(BE.BEbitacoraC bitacoraC)
-        //{
-        //    bitacoraC.
-        //}
+      
 
 
     }

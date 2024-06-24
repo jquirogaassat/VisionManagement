@@ -199,7 +199,7 @@
             this.btn_serializar.Name = "btn_serializar";
             this.btn_serializar.Size = new System.Drawing.Size(92, 31);
             this.btn_serializar.TabIndex = 29;
-            this.btn_serializar.Text = "Serializar";
+            this.btn_serializar.Text = "Marshalling";
             this.btn_serializar.UseVisualStyleBackColor = true;
             this.btn_serializar.Click += new System.EventHandler(this.btn_serializar_Click);
             // 
@@ -209,7 +209,7 @@
             this.btn_deserializar.Name = "btn_deserializar";
             this.btn_deserializar.Size = new System.Drawing.Size(92, 31);
             this.btn_deserializar.TabIndex = 30;
-            this.btn_deserializar.Text = "Deserializar";
+            this.btn_deserializar.Text = "Unmarshalling";
             this.btn_deserializar.UseVisualStyleBackColor = true;
             this.btn_deserializar.Click += new System.EventHandler(this.btn_deserializar_Click);
             // 

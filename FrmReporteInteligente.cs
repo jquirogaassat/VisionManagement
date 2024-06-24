@@ -146,12 +146,11 @@ namespace VisionTFI
                 string nombreEmpresa = "VisionManagement SRL";
                 string domicilio = " Tacuari 1353 - 1103 - Ciudad Autonoma de Buenos Aires ";
                 DateTime fechaFactu = DateTime.Now;
-                // string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
-                // string apellidoCliente = dg_cliente.CurrentRow.Cells[1].Value.ToString();
+               
 
                 //pongo los encabezados
                 Table encabezado1 = new Table(1).SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.TOP).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-                Cell tipo = new Cell().Add(new Paragraph("Informe")).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(15);
+                Cell tipo = new Cell().Add(new Paragraph("Informe de productos mas comprados")).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetBold().SetFontSize(15);
                 encabezado1.AddCell(tipo);
                 documento.Add(encabezado1);
                 documento.Add(new Paragraph("\n"));
