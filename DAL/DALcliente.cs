@@ -22,13 +22,13 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("apellido", itemAlta.Apellido),
-                new SqlParameter("nombre", itemAlta.Nombre),
-                new SqlParameter("cuit",itemAlta.Cuit),
-                new SqlParameter("mail", itemAlta.Email),
-                new SqlParameter("direccion",itemAlta.Direccion),
-                new SqlParameter("localidad",itemAlta.Localidad),
-                new SqlParameter("telefono",itemAlta.Telefono),
+                new SqlParameter("apellido", itemAlta.Apellido),//si
+                new SqlParameter("nombre", itemAlta.Nombre),//si
+                new SqlParameter("cuit",itemAlta.Cuit),//si
+                new SqlParameter("mail", itemAlta.Email),//si
+                new SqlParameter("direccion",itemAlta.Direccion),//si
+                new SqlParameter("localidad",itemAlta.Localidad),//si
+                new SqlParameter("telefono",itemAlta.Telefono),//si
             };
 
             int nuevoClienteID = helper.ExecuteQueryPRUEBA("clienteInsert", parametros);
@@ -105,7 +105,7 @@ namespace DAL
             int dvv = dv.CalcularDVV("Cliente");
 
 
-            return dv.CargarDVV(3, dvv);
+            return dv.CargarDVV(4, dvv);
         }
 
         public DataTable ConsultarClienteDT(int idCliente)
@@ -132,7 +132,7 @@ namespace DAL
                                         c.idCliente AS NumeroDeCliente,
                                         c.Nombre AS NombreCliente,
                                         c.Apellido AS ApellidoCliente,
-                                        COUNT(f.idFactu) AS NumeroCompras
+                                        COUNT(f.idFactura) AS NumeroCompras
                                     FROM 
                                         Cliente c
                                     JOIN 

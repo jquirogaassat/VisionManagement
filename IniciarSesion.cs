@@ -161,6 +161,7 @@ namespace VisionTFI
                         if (txt_usuario.Text != "admin")
                         {
                             MessageBox.Show("¡Sistema inhabilitado, por favor comuniquese con su administrador!");
+                            usuarioBLL.Logout(usuarioLog);
                             this.Focus();
                         }
                         else

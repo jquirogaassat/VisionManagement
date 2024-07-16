@@ -22,7 +22,37 @@ namespace DAL
          En esta clase se observan metodos modificados a los genericos, se que estan mal pero la base de datos la tenia modificada y
         tuve que recurrir a harcodear algunos metodos.
          */
-       
+
+        //public int CalcularDVH(DataTable dt, int id = 0)
+        //{
+        //    if (dt == null || dt.Rows.Count == 0)
+        //        throw new ArgumentException("La tabla de datos está vacía.");
+
+        //    if (id < 0 || id >= dt.Rows.Count)
+        //        throw new ArgumentOutOfRangeException("El id proporcionado está fuera del rango de filas.");
+
+        //    int cantidadColumnas = dt.Columns.Count;
+        //    if (cantidadColumnas == 0)
+        //        throw new ArgumentException("La tabla de datos no tiene columnas.");
+
+        //    StringBuilder str0 = new StringBuilder();
+
+        //    for (int a = 0; a < cantidadColumnas - 1; a++)
+        //    {
+        //        if (dt.Rows[id][a] != DBNull.Value)
+        //            str0.Append(dt.Rows[id][a].ToString());
+        //    }
+
+        //    int sumaASCII = 0;
+        //    byte[] asciiBytes = Encoding.ASCII.GetBytes(str0.ToString());
+        //    for (int i = 0; i < asciiBytes.Length; i++)
+        //    {
+        //        sumaASCII += asciiBytes[i] * (i + 1); // (i + 1) para evitar multiplicar por 0
+        //    }
+
+        //    return sumaASCII;
+        //} //este es una version mejorada, lo voy a probar
+
         public int CalcularDVH(DataTable dt, int id = 0)
         {
             if (dt == null || dt.Rows.Count == 0)
@@ -37,10 +67,14 @@ namespace DAL
 
             StringBuilder str0 = new StringBuilder();
 
+            Console.WriteLine("Calculando DVH para la fila ID: " + id);
             for (int a = 0; a < cantidadColumnas - 1; a++)
             {
                 if (dt.Rows[id][a] != DBNull.Value)
+                {
                     str0.Append(dt.Rows[id][a].ToString());
+                    Console.WriteLine($"Columna: {dt.Columns[a].ColumnName}, Valor: {dt.Rows[id][a]}");
+                }
             }
 
             int sumaASCII = 0;
@@ -50,17 +84,15 @@ namespace DAL
                 sumaASCII += asciiBytes[i] * (i + 1); // (i + 1) para evitar multiplicar por 0
             }
 
-            return sumaASCII;
-        } //este es una version mejorada, lo voy a probar
+            Console.WriteLine("DVH Calculado: " + sumaASCII);
 
+            return sumaASCII;
+        }
 
         public int CalcularDVV(string nombreTabla)
         {   
-            string idCampo = "id" + nombreTabla;
-            if (idCampo == "idFactura")
-                idCampo = "idFactu";
-            if (idCampo == "idEstado_Herramienta")
-                idCampo="idEstadoHerramienta";
+            string idCampo = "id" + nombreTabla;        
+           
             string query = "if((select COUNT(" + idCampo + ") from " + nombreTabla + ")>0) select sum(dvh)" + "from "
                                                             + nombreTabla + " else select 0";
 
@@ -88,13 +120,13 @@ namespace DAL
 
         public bool CargarDVH(string nombreTabla, int id, int dvh)
         {
-            if (nombreTabla == "Factura")
-            {
-                var nombreTabla1 = nombreTabla;
-                nombreTabla1 = "Factu";
-                string query1 = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla1 + "=" + id;
-                return sqlHelper.ExecuteQuery(query1);
-            }
+            //if (nombreTabla == "Factura")
+            //{
+            //    var nombreTabla1 = nombreTabla;
+            //    nombreTabla1 = "Factu";
+            //    string query1 = @"update " + nombreTabla + " set dvh = " + dvh + " where id" + nombreTabla1 + "=" + id;
+            //    return sqlHelper.ExecuteQuery(query1);
+            //}
 
             if(nombreTabla =="Estado_Herramienta")
             {
@@ -132,13 +164,13 @@ namespace DAL
                 int i = 0;
                 int filas = tabla.Rows.Count;
                 string idTabla = "id" + nombreTabla[t];
-                if (idTabla == "idFactura")
-                    idTabla = "idFactu";
+               
                 if (idTabla == "idEstado_Herramienta")
                     idTabla = "idEstadoHerramienta";
                 while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
+                    Console.WriteLine($"Verificando DVH para la tabla: {nombreTabla[t]}, ID: {idDVH}");
                     int dvhCalculo = CalcularDVH(tabla, i);
                     int DVHdb = (int)tabla.Rows[i]["dvh"];
 
@@ -167,19 +199,18 @@ namespace DAL
             string query;
 
             List<string> nombresTablas = new List<string>();
-            nombresTablas.Add("Bitacora"); // si 
-            //nombresTablas.Add("Usuario");//si
+            nombresTablas.Add("Bitacora"); // si            
             nombresTablas.Add("Articulo");//si
             nombresTablas.Add("Cliente");// si
             nombresTablas.Add("Herramienta");//si
             nombresTablas.Add("Factura");// si
             nombresTablas.Add("Prestamo");// si
-            nombresTablas.Add("Estado_Herramienta");//si
+        
             List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);
 
             int t = 0;
 
-
+         
             while (t < digitosVerticales.Count)
             {
                 query = @"select * from " + nombresTablas[t];
@@ -187,23 +218,24 @@ namespace DAL
                 int i = 0;
                 int filas = tabla.Rows.Count;
 
-
                 string idTabla = "id" + nombresTablas[t];
-                if (idTabla == "idFactura")
-                    idTabla = "idFactu";
-                if (idTabla == "idEstado_Herramienta")
-                    idTabla = "idEstadoHerramienta";
+
+                //if (idTabla == "idEstado_Herramienta")
+                //    idTabla = "idEstadoHerramienta";
+
                 while (i < filas)
                 {
                     int idDVH = (int)tabla.Rows[i][idTabla];
+                    Console.WriteLine($"Verificando DVH para la tabla: {nombresTablas[t]}, ID: {idDVH}");
+
                     int dvhCalculo = CalcularDVH(tabla, i);
-                    int dvhDb = 0;
-                    dvhDb = (int)tabla.Rows[i]["dvh"];
+                    int dvhDb = (int)tabla.Rows[i]["dvh"];
+                    Console.WriteLine($"DVH Calculado: {dvhCalculo}, DVH en DB: {dvhDb}");
+
                     if (dvhCalculo != dvhDb)
                     {
                         idError++;
                         errores.Add(new BE.BEerror(idError, nombresTablas[t], "dvh", idDVH));
-                        
                     }
                     i++;
                 }
@@ -217,11 +249,10 @@ namespace DAL
                 }
                 t++;
             }
+        
             ArreglarDigitos(nombresTablas, digitosVerticales);
 
             return errores;
-
-
         }// metodo para comprobar integridad
 
         public List<BE.BEtabla> Consulta(List<string> tabla)

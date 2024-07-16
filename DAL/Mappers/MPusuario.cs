@@ -21,7 +21,7 @@ namespace DAL.Mappers
                 DVH= (int)row["dvh"],
                 Direccion= (string)row["direccion"],
                 FechaNacimiento = (DateTime)row["fechaNacimiento"],              
-                IsBlocked = (string)row["IsBlocked"],              
+               // IsBlocked = (string)row["IsBlocked"],              
                 Mail= (string)row["mail"],
                 usuario= (string)row["usuario"],
                 UserPass= (string)row["userPass"],

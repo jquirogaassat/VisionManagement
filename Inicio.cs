@@ -74,60 +74,8 @@ namespace VisionTFI
 
             dgv_errores.Show();
 
-           // ExportarToExcel(Globa.errores);
-           // label2.Text = "Administrador";
-        }
-
-        //public void ExportarToExcel(List<BEerror> errores)
-        //{
-        //    using (var workbook = new XLWorkbook())
-        //    {
-        //        var worksheet = workbook.Worksheets.Add("Errores");
-        //        int fila = 1;
-
-        //        worksheet.Cell(fila, 1).Value = "idError";
-        //        worksheet.Cell(fila, 2).Value = "tabla";
-        //        worksheet.Cell(fila, 3).Value = "tipoError";
-        //        worksheet.Cell(fila, 4).Value = "id";
-
-        //        foreach (BEerror error in errores)
-        //        {
-        //            fila++;
-        //            worksheet.Cell(fila, 1).Value = error.idError;
-        //            worksheet.Cell(fila, 2).Value = error.tabla;
-        //            worksheet.Cell(fila, 3).Value = error.tipoError;
-        //            worksheet.Cell(fila, 4).Value = error.id;
-        //        }
-
-        //        workbook.SaveAs(@"C:\Users\Usuario\Desktop\ErroresBitacora.xlsx");
-        //    }
-        //}
-
-
-        //public void exportarToExcel2(List<BEerror> errores)
-        //{
-        //    SLDocument sl = new SLDocument();
-
-        //    sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "Algo");
-        //    int fila = 1;
-
-        //    sl.SetCellValue("A" + fila, "idError");
-        //    sl.SetCellValue("B" + fila, "tabla");
-        //    sl.SetCellValue("C" + fila, "tipoError");
-        //    sl.SetCellValue("D" + fila, "id");
-
-        //    foreach (BEerror error in errores)
-        //    {
-        //        fila++;
-        //        sl.SetCellValue("A" + fila, error.idError);
-        //        sl.SetCellValue("B" + fila, error.tabla);
-        //        sl.SetCellValue("C" + fila, error.tipoError);
-        //        sl.SetCellValue("D" + fila, error.id);
-        //    }
-
-        //    sl.SaveAs(@"C:\Users\Usuario\Desktop\ErroresBitacora.xlsx");
-      
-        //}
+        
+        }       
 
         private void btn_restore_Click(object sender, EventArgs e)
         {

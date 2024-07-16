@@ -39,22 +39,24 @@ namespace DAL
             int dvh = _dvdal.CalcularDVH(consultarPrestamoDT(nuevoID), 0);
             _dvdal.CargarDVH("Prestamo", nuevoID, dvh);
             int dvv = _dvdal.CalcularDVV("Prestamo");
-            _dvdal.CargarDVV(7, dvv);
+            //_dvdal.CargarDVV(7, dvv);
 
-            parametros = new SqlParameter[]
-            {
-                new SqlParameter("@idHerramienta",prestamo.Herramienta.Id),
-                new SqlParameter("@idEstado", 2),
-                new SqlParameter("fecha",prestamo.FechaInicio),
-            };
+            //parametros = new SqlParameter[]
+            //{
+            //    new SqlParameter("@idHerramienta",prestamo.Herramienta.Id),                
+            //    new SqlParameter("@fecha",prestamo.FechaInicio),
+            //    new SqlParameter("@idEstado", 2),
+            //};
 
-            nuevoID = _sqlHelper.ExecuteQueryPRUEBA("herramientaEstadoInsert", parametros); // store procedure ok
 
-            dvh = _dvdal.CalcularDVH(_herramientaD.ConsultarHerramientaEstadoDT(nuevoID), 0);
-            _dvdal.CargarDVHp("Estado_Herramienta", nuevoID, dvh);
-            dvv = _dvdal.CalcularDVVp("Estado_Herramienta");
+            //nuevoID = _sqlHelper.ExecuteQueryPRUEBA("herramientaEstadoInsert", parametros); // store procedure ok
 
-            return _dvdal.CargarDVV(8, dvv);
+            //dvh = _dvdal.CalcularDVH(_herramientaD.ConsultarHerramientaEstadoDT(nuevoID), 0);
+            //_dvdal.CargarDVHp("Estado_Herramienta", nuevoID, dvh);
+            //dvv = _dvdal.CalcularDVVp("Estado_Herramienta");
+
+            /*return _dvdal.CargarDVV(8, dvv)*///;
+            return _dvdal.CargarDVV(9, dvv);
         }
         #endregion
 
@@ -99,7 +101,7 @@ namespace DAL
                 new SqlParameter("idPrestamo",idPrestamo),
             };
 
-            DataTable dt = _sqlHelper.ExecuteReader("prestamoConsultar", parametros);// store procedure ok
+            DataTable dt = _sqlHelper.ExecuteReader("prestamoConsultarPorID", parametros);// store procedure ok
             return dt;
 
         }

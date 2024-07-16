@@ -59,7 +59,7 @@ namespace DAL
 
 
 
-            return dvDal.CargarDVV(4, dvv);
+            return dvDal.CargarDVV(3, dvv);
         }
 
         public bool Baja(BEarticulo itemBaja)
@@ -96,7 +96,7 @@ namespace DAL
             int dvh = dvDal.CalcularDVH(consultarArticuloDT(itemModifica.Id), 0);
             dvDal.CargarDVH("Articulo", itemModifica.Id, dvh);
             int dvv = dvDal.CalcularDVV("Articulo");
-            return dvDal.CargarDVV(4, dvv);
+            return dvDal.CargarDVV(3, dvv);
         }
 
         public List<BEarticulo> Listar()

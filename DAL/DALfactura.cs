@@ -30,9 +30,9 @@ namespace DAL
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Factura (IdCliente, Fecha) OUTPUT INSERTED.idFactu VALUES (@IdCliente, @Fecha)", conn);
-                cmd.Parameters.AddWithValue("@IdCliente", factura.IdCliente);
-                cmd.Parameters.AddWithValue("@Fecha", factura.Fecha);
+                    "INSERT INTO Factura (idCliente, fecha) OUTPUT INSERTED.idFactura VALUES (@idCliente, @fecha)", conn);
+                cmd.Parameters.AddWithValue("@idCliente", factura.IdCliente);
+                cmd.Parameters.AddWithValue("@fecha", factura.Fecha);
 
                 // Obtener el ID generado
                 int newId = (int)cmd.ExecuteScalar();
@@ -40,7 +40,7 @@ namespace DAL
                 int dvh = dvDAL.CalcularDVH(ConsultarFacturaDT(newId), 0);
                 dvDAL.CargarDVH("Factura", newId, dvh);
                 int dvv = dvDAL.CalcularDVV("Factura");
-                dvDAL.CargarDVV(5, dvv);
+                dvDAL.CargarDVV(6, dvv);
                 return newId;
             }
         }
@@ -50,7 +50,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("@id_factu",facBaja.Id),
+                new SqlParameter("@idFactura",facBaja.Id),
             };
 
             bool returnValue= sqlHelper.ExecuteQuery(spDelete, parametros);
@@ -76,7 +76,7 @@ namespace DAL
                      SELECT 
                         c.Nombre,
 	                    c.apellido,
-                        f.IdFactu,
+                        f.idFactura,
 	                    f.fecha,
                         SUM(df.Cantidad * a.precio) AS TotalFactura
                     FROM 
@@ -84,13 +84,13 @@ namespace DAL
                     INNER JOIN 
                         Factura f ON c.idCliente = f.idCliente
                     INNER JOIN 
-                        DetalleFactura df ON f.IdFactu = df.IdFactura
+                        DetalleFactura df ON f.idFactura = df.idFactura
                     INNER JOIN
 	                    Articulo a ON df.idArticulo = a.idArticulo
                     GROUP BY 
-                        c.Nombre,c.apellido, f.idFactu, f.fecha
+                        c.Nombre,c.apellido, f.idFactura, f.fecha
                     ORDER BY 
-                        f.idFactu";
+                        f.idFactura";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -152,7 +152,7 @@ namespace DAL
         {
             SqlParameter[] parameters = new SqlParameter[]
            {
-                new SqlParameter("idFactu",idFactura),
+                new SqlParameter("idFactura",idFactura),
            };
             return sqlHelper.ExecuteReader("facturaConsultarPorID", parameters);
         }
