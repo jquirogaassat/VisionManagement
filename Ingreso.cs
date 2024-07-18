@@ -40,7 +40,28 @@ namespace VisionTFI
             {
                 timer2.Stop();
                 this.Hide();
-                Globa.IniciarSesion.ShowDialog();
+                BLL.BLLconexion conexion = new BLL.BLLconexion();
+                if (conexion.ComprobarConexion())
+                {
+                    BLL.BLLdigitoverificador DV = new BLL.BLLdigitoverificador();
+                    Globa.errores = DV.ComprobarIntegridad();
+                    if (Globa.errores.Count > 0)
+                    {
+                        Inicio inicio = new Inicio();
+                        inicio.Show();
+                    }
+                    else
+                    {
+                        Globa.IniciarSesion.ShowDialog();
+                    }
+                }
+                else
+                {
+                    Conexion _conexion = new Conexion();
+                    _conexion.Show();
+                }
+                
+                
           
             }
         }

@@ -36,6 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_restore = new System.Windows.Forms.Button();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.lbl_pass = new System.Windows.Forms.Label();
+            this.txt_usuario = new System.Windows.Forms.TextBox();
+            this.txt_pass = new System.Windows.Forms.TextBox();
+            this.btn_submit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_errores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +67,7 @@
             // btn_login
             // 
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_login.Location = new System.Drawing.Point(283, 183);
+            this.btn_login.Location = new System.Drawing.Point(146, 183);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(110, 23);
             this.btn_login.TabIndex = 2;
@@ -73,9 +78,9 @@
             // btn_salir
             // 
             this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_salir.Location = new System.Drawing.Point(434, 183);
+            this.btn_salir.Location = new System.Drawing.Point(276, 183);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
+            this.btn_salir.Size = new System.Drawing.Size(104, 23);
             this.btn_salir.TabIndex = 3;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
@@ -112,7 +117,7 @@
             // btn_restore
             // 
             this.btn_restore.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_restore.Location = new System.Drawing.Point(139, 183);
+            this.btn_restore.Location = new System.Drawing.Point(17, 183);
             this.btn_restore.Name = "btn_restore";
             this.btn_restore.Size = new System.Drawing.Size(110, 23);
             this.btn_restore.TabIndex = 7;
@@ -120,12 +125,62 @@
             this.btn_restore.UseVisualStyleBackColor = true;
             this.btn_restore.Click += new System.EventHandler(this.btn_restore_Click);
             // 
+            // lbl_usuario
+            // 
+            this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_usuario.Location = new System.Drawing.Point(559, 65);
+            this.lbl_usuario.Name = "lbl_usuario";
+            this.lbl_usuario.Size = new System.Drawing.Size(43, 13);
+            this.lbl_usuario.TabIndex = 8;
+            this.lbl_usuario.Text = "Usuario";
+            // 
+            // lbl_pass
+            // 
+            this.lbl_pass.AutoSize = true;
+            this.lbl_pass.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_pass.Location = new System.Drawing.Point(559, 103);
+            this.lbl_pass.Name = "lbl_pass";
+            this.lbl_pass.Size = new System.Drawing.Size(61, 13);
+            this.lbl_pass.TabIndex = 9;
+            this.lbl_pass.Text = "Contraseña";
+            // 
+            // txt_usuario
+            // 
+            this.txt_usuario.Location = new System.Drawing.Point(634, 58);
+            this.txt_usuario.Name = "txt_usuario";
+            this.txt_usuario.Size = new System.Drawing.Size(149, 20);
+            this.txt_usuario.TabIndex = 10;
+            // 
+            // txt_pass
+            // 
+            this.txt_pass.Location = new System.Drawing.Point(634, 100);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.PasswordChar = '*';
+            this.txt_pass.Size = new System.Drawing.Size(149, 20);
+            this.txt_pass.TabIndex = 11;
+            // 
+            // btn_submit
+            // 
+            this.btn_submit.Location = new System.Drawing.Point(634, 137);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Size = new System.Drawing.Size(75, 23);
+            this.btn_submit.TabIndex = 12;
+            this.btn_submit.Text = "Submit";
+            this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(533, 238);
+            this.ClientSize = new System.Drawing.Size(795, 238);
+            this.Controls.Add(this.btn_submit);
+            this.Controls.Add(this.txt_pass);
+            this.Controls.Add(this.txt_usuario);
+            this.Controls.Add(this.lbl_pass);
+            this.Controls.Add(this.lbl_usuario);
             this.Controls.Add(this.btn_restore);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -155,5 +210,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_restore;
+        private System.Windows.Forms.Label lbl_usuario;
+        private System.Windows.Forms.Label lbl_pass;
+        private System.Windows.Forms.TextBox txt_usuario;
+        private System.Windows.Forms.TextBox txt_pass;
+        private System.Windows.Forms.Button btn_submit;
     }
 }

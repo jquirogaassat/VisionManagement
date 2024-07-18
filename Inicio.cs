@@ -17,7 +17,8 @@ namespace VisionTFI
 {
     public partial class Inicio : Form
     {
-      
+        private BE.BEreusltadoLog resultado;
+
         public Inicio()
         {
             InitializeComponent();
@@ -73,8 +74,11 @@ namespace VisionTFI
             dgv_errores.Columns[3].HeaderText = "ID DEL ERROR";
 
             dgv_errores.Show();
-
-        
+            btn_login.Enabled = false;
+            btn_restore.Enabled = false;          
+            MessageBox.Show("¡Sistema inhabilitado, por favor comuniquese con su administrador!");                            
+            this.Focus();
+           
         }       
 
         private void btn_restore_Click(object sender, EventArgs e)
@@ -83,5 +87,43 @@ namespace VisionTFI
             this.Hide();
 
         }
+
+        private void btn_submit_Click(object sender, EventArgs e)
+        {
+            BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
+            BE.BEusuario usuarioLog = new BE.BEusuario();
+            usuarioLog.usuario = txt_usuario.Text;
+            usuarioLog.UserPass = txt_pass.Text;
+            usuarioLog = usuarioBLL.Encriptar(usuarioLog);
+            string pass = usuarioLog.UserPass;
+            resultado = usuarioBLL.Login(usuarioLog);
+
+            if (resultado == BE.BEreusltadoLog.LoginCorrecto)
+            {
+                if (txt_usuario.Text == "admin")
+                {
+                    btn_login.Enabled = true;
+                    btn_restore.Enabled = true;    
+                }
+                else
+                {
+                    MessageBox.Show("Por favor pongase en contacto con el administrador.");
+                    this.Focus();
+                    txt_usuario.Clear();
+                    txt_pass.Clear();
+                    usuarioBLL.Logout(usuarioLog);
+                }
+            }
+
+        }
+
+
+     
+
+
+
+
+
+
     }
 }

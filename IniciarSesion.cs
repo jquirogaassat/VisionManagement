@@ -111,11 +111,6 @@ namespace VisionTFI
         private void IniciarSesion_Load(object sender, EventArgs e)
         {
             this.Focus();
-
-            txt_usuario.Text = "admin";
-            txt_pass.Text = "admin123";
-
-
             inicioToolStripMenuItem.Visible = true;
             seguridadToolStripMenuItem.Visible = false;
             idiomaToolStripMenuItem.Visible = false;
@@ -143,46 +138,40 @@ namespace VisionTFI
                 {
                     MessageBox.Show("Usted debe cambiar su contraseña!");
                     CambiarContraseña cambiarPass = new CambiarContraseña();
-                    cambiarPass.Show();                  
+                    cambiarPass.Show();
                     LimpiarCombos();
                     ValorizarBitacora(bitacoraBE, "Medio", "Se cambio contraseña", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                     bitacoraBLL.Alta(bitacoraBE);
-
                 }
-                BLL.BLLconexion conexion = new BLL.BLLconexion();
+                // BLL.BLLconexion conexion = new BLL.BLLconexion();
 
-                if (conexion.ComprobarConexion())
-                {
+                //if (conexion.ComprobarConexion())
+                //{
 
-                    BLL.BLLdigitoverificador dv = new BLL.BLLdigitoverificador();
-                    Globa.errores = dv.ComprobarIntegridad();
-                    if (Globa.errores.Count > 0)
-                    {
-                        if (txt_usuario.Text != "admin")
-                        {
-                            MessageBox.Show("¡Sistema inhabilitado, por favor comuniquese con su administrador!");
-                            usuarioBLL.Logout(usuarioLog);
-                            this.Focus();
-                        }
-                        else
-                        {
-                            Inicio inicio = new Inicio();
-                            inicio.Show();
-                            this.Hide();
-                        }
-                    }
-                    else
-                    {
-                        Globa.menuPrincipal = new MenuPrincipal();
-                        Globa.menuPrincipal.Show();
-                        this.Hide();
-                        LimpiarCombos();
-                        ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
-                        bitacoraBLL.Alta(bitacoraBE);
-                        
-                    }
-                }
+                //    BLL.BLLdigitoverificador dv = new BLL.BLLdigitoverificador();
+                //    Globa.errores = dv.ComprobarIntegridad();
+                //    if (Globa.errores.Count > 0)
+                //    {
+                //        if (txt_usuario.Text != "admin")
+                //        {
+                //            MessageBox.Show("¡Sistema inhabilitado, por favor comuniquese con su administrador!");
+                //            usuarioBLL.Logout(usuarioLog);
+                //            this.Focus();
+                //        }
+                //        else
+                //        {
+                //            Inicio inicio = new Inicio();
+                //            inicio.Show();
+                //            this.Hide();
+                //        }
+                //    }             
 
+                Globa.menuPrincipal = new MenuPrincipal();
+                Globa.menuPrincipal.Show();
+                this.Hide();
+                LimpiarCombos();
+                ValorizarBitacora(bitacoraBE, "BAJO", "Se inicio sesion", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
+                bitacoraBLL.Alta(bitacoraBE);
 
             }
             else

@@ -22,36 +22,7 @@ namespace DAL
          En esta clase se observan metodos modificados a los genericos, se que estan mal pero la base de datos la tenia modificada y
         tuve que recurrir a harcodear algunos metodos.
          */
-
-        //public int CalcularDVH(DataTable dt, int id = 0)
-        //{
-        //    if (dt == null || dt.Rows.Count == 0)
-        //        throw new ArgumentException("La tabla de datos está vacía.");
-
-        //    if (id < 0 || id >= dt.Rows.Count)
-        //        throw new ArgumentOutOfRangeException("El id proporcionado está fuera del rango de filas.");
-
-        //    int cantidadColumnas = dt.Columns.Count;
-        //    if (cantidadColumnas == 0)
-        //        throw new ArgumentException("La tabla de datos no tiene columnas.");
-
-        //    StringBuilder str0 = new StringBuilder();
-
-        //    for (int a = 0; a < cantidadColumnas - 1; a++)
-        //    {
-        //        if (dt.Rows[id][a] != DBNull.Value)
-        //            str0.Append(dt.Rows[id][a].ToString());
-        //    }
-
-        //    int sumaASCII = 0;
-        //    byte[] asciiBytes = Encoding.ASCII.GetBytes(str0.ToString());
-        //    for (int i = 0; i < asciiBytes.Length; i++)
-        //    {
-        //        sumaASCII += asciiBytes[i] * (i + 1); // (i + 1) para evitar multiplicar por 0
-        //    }
-
-        //    return sumaASCII;
-        //} //este es una version mejorada, lo voy a probar
+              
 
         public int CalcularDVH(DataTable dt, int id = 0)
         {
@@ -87,7 +58,7 @@ namespace DAL
             Console.WriteLine("DVH Calculado: " + sumaASCII);
 
             return sumaASCII;
-        }
+        }// este es una version mejorada, le agregue los console para comprobar
 
         public int CalcularDVV(string nombreTabla)
         {   
@@ -204,8 +175,7 @@ namespace DAL
             nombresTablas.Add("Cliente");// si
             nombresTablas.Add("Herramienta");//si
             nombresTablas.Add("Factura");// si
-            nombresTablas.Add("Prestamo");// si
-        
+           
             List<BE.BEtabla> digitosVerticales = Consulta(nombresTablas);
 
             int t = 0;
