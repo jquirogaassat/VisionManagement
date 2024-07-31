@@ -17,6 +17,7 @@ using System.Diagnostics;
 using iText.IO.Image;
 using Aspose.Pdf.Annotations;
 using iText.Kernel.Pdf.Canvas;
+using DocumentFormat.OpenXml.Vml;
 
 namespace VisionTFI
 {
@@ -35,6 +36,23 @@ namespace VisionTFI
         {
             RellenarDgvCliente();
             RellenarDgvProducto();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_totApagar.Text = IdiomaManager.info["lbl_totApagar"];
+            lblCantidad.Text = IdiomaManager.info["lblCantidad"];
+            btn_cargarArticulo.Text = IdiomaManager.info["btn_cargarArticulo"];
+            lbl_productos.Text = IdiomaManager.info["lbl_productos"];
+            lbl_clientes.Text = IdiomaManager.info["lbl_clientes"];
+            btn_generarFactura.Text = IdiomaManager.info["btn_generarFactura"]; 
         }
 
         public void RellenarDgvCliente()
@@ -187,7 +205,7 @@ namespace VisionTFI
                     throw new FileNotFoundException("El archivo no se encontro!");
                 }
                 
-                ImageData imageData = ImageDataFactory.Create(logoPath);
+                iText.IO.Image.ImageData imageData = ImageDataFactory.Create(logoPath);
                 iText.Layout.Element.Image logo = new iText.Layout.Element.Image(imageData).ScaleToFit(100, 100).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.LEFT);
                 documento.Add(logo);
 
@@ -270,7 +288,7 @@ namespace VisionTFI
                 string nombreArchivo = $"Factura_{nombreCliente}_{fecha:yyyyMMdd_HHmmss}.pdf";
 
                // string rutaArchivoPDF = Path.Combine(directorioFacturas, "Factura_" +nombreCliente+".pdf");
-                string rutaArchivoPDF = Path.Combine(directorioFacturas, nombreArchivo); 
+                string rutaArchivoPDF = System.IO.Path.Combine(directorioFacturas, nombreArchivo); 
 
                 GenerarFactura(rutaArchivoPDF);
                 // Verificar si el archivo existe

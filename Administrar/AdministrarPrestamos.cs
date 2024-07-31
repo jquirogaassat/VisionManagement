@@ -1,4 +1,6 @@
 ﻿using BE;
+using Microsoft.Win32;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +25,26 @@ namespace VisionTFI
             this.Focus();
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             ActualizarGrillaPrestamos();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
         }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_gestionaPrestamos.Text = IdiomaManager.info["lbl_gestionaPrestamos"];
+            lbl_herramientaM.Text = IdiomaManager.info["lbl_herramientaM"];
+            btn_buscarHerramientaM.Text = IdiomaManager.info["btn_buscarHerramientaM"];
+            btn_nuevoPrestamo.Text = IdiomaManager.info["btn_nuevoPrestamo"];
+            btn_devolucionPrestamo.Text = IdiomaManager.info["btn_devolucionPrestamo"];
+            btn_consultarPrestamo.Text = IdiomaManager.info["btn_consultarPrestamo"];
+            btn_reporteP.Text = IdiomaManager.info["btn_reporteP"];
+            btn_salirGestionarP.Text = IdiomaManager.info["btn_salirGestionarP"];
+        }
+
         public void Actualizar(BEusuario u)
         {
             throw new NotImplementedException();
@@ -70,8 +91,8 @@ namespace VisionTFI
 
         private void dgv_prestamos_MouseClick(object sender, MouseEventArgs e)
         {
-            btn_consultar.Enabled = true;
-            btn_devolucion.Enabled = true;
+            btn_consultarPrestamo.Enabled = true;
+            btn_devolucionPrestamo.Enabled = true;
 
             if (dgv_prestamos.SelectedRows.Count > 0)
             {

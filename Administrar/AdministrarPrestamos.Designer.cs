@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_gestionaPrestamos = new System.Windows.Forms.Label();
             this.dgv_prestamos = new System.Windows.Forms.DataGridView();
             this.txt_herramienta = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.btn_nuevo = new System.Windows.Forms.Button();
-            this.btn_devolucion = new System.Windows.Forms.Button();
-            this.btn_consultar = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.lbl_herramientaM = new System.Windows.Forms.Label();
+            this.btn_buscarHerramientaM = new System.Windows.Forms.Button();
+            this.btn_nuevoPrestamo = new System.Windows.Forms.Button();
+            this.btn_devolucionPrestamo = new System.Windows.Forms.Button();
+            this.btn_consultarPrestamo = new System.Windows.Forms.Button();
+            this.btn_salirGestionarP = new System.Windows.Forms.Button();
             this.btn_reporteP = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_prestamos)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_gestionaPrestamos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(494, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gestionar Prestamos";
+            this.lbl_gestionaPrestamos.AutoSize = true;
+            this.lbl_gestionaPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_gestionaPrestamos.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_gestionaPrestamos.Location = new System.Drawing.Point(12, 9);
+            this.lbl_gestionaPrestamos.Name = "lbl_gestionaPrestamos";
+            this.lbl_gestionaPrestamos.Size = new System.Drawing.Size(494, 55);
+            this.lbl_gestionaPrestamos.TabIndex = 0;
+            this.lbl_gestionaPrestamos.Text = "Gestionar Prestamos";
             // 
             // dgv_prestamos
             // 
@@ -69,63 +69,63 @@
             this.txt_herramienta.Size = new System.Drawing.Size(121, 20);
             this.txt_herramienta.TabIndex = 2;
             // 
-            // label2
+            // lbl_herramientaM
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(12, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Herramienta";
+            this.lbl_herramientaM.AutoSize = true;
+            this.lbl_herramientaM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_herramientaM.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_herramientaM.Location = new System.Drawing.Point(12, 84);
+            this.lbl_herramientaM.Name = "lbl_herramientaM";
+            this.lbl_herramientaM.Size = new System.Drawing.Size(108, 20);
+            this.lbl_herramientaM.TabIndex = 3;
+            this.lbl_herramientaM.Text = "Herramienta";
             // 
-            // btn_buscar
+            // btn_buscarHerramientaM
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(140, 104);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 4;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscarHerramientaM.Location = new System.Drawing.Point(140, 104);
+            this.btn_buscarHerramientaM.Name = "btn_buscarHerramientaM";
+            this.btn_buscarHerramientaM.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscarHerramientaM.TabIndex = 4;
+            this.btn_buscarHerramientaM.Text = "Buscar";
+            this.btn_buscarHerramientaM.UseVisualStyleBackColor = true;
             // 
-            // btn_nuevo
+            // btn_nuevoPrestamo
             // 
-            this.btn_nuevo.Location = new System.Drawing.Point(777, 149);
-            this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(122, 23);
-            this.btn_nuevo.TabIndex = 5;
-            this.btn_nuevo.Text = "Nuevo prestamo";
-            this.btn_nuevo.UseVisualStyleBackColor = true;
-            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
+            this.btn_nuevoPrestamo.Location = new System.Drawing.Point(777, 149);
+            this.btn_nuevoPrestamo.Name = "btn_nuevoPrestamo";
+            this.btn_nuevoPrestamo.Size = new System.Drawing.Size(122, 23);
+            this.btn_nuevoPrestamo.TabIndex = 5;
+            this.btn_nuevoPrestamo.Text = "Nuevo prestamo";
+            this.btn_nuevoPrestamo.UseVisualStyleBackColor = true;
+            this.btn_nuevoPrestamo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
-            // btn_devolucion
+            // btn_devolucionPrestamo
             // 
-            this.btn_devolucion.Location = new System.Drawing.Point(777, 199);
-            this.btn_devolucion.Name = "btn_devolucion";
-            this.btn_devolucion.Size = new System.Drawing.Size(122, 23);
-            this.btn_devolucion.TabIndex = 6;
-            this.btn_devolucion.Text = "Registrar devolucion";
-            this.btn_devolucion.UseVisualStyleBackColor = true;
+            this.btn_devolucionPrestamo.Location = new System.Drawing.Point(777, 199);
+            this.btn_devolucionPrestamo.Name = "btn_devolucionPrestamo";
+            this.btn_devolucionPrestamo.Size = new System.Drawing.Size(122, 23);
+            this.btn_devolucionPrestamo.TabIndex = 6;
+            this.btn_devolucionPrestamo.Text = "Registrar devolucion";
+            this.btn_devolucionPrestamo.UseVisualStyleBackColor = true;
             // 
-            // btn_consultar
+            // btn_consultarPrestamo
             // 
-            this.btn_consultar.Location = new System.Drawing.Point(777, 248);
-            this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Size = new System.Drawing.Size(122, 23);
-            this.btn_consultar.TabIndex = 7;
-            this.btn_consultar.Text = "Consultar prestamo";
-            this.btn_consultar.UseVisualStyleBackColor = true;
+            this.btn_consultarPrestamo.Location = new System.Drawing.Point(777, 248);
+            this.btn_consultarPrestamo.Name = "btn_consultarPrestamo";
+            this.btn_consultarPrestamo.Size = new System.Drawing.Size(122, 23);
+            this.btn_consultarPrestamo.TabIndex = 7;
+            this.btn_consultarPrestamo.Text = "Consultar prestamo";
+            this.btn_consultarPrestamo.UseVisualStyleBackColor = true;
             // 
-            // btn_salir
+            // btn_salirGestionarP
             // 
-            this.btn_salir.Location = new System.Drawing.Point(989, 26);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
-            this.btn_salir.TabIndex = 8;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirGestionarP.Location = new System.Drawing.Point(989, 26);
+            this.btn_salirGestionarP.Name = "btn_salirGestionarP";
+            this.btn_salirGestionarP.Size = new System.Drawing.Size(75, 23);
+            this.btn_salirGestionarP.TabIndex = 8;
+            this.btn_salirGestionarP.Text = "Salir";
+            this.btn_salirGestionarP.UseVisualStyleBackColor = true;
+            this.btn_salirGestionarP.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_reporteP
             // 
@@ -143,15 +143,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 570);
             this.Controls.Add(this.btn_reporteP);
-            this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.btn_consultar);
-            this.Controls.Add(this.btn_devolucion);
-            this.Controls.Add(this.btn_nuevo);
-            this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_salirGestionarP);
+            this.Controls.Add(this.btn_consultarPrestamo);
+            this.Controls.Add(this.btn_devolucionPrestamo);
+            this.Controls.Add(this.btn_nuevoPrestamo);
+            this.Controls.Add(this.btn_buscarHerramientaM);
+            this.Controls.Add(this.lbl_herramientaM);
             this.Controls.Add(this.txt_herramienta);
             this.Controls.Add(this.dgv_prestamos);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_gestionaPrestamos);
             this.Name = "AdministrarPrestamos";
             this.Text = "AdministrarPrestamos";
             this.Load += new System.EventHandler(this.AdministrarPrestamos_Load);
@@ -163,15 +163,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_gestionaPrestamos;
         private System.Windows.Forms.DataGridView dgv_prestamos;
         private System.Windows.Forms.TextBox txt_herramienta;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button btn_devolucion;
-        private System.Windows.Forms.Button btn_consultar;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Label lbl_herramientaM;
+        private System.Windows.Forms.Button btn_buscarHerramientaM;
+        private System.Windows.Forms.Button btn_nuevoPrestamo;
+        private System.Windows.Forms.Button btn_devolucionPrestamo;
+        private System.Windows.Forms.Button btn_consultarPrestamo;
+        private System.Windows.Forms.Button btn_salirGestionarP;
         private System.Windows.Forms.Button btn_reporteP;
     }
 }
