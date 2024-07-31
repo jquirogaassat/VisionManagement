@@ -30,9 +30,9 @@ namespace VisionTFI
 
         public void AdaptarFormularioToAlta()
         {
-            lbl_tipoproceso.Text = "Alta de cliente";
-            btn_salir.Visible = true;
-            btn_guardar.Visible = true;
+            //lbl_tipoproceso.Text = "Alta de Cliente";
+            btn_salirCliente.Visible = true;
+            btn_guardarCliente.Visible = true;
             //btn_baja.Visible = false;
 
         }
@@ -136,8 +136,16 @@ namespace VisionTFI
             //this.Focus();
             //Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
             //BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
-
-            if(Globa.tipoProceso == "Alta")
+            txt_apellido.Clear();
+            txt_cuit.Clear();
+            txt_mail.Clear();
+            txt_direccion.Clear();
+            txt_localidad.Clear();
+            txt_telefono.Clear();
+            txt_nombre.Clear();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+            if (Globa.tipoProceso == "Alta")
             {
                 AdaptarFormularioToAlta();
             }
@@ -147,13 +155,31 @@ namespace VisionTFI
                 AdaptarFormularioToModificacion();
             }
                 
-            var s = Enum.GetValues(typeof(BE.Enum.Situacion.Situacion));
-            foreach (var item in s )
-            {
-                cmb_situacion.Items.Add(item);
-            }
+            //var s = Enum.GetValues(typeof(BE.Enum.Situacion.Situacion));
+            //foreach (var item in s )
+            //{
+            //    cmb_situacion.Items.Add(item);
+            //}
 
 
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_tipoproceso.Text = IdiomaManager.info["lbl_tipoproceso"];
+            lbl_nombreCliente.Text = IdiomaManager.info["lbl_nombreCliente"];
+            lbl_apellidoCliente.Text = IdiomaManager.info["lbl_apellidoCliente"];
+            lbl_cuitCliente.Text = IdiomaManager.info["lbl_cuitCliente"];
+            lbl_mailCliente.Text = IdiomaManager.info["lbl_mailCliente"];
+            lbl_direccionCliente.Text = IdiomaManager.info["lbl_direccionCliente"];
+            lbl_localidadCliente.Text = IdiomaManager.info["lbl_localidadCliente"];
+            lbl_telefonoCliente.Text = IdiomaManager.info["lbl_telefonoCliente"];
+            btn_guardarCliente.Text = IdiomaManager.info["btn_guardarCliente"];
+            btn_salirCliente.Text = IdiomaManager.info["btn_salirCliente"];
         }
     }
 }

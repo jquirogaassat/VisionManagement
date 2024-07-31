@@ -1,4 +1,10 @@
-﻿using BE;
+﻿using Aspose.Pdf.Operators;
+using BE;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.InkML;
+using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +35,26 @@ namespace VisionTFI
             this.cboUsuarios.DataSource = repo.Listar();
             this.cboPatentes.DataSource= permisoRepo.GetAllPatentes();
             this.cboFamilias.DataSource = permisoRepo.GetAllFamilias();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
         }
 
+        void ActualizarControles()
+        {
+            grpPatentes.Text = IdiomaManager.info["grpPatentes"];
+            lbl_todosUsuarios.Text = IdiomaManager.info["lbl_todosUsuarios"];
+            cmdConfigurar.Text = IdiomaManager.info["cmdConfigurar"];
+            lbl_agregarPatentes.Text = IdiomaManager.info["lbl_agregarPatentes"]; 
+            btn_agregarPatentes.Text = IdiomaManager.info["btn_agregarPatentes"];
+            lbl_agregarFamilias.Text = IdiomaManager.info["lbl_agregarFamilias"];
+            btn_agregarFamilias.Text = IdiomaManager.info["btn_agregarFamilias"];
+            btn_guardarPermisos.Text = IdiomaManager.info["btn_guardarPermisos"];
+            btn_salirGestionarPermisos.Text = IdiomaManager.info["btn_salirGestionarPermisos"];
+        }
 
         void LlenarTreeView(TreeNode padre, BEcomponente c)
         {
@@ -195,6 +219,11 @@ namespace VisionTFI
 
             MostrarPermsios(tmp);
 
+        }
+
+        private void btn_salirGestionarPermisos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

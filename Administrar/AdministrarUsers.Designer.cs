@@ -31,9 +31,9 @@
             this.dgv_user = new System.Windows.Forms.DataGridView();
             this.btn_nuevoUser = new System.Windows.Forms.Button();
             this.checkActivos = new System.Windows.Forms.CheckBox();
-            this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_update = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_salirAdministrarUsuarios = new System.Windows.Forms.Button();
+            this.btn_updateUsuario = new System.Windows.Forms.Button();
+            this.btn_deleteUsuario = new System.Windows.Forms.Button();
             this.btn_desbloquearUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_user)).BeginInit();
             this.SuspendLayout();
@@ -71,37 +71,37 @@
             this.checkActivos.UseVisualStyleBackColor = true;
             this.checkActivos.CheckedChanged += new System.EventHandler(this.checkActivos_CheckedChanged);
             // 
-            // btn_salir
+            // btn_salirAdministrarUsuarios
             // 
-            this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_salir.Location = new System.Drawing.Point(1018, 395);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(114, 28);
-            this.btn_salir.TabIndex = 30;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirAdministrarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_salirAdministrarUsuarios.Location = new System.Drawing.Point(1018, 395);
+            this.btn_salirAdministrarUsuarios.Name = "btn_salirAdministrarUsuarios";
+            this.btn_salirAdministrarUsuarios.Size = new System.Drawing.Size(114, 28);
+            this.btn_salirAdministrarUsuarios.TabIndex = 30;
+            this.btn_salirAdministrarUsuarios.Text = "Salir";
+            this.btn_salirAdministrarUsuarios.UseVisualStyleBackColor = true;
+            this.btn_salirAdministrarUsuarios.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_update
+            // btn_updateUsuario
             // 
-            this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_update.Location = new System.Drawing.Point(1018, 168);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(114, 28);
-            this.btn_update.TabIndex = 31;
-            this.btn_update.Text = "Modificar usuario";
-            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_updateUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_updateUsuario.Location = new System.Drawing.Point(1018, 168);
+            this.btn_updateUsuario.Name = "btn_updateUsuario";
+            this.btn_updateUsuario.Size = new System.Drawing.Size(114, 28);
+            this.btn_updateUsuario.TabIndex = 31;
+            this.btn_updateUsuario.Text = "Modificar usuario";
+            this.btn_updateUsuario.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_deleteUsuario
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1018, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 28);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Eliminar usuario";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_deleteUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteUsuario.Location = new System.Drawing.Point(1018, 243);
+            this.btn_deleteUsuario.Name = "btn_deleteUsuario";
+            this.btn_deleteUsuario.Size = new System.Drawing.Size(114, 28);
+            this.btn_deleteUsuario.TabIndex = 32;
+            this.btn_deleteUsuario.Text = "Eliminar usuario";
+            this.btn_deleteUsuario.UseVisualStyleBackColor = true;
+            this.btn_deleteUsuario.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_desbloquearUser
             // 
@@ -120,9 +120,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 524);
             this.Controls.Add(this.btn_desbloquearUser);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_update);
-            this.Controls.Add(this.btn_salir);
+            this.Controls.Add(this.btn_deleteUsuario);
+            this.Controls.Add(this.btn_updateUsuario);
+            this.Controls.Add(this.btn_salirAdministrarUsuarios);
             this.Controls.Add(this.checkActivos);
             this.Controls.Add(this.btn_nuevoUser);
             this.Controls.Add(this.dgv_user);
@@ -139,9 +139,9 @@
         private System.Windows.Forms.DataGridView dgv_user;
         private System.Windows.Forms.Button btn_nuevoUser;
         private System.Windows.Forms.CheckBox checkActivos;
-        private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_salirAdministrarUsuarios;
+        private System.Windows.Forms.Button btn_updateUsuario;
+        private System.Windows.Forms.Button btn_deleteUsuario;
         private System.Windows.Forms.Button btn_desbloquearUser;
     }
 }

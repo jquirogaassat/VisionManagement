@@ -1,6 +1,8 @@
-﻿using BE;
+﻿using Aspose.Pdf.Operators;
+using BE;
 using BLL;
 using DAL;
+using DocumentFormat.OpenXml.Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace VisionTFI
 {
@@ -34,6 +37,8 @@ namespace VisionTFI
         {
             Focus();
             LimpiarTxt();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
 
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
 
@@ -45,6 +50,24 @@ namespace VisionTFI
             {
                 AdaptarFormularioModificacion();
             }
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_herramientasMaquinarias.Text = IdiomaManager.info["lbl_herramientasMaquinarias"];
+            lbl_nombreHerramientaMaquina.Text = IdiomaManager.info["lbl_nombreHerramientaMaquina"];
+            lbl_colorHerramientaMaquina.Text = IdiomaManager.info["lbl_colorHerramientaMaquina"];
+            lbl_origenHerramientaMaquina.Text = IdiomaManager.info["lbl_origenHerramientaMaquina"];
+            lbl_precioHerramientaMaquina.Text = IdiomaManager.info["lbl_precioHerramientaMaquina"];
+            lbl_estadoHerramientaMaquina.Text = IdiomaManager.info["lbl_estadoHerramientaMaquina"];
+            lbl_disponibleHerramientaMaquina.Text = IdiomaManager.info["lbl_disponibleHerramientaMaquina"];
+            btn_guardarHerramientaMaquina.Text = IdiomaManager.info["btn_guardarHerramientaMaquina"];
+            btn_salirHerramientaMaquina.Text = IdiomaManager.info["btn_salirHerramientaMaquina"]; 
         }
         private void LimpiarTxt()
         {
@@ -59,7 +82,7 @@ namespace VisionTFI
 
         private void AdaptarFormularioAlta()
         {
-            btn_salir.Visible = true;
+            btn_salirHerramientaMaquina.Visible = true;
         }
 
         private void AdaptarFormularioModificacion()

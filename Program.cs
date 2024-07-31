@@ -18,7 +18,8 @@ namespace VisionTFI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Idioma.CambiarIdioma(new Properties.Settings().lang);
+            IdiomaManager.CambiarIdioma(new Properties.Settings().lang);
+            IdiomaManager.CargarIdiomaInicial();
             Application.Run(new Ingreso());
         }
     }

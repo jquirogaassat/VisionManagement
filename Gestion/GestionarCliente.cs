@@ -74,12 +74,18 @@ namespace VisionTFI
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             //btn_modificar.Enabled = false;
             //btn_quitar.Enabled = false;
-            ActualizarClientes();
+            ActualizarClientes();          
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+           
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void btn_quitar_Click(object sender, EventArgs e)
@@ -118,6 +124,16 @@ namespace VisionTFI
         {
             var row = dg_clientes.SelectedRows[0];
             Globa.cllienteBE = (BE.BEcliente)row.DataBoundItem;
+        }
+
+        void ActualizarControles()
+        {
+            lbl_apellido.Text = IdiomaManager.info["lbl_apellido"];
+            btn_buscar.Text = IdiomaManager.info["btn_buscar"];
+            btn_agregar.Text = IdiomaManager.info["btn_agregar"];
+            btn_modificar.Text = IdiomaManager.info["btn_modificar"];
+            btn_quitar.Text = IdiomaManager.info["btn_quitar"];
+            btn_salir.Text = IdiomaManager.info["btn_salir"];
         }
     }
 }

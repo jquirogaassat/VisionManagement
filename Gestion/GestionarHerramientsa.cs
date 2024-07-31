@@ -34,6 +34,22 @@ namespace VisionTFI
             Focus();
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             ActualizarGrillaHerramientas();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+        void ActualizarControles()
+        {
+            lbl_gestionarHerramienta.Text = IdiomaManager.info["lbl_gestionarHerramienta"];
+            lbl_nombreHerramienta.Text = IdiomaManager.info["lbl_nombreHerramienta"];            
+            btn_buscarHerramienta.Text = IdiomaManager.info["btn_buscarHerramienta"];
+            btn_agregarHerramienta.Text = IdiomaManager.info["btn_agregarHerramienta"];
+            btn_modificarHerramienta.Text = IdiomaManager.info["btn_modificarHerramienta"];
+            btn_quitarHerramienta.Text = IdiomaManager.info["btn_quitarHerramienta"];
+            btn_salirHerramienta.Text = IdiomaManager.info["btn_salirHerramienta"];
         }
 
         private void ActualizarGrillaHerramientas()

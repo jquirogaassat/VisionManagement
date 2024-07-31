@@ -36,7 +36,7 @@ namespace VisionTFI
             txt_color.Clear();
             txt_origen.Clear();
             txt_precio.Clear();
-            
+            ActualizarControles();
 
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
 
@@ -166,6 +166,15 @@ namespace VisionTFI
             Hide();
         }
 
-
+        void ActualizarControles()
+        {
+            label1.Text = IdiomaManager.info["label1"];
+            lbl_nombre.Text= IdiomaManager.info["lbl_nombre"];
+            lbl_origen.Text = IdiomaManager.info["lbl_origen"];
+            lbl_cantidad.Text = IdiomaManager.info["lbl_cantidad"];
+            lbl_precio.Text = IdiomaManager.info["lbl_precio"];
+            btn_guardar.Text = IdiomaManager.info["btn_guardar"];
+            btn_salir.Text = IdiomaManager.info["btn_salir"];
+        }
     }
 }

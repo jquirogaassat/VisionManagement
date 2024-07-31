@@ -30,20 +30,24 @@ namespace VisionTFI
             inicioToolStripMenuItem.Text = IdiomaManager.info["inicioToolStripMenuItem"]; 
             gestionarToolStripMenuItem.Text = IdiomaManager.info["gestionarToolStripMenuItem"];
             clienteToolStripMenuItem.Text = IdiomaManager.info["clienteToolStripMenuItem"];
+            aBMToolStripMenuItem.Text = IdiomaManager.info["aBMToolStripMenuItem"];
             articuloToolStripMenuItem.Text = IdiomaManager.info["articuloToolStripMenuItem"];
+            aBMToolStripMenuItem1.Text = IdiomaManager.info["aBMToolStripMenuItem1"];
             maquinariasYHerramientasToolStripMenuItem.Text = IdiomaManager.info["maquinariasYHerramientasToolStripMenuItem"];
+            aBMToolStripMenuItem2.Text = IdiomaManager.info["aBMToolStripMenuItem2"];
             aBMToolStripMenuItem.Text = IdiomaManager.info["aBMToolStripMenuItem"];
             seguridadToolStripMenuItem.Text = IdiomaManager.info["seguridadToolStripMenuItem"];
             comprobarIntegridadToolStripMenuItem.Text = IdiomaManager.info["comprobarIntegridadToolStripMenuItem"];
             restoreToolStripMenuItem.Text = IdiomaManager.info["restoreToolStripMenuItem"];
             bitacoraToolStripMenuItem.Text = IdiomaManager.info["bitacoraToolStripMenuItem"];
-            bitacoraDeCambiosToolStripMenuItem.Text      = IdiomaManager.info["bitacoraDeCambiosToolStripMenuItem"];
+            bitacoraDeCambiosToolStripMenuItem.Text= IdiomaManager.info["bitacoraDeCambiosToolStripMenuItem"];
             familiasToolStripMenuItem.Text = IdiomaManager.info["familiasToolStripMenuItem"];
             usuariosToolStripMenuItem.Text = IdiomaManager.info["usuariosToolStripMenuItem"];
             gestionarPermisosToolStripMenuItem.Text = IdiomaManager.info["gestionarPermisosToolStripMenuItem"];
             reportesToolStripMenuItem.Text = IdiomaManager.info["reportesToolStripMenuItem"];            
-            reporteFacturaToolStripMenuItem.Text = IdiomaManager.info["reporteBitacoraDeCambiosToolStripMenuItem"];
+            reporteFacturaToolStripMenuItem.Text = IdiomaManager.info["reporteFacturaToolStripMenuItem"];
             reporteDePrestamosToolStripMenuItem.Text = IdiomaManager.info["reporteDePrestamosToolStripMenuItem"];
+            reporteToolStripMenuItem.Text = IdiomaManager.info["reporteToolStripMenuItem"];
             idiomaToolStripMenuItem.Text = IdiomaManager.info["idiomaToolStripMenuItem"];
             cambiarIdiomaToolStripMenuItem.Text = IdiomaManager.info["cambiarIdiomaToolStripMenuItem"];
             inglesToolStripMenuItem.Text = IdiomaManager.info["inglesToolStripMenuItem"];
@@ -131,6 +135,7 @@ namespace VisionTFI
                 MessageBox.Show("Sesion finalizada!");
                 Close();
                 dvdal.ComprobarIntegridad();
+                IdiomaManager.CargarIdiomaInicial();
                 Globa.IniciarSesion.Show();
             }
             else

@@ -16,7 +16,7 @@ namespace VisionTFI
     {
 
         public static Dictionary<string, string> info = new Dictionary<string, string>();
-
+        public static event Action IdiomaCambiado;
         private static void Cargar(string archivo)
         {
             info.Clear();
@@ -36,6 +36,13 @@ namespace VisionTFI
             config.lang = archivo;
             config.Save();
             Cargar(archivo);
+            IdiomaCambiado?.Invoke();
+        }
+        public static void CargarIdiomaInicial()
+        {
+            Properties.Settings config = new Properties.Settings();
+            string idioma = string.IsNullOrEmpty(config.lang) ? "es.txt" : config.lang;
+            Cargar(idioma);
         }
 
         public static void Controles(Form f)

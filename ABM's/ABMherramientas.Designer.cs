@@ -28,57 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_guardar = new System.Windows.Forms.Button();
+            this.lbl_herramientasMaquinarias = new System.Windows.Forms.Label();
+            this.btn_salirHerramientaMaquina = new System.Windows.Forms.Button();
+            this.btn_guardarHerramientaMaquina = new System.Windows.Forms.Button();
             this.txt_precio = new System.Windows.Forms.TextBox();
-            this.lbl_precio = new System.Windows.Forms.Label();
+            this.lbl_precioHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_codigo = new System.Windows.Forms.TextBox();
-            this.lbl_codigo = new System.Windows.Forms.Label();
+            this.lbl_codigoHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_origen = new System.Windows.Forms.TextBox();
-            this.lbl_origen = new System.Windows.Forms.Label();
+            this.lbl_origenHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_color = new System.Windows.Forms.TextBox();
-            this.lbl_color = new System.Windows.Forms.Label();
+            this.lbl_colorHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.lbl_nombre = new System.Windows.Forms.Label();
+            this.lbl_nombreHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_disponibleHerramientaMaquina = new System.Windows.Forms.Label();
             this.txt_estado = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_estadoHerramientaMaquina = new System.Windows.Forms.Label();
             this.btn_serializar = new System.Windows.Forms.Button();
             this.btn_deserializar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_herramientasMaquinarias
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(1, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(820, 70);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Herramientas y maquinarias";
+            this.lbl_herramientasMaquinarias.AutoSize = true;
+            this.lbl_herramientasMaquinarias.Font = new System.Drawing.Font("Microsoft Sans Serif", 45.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_herramientasMaquinarias.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_herramientasMaquinarias.Location = new System.Drawing.Point(1, 9);
+            this.lbl_herramientasMaquinarias.Name = "lbl_herramientasMaquinarias";
+            this.lbl_herramientasMaquinarias.Size = new System.Drawing.Size(820, 70);
+            this.lbl_herramientasMaquinarias.TabIndex = 0;
+            this.lbl_herramientasMaquinarias.Text = "Herramientas y maquinarias";
             // 
-            // btn_salir
+            // btn_salirHerramientaMaquina
             // 
-            this.btn_salir.Location = new System.Drawing.Point(422, 395);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(92, 31);
-            this.btn_salir.TabIndex = 24;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirHerramientaMaquina.Location = new System.Drawing.Point(422, 395);
+            this.btn_salirHerramientaMaquina.Name = "btn_salirHerramientaMaquina";
+            this.btn_salirHerramientaMaquina.Size = new System.Drawing.Size(92, 31);
+            this.btn_salirHerramientaMaquina.TabIndex = 24;
+            this.btn_salirHerramientaMaquina.Text = "Salir";
+            this.btn_salirHerramientaMaquina.UseVisualStyleBackColor = true;
+            this.btn_salirHerramientaMaquina.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_guardar
+            // btn_guardarHerramientaMaquina
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(298, 395);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(92, 31);
-            this.btn_guardar.TabIndex = 23;
-            this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardarHerramientaMaquina.Location = new System.Drawing.Point(298, 395);
+            this.btn_guardarHerramientaMaquina.Name = "btn_guardarHerramientaMaquina";
+            this.btn_guardarHerramientaMaquina.Size = new System.Drawing.Size(92, 31);
+            this.btn_guardarHerramientaMaquina.TabIndex = 23;
+            this.btn_guardarHerramientaMaquina.Text = "Guardar";
+            this.btn_guardarHerramientaMaquina.UseVisualStyleBackColor = true;
+            this.btn_guardarHerramientaMaquina.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // txt_precio
             // 
@@ -87,14 +87,14 @@
             this.txt_precio.Size = new System.Drawing.Size(190, 20);
             this.txt_precio.TabIndex = 22;
             // 
-            // lbl_precio
+            // lbl_precioHerramientaMaquina
             // 
-            this.lbl_precio.AutoSize = true;
-            this.lbl_precio.Location = new System.Drawing.Point(6, 356);
-            this.lbl_precio.Name = "lbl_precio";
-            this.lbl_precio.Size = new System.Drawing.Size(43, 13);
-            this.lbl_precio.TabIndex = 21;
-            this.lbl_precio.Text = "Precio :";
+            this.lbl_precioHerramientaMaquina.AutoSize = true;
+            this.lbl_precioHerramientaMaquina.Location = new System.Drawing.Point(6, 356);
+            this.lbl_precioHerramientaMaquina.Name = "lbl_precioHerramientaMaquina";
+            this.lbl_precioHerramientaMaquina.Size = new System.Drawing.Size(43, 13);
+            this.lbl_precioHerramientaMaquina.TabIndex = 21;
+            this.lbl_precioHerramientaMaquina.Text = "Precio :";
             // 
             // txt_codigo
             // 
@@ -104,14 +104,14 @@
             this.txt_codigo.TabIndex = 20;
             this.txt_codigo.Text = "|";
             // 
-            // lbl_codigo
+            // lbl_codigoHerramientaMaquina
             // 
-            this.lbl_codigo.AutoSize = true;
-            this.lbl_codigo.Location = new System.Drawing.Point(6, 299);
-            this.lbl_codigo.Name = "lbl_codigo";
-            this.lbl_codigo.Size = new System.Drawing.Size(46, 13);
-            this.lbl_codigo.TabIndex = 19;
-            this.lbl_codigo.Text = "Codigo :";
+            this.lbl_codigoHerramientaMaquina.AutoSize = true;
+            this.lbl_codigoHerramientaMaquina.Location = new System.Drawing.Point(6, 299);
+            this.lbl_codigoHerramientaMaquina.Name = "lbl_codigoHerramientaMaquina";
+            this.lbl_codigoHerramientaMaquina.Size = new System.Drawing.Size(46, 13);
+            this.lbl_codigoHerramientaMaquina.TabIndex = 19;
+            this.lbl_codigoHerramientaMaquina.Text = "Codigo :";
             // 
             // txt_origen
             // 
@@ -120,14 +120,14 @@
             this.txt_origen.Size = new System.Drawing.Size(190, 20);
             this.txt_origen.TabIndex = 18;
             // 
-            // lbl_origen
+            // lbl_origenHerramientaMaquina
             // 
-            this.lbl_origen.AutoSize = true;
-            this.lbl_origen.Location = new System.Drawing.Point(6, 245);
-            this.lbl_origen.Name = "lbl_origen";
-            this.lbl_origen.Size = new System.Drawing.Size(44, 13);
-            this.lbl_origen.TabIndex = 17;
-            this.lbl_origen.Text = "Origen :";
+            this.lbl_origenHerramientaMaquina.AutoSize = true;
+            this.lbl_origenHerramientaMaquina.Location = new System.Drawing.Point(6, 245);
+            this.lbl_origenHerramientaMaquina.Name = "lbl_origenHerramientaMaquina";
+            this.lbl_origenHerramientaMaquina.Size = new System.Drawing.Size(44, 13);
+            this.lbl_origenHerramientaMaquina.TabIndex = 17;
+            this.lbl_origenHerramientaMaquina.Text = "Origen :";
             // 
             // txt_color
             // 
@@ -136,14 +136,14 @@
             this.txt_color.Size = new System.Drawing.Size(190, 20);
             this.txt_color.TabIndex = 16;
             // 
-            // lbl_color
+            // lbl_colorHerramientaMaquina
             // 
-            this.lbl_color.AutoSize = true;
-            this.lbl_color.Location = new System.Drawing.Point(6, 192);
-            this.lbl_color.Name = "lbl_color";
-            this.lbl_color.Size = new System.Drawing.Size(37, 13);
-            this.lbl_color.TabIndex = 15;
-            this.lbl_color.Text = "Color :";
+            this.lbl_colorHerramientaMaquina.AutoSize = true;
+            this.lbl_colorHerramientaMaquina.Location = new System.Drawing.Point(6, 192);
+            this.lbl_colorHerramientaMaquina.Name = "lbl_colorHerramientaMaquina";
+            this.lbl_colorHerramientaMaquina.Size = new System.Drawing.Size(37, 13);
+            this.lbl_colorHerramientaMaquina.TabIndex = 15;
+            this.lbl_colorHerramientaMaquina.Text = "Color :";
             // 
             // txt_nombre
             // 
@@ -152,14 +152,14 @@
             this.txt_nombre.Size = new System.Drawing.Size(190, 20);
             this.txt_nombre.TabIndex = 14;
             // 
-            // lbl_nombre
+            // lbl_nombreHerramientaMaquina
             // 
-            this.lbl_nombre.AutoSize = true;
-            this.lbl_nombre.Location = new System.Drawing.Point(6, 146);
-            this.lbl_nombre.Name = "lbl_nombre";
-            this.lbl_nombre.Size = new System.Drawing.Size(50, 13);
-            this.lbl_nombre.TabIndex = 13;
-            this.lbl_nombre.Text = "Nombre :";
+            this.lbl_nombreHerramientaMaquina.AutoSize = true;
+            this.lbl_nombreHerramientaMaquina.Location = new System.Drawing.Point(6, 146);
+            this.lbl_nombreHerramientaMaquina.Name = "lbl_nombreHerramientaMaquina";
+            this.lbl_nombreHerramientaMaquina.Size = new System.Drawing.Size(50, 13);
+            this.lbl_nombreHerramientaMaquina.TabIndex = 13;
+            this.lbl_nombreHerramientaMaquina.Text = "Nombre :";
             // 
             // txt_disponible
             // 
@@ -168,14 +168,14 @@
             this.txt_disponible.Size = new System.Drawing.Size(190, 20);
             this.txt_disponible.TabIndex = 28;
             // 
-            // label2
+            // lbl_disponibleHerramientaMaquina
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 188);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Dispponible :";
+            this.lbl_disponibleHerramientaMaquina.AutoSize = true;
+            this.lbl_disponibleHerramientaMaquina.Location = new System.Drawing.Point(313, 188);
+            this.lbl_disponibleHerramientaMaquina.Name = "lbl_disponibleHerramientaMaquina";
+            this.lbl_disponibleHerramientaMaquina.Size = new System.Drawing.Size(68, 13);
+            this.lbl_disponibleHerramientaMaquina.TabIndex = 27;
+            this.lbl_disponibleHerramientaMaquina.Text = "Dispponible :";
             // 
             // txt_estado
             // 
@@ -184,14 +184,14 @@
             this.txt_estado.Size = new System.Drawing.Size(190, 20);
             this.txt_estado.TabIndex = 26;
             // 
-            // label3
+            // lbl_estadoHerramientaMaquina
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(313, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Estado :";
+            this.lbl_estadoHerramientaMaquina.AutoSize = true;
+            this.lbl_estadoHerramientaMaquina.Location = new System.Drawing.Point(313, 142);
+            this.lbl_estadoHerramientaMaquina.Name = "lbl_estadoHerramientaMaquina";
+            this.lbl_estadoHerramientaMaquina.Size = new System.Drawing.Size(46, 13);
+            this.lbl_estadoHerramientaMaquina.TabIndex = 25;
+            this.lbl_estadoHerramientaMaquina.Text = "Estado :";
             // 
             // btn_serializar
             // 
@@ -221,22 +221,22 @@
             this.Controls.Add(this.btn_deserializar);
             this.Controls.Add(this.btn_serializar);
             this.Controls.Add(this.txt_disponible);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_disponibleHerramientaMaquina);
             this.Controls.Add(this.txt_estado);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.lbl_estadoHerramientaMaquina);
+            this.Controls.Add(this.btn_salirHerramientaMaquina);
+            this.Controls.Add(this.btn_guardarHerramientaMaquina);
             this.Controls.Add(this.txt_precio);
-            this.Controls.Add(this.lbl_precio);
+            this.Controls.Add(this.lbl_precioHerramientaMaquina);
             this.Controls.Add(this.txt_codigo);
-            this.Controls.Add(this.lbl_codigo);
+            this.Controls.Add(this.lbl_codigoHerramientaMaquina);
             this.Controls.Add(this.txt_origen);
-            this.Controls.Add(this.lbl_origen);
+            this.Controls.Add(this.lbl_origenHerramientaMaquina);
             this.Controls.Add(this.txt_color);
-            this.Controls.Add(this.lbl_color);
+            this.Controls.Add(this.lbl_colorHerramientaMaquina);
             this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.lbl_nombre);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_nombreHerramientaMaquina);
+            this.Controls.Add(this.lbl_herramientasMaquinarias);
             this.Name = "ABMherramientas";
             this.Text = "ABMherramientas";
             this.Load += new System.EventHandler(this.ABMherramientas_Load);
@@ -247,23 +247,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Label lbl_herramientasMaquinarias;
+        private System.Windows.Forms.Button btn_salirHerramientaMaquina;
+        private System.Windows.Forms.Button btn_guardarHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_precio;
-        private System.Windows.Forms.Label lbl_precio;
+        private System.Windows.Forms.Label lbl_precioHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_codigo;
-        private System.Windows.Forms.Label lbl_codigo;
+        private System.Windows.Forms.Label lbl_codigoHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_origen;
-        private System.Windows.Forms.Label lbl_origen;
+        private System.Windows.Forms.Label lbl_origenHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_color;
-        private System.Windows.Forms.Label lbl_color;
+        private System.Windows.Forms.Label lbl_colorHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_nombre;
-        private System.Windows.Forms.Label lbl_nombre;
+        private System.Windows.Forms.Label lbl_nombreHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_disponible;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_disponibleHerramientaMaquina;
         private System.Windows.Forms.TextBox txt_estado;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_estadoHerramientaMaquina;
         private System.Windows.Forms.Button btn_serializar;
         private System.Windows.Forms.Button btn_deserializar;
     }

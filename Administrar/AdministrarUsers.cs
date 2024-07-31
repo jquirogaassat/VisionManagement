@@ -1,4 +1,7 @@
 ﻿using BE;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,8 +83,8 @@ namespace VisionTFI
         {
             if(dgv_user.SelectedRows.Count >0)
             {
-                ValidarPermiso("Eliminar usuario", button1);
-                ValidarPermiso("Modificar usuario", btn_update);
+                ValidarPermiso("Eliminar usuario", btn_deleteUsuario);
+                ValidarPermiso("Modificar usuario", btn_updateUsuario);
             }
         }
 
@@ -116,17 +119,33 @@ namespace VisionTFI
         {
 
             btn_nuevoUser.Enabled = true;
-            button1.Enabled = true;
-            btn_update.Enabled = true;
+            btn_deleteUsuario.Enabled = true;
+            btn_updateUsuario.Enabled = true;
             this.Focus();
-           // Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+            // Actualizar(BE.BEcontroladorsesion.GetInstance.Usuario);
             //BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
-          
+
             //ValidarPermiso("Crear Usuario", btn_nuevoUser);
 
             ActualizarUsuarios();
-           // BLL.BLLgestionbitacora bitacora = new BLL.BLLgestionbitacora();
+            // BLL.BLLgestionbitacora bitacora = new BLL.BLLgestionbitacora();
             //ActualizarUsuarios();
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            btn_nuevoUser.Text = IdiomaManager.info["btn_nuevoUser"];
+            btn_updateUsuario.Text = IdiomaManager.info["btn_updateUsuario"];
+            btn_deleteUsuario.Text = IdiomaManager.info["btn_deleteUsuario"];
+            btn_desbloquearUser.Text = IdiomaManager.info["btn_desbloquearUser"];
+            checkActivos.Text = IdiomaManager.info["checkActivos"];
+            btn_salirAdministrarUsuarios.Text = IdiomaManager.info["btn_salirAdministrarUsuarios"];
         }
 
 

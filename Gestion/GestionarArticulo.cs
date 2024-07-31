@@ -32,9 +32,13 @@ namespace VisionTFI
             Focus();
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             ActualizarGrillaArticulos();
-
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
         }
-
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
         private void ActualizarGrillaArticulos()
         {
             List<BE.BEarticulo> articulos = new List<BEarticulo>();
@@ -93,6 +97,17 @@ namespace VisionTFI
             articuloBLL.Baja(articuloBE);
             ActualizarGrillaArticulos();
             MessageBox.Show("Articulo eliminado!");
+        }
+
+        void ActualizarControles()
+        {
+            label2.Text = IdiomaManager.info["label2"];
+            lbl_nombreArticulo.Text = IdiomaManager.info["lbl_nombreArticulo"];
+            btn_agregarArticulo.Text = IdiomaManager.info["btn_agregarArticulo"];
+            btn_buscarArticulo.Text = IdiomaManager.info["btn_buscarArticulo"];
+            btn_modificarArticulo.Text = IdiomaManager.info["btn_modificarArticulo"];
+            btn_quitarArticulo.Text = IdiomaManager.info["btn_quitarArticulo"];
+            btn_salirArticulo.Text = IdiomaManager.info["btn_salirArticulo"];
         }
     }
 }

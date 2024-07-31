@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.lbl_nombre = new System.Windows.Forms.Label();
+            this.btn_buscarArticulo = new System.Windows.Forms.Button();
+            this.lbl_nombreArticulo = new System.Windows.Forms.Label();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dg_articulo = new System.Windows.Forms.DataGridView();
-            this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_quitar = new System.Windows.Forms.Button();
-            this.btn_modificar = new System.Windows.Forms.Button();
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_salirArticulo = new System.Windows.Forms.Button();
+            this.btn_quitarArticulo = new System.Windows.Forms.Button();
+            this.btn_modificarArticulo = new System.Windows.Forms.Button();
+            this.btn_agregarArticulo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dg_articulo)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_buscar
+            // btn_buscarArticulo
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(237, 100);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 10;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscarArticulo.Location = new System.Drawing.Point(237, 100);
+            this.btn_buscarArticulo.Name = "btn_buscarArticulo";
+            this.btn_buscarArticulo.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscarArticulo.TabIndex = 10;
+            this.btn_buscarArticulo.Text = "Buscar";
+            this.btn_buscarArticulo.UseVisualStyleBackColor = true;
             // 
-            // lbl_nombre
+            // lbl_nombreArticulo
             // 
-            this.lbl_nombre.AutoSize = true;
-            this.lbl_nombre.Location = new System.Drawing.Point(12, 87);
-            this.lbl_nombre.Name = "lbl_nombre";
-            this.lbl_nombre.Size = new System.Drawing.Size(81, 13);
-            this.lbl_nombre.TabIndex = 9;
-            this.lbl_nombre.Text = "Nombre articulo";
+            this.lbl_nombreArticulo.AutoSize = true;
+            this.lbl_nombreArticulo.Location = new System.Drawing.Point(12, 87);
+            this.lbl_nombreArticulo.Name = "lbl_nombreArticulo";
+            this.lbl_nombreArticulo.Size = new System.Drawing.Size(81, 13);
+            this.lbl_nombreArticulo.TabIndex = 9;
+            this.lbl_nombreArticulo.Text = "Nombre articulo";
             // 
             // txt_buscar
             // 
@@ -75,70 +75,70 @@
             this.dg_articulo.TabIndex = 11;
             this.dg_articulo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dg_articulo_MouseClick_1);
             // 
-            // btn_salir
+            // btn_salirArticulo
             // 
-            this.btn_salir.Location = new System.Drawing.Point(821, 313);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(116, 29);
-            this.btn_salir.TabIndex = 15;
-            this.btn_salir.Text = "Cancelar";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirArticulo.Location = new System.Drawing.Point(821, 313);
+            this.btn_salirArticulo.Name = "btn_salirArticulo";
+            this.btn_salirArticulo.Size = new System.Drawing.Size(116, 29);
+            this.btn_salirArticulo.TabIndex = 15;
+            this.btn_salirArticulo.Text = "Cancelar";
+            this.btn_salirArticulo.UseVisualStyleBackColor = true;
+            this.btn_salirArticulo.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_quitar
+            // btn_quitarArticulo
             // 
-            this.btn_quitar.Location = new System.Drawing.Point(821, 242);
-            this.btn_quitar.Name = "btn_quitar";
-            this.btn_quitar.Size = new System.Drawing.Size(116, 29);
-            this.btn_quitar.TabIndex = 14;
-            this.btn_quitar.Text = "Eliminar articulo";
-            this.btn_quitar.UseVisualStyleBackColor = true;
-            this.btn_quitar.Click += new System.EventHandler(this.btn_quitar_Click);
+            this.btn_quitarArticulo.Location = new System.Drawing.Point(821, 242);
+            this.btn_quitarArticulo.Name = "btn_quitarArticulo";
+            this.btn_quitarArticulo.Size = new System.Drawing.Size(116, 29);
+            this.btn_quitarArticulo.TabIndex = 14;
+            this.btn_quitarArticulo.Text = "Eliminar articulo";
+            this.btn_quitarArticulo.UseVisualStyleBackColor = true;
+            this.btn_quitarArticulo.Click += new System.EventHandler(this.btn_quitar_Click);
             // 
-            // btn_modificar
+            // btn_modificarArticulo
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(821, 183);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(116, 29);
-            this.btn_modificar.TabIndex = 13;
-            this.btn_modificar.Text = "Modificar articulo";
-            this.btn_modificar.UseVisualStyleBackColor = true;
-            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
+            this.btn_modificarArticulo.Location = new System.Drawing.Point(821, 183);
+            this.btn_modificarArticulo.Name = "btn_modificarArticulo";
+            this.btn_modificarArticulo.Size = new System.Drawing.Size(116, 29);
+            this.btn_modificarArticulo.TabIndex = 13;
+            this.btn_modificarArticulo.Text = "Modificar articulo";
+            this.btn_modificarArticulo.UseVisualStyleBackColor = true;
+            this.btn_modificarArticulo.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
-            // btn_agregar
+            // btn_agregarArticulo
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(821, 129);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(116, 29);
-            this.btn_agregar.TabIndex = 12;
-            this.btn_agregar.Text = "Agregar articulo";
-            this.btn_agregar.UseVisualStyleBackColor = true;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            this.btn_agregarArticulo.Location = new System.Drawing.Point(821, 129);
+            this.btn_agregarArticulo.Name = "btn_agregarArticulo";
+            this.btn_agregarArticulo.Size = new System.Drawing.Size(116, 29);
+            this.btn_agregarArticulo.TabIndex = 12;
+            this.btn_agregarArticulo.Text = "Agregar articulo";
+            this.btn_agregarArticulo.UseVisualStyleBackColor = true;
+            this.btn_agregarArticulo.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(115, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(500, 69);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Gestionar articulo";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(115, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(500, 69);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Gestionar articulo";
             // 
             // GestionarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.btn_quitar);
-            this.Controls.Add(this.btn_modificar);
-            this.Controls.Add(this.btn_agregar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_salirArticulo);
+            this.Controls.Add(this.btn_quitarArticulo);
+            this.Controls.Add(this.btn_modificarArticulo);
+            this.Controls.Add(this.btn_agregarArticulo);
             this.Controls.Add(this.dg_articulo);
-            this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.lbl_nombre);
+            this.Controls.Add(this.btn_buscarArticulo);
+            this.Controls.Add(this.lbl_nombreArticulo);
             this.Controls.Add(this.txt_buscar);
             this.Name = "GestionarArticulo";
             this.Text = "Vision Management/ Gestionar articulo";
@@ -151,14 +151,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.Label lbl_nombre;
+        private System.Windows.Forms.Button btn_buscarArticulo;
+        private System.Windows.Forms.Label lbl_nombreArticulo;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.DataGridView dg_articulo;
-        private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_quitar;
-        private System.Windows.Forms.Button btn_modificar;
-        private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_salirArticulo;
+        private System.Windows.Forms.Button btn_quitarArticulo;
+        private System.Windows.Forms.Button btn_modificarArticulo;
+        private System.Windows.Forms.Button btn_agregarArticulo;
+        private System.Windows.Forms.Label label2;
     }
 }
