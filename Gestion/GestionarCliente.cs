@@ -74,7 +74,8 @@ namespace VisionTFI
             BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
             //btn_modificar.Enabled = false;
             //btn_quitar.Enabled = false;
-            ActualizarClientes();          
+            ActualizarClientes();
+            ActualizarControles();
             IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
            
         }

@@ -64,10 +64,15 @@ namespace VisionTFI
             cambiarUsuarioToolStripMenuItem.Text = IdiomaManager.info["cambiarUsuarioToolStripMenuItem"];
             cerrarSesionToolStripMenuItem.Text = IdiomaManager.info["cerrarSesionToolStripMenuItem"];
         }
- 
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
         public MenuPrincipal()
         {
-            InitializeComponent();        
+            InitializeComponent();
+            ActualizarControles();
         }
 
         public void Actualizar(BEusuario u)
@@ -135,7 +140,8 @@ namespace VisionTFI
                 MessageBox.Show("Sesion finalizada!");
                 Close();
                 dvdal.ComprobarIntegridad();
-                IdiomaManager.CargarIdiomaInicial();
+                //IdiomaManager.CargarIdiomaInicial();
+                IdiomaManager.IdiomaCambiado -= OnIdiomaCambiado;
                 Globa.IniciarSesion.Show();
             }
             else
@@ -159,6 +165,7 @@ namespace VisionTFI
             Globa.nivelCriticidad.Add("BAJO");
             ValorizarBitacora(bitacoraBe); 
             ValidarPermisos();
+            IdiomaManager.CargarIdiomaInicial();
 
         }
         //comprobar integridad de la base de datos

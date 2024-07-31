@@ -24,6 +24,21 @@ namespace VisionTFI
         {
             this.Focus();
             //BE.BEcontroladorsesion.GetInstance.Usuario.Agregar(this);
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_contraseña.Text = IdiomaManager.info["lbl_contraseña"];
+            lbl_contraseñaNueva.Text = IdiomaManager.info["lbl_contraseñaNueva"];
+            lbl_confirmarContraseña.Text = IdiomaManager.info["lbl_confirmarContraseña"];
+            btn_guardarContraseña.Text = IdiomaManager.info["btn_guardarContraseña"];
+            btn_salirContrasenia.Text = IdiomaManager.info["btn_salirContrasenia"]; 
         }
 
 

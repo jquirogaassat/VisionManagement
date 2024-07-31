@@ -330,58 +330,58 @@
   <data name="&gt;&gt;lbl_contraseñaNueva.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="btn_guardar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btn_guardarContraseña.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btn_guardar.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_guardarContraseña.Location" type="System.Drawing.Point, System.Drawing">
     <value>163, 237</value>
   </data>
-  <data name="btn_guardar.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_guardarContraseña.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 26</value>
   </data>
-  <data name="btn_guardar.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_guardarContraseña.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
   </data>
-  <data name="btn_guardar.Text" xml:space="preserve">
+  <data name="btn_guardarContraseña.Text" xml:space="preserve">
     <value>Guardar</value>
   </data>
-  <data name="&gt;&gt;btn_guardar.Name" xml:space="preserve">
-    <value>btn_guardar</value>
+  <data name="&gt;&gt;btn_guardarContraseña.Name" xml:space="preserve">
+    <value>btn_guardarContraseña</value>
   </data>
-  <data name="&gt;&gt;btn_guardar.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_guardarContraseña.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_guardar.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_guardarContraseña.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_guardar.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_guardarContraseña.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btn_salir.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btn_salirContrasenia.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btn_salir.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_salirContrasenia.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 237</value>
   </data>
-  <data name="btn_salir.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_salirContrasenia.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 26</value>
   </data>
-  <data name="btn_salir.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_salirContrasenia.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
   </data>
-  <data name="btn_salir.Text" xml:space="preserve">
+  <data name="btn_salirContrasenia.Text" xml:space="preserve">
     <value>Salir</value>
   </data>
-  <data name="&gt;&gt;btn_salir.Name" xml:space="preserve">
-    <value>btn_salir</value>
+  <data name="&gt;&gt;btn_salirContrasenia.Name" xml:space="preserve">
+    <value>btn_salirContrasenia</value>
   </data>
-  <data name="&gt;&gt;btn_salir.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_salirContrasenia.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_salir.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_salirContrasenia.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_salir.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btn_salirContrasenia.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

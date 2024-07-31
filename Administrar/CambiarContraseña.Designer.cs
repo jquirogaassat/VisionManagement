@@ -37,8 +37,8 @@
             this.lbl_confirmarContraseña = new System.Windows.Forms.Label();
             this.txt_contraseñaNueva = new System.Windows.Forms.TextBox();
             this.lbl_contraseñaNueva = new System.Windows.Forms.Label();
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_guardarContraseña = new System.Windows.Forms.Button();
+            this.btn_salirContrasenia = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,26 +86,26 @@
             resources.ApplyResources(this.lbl_contraseñaNueva, "lbl_contraseñaNueva");
             this.lbl_contraseñaNueva.Name = "lbl_contraseñaNueva";
             // 
-            // btn_guardar
+            // btn_guardarContraseña
             // 
-            resources.ApplyResources(this.btn_guardar, "btn_guardar");
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            resources.ApplyResources(this.btn_guardarContraseña, "btn_guardarContraseña");
+            this.btn_guardarContraseña.Name = "btn_guardarContraseña";
+            this.btn_guardarContraseña.UseVisualStyleBackColor = true;
+            this.btn_guardarContraseña.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // btn_salir
+            // btn_salirContrasenia
             // 
-            resources.ApplyResources(this.btn_salir, "btn_salir");
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            resources.ApplyResources(this.btn_salirContrasenia, "btn_salirContrasenia");
+            this.btn_salirContrasenia.Name = "btn_salirContrasenia";
+            this.btn_salirContrasenia.UseVisualStyleBackColor = true;
+            this.btn_salirContrasenia.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // CambiarContraseña
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.btn_salirContrasenia);
+            this.Controls.Add(this.btn_guardarContraseña);
             this.Controls.Add(this.txt_contraseñaNueva);
             this.Controls.Add(this.lbl_contraseñaNueva);
             this.Controls.Add(this.txt_confirmarContraseña);
@@ -133,7 +133,7 @@
         private System.Windows.Forms.Label lbl_confirmarContraseña;
         private System.Windows.Forms.TextBox txt_contraseñaNueva;
         private System.Windows.Forms.Label lbl_contraseñaNueva;
-        private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btn_guardarContraseña;
+        private System.Windows.Forms.Button btn_salirContrasenia;
     }
 }
