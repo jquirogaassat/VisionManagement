@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace VisionTFI
 {
@@ -32,10 +34,34 @@ namespace VisionTFI
             cmb_usuario.Items.Clear();
             cmb_nivelCriticidad.Items.Clear();
             RellenarCombos();
-            btn_imprimir.Enabled = false;         
+            btn_imprimirBitacora.Enabled = false;         
             dgv_bitacora.DataSource = BLLgestionbitacora.Listar();
             RellenarDgv();
             //ValorizarBitacora();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_buscarFecha.Text = IdiomaManager.info["lbl_buscarFecha"];
+            lba_desde.Text = IdiomaManager.info["lba_desde"];
+            lbl_hasta.Text = IdiomaManager.info["lbl_hasta"];
+            rdb_asc.Text = IdiomaManager.info["rdb_asc"];
+            rdb_desc.Text = IdiomaManager.info["rdb_desc"];
+            lbl_orden.Text = IdiomaManager.info["lbl_orden"];
+            lbl_user.Text = IdiomaManager.info["lbl_user"];
+            lbl_usuarioBitacora.Text = IdiomaManager.info["lbl_usuarioBitacora"];
+            lbl_nivelCriticidad.Text = IdiomaManager.info["lbl_nivelCriticidad"];
+            lbl_nivel.Text = IdiomaManager.info["lbl_nivel"];
+            btn_buscarBitacora.Text = IdiomaManager.info["btn_buscarBitacora"];
+            btn_imprimirBitacora.Text = IdiomaManager.info["btn_imprimirBitacora"];
+            btn_cancelarBitacora.Text = IdiomaManager.info["btn_cancelarBitacora"]; 
         }
 
         public void RellenarDgv()
@@ -122,7 +148,7 @@ namespace VisionTFI
             ActualizarBitacora();
             if(dgv_bitacora.Rows.Count >0)
             {
-                btn_imprimir.Enabled = true;
+                btn_imprimirBitacora.Enabled = true;
                 
             }
         }

@@ -39,6 +39,7 @@ namespace VisionTFI
             seguridadToolStripMenuItem.Text = IdiomaManager.info["seguridadToolStripMenuItem"];
             comprobarIntegridadToolStripMenuItem.Text = IdiomaManager.info["comprobarIntegridadToolStripMenuItem"];
             restoreToolStripMenuItem.Text = IdiomaManager.info["restoreToolStripMenuItem"];
+            realizarBackupToolStripMenuItem.Text = IdiomaManager.info["realizarBackupToolStripMenuItem"];
             bitacoraToolStripMenuItem.Text = IdiomaManager.info["bitacoraToolStripMenuItem"];
             bitacoraDeCambiosToolStripMenuItem.Text= IdiomaManager.info["bitacoraDeCambiosToolStripMenuItem"];
             familiasToolStripMenuItem.Text = IdiomaManager.info["familiasToolStripMenuItem"];

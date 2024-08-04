@@ -27,6 +27,21 @@ namespace VisionTFI
             this.Focus();
             ActualizarGrilla();
             btn_generarRestore.Enabled = false;
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_listado.Text = IdiomaManager.info["lbl_listado"];
+            btn_generarRestore.Text = IdiomaManager.info["btn_generarRestore"];
+            btn_salirRestore.Text = IdiomaManager.info["btn_salirRestore"];
+
         }
 
         private void  ActualizarGrilla()

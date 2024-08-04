@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,15 +84,30 @@ namespace VisionTFI
             dgv_bitacora.MultiSelect = false;
             dgv_bitacora.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_bitacora.AutoGenerateColumns = false;
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_bitacoraCambios.Text = IdiomaManager.info["lbl_bitacoraCambios"];
+            lbl_codigoProducto.Text = IdiomaManager.info["lbl_codigoProducto"];
+            lbl_usuarioBitacoraCambios.Text = IdiomaManager.info["lbl_usuarioBitacoraCambios"];
+            lba_desdeBitacoraCambios.Text = IdiomaManager.info["lba_desdeBitacoraCambios"];
+            lbl_hastaBitacoraCambios.Text = IdiomaManager.info["lbl_hastaBitacoraCambios"];
+            btn_consultarBitacoraCambios.Text = IdiomaManager.info["btn_consultarBitacoraCambios"];
+            btn_activarBitacoraCambios.Text = IdiomaManager.info["btn_activarBitacoraCambios"];
+            btn_cerrarBitacoraCambios.Text = IdiomaManager.info["btn_cerrarBitacoraCambios"];
         }
 
         private void RellenarCombos()
         {            
-            List<BE.BEusuario> usuarios = _usuarioBLL.Consulta().Where(u => u.IsBlocked == "NO").ToList();
-            //foreach(var item in usuarios)
-            //{
-            //    _blEncriptacion.desencriptarAes(item.usuario);
-            //}
+            List<BE.BEusuario> usuarios = _usuarioBLL.Consulta().Where(u => u.IsBlocked == "NO").ToList();            
             cmb_usuario.DataSource = usuarios;
             cmb_usuario.DisplayMember = "Usuario";
             List<string> codigo = _blBitacora.ListarCodigo();

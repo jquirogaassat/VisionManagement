@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aspose.Pdf.Operators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,7 @@ namespace VisionTFI
         public Backup()
         {
             InitializeComponent();
+            
             
         }
 
@@ -137,6 +139,24 @@ namespace VisionTFI
         private void rb_4_CheckedChanged(object sender, EventArgs e)
         {
             cant = 4;
+        }
+
+        private void Backup_Load(object sender, EventArgs e)
+        {
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            gb_tamanio.Text = IdiomaManager.info["gb_tamanio"];
+            btn_guardarBackup.Text = IdiomaManager.info["btn_guardarBackup"];
+            btn_salirBackup.Text = IdiomaManager.info["btn_salirBackup"];
         }
     }
 }

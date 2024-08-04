@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_guardarBackup = new System.Windows.Forms.Button();
+            this.btn_salirBackup = new System.Windows.Forms.Button();
             this.btn_destino = new System.Windows.Forms.Button();
             this.txt_ruta = new System.Windows.Forms.TextBox();
             this.gb_tamanio = new System.Windows.Forms.GroupBox();
-            this.rb_1 = new System.Windows.Forms.RadioButton();
-            this.rb_2 = new System.Windows.Forms.RadioButton();
-            this.rb_3 = new System.Windows.Forms.RadioButton();
             this.rb_4 = new System.Windows.Forms.RadioButton();
+            this.rb_3 = new System.Windows.Forms.RadioButton();
+            this.rb_2 = new System.Windows.Forms.RadioButton();
+            this.rb_1 = new System.Windows.Forms.RadioButton();
             this.gb_tamanio.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_guardar
+            // btn_guardarBackup
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(119, 263);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(91, 36);
-            this.btn_guardar.TabIndex = 29;
-            this.btn_guardar.Text = "Guardar como";
-            this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardarBackup.Location = new System.Drawing.Point(119, 263);
+            this.btn_guardarBackup.Name = "btn_guardarBackup";
+            this.btn_guardarBackup.Size = new System.Drawing.Size(91, 36);
+            this.btn_guardarBackup.TabIndex = 29;
+            this.btn_guardarBackup.Text = "Guardar como";
+            this.btn_guardarBackup.UseVisualStyleBackColor = true;
+            this.btn_guardarBackup.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // btn_salir
+            // btn_salirBackup
             // 
-            this.btn_salir.Location = new System.Drawing.Point(264, 263);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(91, 36);
-            this.btn_salir.TabIndex = 30;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirBackup.Location = new System.Drawing.Point(264, 263);
+            this.btn_salirBackup.Name = "btn_salirBackup";
+            this.btn_salirBackup.Size = new System.Drawing.Size(91, 36);
+            this.btn_salirBackup.TabIndex = 30;
+            this.btn_salirBackup.Text = "Salir";
+            this.btn_salirBackup.UseVisualStyleBackColor = true;
+            this.btn_salirBackup.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // btn_destino
             // 
@@ -90,29 +90,17 @@
             this.gb_tamanio.TabStop = false;
             this.gb_tamanio.Text = "Seleccione el tamaño";
             // 
-            // rb_1
+            // rb_4
             // 
-            this.rb_1.AutoSize = true;
-            this.rb_1.Location = new System.Drawing.Point(21, 30);
-            this.rb_1.Name = "rb_1";
-            this.rb_1.Size = new System.Drawing.Size(31, 17);
-            this.rb_1.TabIndex = 0;
-            this.rb_1.TabStop = true;
-            this.rb_1.Text = "1";
-            this.rb_1.UseVisualStyleBackColor = true;
-            this.rb_1.CheckedChanged += new System.EventHandler(this.rb_1_CheckedChanged);
-            // 
-            // rb_2
-            // 
-            this.rb_2.AutoSize = true;
-            this.rb_2.Location = new System.Drawing.Point(21, 53);
-            this.rb_2.Name = "rb_2";
-            this.rb_2.Size = new System.Drawing.Size(31, 17);
-            this.rb_2.TabIndex = 1;
-            this.rb_2.TabStop = true;
-            this.rb_2.Text = "2";
-            this.rb_2.UseVisualStyleBackColor = true;
-            this.rb_2.CheckedChanged += new System.EventHandler(this.rb_2_CheckedChanged);
+            this.rb_4.AutoSize = true;
+            this.rb_4.Location = new System.Drawing.Point(21, 99);
+            this.rb_4.Name = "rb_4";
+            this.rb_4.Size = new System.Drawing.Size(31, 17);
+            this.rb_4.TabIndex = 3;
+            this.rb_4.TabStop = true;
+            this.rb_4.Text = "4";
+            this.rb_4.UseVisualStyleBackColor = true;
+            this.rb_4.CheckedChanged += new System.EventHandler(this.rb_4_CheckedChanged);
             // 
             // rb_3
             // 
@@ -126,17 +114,29 @@
             this.rb_3.UseVisualStyleBackColor = true;
             this.rb_3.CheckedChanged += new System.EventHandler(this.rb_3_CheckedChanged);
             // 
-            // rb_4
+            // rb_2
             // 
-            this.rb_4.AutoSize = true;
-            this.rb_4.Location = new System.Drawing.Point(21, 99);
-            this.rb_4.Name = "rb_4";
-            this.rb_4.Size = new System.Drawing.Size(31, 17);
-            this.rb_4.TabIndex = 3;
-            this.rb_4.TabStop = true;
-            this.rb_4.Text = "4";
-            this.rb_4.UseVisualStyleBackColor = true;
-            this.rb_4.CheckedChanged += new System.EventHandler(this.rb_4_CheckedChanged);
+            this.rb_2.AutoSize = true;
+            this.rb_2.Location = new System.Drawing.Point(21, 53);
+            this.rb_2.Name = "rb_2";
+            this.rb_2.Size = new System.Drawing.Size(31, 17);
+            this.rb_2.TabIndex = 1;
+            this.rb_2.TabStop = true;
+            this.rb_2.Text = "2";
+            this.rb_2.UseVisualStyleBackColor = true;
+            this.rb_2.CheckedChanged += new System.EventHandler(this.rb_2_CheckedChanged);
+            // 
+            // rb_1
+            // 
+            this.rb_1.AutoSize = true;
+            this.rb_1.Location = new System.Drawing.Point(21, 30);
+            this.rb_1.Name = "rb_1";
+            this.rb_1.Size = new System.Drawing.Size(31, 17);
+            this.rb_1.TabIndex = 0;
+            this.rb_1.TabStop = true;
+            this.rb_1.Text = "1";
+            this.rb_1.UseVisualStyleBackColor = true;
+            this.rb_1.CheckedChanged += new System.EventHandler(this.rb_1_CheckedChanged);
             // 
             // Backup
             // 
@@ -146,10 +146,11 @@
             this.Controls.Add(this.gb_tamanio);
             this.Controls.Add(this.txt_ruta);
             this.Controls.Add(this.btn_destino);
-            this.Controls.Add(this.btn_salir);
-            this.Controls.Add(this.btn_guardar);
+            this.Controls.Add(this.btn_salirBackup);
+            this.Controls.Add(this.btn_guardarBackup);
             this.Name = "Backup";
             this.Text = "Vision Management/ Backup";
+            this.Load += new System.EventHandler(this.Backup_Load);
             this.gb_tamanio.ResumeLayout(false);
             this.gb_tamanio.PerformLayout();
             this.ResumeLayout(false);
@@ -158,8 +159,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btn_guardarBackup;
+        private System.Windows.Forms.Button btn_salirBackup;
         private System.Windows.Forms.Button btn_destino;
         private System.Windows.Forms.TextBox txt_ruta;
         private System.Windows.Forms.GroupBox gb_tamanio;

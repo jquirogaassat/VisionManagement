@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using BE;
+using Aspose.Pdf.Operators;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle;
+//using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace VisionTFI
 {
@@ -176,7 +180,35 @@ namespace VisionTFI
         private void GestionarFamilias_Load(object sender, EventArgs e)
         {
             LlenarPatentesFamilias();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
         }   //ok
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            grpPatentesF.Text = IdiomaManager.info["grpPatentes"];
+            lbl_todasPatentes.Text = IdiomaManager.info["lbl_todasPatentes"];
+            btn_addPatente.Text = IdiomaManager.info["btn_addPatente"];
+            groupBox1.Text = IdiomaManager.info["groupBox1"];
+            lbl_permisoFamilia.Text = IdiomaManager.info["lbl_permisoFamilia"];
+            lbl_nombrePermiso.Text = IdiomaManager.info["lbl_nombrePermiso"];
+            btn_GuardarPermiso.Text = IdiomaManager.info["btn_GuardarPermiso"];
+            groupBox2.Text = IdiomaManager.info["groupBox2"];
+            lbl_todasFamilias.Text = IdiomaManager.info["lbl_todasFamilias"];
+            btn_seleccionar.Text = IdiomaManager.info["btn_seleccionar"];
+            btn_agregarFamilia.Text = IdiomaManager.info["btn_agregarFamilia"];
+            groupBox3.Text = IdiomaManager.info["groupBox3"];
+            lbl_nombreFamilia.Text = IdiomaManager.info["lbl_nombreFamilia"];
+            btn_guardarFamilia.Text = IdiomaManager.info["btn_guardarFamilia"];
+            groupBox4.Text = IdiomaManager.info["groupBox4"];
+            btn_guardarF.Text = IdiomaManager.info["btn_guardarF"];
+            btn_salirGestionarFamilias.Text = IdiomaManager.info["btn_salirGestionarFamilias"];
+        }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {

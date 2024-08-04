@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_hasta = new System.Windows.Forms.Label();
+            this.lbl_hastaReporte = new System.Windows.Forms.Label();
             this.dt_hasta = new System.Windows.Forms.DateTimePicker();
-            this.lba_desde = new System.Windows.Forms.Label();
+            this.lba_desdeReporte = new System.Windows.Forms.Label();
             this.dt_desde = new System.Windows.Forms.DateTimePicker();
-            this.lbl_buscarFecha = new System.Windows.Forms.Label();
-            this.lbl_producto = new System.Windows.Forms.Label();
+            this.lbl_buscarFechaReporte = new System.Windows.Forms.Label();
+            this.lbl_productoMasVendido = new System.Windows.Forms.Label();
             this.btn_buscarProductos = new System.Windows.Forms.Button();
             this.btn_buscarClientes = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_clientesMasCompras = new System.Windows.Forms.Label();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.dgv_clientes = new System.Windows.Forms.DataGridView();
             this.btn_imprimirProductos = new System.Windows.Forms.Button();
             this.btn_imprimirClientes = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_salirReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_hasta
+            // lbl_hastaReporte
             // 
-            this.lbl_hasta.AutoSize = true;
-            this.lbl_hasta.Location = new System.Drawing.Point(24, 144);
-            this.lbl_hasta.Name = "lbl_hasta";
-            this.lbl_hasta.Size = new System.Drawing.Size(41, 13);
-            this.lbl_hasta.TabIndex = 41;
-            this.lbl_hasta.Text = "Hasta :";
+            this.lbl_hastaReporte.AutoSize = true;
+            this.lbl_hastaReporte.Location = new System.Drawing.Point(24, 144);
+            this.lbl_hastaReporte.Name = "lbl_hastaReporte";
+            this.lbl_hastaReporte.Size = new System.Drawing.Size(41, 13);
+            this.lbl_hastaReporte.TabIndex = 41;
+            this.lbl_hastaReporte.Text = "Hasta :";
             // 
             // dt_hasta
             // 
@@ -62,14 +62,14 @@
             this.dt_hasta.Size = new System.Drawing.Size(200, 20);
             this.dt_hasta.TabIndex = 40;
             // 
-            // lba_desde
+            // lba_desdeReporte
             // 
-            this.lba_desde.AutoSize = true;
-            this.lba_desde.Location = new System.Drawing.Point(24, 97);
-            this.lba_desde.Name = "lba_desde";
-            this.lba_desde.Size = new System.Drawing.Size(44, 13);
-            this.lba_desde.TabIndex = 39;
-            this.lba_desde.Text = "Desde :";
+            this.lba_desdeReporte.AutoSize = true;
+            this.lba_desdeReporte.Location = new System.Drawing.Point(24, 97);
+            this.lba_desdeReporte.Name = "lba_desdeReporte";
+            this.lba_desdeReporte.Size = new System.Drawing.Size(44, 13);
+            this.lba_desdeReporte.TabIndex = 39;
+            this.lba_desdeReporte.Text = "Desde :";
             // 
             // dt_desde
             // 
@@ -78,24 +78,24 @@
             this.dt_desde.Size = new System.Drawing.Size(200, 20);
             this.dt_desde.TabIndex = 38;
             // 
-            // lbl_buscarFecha
+            // lbl_buscarFechaReporte
             // 
-            this.lbl_buscarFecha.AutoSize = true;
-            this.lbl_buscarFecha.Location = new System.Drawing.Point(24, 62);
-            this.lbl_buscarFecha.Name = "lbl_buscarFecha";
-            this.lbl_buscarFecha.Size = new System.Drawing.Size(88, 13);
-            this.lbl_buscarFecha.TabIndex = 37;
-            this.lbl_buscarFecha.Text = "Buscar por fecha";
+            this.lbl_buscarFechaReporte.AutoSize = true;
+            this.lbl_buscarFechaReporte.Location = new System.Drawing.Point(24, 62);
+            this.lbl_buscarFechaReporte.Name = "lbl_buscarFechaReporte";
+            this.lbl_buscarFechaReporte.Size = new System.Drawing.Size(88, 13);
+            this.lbl_buscarFechaReporte.TabIndex = 37;
+            this.lbl_buscarFechaReporte.Text = "Buscar por fecha";
             // 
-            // lbl_producto
+            // lbl_productoMasVendido
             // 
-            this.lbl_producto.AutoSize = true;
-            this.lbl_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_producto.Location = new System.Drawing.Point(356, 91);
-            this.lbl_producto.Name = "lbl_producto";
-            this.lbl_producto.Size = new System.Drawing.Size(166, 20);
-            this.lbl_producto.TabIndex = 42;
-            this.lbl_producto.Text = "Producto mas vendido";
+            this.lbl_productoMasVendido.AutoSize = true;
+            this.lbl_productoMasVendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_productoMasVendido.Location = new System.Drawing.Point(356, 91);
+            this.lbl_productoMasVendido.Name = "lbl_productoMasVendido";
+            this.lbl_productoMasVendido.Size = new System.Drawing.Size(166, 20);
+            this.lbl_productoMasVendido.TabIndex = 42;
+            this.lbl_productoMasVendido.Text = "Producto mas vendido";
             // 
             // btn_buscarProductos
             // 
@@ -117,15 +117,15 @@
             this.btn_buscarClientes.UseVisualStyleBackColor = true;
             this.btn_buscarClientes.Click += new System.EventHandler(this.btn_buscarClientes_Click);
             // 
-            // label1
+            // lbl_clientesMasCompras
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(356, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Clientes que mas compraron";
+            this.lbl_clientesMasCompras.AutoSize = true;
+            this.lbl_clientesMasCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_clientesMasCompras.Location = new System.Drawing.Point(356, 144);
+            this.lbl_clientesMasCompras.Name = "lbl_clientesMasCompras";
+            this.lbl_clientesMasCompras.Size = new System.Drawing.Size(211, 20);
+            this.lbl_clientesMasCompras.TabIndex = 44;
+            this.lbl_clientesMasCompras.Text = "Clientes que mas compraron";
             // 
             // dgv_Productos
             // 
@@ -167,37 +167,38 @@
             this.btn_imprimirClientes.UseVisualStyleBackColor = true;
             this.btn_imprimirClientes.Click += new System.EventHandler(this.btn_imprimirClientes_Click);
             // 
-            // btn_salir
+            // btn_salirReporte
             // 
-            this.btn_salir.Location = new System.Drawing.Point(712, 115);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 31);
-            this.btn_salir.TabIndex = 50;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirReporte.Location = new System.Drawing.Point(712, 115);
+            this.btn_salirReporte.Name = "btn_salirReporte";
+            this.btn_salirReporte.Size = new System.Drawing.Size(75, 31);
+            this.btn_salirReporte.TabIndex = 50;
+            this.btn_salirReporte.Text = "Salir";
+            this.btn_salirReporte.UseVisualStyleBackColor = true;
+            this.btn_salirReporte.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // FrmReporteInteligente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 561);
-            this.Controls.Add(this.btn_salir);
+            this.Controls.Add(this.btn_salirReporte);
             this.Controls.Add(this.btn_imprimirClientes);
             this.Controls.Add(this.btn_imprimirProductos);
             this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.dgv_Productos);
             this.Controls.Add(this.btn_buscarClientes);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_clientesMasCompras);
             this.Controls.Add(this.btn_buscarProductos);
-            this.Controls.Add(this.lbl_producto);
-            this.Controls.Add(this.lbl_hasta);
+            this.Controls.Add(this.lbl_productoMasVendido);
+            this.Controls.Add(this.lbl_hastaReporte);
             this.Controls.Add(this.dt_hasta);
-            this.Controls.Add(this.lba_desde);
+            this.Controls.Add(this.lba_desdeReporte);
             this.Controls.Add(this.dt_desde);
-            this.Controls.Add(this.lbl_buscarFecha);
+            this.Controls.Add(this.lbl_buscarFechaReporte);
             this.Name = "FrmReporteInteligente";
             this.Text = "Reporte Inteligente";
+            this.Load += new System.EventHandler(this.FrmReporteInteligente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.ResumeLayout(false);
@@ -207,19 +208,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_hasta;
+        private System.Windows.Forms.Label lbl_hastaReporte;
         private System.Windows.Forms.DateTimePicker dt_hasta;
-        private System.Windows.Forms.Label lba_desde;
+        private System.Windows.Forms.Label lba_desdeReporte;
         private System.Windows.Forms.DateTimePicker dt_desde;
-        private System.Windows.Forms.Label lbl_buscarFecha;
-        private System.Windows.Forms.Label lbl_producto;
+        private System.Windows.Forms.Label lbl_buscarFechaReporte;
+        private System.Windows.Forms.Label lbl_productoMasVendido;
         private System.Windows.Forms.Button btn_buscarProductos;
         private System.Windows.Forms.Button btn_buscarClientes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_clientesMasCompras;
         private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.DataGridView dgv_clientes;
         private System.Windows.Forms.Button btn_imprimirProductos;
         private System.Windows.Forms.Button btn_imprimirClientes;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btn_salirReporte;
     }
 }

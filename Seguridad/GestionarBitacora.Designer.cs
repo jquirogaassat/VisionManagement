@@ -34,15 +34,15 @@
             this.lbl_hasta = new System.Windows.Forms.Label();
             this.dt_hasta = new System.Windows.Forms.DateTimePicker();
             this.lbl_user = new System.Windows.Forms.Label();
-            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.lbl_usuarioBitacora = new System.Windows.Forms.Label();
             this.cmb_usuario = new System.Windows.Forms.ComboBox();
             this.cmb_nivelCriticidad = new System.Windows.Forms.ComboBox();
             this.lbl_nivel = new System.Windows.Forms.Label();
             this.lbl_nivelCriticidad = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.btn_imprimir = new System.Windows.Forms.Button();
+            this.btn_buscarBitacora = new System.Windows.Forms.Button();
+            this.btn_imprimirBitacora = new System.Windows.Forms.Button();
             this.dgv_bitacora = new System.Windows.Forms.DataGridView();
-            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_cancelarBitacora = new System.Windows.Forms.Button();
             this.lbl_orden = new System.Windows.Forms.Label();
             this.rdb_asc = new System.Windows.Forms.RadioButton();
             this.rdb_desc = new System.Windows.Forms.RadioButton();
@@ -99,14 +99,14 @@
             this.lbl_user.TabIndex = 37;
             this.lbl_user.Text = "Buscar por usuario";
             // 
-            // lbl_usuario
+            // lbl_usuarioBitacora
             // 
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(503, 154);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(49, 13);
-            this.lbl_usuario.TabIndex = 38;
-            this.lbl_usuario.Text = "Usuario :";
+            this.lbl_usuarioBitacora.AutoSize = true;
+            this.lbl_usuarioBitacora.Location = new System.Drawing.Point(503, 154);
+            this.lbl_usuarioBitacora.Name = "lbl_usuarioBitacora";
+            this.lbl_usuarioBitacora.Size = new System.Drawing.Size(49, 13);
+            this.lbl_usuarioBitacora.TabIndex = 38;
+            this.lbl_usuarioBitacora.Text = "Usuario :";
             // 
             // cmb_usuario
             // 
@@ -144,25 +144,25 @@
             this.lbl_nivelCriticidad.TabIndex = 40;
             this.lbl_nivelCriticidad.Text = "Nivel de criticidad";
             // 
-            // btn_buscar
+            // btn_buscarBitacora
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(1026, 148);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(123, 31);
-            this.btn_buscar.TabIndex = 43;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            this.btn_buscarBitacora.Location = new System.Drawing.Point(1026, 148);
+            this.btn_buscarBitacora.Name = "btn_buscarBitacora";
+            this.btn_buscarBitacora.Size = new System.Drawing.Size(123, 31);
+            this.btn_buscarBitacora.TabIndex = 43;
+            this.btn_buscarBitacora.Text = "Buscar";
+            this.btn_buscarBitacora.UseVisualStyleBackColor = true;
+            this.btn_buscarBitacora.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
-            // btn_imprimir
+            // btn_imprimirBitacora
             // 
-            this.btn_imprimir.Location = new System.Drawing.Point(896, 358);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(123, 31);
-            this.btn_imprimir.TabIndex = 44;
-            this.btn_imprimir.Text = "Imprimir";
-            this.btn_imprimir.UseVisualStyleBackColor = true;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            this.btn_imprimirBitacora.Location = new System.Drawing.Point(896, 358);
+            this.btn_imprimirBitacora.Name = "btn_imprimirBitacora";
+            this.btn_imprimirBitacora.Size = new System.Drawing.Size(123, 31);
+            this.btn_imprimirBitacora.TabIndex = 44;
+            this.btn_imprimirBitacora.Text = "Imprimir";
+            this.btn_imprimirBitacora.UseVisualStyleBackColor = true;
+            this.btn_imprimirBitacora.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // dgv_bitacora
             // 
@@ -174,15 +174,15 @@
             this.dgv_bitacora.Size = new System.Drawing.Size(846, 262);
             this.dgv_bitacora.TabIndex = 45;
             // 
-            // btn_cancelar
+            // btn_cancelarBitacora
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(1036, 358);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(123, 31);
-            this.btn_cancelar.TabIndex = 46;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            this.btn_cancelarBitacora.Location = new System.Drawing.Point(1036, 358);
+            this.btn_cancelarBitacora.Name = "btn_cancelarBitacora";
+            this.btn_cancelarBitacora.Size = new System.Drawing.Size(123, 31);
+            this.btn_cancelarBitacora.TabIndex = 46;
+            this.btn_cancelarBitacora.Text = "Cancelar";
+            this.btn_cancelarBitacora.UseVisualStyleBackColor = true;
+            this.btn_cancelarBitacora.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // lbl_orden
             // 
@@ -223,15 +223,15 @@
             this.Controls.Add(this.rdb_desc);
             this.Controls.Add(this.rdb_asc);
             this.Controls.Add(this.lbl_orden);
-            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_cancelarBitacora);
             this.Controls.Add(this.dgv_bitacora);
-            this.Controls.Add(this.btn_imprimir);
-            this.Controls.Add(this.btn_buscar);
+            this.Controls.Add(this.btn_imprimirBitacora);
+            this.Controls.Add(this.btn_buscarBitacora);
             this.Controls.Add(this.cmb_nivelCriticidad);
             this.Controls.Add(this.lbl_nivel);
             this.Controls.Add(this.lbl_nivelCriticidad);
             this.Controls.Add(this.cmb_usuario);
-            this.Controls.Add(this.lbl_usuario);
+            this.Controls.Add(this.lbl_usuarioBitacora);
             this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.lbl_hasta);
             this.Controls.Add(this.dt_hasta);
@@ -254,15 +254,15 @@
         private System.Windows.Forms.Label lbl_hasta;
         private System.Windows.Forms.DateTimePicker dt_hasta;
         private System.Windows.Forms.Label lbl_user;
-        private System.Windows.Forms.Label lbl_usuario;
+        private System.Windows.Forms.Label lbl_usuarioBitacora;
         private System.Windows.Forms.ComboBox cmb_usuario;
         private System.Windows.Forms.ComboBox cmb_nivelCriticidad;
         private System.Windows.Forms.Label lbl_nivel;
         private System.Windows.Forms.Label lbl_nivelCriticidad;
-        private System.Windows.Forms.Button btn_buscar;
-        private System.Windows.Forms.Button btn_imprimir;
+        private System.Windows.Forms.Button btn_buscarBitacora;
+        private System.Windows.Forms.Button btn_imprimirBitacora;
         private System.Windows.Forms.DataGridView dgv_bitacora;
-        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_cancelarBitacora;
         private System.Windows.Forms.Label lbl_orden;
         private System.Windows.Forms.RadioButton rdb_asc;
         private System.Windows.Forms.RadioButton rdb_desc;

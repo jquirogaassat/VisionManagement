@@ -324,5 +324,29 @@ namespace VisionTFI
         }
         #endregion
 
+        private void FrmReporteInteligente_Load(object sender, EventArgs e)
+        {
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_buscarFechaReporte.Text = IdiomaManager.info["lbl_buscarFechaReporte"];
+            lba_desdeReporte.Text = IdiomaManager.info["lba_desdeReporte"];
+            lbl_hastaReporte.Text = IdiomaManager.info["lbl_hastaReporte"];
+            lbl_productoMasVendido.Text = IdiomaManager.info["lbl_productoMasVendido"];
+            lbl_clientesMasCompras.Text = IdiomaManager.info["lbl_clientesMasCompras"];
+            btn_buscarProductos.Text = IdiomaManager.info["btn_buscarProductos"];
+            btn_buscarClientes.Text = IdiomaManager.info["btn_buscarClientes"];
+            btn_salirReporte.Text = IdiomaManager.info["btn_salirReporte"];
+            btn_imprimirProductos.Text = IdiomaManager.info["btn_imprimirProductos"];
+            btn_imprimirClientes.Text = IdiomaManager.info["btn_imprimirClientes"];
+        }
     }
 }

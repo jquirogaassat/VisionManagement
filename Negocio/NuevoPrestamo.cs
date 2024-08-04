@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,6 +76,28 @@ namespace VisionTFI
             this.Focus();
             ActualizarGrillaClientes();
             ActualizarGrillaHerramientas();
+            ActualizarControles();
+            IdiomaManager.IdiomaCambiado += OnIdiomaCambiado;
+        }
+
+        private void OnIdiomaCambiado()
+        {
+            ActualizarControles();
+        }
+
+        void ActualizarControles()
+        {
+            lbl_nuevoPrestamo.Text = IdiomaManager.info["lbl_nuevoPrestamo"];
+            lbl_herramientaPrestamo.Text = IdiomaManager.info["lbl_herramientaPrestamo"];
+            btn_buscarH.Text = IdiomaManager.info["btn_buscarH"];
+            btn_seleccionarH.Text = IdiomaManager.info["btn_seleccionarH"];
+            lbl_herramientaSeleccionada.Text = IdiomaManager.info["lbl_herramientaSeleccionada"];
+            lbl_clientePrestamo.Text = IdiomaManager.info["lbl_clientePrestamo"];
+            btn_buscarC.Text = IdiomaManager.info["btn_buscarC"];
+            btn_seleccionaC.Text = IdiomaManager.info["btn_seleccionaC"];
+            lbl_clienteSeleccionado.Text = IdiomaManager.info["lbl_clienteSeleccionado"];
+            btn_salirPrestamo.Text = IdiomaManager.info["btn_salirPrestamo"];
+            btn_aceptarPrestamo.Text = IdiomaManager.info["btn_aceptarPrestamo"];
         }
 
         private void btn_seleccionaC_Click(object sender, EventArgs e)

@@ -31,7 +31,7 @@
             this.lbl_listado = new System.Windows.Forms.Label();
             this.dgv_restore = new System.Windows.Forms.DataGridView();
             this.btn_generarRestore = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_salirRestore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_restore)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,22 +64,22 @@
             this.btn_generarRestore.UseVisualStyleBackColor = true;
             this.btn_generarRestore.Click += new System.EventHandler(this.btn_generarRestore_Click);
             // 
-            // btn_salir
+            // btn_salirRestore
             // 
-            this.btn_salir.Location = new System.Drawing.Point(983, 232);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(118, 43);
-            this.btn_salir.TabIndex = 33;
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salirRestore.Location = new System.Drawing.Point(983, 232);
+            this.btn_salirRestore.Name = "btn_salirRestore";
+            this.btn_salirRestore.Size = new System.Drawing.Size(118, 43);
+            this.btn_salirRestore.TabIndex = 33;
+            this.btn_salirRestore.Text = "Salir";
+            this.btn_salirRestore.UseVisualStyleBackColor = true;
+            this.btn_salirRestore.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // Restore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 450);
-            this.Controls.Add(this.btn_salir);
+            this.Controls.Add(this.btn_salirRestore);
             this.Controls.Add(this.btn_generarRestore);
             this.Controls.Add(this.dgv_restore);
             this.Controls.Add(this.lbl_listado);
@@ -96,6 +96,6 @@
         private System.Windows.Forms.Label lbl_listado;
         private System.Windows.Forms.DataGridView dgv_restore;
         private System.Windows.Forms.Button btn_generarRestore;
-        private System.Windows.Forms.Button btn_salir;
+        private System.Windows.Forms.Button btn_salirRestore;
     }
 }
