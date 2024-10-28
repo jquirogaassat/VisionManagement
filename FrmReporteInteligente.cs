@@ -94,7 +94,7 @@ namespace VisionTFI
             try
             {
                 // Generar el PDF
-                string directorioInforme = @"C:\Users\Usuario\Desktop\Informes";
+                string directorioInforme = @"C:\Users\gozli\OneDrive\Desktop\Informes VM";
                 //string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
                 DateTime fecha = DateTime.Now;
                 string nombreArchivo = $"Informe_{fecha:yyyyMMdd_HHmmss}.pdf";
@@ -131,7 +131,7 @@ namespace VisionTFI
                 Document documento = new Document(pdf);
 
                 //agrego el logo
-                string logoPath = @"C:\Users\Usuario\Desktop\Jair\Imagenes VisionManagement\V.png"; // Ruta al logo de la empresa
+                string logoPath = @"C:\Users\gozli\OneDrive\Desktop\Jair\V.png"; // Ruta al logo de la empresa
                 if (!File.Exists(logoPath))
                 {
                     throw new FileNotFoundException("El archivo no se encontro!");
@@ -213,7 +213,7 @@ namespace VisionTFI
             try
             {
                 // Generar el PDF
-                string directorioInforme = @"C:\Users\Usuario\Desktop\Informes";
+                string directorioInforme = @"C:\Users\gozli\OneDrive\Desktop\Informes VM";
                 //string nombreCliente = dg_cliente.CurrentRow.Cells[0].Value.ToString();
                 DateTime fecha = DateTime.Now;
                 string nombreArchivo = $"Informe_{fecha:yyyyMMdd_HHmmss}.pdf";
@@ -249,7 +249,7 @@ namespace VisionTFI
                 Document documento = new Document(pdf);
 
                 //agrego el logo
-                string logoPath = @"C:\Users\Usuario\Desktop\Jair\Imagenes VisionManagement\V.png"; // Ruta al logo de la empresa
+                string logoPath = @"C:\Users\gozli\OneDrive\Desktop\Jair\V.png"; // Ruta al logo de la empresa
                 if (!File.Exists(logoPath))
                 {
                     throw new FileNotFoundException("El archivo no se encontro!");

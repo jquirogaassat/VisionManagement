@@ -36,19 +36,21 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "VisionTFI.ReporteFactu.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1001, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(1502, 692);
             this.reportViewer1.TabIndex = 0;
             // 
             // FrmReporteFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 450);
+            this.ClientSize = new System.Drawing.Size(1502, 692);
             this.Controls.Add(this.reportViewer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmReporteFactura";
-            this.Text = "Reporte Factura";
+            this.Text = "Reporte facturas";
             this.Load += new System.EventHandler(this.FrmReporteFactura_Load);
             this.ResumeLayout(false);
 

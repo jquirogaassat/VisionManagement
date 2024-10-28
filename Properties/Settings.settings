@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="lang" Type="System.String" Scope="User">
-      <Value Profile="(Default)">es.txt,en.txt</Value>
+      <Value Profile="(Default)">es.txt , en.txt</Value>
     </Setting>
     <Setting Name="VisionManagementConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

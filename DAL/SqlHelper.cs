@@ -13,7 +13,7 @@ namespace DAL
     public class SqlHelper
     {
         
-        string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
 
        
 

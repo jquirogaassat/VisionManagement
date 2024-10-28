@@ -153,7 +153,9 @@
     <Reference Include="SpreadsheetLight, Version=3.5.0.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
       <HintPath>packages\SpreadsheetLight.3.5.0\lib\netstandard2.0\SpreadsheetLight.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -502,6 +504,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisionTFIDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VisionTFIDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisionTFIDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="XmlSerializator.cs" />
     <EmbeddedResource Include="ABM%27s\ABMarticulos.resx">
       <DependentUpon>ABMarticulos.cs</DependentUpon>
@@ -713,6 +720,17 @@
     <None Include="VisionTFIDataSet3.xss">
       <DependentUpon>VisionTFIDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="VisionTFIDataSet4.xsc">
+      <DependentUpon>VisionTFIDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="VisionTFIDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisionTFIDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VisionTFIDataSet4.xss">
+      <DependentUpon>VisionTFIDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -763,6 +781,15 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WebView2">
+      <Guid>{26D34152-879F-4065-BEA2-3DAA2CFADFB8}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <ItemGroup>

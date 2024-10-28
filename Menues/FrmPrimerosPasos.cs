@@ -27,7 +27,7 @@ namespace VisionTFI
 
         private void MostrarAyuda()
         {
-            string ruta = @"C:\Users\Usuario\source\repos\VisionManagement\bin\Debug\VisionManagement- Ayuda en línea- Primeros pasos.pdf";
+            string ruta = @"C:\Users\gozli\source\repos\VisionManagement\bin\Debug\VisionManagement- Ayuda en línea- Primeros pasos.pdf";
             try
             {
                 string rutaCompleta = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ruta);

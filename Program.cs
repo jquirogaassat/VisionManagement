@@ -18,7 +18,15 @@ namespace VisionTFI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            IdiomaManager.CambiarIdioma(new Properties.Settings().lang);
+            string archivos = new Properties.Settings().lang;
+            string[] listaArchivos = archivos.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string archivo in listaArchivos)
+            {
+                // Quitar posibles espacios extra y cambiar el idioma por archivo
+                IdiomaManager.CambiarIdioma(archivo.Trim());
+            }
+
+           // IdiomaManager.CambiarIdioma(new Properties.Settings().lang);
             IdiomaManager.CargarIdiomaInicial();
             Application.Run(new Ingreso());
         }
