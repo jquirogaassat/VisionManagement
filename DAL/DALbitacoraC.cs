@@ -18,7 +18,7 @@ namespace DAL
       
         public static int ReportarBitacoraCambios(BEbitacoraC beBitacoraC)
         {
-            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             int rowsAffected = 0;
 
            
@@ -53,7 +53,7 @@ namespace DAL
         // Método para obtener el último registro activo de la bitácora para una herramienta específica
         public static  BEbitacoraC ObtenerUltimoRegistroActivo(BEbitacoraC bitacoraC)
         {
-            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             BEbitacoraC bitacora = null;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -92,7 +92,7 @@ namespace DAL
         // Método para marcar un registro como activo y los demás como inactivos para una herramienta específica
         public static void MarcarRegistroActivo(int idBit)
         {
-            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string updateQuery = "UPDATE BitacoraCambio SET Activo = 1  WHERE idBitacoraCambio = "+ idBit+";";
@@ -108,7 +108,7 @@ namespace DAL
 
         public static int DesactivarRegistro(int idBit)
         {
-            string connectionString = @"Data Source=DESKTOP-F8CBKLT;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
+            string connectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";
             int rowsAffected = 0;
 
             

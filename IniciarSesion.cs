@@ -17,13 +17,16 @@ namespace VisionTFI
     public partial class IniciarSesion : Form, BE.IObserverForm
     {
 
-        BE.BEusuario usuarioBE = new BEusuario();
-        BLL.BLLusuario usuarioBLL= new BLL.BLLusuario();
-        BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
-        BLL.BLLgestionbitacora bitacoraBLL = new BLL.BLLgestionbitacora();
-        BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
-        BE.BEreusltadoLog resultado;
-        int fallo = 0;
+
+        #region Variables Globales
+        private BE.BEusuario usuarioBE = new BEusuario();
+        private BLL.BLLusuario usuarioBLL = new BLL.BLLusuario();
+        private BE.BEgestionbitacora bitacoraBE = new BEgestionbitacora();
+        private BLL.BLLgestionbitacora bitacoraBLL = new BLL.BLLgestionbitacora();
+        private BLL.BLLencriptacion encriptadora = new BLL.BLLencriptacion();
+        private BE.BEreusltadoLog resultado;
+        private int fallo = 0; 
+        #endregion
 
         public void ActualizarControles()
         {
@@ -143,7 +146,9 @@ namespace VisionTFI
                     ValorizarBitacora(bitacoraBE, "Medio", "Se cambio contraseña", BE.BEcontroladorsesion.GetInstance.Usuario.IdUsuario);
                     bitacoraBLL.Alta(bitacoraBE);
                 }
-                // BLL.BLLconexion conexion = new BLL.BLLconexion();
+
+                /*
+                 *   // BLL.BLLconexion conexion = new BLL.BLLconexion();
 
                 //if (conexion.ComprobarConexion())
                 //{
@@ -164,7 +169,10 @@ namespace VisionTFI
                 //            inicio.Show();
                 //            this.Hide();
                 //        }
-                //    }             
+                //    }   
+                 */
+
+
 
                 Globa.menuPrincipal = new MenuPrincipal();
                 Globa.menuPrincipal.Show();
