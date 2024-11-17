@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace BLL
 {
     public class BLLpermiso 
     {
-        PermisosRepository _permisos;
+        Servicios.PermisosRepository _permisos;
        
         public BLLpermiso()  
         {
-            _permisos = new PermisosRepository();
+            _permisos = new Servicios.PermisosRepository();
         }//ok
       
         public bool Existe (BEcomponente c, int id)
