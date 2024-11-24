@@ -11,11 +11,12 @@ namespace BLL
 {
     public class BLLpermiso 
     {
-        Servicios.PermisosRepository _permisos;
-       
+        Servicios.PermisosRepository permisos;
+        DAL.PermisosRepository _permisos;
         public BLLpermiso()  
         {
-            _permisos = new Servicios.PermisosRepository();
+            _permisos = new DAL.PermisosRepository();
+            permisos = new Servicios.PermisosRepository();
         }//ok
       
         public bool Existe (BEcomponente c, int id)
