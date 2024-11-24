@@ -182,6 +182,10 @@
       <Project>{11c804f6-9e78-47ba-bda8-212f1eb02000}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infra\Infra.csproj">
+      <Project>{ec480a04-967f-49a1-96d7-b08afa76faad}</Project>
+      <Name>Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -748,6 +748,10 @@
       <Project>{11C804F6-9E78-47BA-BDA8-212F1EB02000}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="Infra\Infra.csproj">
+      <Project>{ec480a04-967f-49a1-96d7-b08afa76faad}</Project>
+      <Name>Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check.ico" />

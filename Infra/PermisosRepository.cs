@@ -8,7 +8,7 @@ using BE;
 
 namespace Infra
 {
-    internal class PermisosRepository
+    public class PermisosRepository
     {
         //string ConnectionString = ConfigurationManager.ConnectionStrings["local"].ConnectionString;
         private string ConnectionString = @"Data Source=JAIRQUIROGAASSA\SQLEXPRESS;Initial Catalog=VisionTFI;Integrated Security=True;TrustServerCertificate=True";

@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infra;
 
 namespace BLL
 {
     public class BLLpermiso 
     {
-        
+        Infra.PermisosRepository _permisosRepository;
         DAL.PermisosRepository _permisos;
         public BLLpermiso()  
         {
             _permisos = new DAL.PermisosRepository();
+            _permisosRepository = new Infra.PermisosRepository();
            
         }//ok
       
@@ -37,6 +39,7 @@ namespace BLL
         public Array GetAllPermission()
         {
             return _permisos.GetAllPermission();
+            return _permisosRepository.GetAllPermission();
         }//ok
 
         public BEcomponente GuardarComponente(BEcomponente p, bool esFamilia)
